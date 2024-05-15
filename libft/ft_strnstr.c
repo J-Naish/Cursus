@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnishi <rnishi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 21:39:00 by rnishi            #+#    #+#             */
-/*   Updated: 2024/05/15 14:26:29 by rnishi           ###   ########.fr       */
+/*   Updated: 2024/05/15 15:20:20 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,3 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (NULL);
 }
-
-// /bin/sh: line 1: 92724 Segmentation fault: 11  ./a.out 2>> error.log
-// [MISSING]
-// /* 115 */ ASSERT_EQ_PTR(ft_strnstr(NULL, "1", 0), strnstr(NULL, "1", 0));
