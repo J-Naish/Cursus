@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rnishi <rnishi@student.42.fr>              +#+  +:+       +#+         #
+#    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/28 21:40:43 by rnishi            #+#    #+#              #
-#    Updated: 2024/05/15 14:26:45 by rnishi           ###   ########.fr        #
+#    Updated: 2024/05/18 18:34:13 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,32 +14,29 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 ALL_SRCS := $(wildcard *.c)
 BONUS_SRCS := $(wildcard *bonus.c)
-SRCS := $(filter-out $(BONUS_SRCS),$(ALL_SRCS))
-OBJS = $(SRCS:.c=.o)
-ALL_OBJS = $(ALL_SRCS:.c=.o)
+MAN_SRCS := $(filter-out $(BONUS_SRCS),$(ALL_SRCS))
+MAN_OBJS = $(MAN_SRCS:.c=.o)
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 HEADER = libft.h
 NAME = libft.a
 
-.PHONY: all clean fclean re bonus $(NAME)
+.PHONY: all clean fclean re bonus
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+$(NAME): $(MAN_OBJS)
+		ar rcs $(NAME) $(MAN_OBJS)
 
-$(OBJS): %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+bonus: $(NAME) $(BONUS_OBJS)
+		ar rcs $(NAME) $(MAN_OBJS) $(BONUS_OBJS)
+
+%.o: %.c
+		$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(ALL_OBJS)
+		rm -f $(MAN_OBJS) $(BONUS_OBJS)
 
 fclean:
-	rm -f $(NAME) $(ALL_OBJS)
+		rm -f $(NAME) $(MAN_OBJS) $(BONUS_OBJS)
 
 re: fclean all
-
-bonus: $(ALL_OBJS)
-	ar rcs $(NAME) $(ALL_OBJS)
-
-$(ALL_OBJS): %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
