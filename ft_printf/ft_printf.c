@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 22:03:11 by nash              #+#    #+#             */
-/*   Updated: 2024/05/20 02:20:31 by nash             ###   ########.fr       */
+/*   Updated: 2024/05/20 02:23:42 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	ft_printf(const char *s, ...)
 			{
 				count += ft_putchar('%');
 				s++;
-				continue ;
 			}
 			else if (*s == 'c')
 			{
@@ -67,8 +66,10 @@ int	ft_printf(const char *s, ...)
 			}
 		}
 		else
+		{
 			count += ft_putchar(*s);
-		s++;
+			s++;
+		}
 	}
 	va_end(args);
 	return (count);
