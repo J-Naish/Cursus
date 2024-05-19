@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 18:45:21 by nash              #+#    #+#             */
-/*   Updated: 2024/05/19 16:40:39 by nash             ###   ########.fr       */
+/*   Updated: 2024/05/20 01:07:13 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # include <stdarg.h>
 # include "libft.h"
 
+int	ft_putchar(char c);
+int	ft_putstr(char *s);
+int	ft_putaddr(void *ptr);
 
+int	ft_puthexadecimal(unsigned long long num);
 
 #endif

@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 01:06:37 by nash              #+#    #+#             */
-/*   Updated: 2024/05/20 01:07:03 by nash             ###   ########.fr       */
+/*   Created: 2024/05/19 23:19:55 by nash              #+#    #+#             */
+/*   Updated: 2024/05/20 00:03:31 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthexadecimal(unsigned long long num)
+int	ft_putstr(char *s)
 {
 	int	count;
 
 	count = 0;
-	if (num < 16)
+	while (*s)
 	{
-		if (num % 16 < 10)
-			count += ft_putchar('0' + num % 16);
-		else
-			count += ft_putchar('a' + (num % 16) - 10);
-	}
-	else
-	{
-		count += ft_puthexadecimal(num / 16);
-		count += ft_puthexadecimal(num % 16);
+		count += ft_putchar(*s);
+		s++;
 	}
 	return (count);
 }
