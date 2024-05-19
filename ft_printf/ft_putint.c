@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 01:14:34 by nash              #+#    #+#             */
-/*   Updated: 2024/05/20 02:37:31 by nash             ###   ########.fr       */
+/*   Updated: 2024/05/20 02:42:06 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_putint(int num)
 	count = 0;
 	if (num == INT_MIN)
 	{
-		count += ft_putll(num);
+		count += ft_putll((long long)num);
 		return (count);
 	}
 	if (num < 0)
