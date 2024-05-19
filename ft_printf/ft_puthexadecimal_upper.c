@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 02:07:27 by nash              #+#    #+#             */
-/*   Updated: 2024/05/20 02:16:38 by nash             ###   ########.fr       */
+/*   Updated: 2024/05/20 02:48:03 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	ft_puthexadecimal_upper(unsigned int num)
 {
-	return (ft_puthexadecimal(num, TRUE));
+	return (ft_puthexadecimal((unsigned long long)num, TRUE));
 }

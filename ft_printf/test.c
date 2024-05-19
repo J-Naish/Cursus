@@ -75,20 +75,20 @@ int	ft_putuint(unsigned int num)
 
 int	ft_puthexadecimal(unsigned long long num, int is_upper)
 {
-	int	count;
+	int		count;
+	char	a;
 
+	if (is_upper)
+		a = 'A';
+	else
+		a = 'a';
 	count = 0;
 	if (num < 16)
 	{
 		if (num % 16 < 10)
 			count += ft_putchar('0' + num % 16);
 		else
-		{
-			if (is_upper)
-				count += ft_putchar('A' + (num % 16) - 10);
-			else
-				count += ft_putchar('a' + (num % 16) - 10);
-		}
+			count += ft_putchar(a + (num % 16) - 10);
 	}
 	else
 	{
@@ -110,7 +110,8 @@ int	ft_puthexadecimal_lower(unsigned int num)
 
 int main()
 {
-  int num = 75941374;
-  printf("\n%d\n", ft_puthexadecimal_lower(num));
-  printf("\n%d\n", ft_puthexadecimal_upper(num));
+  // int num = 75941374;
+  // printf("\n%d\n", ft_puthexadecimal_lower(num));
+  // printf("\n%d\n", ft_puthexadecimal_upper(num));
+  printf("\n%d", printf("87gu\n%87687856"));
 }
