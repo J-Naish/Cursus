@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putaddr.c                                       :+:      :+:    :+:   */
+/*   ft_puthexadecimal_lower.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 00:07:49 by nash              #+#    #+#             */
-/*   Updated: 2024/05/20 02:17:05 by nash             ###   ########.fr       */
+/*   Created: 2024/05/20 02:08:37 by nash              #+#    #+#             */
+/*   Updated: 2024/05/20 02:16:45 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putaddr(void *ptr)
+int	ft_puthexadecimal_lower(unsigned int num)
 {
-	unsigned long long	addr;
-	int					count;
-
-	addr = (unsigned long long)ptr;
-	count = 0;
-	count += ft_putstr("0x");
-	count += ft_puthexadecimal(addr, FALSE);
-	return (count);
+	return (ft_puthexadecimal(num, FALSE));
 }

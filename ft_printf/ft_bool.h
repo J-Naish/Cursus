@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putaddr.c                                       :+:      :+:    :+:   */
+/*   ft_bool.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 00:07:49 by nash              #+#    #+#             */
-/*   Updated: 2024/05/20 02:17:05 by nash             ###   ########.fr       */
+/*   Created: 2024/05/20 02:14:56 by nash              #+#    #+#             */
+/*   Updated: 2024/05/20 02:15:55 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef FT_BOOL_H
+# define FT_BOOL_H
 
-int	ft_putaddr(void *ptr)
-{
-	unsigned long long	addr;
-	int					count;
+typedef int	t_bool;
 
-	addr = (unsigned long long)ptr;
-	count = 0;
-	count += ft_putstr("0x");
-	count += ft_puthexadecimal(addr, FALSE);
-	return (count);
-}
+# define TRUE 1
+# define FALSE 0
+
+#endif
