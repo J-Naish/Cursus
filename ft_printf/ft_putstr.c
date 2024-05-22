@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 23:19:55 by nash              #+#    #+#             */
-/*   Updated: 2024/05/20 00:03:31 by nash             ###   ########.fr       */
+/*   Updated: 2024/05/22 17:00:55 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@
 int	ft_putstr(char *s)
 {
 	int	count;
+	int	temp;
 
 	count = 0;
 	while (*s)
 	{
-		count += ft_putchar(*s);
+		temp = ft_putchar(*s);
+		if (temp == -1)
+			return (-1);
+		count += temp;
 		s++;
 	}
 	return (count);

@@ -6,33 +6,59 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 01:06:37 by nash              #+#    #+#             */
-/*   Updated: 2024/05/20 02:45:11 by nash             ###   ########.fr       */
+/*   Updated: 2024/05/22 19:34:44 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+static char	ft_get_char_a(t_bool is_upper)
+{
+	if (is_upper)
+		return ('A');
+	else
+		return ('a');
+}
+
+static int	ft_puthexadecimal_sub(unsigned long long num, t_bool is_upper)
+{
+	int		count;
+	int		temp;
+
+	count = 0;
+	if (num % 16 < 10)
+		temp = ft_putchar('0' + num % 16);
+	else
+		temp = ft_putchar(ft_get_char_a(is_upper) + (num % 16) - 10);
+	if (temp == -1)
+		return (-1);
+	count += temp;
+	return (count);
+}
+
 int	ft_puthexadecimal(unsigned long long num, t_bool is_upper)
 {
 	int		count;
-	char	a;
+	int		temp;
 
-	if (is_upper)
-		a = 'A';
-	else
-		a = 'a';
 	count = 0;
 	if (num < 16)
 	{
-		if (num % 16 < 10)
-			count += ft_putchar('0' + num % 16);
-		else
-			count += ft_putchar(a + (num % 16) - 10);
+		temp = ft_puthexadecimal_sub(num, is_upper);
+		if (temp == -1)
+			return (-1);
+		count += temp;
 	}
 	else
 	{
-		count += ft_puthexadecimal(num / 16, is_upper);
-		count += ft_puthexadecimal(num % 16, is_upper);
+		temp = ft_puthexadecimal(num / 16, is_upper);
+		if (temp == -1)
+			return (-1);
+		count += temp;
+		temp = ft_puthexadecimal(num % 16, is_upper);
+		if (temp == -1)
+			return (-1);
+		count += temp;
 	}
 	return (count);
 }
