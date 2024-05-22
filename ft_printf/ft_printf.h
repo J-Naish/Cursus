@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 18:45:21 by nash              #+#    #+#             */
-/*   Updated: 2024/05/22 22:30:39 by nash             ###   ########.fr       */
+/*   Updated: 2024/05/22 22:38:34 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <limits.h>
 # include <stdarg.h>
-# include "libft.h"
+# include <stdio.h>
 # include "ft_bool.h"
 
 int		ft_putchar(char c);
