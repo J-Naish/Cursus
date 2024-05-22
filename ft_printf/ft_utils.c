@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 01:06:37 by nash              #+#    #+#             */
-/*   Updated: 2024/05/22 19:34:44 by nash             ###   ########.fr       */
+/*   Updated: 2024/05/22 22:14:24 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,12 @@ int	ft_puthexadecimal(unsigned long long num, t_bool is_upper)
 		count += temp;
 	}
 	return (count);
+}
+
+t_bool	ft_is_printfable(char c)
+{
+	if (c == '%' || c == 'c' || c == 's' || c == 'p' || c == 'd'
+		|| c == 'i' || c == 'u' || c == 'x' || c == 'X')
+		return (TRUE);
+	return (FALSE);
 }
