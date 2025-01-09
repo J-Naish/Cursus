@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 22:03:11 by nash              #+#    #+#             */
-/*   Updated: 2025/01/09 19:11:23 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/09 22:53:12 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_printf_main(char s, int count, va_list args)
 	if (s == '%')
 		count += ft_putchar('%');
 	else if (s == 'c')
-		count += ft_putchar(va_arg(args, char));
+		count += ft_putchar((char)va_arg(args, int));
 	else if (s == 's')
 		count += ft_putstr(va_arg(args, char *));
 	else if (s == 'p')

@@ -6,14 +6,14 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/18 18:38:32 by nash              #+#    #+#              #
-#    Updated: 2025/01/09 22:45:25 by nash             ###   ########.fr        #
+#    Updated: 2025/01/09 22:56:25 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS := $(wildcard *.c)
+SRCS := $(wildcard src/*.c)
 OBJS := $(SRCS:.c=.o)
 
 .PHONY: all clean fclean re
