@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 22:03:11 by nash              #+#    #+#             */
-/*   Updated: 2024/05/22 22:20:13 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/09 19:11:23 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	ft_printf(const char *s, ...)
 		if (*s == '%')
 		{
 			s++;
-			if (ft_is_printfable(*s))
+			if (ft_is_printf_conversion(*s))
 				count = ft_printf_main(*s, count, args);
 			else
 				return (count);
