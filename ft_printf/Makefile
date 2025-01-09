@@ -6,12 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/18 18:38:32 by nash              #+#    #+#              #
-#    Updated: 2024/05/19 16:00:43 by nash             ###   ########.fr        #
+#    Updated: 2025/01/09 19:00:33 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-AR = ar rcs
-RM = rm -f
