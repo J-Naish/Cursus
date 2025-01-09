@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/18 18:38:32 by nash              #+#    #+#              #
-#    Updated: 2025/01/10 02:53:37 by nash             ###   ########.fr        #
+#    Updated: 2025/01/10 02:58:23 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ $(NAME): $(OBJS)
 
 test: $(NAME) $(TEST_OBJS)
 	$(CC) $(CFLAGS) -I $(INCLUDES) $(TEST_OBJS) $(NAME) -o $(TEST_EXE)
-	@echo "Running test:"
+	@echo "\n\nRunning test:\n"
 	@./$(TEST_EXE)
 
 clean:
