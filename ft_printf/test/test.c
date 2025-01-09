@@ -1,4 +1,4 @@
-#include "../src/ft_printf.h"
+#include "ft_printf.h"
 
 void printReturnedValue(int r1, int r2) {
   printf("returned: %d\n", r1);
