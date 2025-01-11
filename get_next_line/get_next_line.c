@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 03:30:54 by nash              #+#    #+#             */
-/*   Updated: 2025/01/11 22:44:01 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/11 23:04:16 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char *get_next_line(int fd)
   start = buffer;
   temp = get_next_char__malloc(fd);
   count = 0;
-  while (temp && count < BUFFER_SIZE)
+  while (temp && count < BUFFER_SIZE && *temp != '\n')
   {
     *buffer = *temp;
     free(temp);
@@ -47,10 +47,15 @@ int main()
     return 1;
   }
 
-  char* texts = get_next_line(fd);
-  if (texts)
+  char* first_line = get_next_line(fd);
+  if (first_line)
   {
-    printf("%s\n", texts);
+    printf("%s\n", first_line);
+  }
+  char* second_line = get_next_line(fd);
+  if (second_line)
+  {
+    printf("%s\n", second_line);
   }
   close(fd);
   return 0;
