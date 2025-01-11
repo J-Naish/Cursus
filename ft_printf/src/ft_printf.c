@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 22:03:11 by nash              #+#    #+#             */
-/*   Updated: 2025/01/11 23:54:36 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/12 00:14:20 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	ft_printf_main(char s, int count, va_list args)
 		count += ft_puthex_lower(va_arg(args, unsigned int));
 	else if (s == 'X')
 		count += ft_puthex_upper(va_arg(args, unsigned int));
-	va_end(args);
 	if (count < prev_count)
 		return (-1);
 	return (count);
