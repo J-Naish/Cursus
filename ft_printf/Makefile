@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/18 18:38:32 by nash              #+#    #+#              #
-#    Updated: 2025/01/10 03:00:30 by nash             ###   ########.fr        #
+#    Updated: 2025/01/11 23:56:18 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 INCLUDES = ./includes
-SRCS := $(wildcard src/*.c)
+SRCS := $(wildcard src/*.c utils/*.c)
 OBJS := $(SRCS:.c=.o)
 TEST_SRCS := test/test.c
 TEST_OBJS := $(TEST_SRCS:.c=.o)

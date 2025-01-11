@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   ft_hex.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 01:06:37 by nash              #+#    #+#             */
-/*   Updated: 2025/01/10 02:58:53 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/11 23:52:00 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	ft_get_char_a(t_bool is_upper)
 		return ('a');
 }
 
-static int	ft_puthexadecimal_sub(unsigned long long num, t_bool is_upper)
+static int	ft_puthex_sub(unsigned long long num, t_bool is_upper)
 {
 	int		count;
 	int		temp;
@@ -36,7 +36,7 @@ static int	ft_puthexadecimal_sub(unsigned long long num, t_bool is_upper)
 	return (count);
 }
 
-int	ft_puthexadecimal(unsigned long long num, t_bool is_upper)
+int	ft_puthex(unsigned long long num, t_bool is_upper)
 {
 	int		count;
 	int		temp;
@@ -44,22 +44,21 @@ int	ft_puthexadecimal(unsigned long long num, t_bool is_upper)
 	count = 0;
 	if (num < 16)
 	{
-		temp = ft_puthexadecimal_sub(num, is_upper);
+		temp = ft_puthex_sub(num, is_upper);
 		if (temp == -1)
 			return (-1);
 		count += temp;
 	}
 	else
 	{
-		temp = ft_puthexadecimal(num / 16, is_upper);
+		temp = ft_puthex(num / 16, is_upper);
 		if (temp == -1)
 			return (-1);
 		count += temp;
-		temp = ft_puthexadecimal(num % 16, is_upper);
+		temp = ft_puthex(num % 16, is_upper);
 		if (temp == -1)
 			return (-1);
 		count += temp;
 	}
 	return (count);
 }
-

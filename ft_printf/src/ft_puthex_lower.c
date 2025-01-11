@@ -6,13 +6,13 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 02:08:37 by nash              #+#    #+#             */
-/*   Updated: 2024/05/20 02:47:51 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/11 23:52:26 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthexadecimal_lower(unsigned int num)
+int	ft_puthex_lower(unsigned int num)
 {
-	return (ft_puthexadecimal((unsigned long long)num, FALSE));
+	return (ft_puthex((unsigned long long)num, FALSE));
 }
