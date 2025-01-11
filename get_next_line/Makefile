@@ -6,6 +6,4 @@ test:
 	@echo "Running test"
 	cc -Wall -Wextra -Werror $(SRCS) -D BUFFER_SIZE=$(BUFFER_SIZE)
 	./a.out
-
-fclean:
 	rm -f a.out
