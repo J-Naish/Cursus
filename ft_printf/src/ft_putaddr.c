@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 00:07:49 by nash              #+#    #+#             */
-/*   Updated: 2025/01/19 19:37:43 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/19 19:38:58 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int	ft_putaddr(void *ptr)
 	int					count;
 	int					temp;
 
-	if (!ptr) return ft_putstr("(nil)");
+	if (!ptr)
+		return (ft_putstr("(nil)"));
 	addr = (unsigned long long)ptr;
 	count = 0;
 	temp = ft_putstr("0x");
