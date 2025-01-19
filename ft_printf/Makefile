@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/18 18:38:32 by nash              #+#    #+#              #
-#    Updated: 2025/01/11 23:56:18 by nash             ###   ########.fr        #
+#    Updated: 2025/01/19 19:03:10 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,6 @@ OBJS := $(SRCS:.c=.o)
 TEST_SRCS := test/test.c
 TEST_OBJS := $(TEST_SRCS:.c=.o)
 TEST_EXE := test/test
-
-.PHONY: all clean fclean re test
 
 all: $(NAME)
 
@@ -42,3 +40,5 @@ fclean:
 	rm -f $(NAME) $(OBJS) $(TEST_EXE) $(TEST_OBJS)
 
 re: fclean all
+
+.PHONY: all clean fclean re test
