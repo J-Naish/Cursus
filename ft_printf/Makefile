@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/18 18:38:32 by nash              #+#    #+#              #
-#    Updated: 2025/01/19 19:03:10 by nash             ###   ########.fr        #
+#    Updated: 2025/01/19 19:39:53 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,6 @@ CFLAGS = -Wall -Wextra -Werror
 INCLUDES = ./includes
 SRCS := $(wildcard src/*.c utils/*.c)
 OBJS := $(SRCS:.c=.o)
-TEST_SRCS := test/test.c
-TEST_OBJS := $(TEST_SRCS:.c=.o)
-TEST_EXE := test/test
 
 all: $(NAME)
 
@@ -28,17 +25,12 @@ $(NAME): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 
-test: $(NAME) $(TEST_OBJS)
-	$(CC) $(CFLAGS) -I $(INCLUDES) $(TEST_OBJS) $(NAME) -o $(TEST_EXE)
-	@echo "\n\nRunning test:\n"
-	./$(TEST_EXE)
-
 clean:
-	rm -f $(OBJS) $(TEST_OBJS)
+	rm -f $(OBJS)
 
 fclean:
-	rm -f $(NAME) $(OBJS) $(TEST_EXE) $(TEST_OBJS)
+	rm -f $(NAME) $(OBJS)
 
 re: fclean all
 
-.PHONY: all clean fclean re test
+.PHONY: all clean fclean re
