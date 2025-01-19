@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 00:07:49 by nash              #+#    #+#             */
-/*   Updated: 2025/01/18 21:40:24 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/19 19:37:43 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_putaddr(void *ptr)
 	if (temp == -1)
 		return (-1);
 	count += temp;
-	temp = ft_puthex(addr, FALSE);
+	temp = ft_puthex(addr, false);
 	if (temp == -1)
 		return (-1);
 	count += temp;
