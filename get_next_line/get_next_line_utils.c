@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 03:30:57 by nash              #+#    #+#             */
-/*   Updated: 2025/01/22 22:02:58 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/22 22:52:27 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,15 @@ void	*ft_calloc(size_t count, size_t size)
 		return (NULL);
 	ft_bzero(result, (count * size));
 	return (result);
+}
+
+bool	ft_includes_newline(char *s)
+{
+	while (*s)
+	{
+		if (*s == '\n')
+			return (true);
+		s++;
+	}
+	return (false);
 }
