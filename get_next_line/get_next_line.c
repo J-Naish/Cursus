@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 03:30:54 by nash              #+#    #+#             */
-/*   Updated: 2025/01/19 19:31:37 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/22 15:50:39 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,25 +38,9 @@ char	*get_next_line(int fd)
 	return (start);
 }
 
-// int main()
-// {
-//   int fd = open("test.txt", O_RDONLY);
-//   if (fd < 0)
-//   {
-//     perror("open");
-//     return 1;
-//   }
+int main()
+{
+	printf("%zu\n", get_line_length("1234\n56789"));
 
-//   char* first_line = get_next_line(fd);
-//   if (first_line)
-//   {
-//     printf("%s\n", first_line);
-//   }
-//   char* second_line = get_next_line(fd);
-//   if (second_line)
-//   {
-//     printf("%s\n", second_line);
-//   }
-//   close(fd);
-//   return 0;
-// }
+	return 0;
+}

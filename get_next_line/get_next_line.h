@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 03:30:51 by nash              #+#    #+#             */
-/*   Updated: 2025/01/19 19:35:23 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/22 15:50:37 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,3 +21,4 @@
 
 char	*get_next_char__malloc(int fd);
 char	*get_next_line(int fd);
+size_t	get_line_length(char *s);
