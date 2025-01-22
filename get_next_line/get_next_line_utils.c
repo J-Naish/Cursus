@@ -6,41 +6,72 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 03:30:57 by nash              #+#    #+#             */
-/*   Updated: 2025/01/22 15:50:32 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/22 22:02:58 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*get_next_char__malloc(int fd)
+static size_t	ft_strlen(const char *s)
 {
-	char	*buffer;
-	ssize_t	bytes_read;
+	size_t	i;
 
-	buffer = malloc(2);
-	if (!buffer)
-	{
-		return (NULL);
-	}
-	bytes_read = read(fd, buffer, 1);
-	if (bytes_read <= 0)
-	{
-		free(buffer);
-		return (NULL);
-	}
-	buffer[1] = '\0';
-	return (buffer);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
 
-size_t	get_line_length(char *s)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	len;
+	char	*result;
+	size_t	i;
+	size_t	j;
 
-	len = 0;
-	while (*s && *s != '\n')
+	len = ft_strlen(s1) + ft_strlen(s2);
+	result = (char *)malloc((len + 1) * sizeof(char));
+	if (!result)
+		return (NULL);
+	i = 0;
+	while (s1[i])
 	{
-		len++;
-		s++;
+		result[i] = s1[i];
+		i++;
 	}
-	return (len);
+	j = 0;
+	while (s2[j])
+	{
+		result[i + j] = s2[j];
+		j++;
+	}
+	result[i + j] = '\0';
+	return (result);
+}
+
+static void	ft_bzero(void *s, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		((unsigned char *)s)[i] = 0;
+		i++;
+	}
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*result;
+
+	if (count == 0 || size == 0)
+		return ((void *)malloc(0));
+	if (count > SIZE_MAX / size)
+		return (NULL);
+	result = (void *)malloc(count * size);
+	if (!result)
+		return (NULL);
+	ft_bzero(result, (count * size));
+	return (result);
 }
