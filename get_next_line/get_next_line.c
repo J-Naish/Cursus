@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 03:30:54 by nash              #+#    #+#             */
-/*   Updated: 2025/01/23 00:59:59 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/23 01:14:30 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ static char	*ft_get_text(int fd, char *buffer)
 	char	*text;
 	ssize_t	bytes_read;
 
+	text = (char *)ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	if (!text)
+		return (NULL);
 	bytes_read = 1;
 	while (bytes_read > 0)
 	{
-		text = (char *)ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-		if (!text)
-			return (NULL);
 		bytes_read = read(fd, text, BUFFER_SIZE * sizeof(char));
 		if (bytes_read < 0)
 		{
@@ -31,9 +31,10 @@ static char	*ft_get_text(int fd, char *buffer)
 		}
 		text[bytes_read] = '\0';
 		buffer = ft_join_and_free(buffer, text);
-		if (ft_includes_newline(buffer))
+		if (ft_includes_newline(text))
 			break ;
 	}
+	free(text);
 	return (buffer);
 }
 
@@ -112,7 +113,7 @@ char	*get_next_line(int fd)
 
 // int	main()
 // {
-// 	int fd = open("empty.txt", O_RDONLY);
+// 	int fd = open("5nl.txt", O_RDONLY);
 // 	if (fd < 0)
 // 	{
 // 		perror("open failed\n");
@@ -120,10 +121,10 @@ char	*get_next_line(int fd)
 // 	}
 
 // 	char *first_line = get_next_line(fd);
-// 	printf("\nfirst line: %s\n\n", first_line);
+// 	printf("first line: %s\n", first_line);
 
-// 	// char *second_line = get_next_line(fd);
-// 	// printf("second line: %s\n", second_line);
+// 	char *second_line = get_next_line(fd);
+// 	printf("second line: %s\n", second_line);
 
 // 	// char *third_line = get_next_line(fd);
 // 	// printf("third line: %s\n", third_line);
