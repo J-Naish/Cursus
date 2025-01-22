@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 03:30:54 by nash              #+#    #+#             */
-/*   Updated: 2025/01/23 00:24:57 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/23 00:27:07 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ static char	*ft_save_text(char *buffer)
 
 char	*get_next_line(int fd)
 {
-	ssize_t			bytes_read;
 	static char		*buffer;
 	char			*line;
 
