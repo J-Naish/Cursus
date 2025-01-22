@@ -6,13 +6,13 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 03:30:57 by nash              #+#    #+#             */
-/*   Updated: 2025/01/22 22:52:27 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/23 00:14:01 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static size_t	ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
@@ -22,7 +22,7 @@ static size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+static char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	len;
 	char	*result;
@@ -49,21 +49,20 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (result);
 }
 
-static void	ft_bzero(void *s, size_t n)
+char	*ft_join_and_free(char *s1, char *s2)
 {
-	size_t	i;
+	char	*result;
 
-	i = 0;
-	while (i < n)
-	{
-		((unsigned char *)s)[i] = 0;
-		i++;
-	}
+	result = ft_strjoin(s1, s2);
+	free(s1);
+	free(s2);
+	return (result);
 }
 
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*result;
+	size_t	i;
 
 	if (count == 0 || size == 0)
 		return ((void *)malloc(0));
@@ -72,7 +71,12 @@ void	*ft_calloc(size_t count, size_t size)
 	result = (void *)malloc(count * size);
 	if (!result)
 		return (NULL);
-	ft_bzero(result, (count * size));
+	i = 0;
+	while (i < count * size)
+	{
+		((unsigned char *)result)[i] = 0;
+		i++;
+	}
 	return (result);
 }
 
