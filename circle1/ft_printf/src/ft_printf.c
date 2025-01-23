@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 22:03:11 by nash              #+#    #+#             */
-/*   Updated: 2025/01/18 22:04:53 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/23 17:41:05 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int	ft_printf(const char *s, ...)
 	int		prev_count;
 	va_list	args;
 
+	if (!s)
+		return (-1);
 	count = 0;
 	va_start(args, s);
 	while (*s)
