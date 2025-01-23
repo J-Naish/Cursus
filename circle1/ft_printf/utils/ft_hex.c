@@ -6,30 +6,27 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 01:06:37 by nash              #+#    #+#             */
-/*   Updated: 2025/01/19 19:37:23 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/23 17:59:15 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char	ft_get_char_a(bool is_upper)
-{
-	if (is_upper)
-		return ('A');
-	else
-		return ('a');
-}
-
 static int	ft_puthex_sub(unsigned long long num, bool is_upper)
 {
 	int		count;
 	int		temp;
+	char	a;
 
 	count = 0;
+	if (is_upper)
+		a = 'A';
+	else
+		a = 'a';
 	if (num % 16 < 10)
 		temp = ft_putchar('0' + num % 16);
 	else
-		temp = ft_putchar(ft_get_char_a(is_upper) + (num % 16) - 10);
+		temp = ft_putchar(a + (num % 16) - 10);
 	if (temp == -1)
 		return (-1);
 	count += temp;
