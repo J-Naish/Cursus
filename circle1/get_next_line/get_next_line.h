@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 03:30:51 by nash              #+#    #+#             */
-/*   Updated: 2025/01/23 00:25:22 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/29 22:12:20 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdbool.h>
+# include <stdint.h>
 
-# define BUFFER_SIZE 42
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 char	*get_next_line(int fd);
 char	*ft_join_and_free(char *s1, char *s2);
