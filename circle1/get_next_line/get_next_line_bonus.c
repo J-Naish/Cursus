@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 02:21:26 by nash              #+#    #+#             */
-/*   Updated: 2025/01/29 22:13:41 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/29 22:16:10 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,26 +88,26 @@ static char	*ft_save_text(char *buffer)
 	return (save);
 }
 
-char	*get_next_line(int fd1)
+char	*get_next_line(int fd)
 {
 	static char		*buffer[FOPEN_MAX];
 	char			*line;
 
-	if (fd1 < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0))
 		return (NULL);
-	if (!buffer[fd1])
+	if (!buffer[fd])
 	{
-		buffer[fd1] = (char *)ft_calloc(1, sizeof(char));
-		if (!buffer[fd1])
+		buffer[fd] = (char *)ft_calloc(1, sizeof(char));
+		if (!buffer[fd])
 			return (NULL);
 	}
-	buffer[fd1] = ft_get_text(fd1, buffer[fd1]);
-	if (!buffer[fd1])
+	buffer[fd] = ft_get_text(fd, buffer[fd]);
+	if (!buffer[fd])
 		return (NULL);
-	line = ft_extract_line(buffer[fd1]);
+	line = ft_extract_line(buffer[fd]);
 	if (!line)
 		return (NULL);
-	buffer[fd1] = ft_save_text(buffer[fd1]);
+	buffer[fd] = ft_save_text(buffer[fd]);
 	return (line);
 }
 
