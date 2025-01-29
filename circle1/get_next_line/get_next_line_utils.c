@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 03:30:57 by nash              #+#    #+#             */
-/*   Updated: 2025/01/23 01:11:58 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/29 22:10:56 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,11 @@ char	*ft_join_and_free(char *s1, char *s2)
 {
 	char	*result;
 
+	if (!s1)
+		return (NULL);
 	result = ft_strjoin(s1, s2);
+	if (!result)
+		return (NULL);
 	free(s1);
 	return (result);
 }

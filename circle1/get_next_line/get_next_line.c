@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 03:30:54 by nash              #+#    #+#             */
-/*   Updated: 2025/01/29 16:06:24 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/29 22:08:29 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ static char	*ft_get_text(int fd, char *buffer)
 		}
 		text[bytes_read] = '\0';
 		buffer = ft_join_and_free(buffer, text);
+		if (!buffer)
+			return (NULL);
 		if (ft_includes_newline(text))
 			break ;
 	}
@@ -77,6 +79,8 @@ static char	*ft_save_text(char *buffer)
 		return (NULL);
 	}
 	save = (char *)ft_calloc(ft_strlen(buffer) - i + 1, sizeof(char));
+	if (!save)
+		return (free(buffer), NULL);
 	i++;
 	j = 0;
 	while (buffer[i + j])
