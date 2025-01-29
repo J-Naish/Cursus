@@ -6,13 +6,13 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 02:21:26 by nash              #+#    #+#             */
-/*   Updated: 2025/01/23 02:28:42 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/29 16:06:31 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-static char	*ft_get_text(int fd, char *buffer)
+static char	*ft_get_text(int fd1, char *buffer)
 {
 	char	*text;
 	ssize_t	bytes_read;
@@ -23,7 +23,7 @@ static char	*ft_get_text(int fd, char *buffer)
 	bytes_read = 1;
 	while (bytes_read > 0)
 	{
-		bytes_read = read(fd, text, BUFFER_SIZE * sizeof(char));
+		bytes_read = read(fd1, text, BUFFER_SIZE * sizeof(char));
 		if (bytes_read < 0)
 		{
 			free(text);
@@ -88,47 +88,55 @@ static char	*ft_save_text(char *buffer)
 	return (save);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd1)
 {
 	static char		*buffer[OPEN_MAX];
 	char			*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd1 < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	if (!buffer[fd])
+	if (!buffer[fd1])
 	{
-		buffer[fd] = (char *)ft_calloc(1, sizeof(char));
-		if (!buffer[fd])
+		buffer[fd1] = (char *)ft_calloc(1, sizeof(char));
+		if (!buffer[fd1])
 			return (NULL);
 	}
-	buffer[fd] = ft_get_text(fd, buffer[fd]);
-	if (!buffer[fd])
+	buffer[fd1] = ft_get_text(fd1, buffer[fd1]);
+	if (!buffer[fd1])
 		return (NULL);
-	line = ft_extract_line(buffer[fd]);
+	line = ft_extract_line(buffer[fd1]);
 	if (!line)
 		return (NULL);
-	buffer[fd] = ft_save_text(buffer[fd]);
+	buffer[fd1] = ft_save_text(buffer[fd1]);
 	return (line);
 }
 
 // int	main()
 // {
-// 	int fd = open("5nl.txt", O_RDONLY);
-// 	if (fd < 0)
+// 	int fd1 = open("test1.txt", O_RDONLY);
+//   int fd2 = open("test2.txt", O_RDONLY);
+// 	if (fd1 < 0 || fd2 < 0)
 // 	{
 // 		perror("open failed\n");
 // 		return 1;
 // 	}
 
-// 	char *first_line = get_next_line(fd);
-// 	printf("first line: %s\n", first_line);
+// 	char *first_line1 = get_next_line(fd1);
+// 	printf("first line1: %s\n", first_line1);
+//   free(first_line1);
 
-// 	char *second_line = get_next_line(fd);
-// 	printf("second line: %s\n", second_line);
+// 	char *second_line1 = get_next_line(fd1);
+// 	printf("second line1: %s\n", second_line1);
+//   free(second_line1);
 
-// 	// char *third_line = get_next_line(fd);
-// 	// printf("third line: %s\n", third_line);
+//   char *first_line2 = get_next_line(fd2);
+//   printf("first line2: %s\n", first_line2);
+//   free(first_line2);
 
-// 	close(fd);
+//   char *second_line2 = get_next_line(fd2);
+//   printf("second line2: %s\n", second_line2);
+//   free(second_line2);
+
+// 	close(fd1);
 // 	return (0);
 // }

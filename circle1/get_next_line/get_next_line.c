@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 03:30:54 by nash              #+#    #+#             */
-/*   Updated: 2025/01/23 02:16:07 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/29 16:06:24 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ char	*get_next_line(int fd)
 
 // int	main()
 // {
-// 	int fd = open("5nl.txt", O_RDONLY);
+// 	int fd = open("test1.txt", O_RDONLY);
 // 	if (fd < 0)
 // 	{
 // 		perror("open failed\n");
@@ -121,13 +121,16 @@ char	*get_next_line(int fd)
 // 	}
 
 // 	char *first_line = get_next_line(fd);
-// 	printf("first line: %s\n", first_line);
+// 	printf("\nfirst line:\n %s\n", first_line);
+//   free(first_line);
 
 // 	char *second_line = get_next_line(fd);
-// 	printf("second line: %s\n", second_line);
+// 	printf("second line:\n %s\n", second_line);
+//   free(second_line);
 
-// 	// char *third_line = get_next_line(fd);
-// 	// printf("third line: %s\n", third_line);
+// 	char *third_line = get_next_line(fd);
+// 	printf("third line:\n %s\n", third_line);
+//   free(third_line);
 
 // 	close(fd);
 // 	return (0);
