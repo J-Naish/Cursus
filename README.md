@@ -19,3 +19,15 @@
 
 ## Born2beroot  
 2025/01/23~  
+
+
+# After Common Core
+## やりたいのリスト
+- Assembly  
+- AI
+- Security
+- Algorithm
+- Network
+- Cloud
+- 3D
+- Linux
