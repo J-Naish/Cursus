@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 05:10:22 by nash              #+#    #+#              #
-#    Updated: 2025/01/31 07:50:27 by nash             ###   ########.fr        #
+#    Updated: 2025/01/31 08:26:16 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 SRCS = atoi_strict.c\
 		is_int_string.c\
-		push_swap.c\
 		put_error.c\
 		utils.c
 OBJS = $(SRCS:.c=.o)
