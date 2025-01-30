@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   put_error.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/01/31 05:20:30 by nash             ###   ########.fr       */
+/*   Created: 2025/01/31 05:18:43 by nash              #+#    #+#             */
+/*   Updated: 2025/01/31 05:20:23 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-
-# include <stdlib.h>
-
-
-
-void	put_error(void);
-
-#endif
+void	put_error(void)
+{
+	write(2, "Error\n", 6);
+}
