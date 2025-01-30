@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/01/31 07:15:30 by nash             ###   ########.fr       */
+/*   Created: 2025/01/31 06:11:22 by nash              #+#    #+#             */
+/*   Updated: 2025/01/31 07:01:57 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdbool.h>
-# include <stdint.h>
-# include <limits.h>
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
 
-# include <stdio.h>
-
-void	put_error(void);
-bool	is_int_string(const char *s);
-size_t	ft_strlen(const char *s);
-
-#endif
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
