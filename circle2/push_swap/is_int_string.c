@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:22:21 by nash              #+#    #+#             */
-/*   Updated: 2025/01/31 07:25:43 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/31 07:44:21 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static bool	ft_is_digit(char c)
 		return (false);
 }
 
-static bool	is_sign(char c)
+bool	is_sign(char c)
 {
 	if (c == '+' || c == '-')
 		return (true);
@@ -96,7 +96,38 @@ bool	is_int_string(const char *s)
 
 // int main() {
 
-// 	printf("=== Test is_int_string Function ===\n\n");
+// 	printf("=== is_sign 関数のテスト ===\n\n");
+
+//     // テストする文字の配列
+//     char test_chars[] = {
+//         '+', '-', '0', '1', 'a', ' ', '\t',
+// 		'\n', 0, '*', '=', '/', '9', 'Z', '!', '@', '#',
+// 		'$', '%', '^', '&', '*', '(', ')','\r', '\v', '\f', '\b'
+//     };
+
+//     size_t num_tests1 = sizeof(test_chars) / sizeof(test_chars[0]);
+
+//     for (size_t i = 0; i < num_tests1; i++) {
+//         char c = test_chars[i];
+//         // 表示用の文字を適切に処理
+//         char display;
+//         if (c == '\0') {
+//             display = '0'; // NULL文字は '0' と表示
+//         } else if (c >= 32 && c <= 126) {
+//             display = c; // 印刷可能な文字
+//         } else {
+//             display = '?'; // 非印刷可能な文字は '?' と表示
+//         }
+
+//         // is_sign関数を呼び出し、結果を表示
+//         bool result = is_sign(c);
+//         printf("is_sign('%c' | ASCII %d) -> %s\n",
+//                display,
+//                (unsigned char)c,
+//                result ? "true" : "false");
+//     }
+
+// 	printf("\n=== Test is_int_string Function ===\n\n");
 
 //     // テストケース
 //     char *test_cases[] = {
@@ -187,11 +218,11 @@ bool	is_int_string(const char *s)
 // 	return (0);
 // }
 
-/*
-# DOCS
-先頭が＋あるいはーで始まる
-数字のみで構成されるか判別する関数
-先頭の0は無効のものとみなす
+// /*
+// # DOCS
+// 先頭が＋あるいはーで始まる
+// 数字のみで構成されるか判別する関数
+// 先頭の0は無効のものとみなす
 
-NULLガードはis_numeric_stringで行う
-*/
+// NULLガードはis_numeric_stringで行う
+// */
