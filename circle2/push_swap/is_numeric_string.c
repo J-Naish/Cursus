@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:22:21 by nash              #+#    #+#             */
-/*   Updated: 2025/01/31 05:54:43 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/31 06:03:03 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,14 @@ static bool	is_digit(char c)
 		return (false);
 }
 
+static bool	is_sign(char c)
+{
+	if (c == '+' || c == '-')
+		return (true);
+	else
+		return (false);
+}
+
 bool	is_numeric_string(char *s)
 {
 	size_t	i;
@@ -27,6 +35,8 @@ bool	is_numeric_string(char *s)
 	if (!s || s[0] == '\0')
 		return (false);
 	i = 0;
+	if (is_sign(s[i]))
+		i++;
 	while (s[i])
 	{
 		if (!is_digit((unsigned char)s[i]))
@@ -79,9 +89,23 @@ bool	is_numeric_string(char *s)
 // 	}
 
 
+// 	// is_signのテスト
+// 	printf("\nTest is_sign function\n");
+// 	char test_signs[] = {
+// 		'+', '-', '0', '1', 'a', ' ', '\t', '\n', 0, '*', '=', '/', '9', 'Z'
+// 	};
+
+// 	for (size_t i = 0; i < sizeof(test_signs) / sizeof(test_signs[0]); i++) {
+// 		printf("is_sign('%c' | ASCII %d) -> %s\n",
+// 			(test_signs[i] >= 32 && test_signs[i] <= 126) ? test_signs[i] : ' ',
+// 				test_signs[i],
+// 				is_sign(test_signs[i]) ? "true" : "false");
+// 	}
+
+
 // 	// is_numeric_stringのテスト
-// 	printf("Test is_numeric_string function\n");
-// 	char *test_strings[] = {
+// 	printf("\nTest is_numeric_string function\n");
+// 	char *test_strs[] = {
 // 		"12345",
 // 		"0",
 // 		"987654321",
@@ -97,12 +121,16 @@ bool	is_numeric_string(char *s)
 // 		"00123",
 // 		"+123",
 // 		"-123",
+// 		"-12 3",
+// 		"-123+",
+// 		"1-23",
+// 		"00+32",
 // 	};
 
-// 	for (size_t i = 0; i < sizeof(test_strings) / sizeof(test_strings[0]); i++) {
+// 	for (size_t i = 0; i < sizeof(test_strs) / sizeof(test_strs[0]); i++) {
 // 		printf("is_numeric_string(\"%s\") -> %s\n",
-// 			test_strings[i] ? test_strings[i] : "NULL",
-// 			is_numeric_string(test_strings[i]) ? "true" : "false");
+// 			test_strs[i] ? test_strs[i] : "NULL",
+// 			is_numeric_string(test_strs[i]) ? "true" : "false");
 // 	}
 
 // 	return (0);
