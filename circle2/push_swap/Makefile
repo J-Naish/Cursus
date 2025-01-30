@@ -6,18 +6,24 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 05:10:22 by nash              #+#    #+#              #
-#    Updated: 2025/01/31 05:21:04 by nash             ###   ########.fr        #
+#    Updated: 2025/01/31 07:50:27 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
-SRCS = push_swap.c\
-		put_error.c
+SRCS = atoi_strict.c\
+		is_int_string.c\
+		push_swap.c\
+		put_error.c\
+		utils.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -26,7 +32,7 @@ clean:
 	rm -f $(OBJS)
 
 fclean:
-	rm -f $(NAME) $(ObJS)
+	rm -f $(NAME) $(OBJS)
 
 re: fclean all
 
