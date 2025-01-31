@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 07:51:43 by nash              #+#    #+#             */
-/*   Updated: 2025/01/31 10:50:40 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/31 11:00:17 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,146 +47,122 @@ bool	is_valid_arg(int argc, char **argv)
 	return (free(arr), true);
 }
 
+// typedef struct {
+//     char *description;   // Description of the test case
+//     int argc;            // Argument count
+//     char **argv;         // Argument vector (argv[0] is the push_swap name)
+//     bool expected;       // Expected result from is_valid_arg
+// } ValidArgTestCase;
 
-// int main() {
-//     printf("=== has_duplicates 関数のテスト ===\n\n");
+// bool run_test_case(ValidArgTestCase test, int test_number)
+// {
+//     bool result = is_valid_arg(test.argc, test.argv);
 
-//     typedef struct {
-//         int size;
-//         int *arr;
-//         bool expected;
-//     } DuplicateTest;
+//     if (result == test.expected)
+//     {
+//         printf("Test %2d Passed: %s\n", test_number, test.description);
+//         return true;
+//     }
+//     else
+//     {
+//         printf("Test %2d Failed: %s\n", test_number, test.description);
+//         printf("    Expected: %s, Got: %s\n",
+//                test.expected ? "true" : "false",
+//                result ? "true" : "false");
+//         return false;
+//     }
+// }
 
-//     // Define test arrays
-//     int arr1[] = {};
-//     int arr2[] = {1};
-//     int arr3[] = {1, 2, 3, 4, 5};
-//     int arr4[] = {1, 2, 3, 2};
-//     int arr5[] = {5, 5, 5, 5, 5};
-//     int arr6[] = {-1, -2, -3, -4, -1};
-//     int arr7[] = {0, 0};
-//     int arr8[] = {100, 200, 300, 400, 500, 600, 700, 800, 900};
-//     int arr9[] = {1, 2, 3, 4, 5, 1};
-
-//     // Define test cases
-//     DuplicateTest duptest[] = {
-//         {0, arr1, false},
-//         {1, arr2, false},
-//         {5, arr3, false},
-//         {4, arr4, true},
-//         {5, arr5, true},
-//         {5, arr6, true},
-//         {2, arr7, true},
-//         {9, arr8, false},
-//         {6, arr9, true},
-//     };
-
-//     int num_tests = sizeof(duptest) / sizeof(duptest[0]);
+// void execute_tests(ValidArgTestCase *tests, int num_tests)
+// {
 //     int passed = 0;
 
-//     for (int i = 0; i < num_tests; i++) {
-//         DuplicateTest tc = duptest[i];
-//         bool actual = has_duplicates(tc.size, tc.arr);
-//         bool expected = tc.expected;
+//     printf("========================================\n");
+//     printf("       is_valid_arg Function Tests       \n");
+//     printf("========================================\n\n");
 
-//         if (actual == expected) {
-//             printf("Test %d: has_duplicates(", i + 1);
-//             printf("size=%d, arr={", tc.size);
-//             for (int j = 0; j < tc.size; j++) {
-//                 printf("%d", tc.arr[j]);
-//                 if (j < tc.size - 1)
-//                     printf(", ");
-//             }
-//             printf("}) = %s [OK]\n", actual ? "true" : "false");
+//     for (int i = 0; i < num_tests; i++)
+//     {
+//         bool passed_test = run_test_case(tests[i], i + 1);
+//         if (passed_test)
 //             passed++;
-//         } else {
-//             printf("Test %d: has_duplicates(", i + 1);
-//             printf("size=%d, arr={", tc.size);
-//             for (int j = 0; j < tc.size; j++) {
-//                 printf("%d", tc.arr[j]);
-//                 if (j < tc.size - 1)
-//                     printf(", ");
-//             }
-//             printf("}) = %s [FAIL] (Expected: %s)\n",
-//                    actual ? "true" : "false",
-//                    expected ? "true" : "false");
-//         }
 //     }
 
-//     printf("\n=== テスト結果 ===\n");
-//     printf("合計テストケース: %d\n", num_tests);
-//     printf("成功したテストケース: %d\n", passed);
-//     printf("失敗したテストケース: %d\n", num_tests - passed);
+//     printf("\n========================================\n");
+//     printf("               Test Summary             \n");
+//     printf("========================================\n");
+//     printf("Total Test Cases : %d\n", num_tests);
+//     printf("Passed           : %d\n", passed);
+//     printf("Failed           : %d\n", num_tests - passed);
+//     printf("========================================\n");
 
-// 	printf("=== is_valid_arg 関数のテスト ===\n\n");
+//     if (passed == num_tests)
+//         printf("All tests passed successfully!\n");
+//     else
+//         printf("Some tests failed. Please review the failed cases.\n");
+// }
 
-//     typedef struct {
-//         int argc;
-//         char **argv;
-//         bool expected;
-//         char *description;
-//     } ValidArgTest;
-
-//     // Define test case descriptions
-//     char *desc2 = "Single valid integer argument";
-//     char *desc3 = "Multiple valid integers without duplicates";
-//     char *desc4 = "Multiple valid integers with duplicates";
-//     char *desc5 = "Contains non-integer string";
-//     char *desc6 = "Mixed valid and invalid strings";
-//     char *desc7 = "All arguments are duplicates";
-//     char *desc8 = "Large number of valid unique integers";
-//     char *desc9 = "Negative integers without duplicates";
-//     char *desc10 = "Negative integers with duplicates";
+// int main() {
+//     char *desc1 = "Single valid integer argument";
+//     char *desc2 = "Multiple valid integers without duplicates";
+//     char *desc3 = "Multiple valid integers with duplicates";
+//     char *desc4 = "Contains non-integer string";
+//     char *desc5 = "Mixed valid and invalid strings";
+//     char *desc6 = "All arguments are duplicates";
+//     char *desc7 = "Large number of valid unique integers";
+//     char *desc8 = "Negative integers without duplicates";
+//     char *desc9 = "Negative integers with duplicates";
+//     char *desc10 = "Arguments with leading zeros";
+//     char *desc11 = "Maximum integer";
+//     char *desc12 = "Minimum integer";
+//     char *desc13 = "Integer exceeding INT_MAX";
+//     char *desc14 = "Integer below INT_MIN";
+//     char *desc15 = "Single zero argument";
+// 	char *desc16 = "Space between numbers";
 
 //     // Define test case arguments
-//     char *args2[] = {"42"};
-//     char *args3[] = {"1", "2", "3", "4", "5"};
-//     char *args4[] = {"1", "2", "3", "2"};
-//     char *args5[] = {"10", "20", "abc", "40"};
-//     char *args6[] = {"100", "200", "xyz", "400", "500"};
-//     char *args7[] = {"7", "7", "7", "7"};
-//     char *args8[] = {"1000", "2000", "3000", "4000", "5000",
-// 					"6000", "7000", "8000", "9000", "10000"};
-//     char *args9[] = {"-1", "-2", "-3", "-4", "-5"};
-//     char *args10[] = {"-10", "-20", "-10", "-40"};
+//     char *args1[] = {"push_swap", "42"};
+//     char *args2[] = {"push_swap", "1", "2", "3", "4", "5"};
+//     char *args3[] = {"push_swap", "1", "2", "3", "2"};
+//     char *args4[] = {"push_swap", "10", "20", "abc", "40"};
+//     char *args5[] = {"push_swap", "100", "200", "xyz", "400", "500"};
+//     char *args6[] = {"push_swap", "7", "7", "7", "7"};
+//     char *args7[] = {"push_swap", "1000", "2000", "3000", "4000", "5000",
+//                     "6000", "7000", "8000", "9000", "10000"};
+//     char *args8[] = {"push_swap", "-1", "-2", "-3", "-4", "-5"};
+//     char *args9[] = {"push_swap", "-10", "-20", "-10", "-40"};
+//     char *args10[] = {"push_swap", "01", "02"};
+//     char *args11[] = {"push_swap", "2147483647"}; // INT_MAX
+//     char *args12[] = {"push_swap", "-2147483648"}; // INT_MIN
+//     char *args13[] = {"push_swap", "2147483648"}; // INT_MAX + 1
+//     char *args14[] = {"push_swap", "-2147483649"}; // INT_MIN - 1
+//     char *args15[] = {"push_swap", "0"};
+// 	char *args16[] = {"push_swap", "123", "3 4"};
 
-//     // Define test cases
-//     ValidArgTest test_cases[] = {
-//         {1, args2, true, desc2},
-//         {5, args3, true, desc3},
-//         {4, args4, false, desc4},
-//         {4, args5, false, desc5},
-//         {5, args6, false, desc6},
-//         {4, args7, false, desc7},
-//         {10, args8, true, desc8},
-//         {5, args9, true, desc9},
-//         {5, args10, false, desc10},
+
+// 	ValidArgTestCase test_cases[] = {
+//         {desc1, 2, args1, true},
+//         {desc2, 6, args2, true},
+//         {desc3, 5, args3, false},
+//         {desc4, 5, args4, false},
+//         {desc5, 6, args5, false},
+//         {desc6, 5, args6, false},
+//         {desc7, 11, args7, true},
+//         {desc8, 6, args8, true},
+//         {desc9, 5, args9, false},
+//         {desc10, 3, args10, false},
+//         {desc11, 2, args11, true},
+//         {desc12, 2, args12, true},
+//         {desc13, 2, args13, false},
+//         {desc14, 2, args14, false},
+//         {desc15, 2, args15, true},
+// 		{desc16, 3, args16, false}
 //     };
 
-//     int numtest_arg = sizeof(test_cases) / sizeof(test_cases[0]);
-//     int passed_arg = 0;
+//     int num_tests = sizeof(test_cases) / sizeof(test_cases[0]);
 
-//     for (int i = 0; i < numtest_arg; i++) {
-//         ValidArgTest tc = test_cases[i];
-//         bool actual = is_valid_arg(tc.argc, tc.argv);
-//         bool expected = tc.expected;
-
-//         if (actual == expected) {
-//             printf("Test %d: %s [OK]\n", i + 1, tc.description);
-//             passed_arg++;
-//         } else {
-//             printf("Test %d: %s [FAIL] (Expected: %s, Got: %s)\n",
-//                    i + 1,
-//                    tc.description,
-//                    expected ? "true" : "false",
-//                    actual ? "true" : "false");
-//         }
-//     }
-
-//     printf("\n=== テスト結果 ===\n");
-//     printf("合計テストケース: %d\n", numtest_arg);
-//     printf("成功したテストケース: %d\n", passed_arg);
-//     printf("失敗したテストケース: %d\n", numtest_arg - passed_arg);
+//     // Execute all test cases
+//     execute_tests(test_cases, num_tests);
 
 //     return 0;
 // }
