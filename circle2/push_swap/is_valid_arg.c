@@ -6,27 +6,22 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 07:51:43 by nash              #+#    #+#             */
-/*   Updated: 2025/01/31 09:06:17 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/31 10:41:57 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static bool	has_duplicate(int size, const int *arr)
+static bool	has_duplicates(int size, int *arr)
 {
 	int	i;
-	int	j;
 
-	i = 0;
+	quick_sort(arr, size);
+	i = 1;
 	while (i < size)
 	{
-		j = i + 1;
-		while (j < size)
-		{
-			if (arr[i] == arr[j])
-				return (true);
-			j++;
-		}
+		if (arr[i] == arr[i - 1])
+			return (true);
 		i++;
 	}
 	return (false);
@@ -43,18 +38,19 @@ bool	is_valid_arg(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		if (!is_int_string(argv[i]))
+		if (!is_int_string(argv[i], &arr[i - 1]))
 			return (free(arr), false);
-		arr[i - 1] = atoi_strict(argv[i]);
 		i++;
 	}
-	if (has_duplicate(argc - 1, arr))
+	if (has_duplicates(argc - 1, arr))
 		return (free(arr), false);
 	return (free(arr), true);
 }
 
+// できれば配列が完成してからダブりチェックするのやめたい
+
 // int main() {
-//     printf("=== has_duplicate 関数のテスト ===\n\n");
+//     printf("=== has_duplicates 関数のテスト ===\n\n");
 
 //     typedef struct {
 //         int size;
@@ -91,11 +87,11 @@ bool	is_valid_arg(int argc, char **argv)
 
 //     for (int i = 0; i < num_tests; i++) {
 //         DuplicateTest tc = duptest[i];
-//         bool actual = has_duplicate(tc.size, tc.arr);
+//         bool actual = has_duplicates(tc.size, tc.arr);
 //         bool expected = tc.expected;
 
 //         if (actual == expected) {
-//             printf("Test %d: has_duplicate(", i + 1);
+//             printf("Test %d: has_duplicates(", i + 1);
 //             printf("size=%d, arr={", tc.size);
 //             for (int j = 0; j < tc.size; j++) {
 //                 printf("%d", tc.arr[j]);
@@ -105,7 +101,7 @@ bool	is_valid_arg(int argc, char **argv)
 //             printf("}) = %s [OK]\n", actual ? "true" : "false");
 //             passed++;
 //         } else {
-//             printf("Test %d: has_duplicate(", i + 1);
+//             printf("Test %d: has_duplicates(", i + 1);
 //             printf("size=%d, arr={", tc.size);
 //             for (int j = 0; j < tc.size; j++) {
 //                 printf("%d", tc.arr[j]);
@@ -133,7 +129,6 @@ bool	is_valid_arg(int argc, char **argv)
 //     } ValidArgTest;
 
 //     // Define test case descriptions
-//     char *desc1 = "No arguments";
 //     char *desc2 = "Single valid integer argument";
 //     char *desc3 = "Multiple valid integers without duplicates";
 //     char *desc4 = "Multiple valid integers with duplicates";
@@ -145,7 +140,6 @@ bool	is_valid_arg(int argc, char **argv)
 //     char *desc10 = "Negative integers with duplicates";
 
 //     // Define test case arguments
-//     char *args1[] = {};
 //     char *args2[] = {"42"};
 //     char *args3[] = {"1", "2", "3", "4", "5"};
 //     char *args4[] = {"1", "2", "3", "2"};
@@ -159,7 +153,6 @@ bool	is_valid_arg(int argc, char **argv)
 
 //     // Define test cases
 //     ValidArgTest test_cases[] = {
-//         {0, args1, true, desc1},
 //         {1, args2, true, desc2},
 //         {5, args3, true, desc3},
 //         {4, args4, false, desc4},
@@ -168,7 +161,7 @@ bool	is_valid_arg(int argc, char **argv)
 //         {4, args7, false, desc7},
 //         {10, args8, true, desc8},
 //         {5, args9, true, desc9},
-//         {4, args10, false, desc10},
+//         {5, args10, false, desc10},
 //     };
 
 //     int numtest_arg = sizeof(test_cases) / sizeof(test_cases[0]);
@@ -198,10 +191,3 @@ bool	is_valid_arg(int argc, char **argv)
 
 //     return 0;
 // }
-
-/*
-DOCS
-無効
-引数がintで表せない
-ダブりがある
-*/

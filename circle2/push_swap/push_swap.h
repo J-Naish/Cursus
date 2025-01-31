@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/01/31 08:05:19 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/31 10:10:40 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@
 # include <stdio.h>
 
 void	put_error(void);
-bool	is_int_string(const char *s);
+bool	is_int_string(const char *s, int *num);
 bool	is_sign(char c);
 size_t	ft_strlen(const char *s);
 int		atoi_strict(const char *s);
 bool	is_valid_arg(int argc, char **argv);
+void	quick_sort(int *arr, int size);
 
 #endif

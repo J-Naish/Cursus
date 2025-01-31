@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:22:21 by nash              #+#    #+#             */
-/*   Updated: 2025/01/31 07:44:21 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/31 10:05:33 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static bool	has_invalid_zero(const char *s)
 	return (false);
 }
 
-bool	is_int_string(const char *s)
+bool	is_int_string(const char *s, int *num)
 {
 	size_t		i;
 	long long	value;
@@ -91,6 +91,7 @@ bool	is_int_string(const char *s)
 			return (false);
 		i++;
 	}
+	*num = value;
 	return (true);
 }
 

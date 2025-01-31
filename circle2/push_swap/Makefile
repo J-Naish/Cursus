@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 05:10:22 by nash              #+#    #+#              #
-#    Updated: 2025/01/31 08:46:11 by nash             ###   ########.fr        #
+#    Updated: 2025/01/31 10:39:10 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS = atoi_strict.c\
 		is_valid_arg.c\
 		main.c\
 		put_error.c\
+		quick_sort.c\
 		utils.c
 OBJS = $(SRCS:.c=.o)
 

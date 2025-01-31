@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 09:26:52 by nash              #+#    #+#             */
-/*   Updated: 2025/01/31 09:55:12 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/31 10:40:46 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,6 @@ static void	swap(int *a, int *b)
 	temp = *a;
 	*a = *b;
 	*b = temp;
-}
-
-static int	median_of_three(int *arr, int low, int high)
-{
-	int	mid;
-
-	mid = low + (high - low) / 2;
-	if (arr[high] < arr[low])
-		swap(&arr[low], &arr[high]);
-	if (arr[mid] < arr[low])
-		swap(&arr[mid], &arr[low]);
-	if (arr[high] < arr[mid])
-		swap(&arr[high], &arr[mid]);
-	swap(&arr[mid], &arr[high - 1]);
-	return (arr[high - 1]);
 }
 
 static int	partition(int *arr, int low, int high)
