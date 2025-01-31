@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/01/31 10:10:40 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/31 11:10:47 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@
 # include <limits.h>
 
 # include <stdio.h>
+
+typedef struct t_node
+{
+	int				data;
+	struct t_node	*next;
+}	t_node;
 
 void	put_error(void);
 bool	is_int_string(const char *s, int *num);
