@@ -6,13 +6,13 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 07:51:43 by nash              #+#    #+#             */
-/*   Updated: 2025/01/31 08:34:39 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/31 09:06:17 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static bool	has_duplicate(int size, int *arr)
+static bool	has_duplicate(int size, const int *arr)
 {
 	int	i;
 	int	j;
@@ -37,21 +37,20 @@ bool	is_valid_arg(int argc, char **argv)
 	int	i;
 	int	*arr;
 
-	arr = (int *)malloc(argc * sizeof(int));
+	arr = (int *)malloc((argc - 1) * sizeof(int));
 	if (!arr)
-		return (NULL);
-	i = 0;
+		return (false);
+	i = 1;
 	while (i < argc)
 	{
 		if (!is_int_string(argv[i]))
-			return (false);
-		arr[i] = atoi_strict(argv[i]);
+			return (free(arr), false);
+		arr[i - 1] = atoi_strict(argv[i]);
 		i++;
 	}
-	if (has_duplicate(argc, arr))
+	if (has_duplicate(argc - 1, arr))
 		return (free(arr), false);
-	free(arr);
-	return (true);
+	return (free(arr), true);
 }
 
 // int main() {
