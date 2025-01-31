@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 07:51:43 by nash              #+#    #+#             */
-/*   Updated: 2025/01/31 11:00:17 by nash             ###   ########.fr       */
+/*   Updated: 2025/01/31 11:13:21 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,6 @@ bool	is_valid_arg(int argc, char **argv)
 //     char *args14[] = {"push_swap", "-2147483649"}; // INT_MIN - 1
 //     char *args15[] = {"push_swap", "0"};
 // 	char *args16[] = {"push_swap", "123", "3 4"};
-
 
 // 	ValidArgTestCase test_cases[] = {
 //         {desc1, 2, args1, true},
