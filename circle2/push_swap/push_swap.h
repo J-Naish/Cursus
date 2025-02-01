@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/01 19:56:34 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/01 21:14:30 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ size_t	ft_strlen(const char *s);
 int		atoi_strict(const char *s);
 bool	is_valid_arg(int argc, char **argv);
 void	quick_sort(int *arr, int size);
+void	putstack(t_node *head);
 
 #endif
