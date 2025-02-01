@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/01/31 11:10:47 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/01 19:56:34 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@
 
 typedef struct t_node
 {
-	int				data;
+	int				value;
 	struct t_node	*next;
+	struct t_node	*prev;
 }	t_node;
 
 void	put_error(void);
