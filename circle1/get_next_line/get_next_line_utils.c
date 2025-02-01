@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 03:30:57 by nash              #+#    #+#             */
-/*   Updated: 2025/01/29 22:10:56 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/01 15:37:56 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
+	if (!s)
+		return (0);
 	i = 0;
 	while (s[i])
 		i++;
@@ -29,6 +31,8 @@ static char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	i;
 	size_t	j;
 
+	if (!s1 || !s2)
+		return (NULL);
 	len = ft_strlen(s1) + ft_strlen(s2);
 	result = (char *)malloc((len + 1) * sizeof(char));
 	if (!result)
@@ -49,16 +53,16 @@ static char	*ft_strjoin(char const *s1, char const *s2)
 	return (result);
 }
 
-char	*ft_join_and_free(char *s1, char *s2)
+char	*ft_join_and_free(char *buffer, char *text)
 {
 	char	*result;
 
-	if (!s1)
+	if (!buffer)
 		return (NULL);
-	result = ft_strjoin(s1, s2);
+	result = ft_strjoin(buffer, text);
 	if (!result)
 		return (NULL);
-	free(s1);
+	free(buffer);
 	return (result);
 }
 
@@ -85,6 +89,8 @@ void	*ft_calloc(size_t count, size_t size)
 
 bool	ft_includes_newline(char *s)
 {
+	if (!s)
+		return (false);
 	while (*s)
 	{
 		if (*s == '\n')

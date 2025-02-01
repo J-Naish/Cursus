@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 02:21:26 by nash              #+#    #+#             */
-/*   Updated: 2025/01/29 22:16:10 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/01 19:22:54 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,11 @@ static char	*ft_get_text(int fd1, char *buffer)
 	{
 		bytes_read = read(fd1, text, BUFFER_SIZE * sizeof(char));
 		if (bytes_read < 0)
-		{
-			free(text);
-			return (NULL);
-		}
+			return (free(text), NULL);
 		text[bytes_read] = '\0';
 		buffer = ft_join_and_free(buffer, text);
+		if (!buffer)
+			return (free(text), NULL);
 		if (ft_includes_newline(text))
 			break ;
 	}
