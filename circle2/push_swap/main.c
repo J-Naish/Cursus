@@ -6,23 +6,11 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:35:29 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 04:01:38 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 05:05:58 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	sort1(void)
-{
-	exit(EXIT_SUCCESS);
-}
-
-void	sort2(char **argv)
-{
-	if (atoi_strict(argv[1]) > atoi_strict(argv[2]))
-		ft_putstr("sa\n");
-	exit(EXIT_SUCCESS);
-}
 
 int	main(int argc, char **argv)
 {
@@ -37,15 +25,15 @@ int	main(int argc, char **argv)
 		return (EXIT_SUCCESS);
 	}
 	if (argc == 2)
-		sort1();
-	else if (argc == 3)
-		sort2(argv);
+		exit(EXIT_SUCCESS);
 	stack_a = parse(argc, argv);
 	if (!stack_a)
 		return (EXIT_FAILURE);
 	stack_b = create_list();
 	if (!stack_b)
 		return (EXIT_FAILURE);
+	if (argc <= 6)
+		sort_sm(stack_a, stack_b, argc - 1);
 	putlist_as_stack(stack_a);
 	return (EXIT_SUCCESS);
 }
