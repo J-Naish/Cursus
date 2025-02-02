@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/02 18:30:56 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/02 19:42:05 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ typedef struct t_list
 {
 	t_node	*sentinel;
 }	t_list;
+
+t_list	*create_list(void);
+void	insert_after(t_node *node, int value);
+void	append(t_list *list, int value);
+void	remove(t_node *node);
+void	pop(t_list *list);
 
 void	put_error(void);
 bool	is_int_string(const char *s, int *num);
