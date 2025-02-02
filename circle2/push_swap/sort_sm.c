@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 05:01:43 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 06:17:20 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 06:21:15 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,30 @@ static void	sort2(t_list *list)
 
 static void	sort3(t_list *list)
 {
-	int	value1;
-	int	value2;
-	int	value3;
+	int	x;
+	int	y;
+	int	z;
 
-	value1 = list->sentinel->next->value;
-	value2 = list->sentinel->next->next->value;
-	value3 = list->sentinel->next->next->next->value;
-	if (value2 > value1 && value3 > value2)
+	x = list->sentinel->next->value;
+	y = list->sentinel->next->next->value;
+	z = list->sentinel->next->next->next->value;
+	if (y > x && z > y)
 		return ;
-	else if (value1 > value2 && value2 > value3)
+	else if (x > y && y > z)
 	{
 		sa(list);
 		rra(list);
 	}
-	else if (value1 > value3 && value3 > value2)
+	else if (x > z && z > y)
 		ra(list);
-	else if (value2 > value3 && value3 > value1)
+	else if (y > z && z > x)
 	{
 		sa(list);
 		ra(list);
 	}
-	else if (value2 > value1 && value1 > value3)
+	else if (y > x && x > z)
 		rra(list);
-	else if (value3 > value1 && value1 > value2)
+	else if (z > x && x > y)
 		sa(list);
 }
 
