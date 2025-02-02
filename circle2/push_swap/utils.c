@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 19:40:01 by nash              #+#    #+#             */
-/*   Updated: 2025/02/02 21:31:19 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 02:31:06 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_list	*create_list(void)
 	return (list);
 }
 
-void	insert_node(t_node *node, int value)
+static void	insert_node(t_node *node, int value)
 {
 	t_node	*new;
 
@@ -46,7 +46,7 @@ void	append_node(t_list *list, int value)
 	insert_node(list->sentinel->prev, value);
 }
 
-void	remove_node(t_node *node)
+static void	remove_node(t_node *node)
 {
 	if (!node)
 		return ;
