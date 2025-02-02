@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 09:27:20 by nash              #+#    #+#             */
-/*   Updated: 2025/02/02 19:52:36 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 02:17:38 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,25 @@ static int	atoi_strict(const char *s)
 	return (result * (-1 * sign));
 }
 
+t_list	*parse(int argc, char **argv)
+{
+	t_list	*list;
+	int		i;
+
+	if (argc < 2)
+		return (NULL);
+	list = create_list();
+	if (!list)
+		return (NULL);
+	i = 1;
+	while (i < argc)
+	{
+		append_node(list, atoi_strict(argv[i]));
+		i++;
+	}
+	return (list);
+}
+
 // void testAtoiStrict(const char *s) {
 //   int result = atoi_strict(s);
 //   int expected = atoi(s);
@@ -56,13 +75,14 @@ static int	atoi_strict(const char *s)
 //   testAtoiStrict("2147483647");
 //   testAtoiStrict("-2147483648");
 
-//   printf("\n\n=== create_node 関数のテスト ===\n\n");
-//   int createNodeTests[] = {
-// 	42, 1, -5311, 0, 345, INT_MAX, INT_MIN
+//   char* testArgv[] = {
+// 	"./push_swap",
+// 	"42", "0", "-42", "12345", "-98765",
+// 	"2147483647", "-2147483648"
 //   };
-//   for (int i = 0; i < sizeof(createNodeTests) / sizeof(int); i++) {
-// 	testCreateNode(createNodeTests[i]);
-//   }
+
+//   t_list* list = parse(8, testArgv);
+//   putlist(list);
 
 //   return 0;
 // }
