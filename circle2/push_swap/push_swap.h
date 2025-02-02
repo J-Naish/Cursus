@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 01:15:43 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 01:20:17 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	pop_node(t_list *list);
 
 void	putnode(t_node *node);
 void	putlist(t_list *list);
+void	putlist_as_stack(t_list *list);
 t_list	*create_test_list(void);
 
 void	put_error(void);
