@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 00:15:04 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 01:40:10 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 04:46:47 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static void	push(t_list *to, t_list *from)
 		return ;
 	if (from->sentinel->next == from->sentinel)
 		return ;
-	value = from->sentinel->prev->value;
-	pop_node(from);
-	append_node(to, value);
+	value = from->sentinel->next->value;
+	shift_node(from);
+	prepend_node(to, value);
 }
 
 void	pa(t_list *list_a, t_list *list_b)
