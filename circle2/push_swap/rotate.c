@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 01:13:54 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 02:03:00 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 04:53:23 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	rotate(t_list *list)
 {
 	t_node	*last;
 	t_node	*first;
-	t_node	*new_last;
+	t_node	*new_first;
 
 	if (!list)
 		return ;
@@ -25,13 +25,12 @@ static void	rotate(t_list *list)
 		return ;
 	last = list->sentinel->prev;
 	first = list->sentinel->next;
-	new_last = last->prev;
-	new_last->next = list->sentinel;
-	list->sentinel->prev = new_last;
-	list->sentinel->next = last;
-	last->next = first;
-	last->prev = list->sentinel;
+	new_first = first->next;
+	first->next = list->sentinel;
 	first->prev = last;
+	list->sentinel->prev = first;
+	list->sentinel->next = new_first;
+	last->next = first;
 }
 
 void	ra(t_list *list)
