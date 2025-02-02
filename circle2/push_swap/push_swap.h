@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/02 19:42:05 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/02 19:51:30 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,14 @@ void	append(t_list *list, int value);
 void	remove(t_node *node);
 void	pop(t_list *list);
 
+void	putnode(t_node *node);
+void	putlist(t_list *list);
+
 void	put_error(void);
 bool	is_int_string(const char *s, int *num);
 bool	is_sign(char c);
 size_t	ft_strlen(const char *s);
 bool	is_valid_arg(int argc, char **argv);
 void	quick_sort(int *arr, int size);
-void	putstack(t_node *head);
 
 #endif

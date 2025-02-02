@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:27:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/01 21:14:13 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/02 19:52:01 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,25 @@ static void	putint(int num)
 	}
 }
 
-void	putstack(t_node *head)
+void	putnode(t_node *node)
 {
-	struct t_node	*tmp;
+	if (!node)
+		return ;
+	putint(node->value);
+	ft_putchar('\n');
+}
 
-	tmp = head;
-	while (tmp)
+void	putlist(t_list *list)
+{
+	t_node	*current;
+
+	if (!list)
+		return ;
+	current = list->sentinel->next;
+	while (current != list->sentinel)
 	{
-		putint(tmp->value);
-		ft_putchar('\n');
-		tmp = tmp->next;
+		putnode(current);
+		current = current->next;
 	}
 }
 
