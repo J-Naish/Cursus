@@ -1,24 +1,26 @@
-# All projects in 42 Tokyo Cursus  
+# 42 Tokyo Cursus
 
-## Entrance Ceremony  
+## Entrance Ceremony
 2024/04/15  
 
-
-## Libft  
+## Circle 0
+### Libft
 2024/04/15~2024/05/22  
 
-## ft_printf  
+## Circle 1
+### ft_printf
 2024/05/09~2025/01-27  
-### 改善点  
-- %１個のみの入力の処理  
-- オーバーフロー・アンダーフローをテストケースに入れるべき  
-- printfの引数にNULLがきた時用のガードを入れる  
-
-## get_next_line  
+### get_next_line  
 2025/01/19~2025/02/02  
-
-## Born2beroot  
+### Born2beroot  
 2025/01/23~  2025/02/01  
+
+## Circle 2
+### push_swap
+2025/02/02~  
+### pipex
+
+### so_long
 
 
 # After Common Core
