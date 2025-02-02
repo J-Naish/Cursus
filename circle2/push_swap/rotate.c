@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 01:13:54 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 01:56:04 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 02:03:00 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ static void	rotate(t_list *list)
 	new_last = last->prev;
 	new_last->next = list->sentinel;
 	list->sentinel->prev = new_last;
+	list->sentinel->next = last;
 	last->next = first;
 	last->prev = list->sentinel;
 	first->prev = last;
-	list->sentinel->next = last;
 }
 
 void	ra(t_list *list)

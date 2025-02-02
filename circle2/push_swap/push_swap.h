@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 01:35:09 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 02:04:51 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,10 @@ void	ss(t_list *list_a, t_list *list_b);
 
 void	pa(t_list *list_a, t_list *list_b);
 void	pb(t_list *list_a, t_list *list_b);
+
+void	ra(t_list *list);
+void	rb(t_list *list);
+void	rr(t_list *list_a, t_list *list_b);
 
 bool	is_int_string(const char *s, int *num);
 bool	is_sign(char c);
