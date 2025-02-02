@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:27:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 01:15:54 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 01:19:15 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,21 @@ void	putlist(t_list *list)
 			ft_putchar(',');
 			ft_putchar(' ');
 		}
+	}
+}
+
+void	putlist_as_stack(t_list *list)
+{
+	t_node	*current;
+
+	if (!list)
+		return ;
+	current = list->sentinel->prev;
+	while (current != list->sentinel)
+	{
+		putnode(current);
+		current = current->prev;
+		ft_putchar('\n');
 	}
 }
 
