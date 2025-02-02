@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/02 19:51:30 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/02 19:54:00 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	putnode(t_node *node);
 void	putlist(t_list *list);
 
 void	put_error(void);
+
 bool	is_int_string(const char *s, int *num);
 bool	is_sign(char c);
 size_t	ft_strlen(const char *s);
