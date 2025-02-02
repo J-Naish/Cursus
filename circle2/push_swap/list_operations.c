@@ -6,26 +6,11 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 19:40:01 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 04:37:22 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 05:18:40 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_list	*create_list(void)
-{
-	t_list	*list;
-
-	list = (t_list *)malloc(sizeof(t_list));
-	if (!list)
-		return (NULL);
-	list->sentinel = (t_node *)malloc(sizeof(t_node));
-	if (!list->sentinel)
-		return (free(list), NULL);
-	list->sentinel->next = list->sentinel;
-	list->sentinel->prev = list->sentinel;
-	return (list);
-}
 
 void	prepend_node(t_list *list, int value)
 {
