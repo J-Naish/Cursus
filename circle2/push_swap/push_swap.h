@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 01:12:51 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 01:15:43 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,10 @@ void	pb(t_list *list_a, t_list *list_b);
 
 bool	is_int_string(const char *s, int *num);
 bool	is_sign(char c);
+
 size_t	ft_strlen(const char *s);
+void	ft_putchar(char c);
+
 bool	is_valid_arg(int argc, char **argv);
 void	quick_sort(int *arr, int size);
 

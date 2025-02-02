@@ -6,16 +6,11 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:27:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 00:10:47 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 01:15:54 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	ft_putchar(char c)
-{
-	write(STDOUT_FILENO, &c, 1);
-}
 
 static void	putint(int num)
 {
