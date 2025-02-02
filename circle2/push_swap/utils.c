@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 19:40:01 by nash              #+#    #+#             */
-/*   Updated: 2025/02/02 21:23:54 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/02 21:29:33 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	insert_node(t_node *node, int value)
 	new->next = node->next;
 	new->prev = node;
 	node->next->prev = new;
-	node->prev->next = new;
+	node->next = new;
 }
 
 void	append_node(t_list *list, int value)
@@ -60,18 +60,18 @@ void	pop_node(t_list *list)
 	remove_node(list->sentinel->prev);
 }
 
-// int main() {
-//   t_list* list = create_list();
-//   if (!list) perror("malloc fails");
+int main() {
+  t_list* list = create_list();
+  if (!list) perror("malloc fails");
 
-//   int nums[] = {
-// 	0, -1, 1, 42, -42, 12345, -67890, INT_MIN, INT_MAX
-//   };
+  int nums[] = {
+	0, -1, 1, 42, -42, 12345, -67890, INT_MIN, INT_MAX
+  };
 
-//   for (int i = 0; i < sizeof(nums) / sizeof(int); i++) {
-// 	append_node(list, nums[i]);
-//   }
+  for (int i = 0; i < sizeof(nums) / sizeof(int); i++) {
+	append_node(list, nums[i]);
+  }
 
-//   putlist(list);
+  putlist(list);
 
-// }
+}
