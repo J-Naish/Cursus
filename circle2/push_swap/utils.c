@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 19:40:01 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 04:32:45 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 04:37:22 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,15 +97,21 @@ void	pop_node(t_list *list)
 //   };
 
 //   for (int i = 0; i < sizeof(nums) / sizeof(int); i++) {
-// 	prepend_node(list, nums[i]);
+// 	append_node(list, nums[i]);
 //   }
 
 //   putlist(list);
-
 //   printf("\n");
 
 //   pop_node(list);
+//   putlist(list);
+//   printf("\n");
 
+//   prepend_node(list, 100);
+//   putlist(list);
+//   printf("\n");
+
+//   shift_node(list);
 //   putlist(list);
 //   printf("\n");
 
