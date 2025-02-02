@@ -6,13 +6,13 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 09:27:20 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 02:17:38 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 03:57:29 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	atoi_strict(const char *s)
+int	atoi_strict(const char *s)
 {
 	size_t	i;
 	int		result;

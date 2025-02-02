@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 02:30:51 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 03:57:38 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ bool	is_sign(char c);
 bool	is_valid_arg(int argc, char **argv);
 void	quick_sort(int *arr, int size);
 
+int		atoi_strict(const char *s);
 t_list	*parse(int argc, char **argv);
 
 #endif
