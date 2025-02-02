@@ -6,19 +6,25 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 05:10:22 by nash              #+#    #+#              #
-#    Updated: 2025/01/31 10:39:10 by nash             ###   ########.fr        #
+#    Updated: 2025/02/03 02:24:26 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
-SRCS = atoi_strict.c\
+SRCS = debug.c\
+		error.c\
 		is_int_string.c\
 		is_valid_arg.c\
+		libft.c\
 		main.c\
-		put_error.c\
+		parse.c\
+		push.c\
 		quick_sort.c\
+		reverse_rotate.c\
+		rotate.c\
+		swap.c\
 		utils.c
 OBJS = $(SRCS:.c=.o)
 

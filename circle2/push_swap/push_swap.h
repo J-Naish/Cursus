@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 02:07:33 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 02:21:39 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ void	append_node(t_list *list, int value);
 void	remove_node(t_node *node);
 void	pop_node(t_list *list);
 
+size_t	ft_strlen(const char *s);
+void	ft_putchar(char c);
+void	ft_putstr(const char *s);
+
 void	putnode(t_node *node);
 void	putlist(t_list *list);
 void	putlist_as_stack(t_list *list);
@@ -64,11 +68,9 @@ void	rrr(t_list *list_a, t_list *list_b);
 bool	is_int_string(const char *s, int *num);
 bool	is_sign(char c);
 
-size_t	ft_strlen(const char *s);
-void	ft_putchar(char c);
-void	ft_putstr(const char *s);
-
 bool	is_valid_arg(int argc, char **argv);
 void	quick_sort(int *arr, int size);
+
+t_list	*parse(int argc, char **argv);
 
 #endif
