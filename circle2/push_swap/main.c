@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:35:29 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 02:34:38 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 02:37:09 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int	main(int argc, char **argv)
 	stack_b = create_list();
 	if (!stack_b)
 		return (EXIT_FAILURE);
-	putstack_a_as_stack(stack_a);
+	putlist_as_stack(stack_a);
 	return (EXIT_SUCCESS);
 }
