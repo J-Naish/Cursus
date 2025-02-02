@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:05:24 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 00:13:41 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 01:40:41 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,20 @@ static void	swap(t_list *list)
 void	sa(t_list *list)
 {
 	swap(list);
-	write(STDOUT_FILENO, "sa\n", 3);
+	ft_putstr("sa\n");
 }
 
 void	sb(t_list *list)
 {
 	swap(list);
-	write(STDOUT_FILENO, "sb\n", 3);
+	ft_putstr("sb\n");
 }
 
 void	ss(t_list *list_a, t_list *list_b)
 {
 	swap(list_a);
 	swap(list_b);
-	write(STDOUT_FILENO, "ss\n", 3);
+	ft_putstr("ss\n");
 }
 
 // int main() {

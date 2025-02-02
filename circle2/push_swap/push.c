@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 00:15:04 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 01:12:35 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 01:40:10 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ static void	push(t_list *to, t_list *from)
 void	pa(t_list *list_a, t_list *list_b)
 {
 	push(list_a, list_b);
-	write(STDOUT_FILENO, "pa\n", 3);
+	ft_putstr("pa\n");
 }
 
 void	pb(t_list *list_a, t_list *list_b)
 {
 	push(list_b, list_a);
-	write(STDOUT_FILENO, "pb\n", 3);
+	ft_putstr("pb\n");
 }
 
 // int main() {

@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:18:43 by nash              #+#    #+#             */
-/*   Updated: 2025/02/02 19:53:37 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 01:39:36 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	put_error(void)
 {
-	write(STDERR_FILENO, "Error\n", 6);
+	ft_putstr("Error\n");
 }
 
 // int main()
