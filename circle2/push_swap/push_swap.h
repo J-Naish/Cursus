@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 00:13:33 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 01:12:51 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,9 @@ void	put_error(void);
 void	sa(t_list *list);
 void	sb(t_list *list);
 void	ss(t_list *list_a, t_list *list_b);
+
+void	pa(t_list *list_a, t_list *list_b);
+void	pb(t_list *list_a, t_list *list_b);
 
 bool	is_int_string(const char *s, int *num);
 bool	is_sign(char c);
