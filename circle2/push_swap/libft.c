@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 06:11:22 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 01:21:26 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 01:38:30 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,14 @@ size_t	ft_strlen(const char *s)
 void	ft_putchar(char c)
 {
 	write(STDOUT_FILENO, &c, 1);
+}
+
+void	ft_putstr(const char *s)
+{
+	size_t	len;
+
+	if (!s)
+		return ;
+	len = ft_strlen(s);
+	write(STDOUT_FILENO, s, len);
 }

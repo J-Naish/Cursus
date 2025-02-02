@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 01:20:17 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 01:35:09 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ bool	is_sign(char c);
 
 size_t	ft_strlen(const char *s);
 void	ft_putchar(char c);
+void	ft_putstr(const char *s);
 
 bool	is_valid_arg(int argc, char **argv);
 void	quick_sort(int *arr, int size);
