@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 03:57:38 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 04:33:22 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ typedef struct t_list
 }	t_list;
 
 t_list	*create_list(void);
+void	prepend_node(t_list *list, int value);
 void	append_node(t_list *list, int value);
+void	shift_node(t_list *list);
 void	pop_node(t_list *list);
 
 size_t	ft_strlen(const char *s);

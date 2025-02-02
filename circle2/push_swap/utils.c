@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 19:40:01 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 04:22:06 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 04:32:45 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,24 @@ t_list	*create_list(void)
 	return (list);
 }
 
+void	prepend_node(t_list *list, int value)
+{
+	t_node	*new;
+	t_node	*first;
+
+	if (!list)
+		return ;
+	new = (t_node *)malloc(sizeof(t_node));
+	if (!new)
+		return ;
+	first = list->sentinel->next;
+	new->value = value;
+	new->next = first;
+	new->prev = list->sentinel;
+	list->sentinel->next = new;
+	first->prev = new;
+}
+
 void	append_node(t_list *list, int value)
 {
 	t_node	*new;
@@ -45,6 +63,18 @@ void	append_node(t_list *list, int value)
 	last->next = new;
 }
 
+void	shift_node(t_list *list)
+{
+	t_node	*first;
+
+	if (!list)
+		return ;
+	first = list->sentinel->next;
+	first->next->prev = list->sentinel;
+	list->sentinel->next = first->next;
+	free(first);
+}
+
 void	pop_node(t_list *list)
 {
 	t_node	*last;
@@ -57,25 +87,26 @@ void	pop_node(t_list *list)
 	free(last);
 }
 
-int main() {
-  t_list* list = create_list();
-  if (!list) perror("malloc fails");
+// int main() {
+//   t_list* list = create_list();
+//   if (!list) perror("malloc fails");
 
-  int nums[] = {
-	0, -1, 1, 42, -42, 12345, -67890, INT_MIN, INT_MAX
-  };
+//   int nums[] = {
+// 	0, -1, 1, 42, -42, 12345, -67890, INT_MIN, INT_MAX,
+// 	534, 356, 8901, -8532, 573
+//   };
 
-  for (int i = 0; i < sizeof(nums) / sizeof(int); i++) {
-	append_node(list, nums[i]);
-  }
+//   for (int i = 0; i < sizeof(nums) / sizeof(int); i++) {
+// 	prepend_node(list, nums[i]);
+//   }
 
-  putlist(list);
+//   putlist(list);
 
-  printf("\n");
+//   printf("\n");
 
-  pop_node(list);
+//   pop_node(list);
 
-  putlist(list);
-  printf("\n");
+//   putlist(list);
+//   printf("\n");
 
-}
+// }
