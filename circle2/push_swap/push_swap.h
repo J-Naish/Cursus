@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/01 21:14:30 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/02 18:30:56 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,15 @@ typedef struct t_node
 	struct t_node	*prev;
 }	t_node;
 
+typedef struct t_list
+{
+	t_node	*sentinel;
+}	t_list;
+
 void	put_error(void);
 bool	is_int_string(const char *s, int *num);
 bool	is_sign(char c);
 size_t	ft_strlen(const char *s);
-int		atoi_strict(const char *s);
 bool	is_valid_arg(int argc, char **argv);
 void	quick_sort(int *arr, int size);
 void	putstack(t_node *head);
