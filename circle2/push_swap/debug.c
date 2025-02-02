@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:27:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/02 19:52:01 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 00:10:47 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	putnode(t_node *node)
 	if (!node)
 		return ;
 	putint(node->value);
-	ft_putchar('\n');
 }
 
 void	putlist(t_list *list)
@@ -57,7 +56,30 @@ void	putlist(t_list *list)
 	{
 		putnode(current);
 		current = current->next;
+		if (current != list->sentinel)
+		{
+			ft_putchar(',');
+			ft_putchar(' ');
+		}
 	}
+}
+
+t_list	*create_test_list(void)
+{
+	t_list	*list;
+
+	list = create_list();
+	if (!list)
+		return (NULL);
+	append_node(list, 42);
+	append_node(list, -42);
+	append_node(list, 123);
+	append_node(list, 0);
+	append_node(list, 12345);
+	append_node(list, -67890);
+	append_node(list, INT_MAX);
+	append_node(list, INT_MIN);
+	return (list);
 }
 
 // int main() {

@@ -6,44 +6,83 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:05:24 by nash              #+#    #+#             */
-/*   Updated: 2025/02/01 21:33:24 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 00:13:41 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_node *head)
+static void	swap(t_list *list)
 {
-	struct t_node	*first;
-	struct t_node	*second;
+	t_node	*first;
+	t_node	*second;
+	int		temp;
 
-	if (!head || !head->next)
-		return (head);
-	first = head;
-	second = head->next;
-	if (second->next)
-		second->next->prev = first;
-	first->next = second->next;
-	second->prev = first->prev;
-	second->next = first;
-	first->prev = second;
+	if (!list)
+		return ;
+	if (list->sentinel->next == list->sentinel
+		|| list->sentinel->next->next == list->sentinel)
+		return ;
+	first = list->sentinel->next;
+	second = first->next;
+	temp = first->value;
+	first->value = second->value;
+	second->value = temp;
 }
 
-void	sa(t_node *a_head)
+void	sa(t_list *list)
 {
-	swap(a_head);
-	write(STDOUT_FILENO, "sa", 2);
+	swap(list);
+	write(STDOUT_FILENO, "sa\n", 3);
 }
 
-void	sb(t_node *b_head)
+void	sb(t_list *list)
 {
-	swap(b_head);
-	write(STDOUT_FILENO, "sb", 2);
+	swap(list);
+	write(STDOUT_FILENO, "sb\n", 3);
 }
 
-void	ss(t_node *a_head, t_node *b_head)
+void	ss(t_list *list_a, t_list *list_b)
 {
-	swap(a_head);
-	swap(b_head);
-	write(STDOUT_FILENO, "ss", 2);
+	swap(list_a);
+	swap(list_b);
+	write(STDOUT_FILENO, "ss\n", 3);
 }
+
+// int main() {
+// 	t_list *testA = create_test_list();
+// 	printf("initial list a:\n");
+// 	putlist(testA);
+// 	printf("\n");
+// 	sa(testA);
+// 	printf("list a after sa:\n");
+// 	putlist(testA);
+// 	printf("\n\n");
+
+// 	t_list *testB = create_test_list();
+// 	printf("initial list b:\n");
+// 	putlist(testB);
+// 	sa(testB);
+// 	printf("\n");
+// 	printf("list a after sb:\n");
+// 	putlist(testB);
+// 	printf("\n\n");
+
+// 	printf("before ss:\n");
+// 	printf("list a:\n");
+// 	putlist(testA);
+// 	printf("\n");
+// 	printf("list b:\n");
+// 	putlist(testB);
+// 	printf("\n");
+
+// 	ss(testA, testB);
+
+// 	printf("after ss:\n");
+// 	printf("list a:\n");
+// 	putlist(testA);
+// 	printf("\n");
+// 	printf("list b:\n");
+// 	putlist(testB);
+// 	printf("\n");
+// }
