@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 02:21:26 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 16:50:24 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 17:00:58 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static char	*ft_get_text(int fd1, char *buffer)
 	bytes_read = 1;
 	while (bytes_read > 0)
 	{
-		bytes_read = read(fd1, text, BUFFER_SIZE * sizeof(char));
+		bytes_read = read(fd1, text, BUFFER_SIZE);
 		if (bytes_read < 0)
 			return (free(text), NULL);
 		text[bytes_read] = '\0';

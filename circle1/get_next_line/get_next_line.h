@@ -6,13 +6,16 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 03:30:51 by nash              #+#    #+#             */
-/*   Updated: 2025/01/29 22:12:20 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 16:56:40 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
-
 # define GET_NEXT_LINE_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -20,10 +23,6 @@
 # include <stdio.h>
 # include <stdbool.h>
 # include <stdint.h>
-
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
 
 char	*get_next_line(int fd);
 char	*ft_join_and_free(char *s1, char *s2);
