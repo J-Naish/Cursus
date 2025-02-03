@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 05:10:22 by nash              #+#    #+#              #
-#    Updated: 2025/02/03 05:31:01 by nash             ###   ########.fr        #
+#    Updated: 2025/02/04 04:04:44 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS = debug.c\
 		libft.c\
 		list_management.c\
 		list_operations.c\
+		list_utils.c\
 		main.c\
 		parse.c\
 		push.c\
