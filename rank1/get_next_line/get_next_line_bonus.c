@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 02:21:26 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 17:00:58 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/04 03:10:09 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,29 +115,34 @@ char	*get_next_line(int fd)
 // int	main()
 // {
 // 	int fd1 = open("test1.txt", O_RDONLY);
-//   int fd2 = open("test2.txt", O_RDONLY);
+// 	int fd2 = open("test2.txt", O_RDONLY);
 // 	if (fd1 < 0 || fd2 < 0)
 // 	{
 // 		perror("open failed\n");
 // 		return 1;
 // 	}
 
-// 	char *first_line1 = get_next_line(fd1);
-// 	printf("first line1: %s\n", first_line1);
-//   free(first_line1);
+// 	while (1) {
+// 		char *line = get_next_line(fd1);
+// 		printf("%s\n", line);
+// 		if (!line) {
+// 			free(line);
+// 			break;
+// 		}
+// 		free(line);
+// 	}
 
-// 	char *second_line1 = get_next_line(fd1);
-// 	printf("second line1: %s\n", second_line1);
-//   free(second_line1);
-
-//   char *first_line2 = get_next_line(fd2);
-//   printf("first line2: %s\n", first_line2);
-//   free(first_line2);
-
-//   char *second_line2 = get_next_line(fd2);
-//   printf("second line2: %s\n", second_line2);
-//   free(second_line2);
+// 	while (1) {
+// 		char *line = get_next_line(fd2);
+// 		printf("%s\n", line);
+// 		if (!line) {
+// 			free(line);
+// 			break;
+// 		}
+// 		free(line);
+// 	}
 
 // 	close(fd1);
+// 	close(fd2);
 // 	return (0);
 // }

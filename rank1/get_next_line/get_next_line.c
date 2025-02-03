@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 03:30:54 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 17:00:37 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/04 03:10:13 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,17 +118,15 @@ char	*get_next_line(int fd)
 // 		return 1;
 // 	}
 
-// 	char *first_line = get_next_line(fd);
-// 	printf("\nfirst line:\n %s\n", first_line);
-//   free(first_line);
-
-// 	char *second_line = get_next_line(fd);
-// 	printf("second line:\n %s\n", second_line);
-//   free(second_line);
-
-// 	char *third_line = get_next_line(fd);
-// 	printf("third line:\n %s\n", third_line);
-//   free(third_line);
+// 	while (1) {
+// 		char *line = get_next_line(fd);
+// 		printf("%s\n", line);
+// 		if (!line) {
+// 			free(line);
+// 			break;
+// 		}
+// 		free(line);
+// 	}
 
 // 	close(fd);
 // 	return (0);
