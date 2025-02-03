@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   temp.c                                             :+:      :+:    :+:   */
+/*   list_management.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 05:18:26 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 05:24:36 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/04 03:57:30 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,3 +44,26 @@ void	free_list(t_list *list)
 	free(list->sentinel);
 	free(list);
 }
+
+size_t	get_list_size(t_list *list)
+{
+	t_node	*current;
+	size_t	len;
+
+	if (!list || list->sentinel->next == list->sentinel)
+		return (0);
+	current = list->sentinel->next;
+	len = 0;
+	while (current != list->sentinel)
+	{
+		len++;
+		current = current->next;
+	}
+	return (len);
+}
+
+// int main() {
+// 	t_list *list = create_test_list();
+// 	size_t size = get_list_size(list);
+// 	printf("%zu\n", size);
+// }
