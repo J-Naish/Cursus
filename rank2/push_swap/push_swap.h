@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/04 04:30:38 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/04 04:46:15 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	pop_node(t_list *list);
 t_node	*get_min_node(t_list *list);
 int		get_index(t_list *list, t_node *node);
 void	move_node_to_top(t_list *list, t_node *node, char stack_name);
+void	move_min_to_top(t_list *list, char stack_name);
 int		get_list_size(t_list *list);
 
 size_t	ft_strlen(const char *s);

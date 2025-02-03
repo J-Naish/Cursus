@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 06:39:59 by nash              #+#    #+#             */
-/*   Updated: 2025/02/04 04:31:40 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/04 04:46:03 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,16 @@ void	move_node_to_top(t_list *list, t_node *node, char stack_name)
 		while (j++ < size - index)
 			rrotate_put(list, stack_name);
 	}
+}
+
+void	move_min_to_top(t_list *list, char stack_name)
+{
+	t_node	*min_node;
+
+	min_node = get_min_node(list);
+	if (!min_node)
+		return ;
+	move_node_to_top(list, min_node, stack_name);
 }
 
 // int main() {
