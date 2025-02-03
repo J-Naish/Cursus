@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 01:13:54 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 04:53:23 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/04 04:28:26 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,22 @@ static void	rotate(t_list *list)
 	last->next = first;
 }
 
-void	ra(t_list *list)
+void	rotate_put(t_list *list, char stack_name)
 {
 	rotate(list);
-	ft_putstr("ra\n");
+	ft_putchar('r');
+	ft_putchar(stack_name);
+	ft_putchar('\n');
+}
+
+void	ra(t_list *list)
+{
+	rotate_put(list, 'a');
 }
 
 void	rb(t_list *list)
 {
-	rotate(list);
-	ft_putstr("rb\n");
+	rotate_put(list, 'b');
 }
 
 void	rr(t_list *list_a, t_list *list_b)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_find.c                                        :+:      :+:    :+:   */
+/*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 06:39:59 by nash              #+#    #+#             */
-/*   Updated: 2025/02/04 04:02:43 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/04 04:31:40 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,48 @@ int	get_index(t_list *list, t_node *node)
 	return (-1);
 }
 
+int	get_list_size(t_list *list)
+{
+	t_node	*current;
+	int		len;
+
+	if (!list || list->sentinel->next == list->sentinel)
+		return (0);
+	current = list->sentinel->next;
+	len = 0;
+	while (current != list->sentinel)
+	{
+		len++;
+		current = current->next;
+	}
+	return (len);
+}
+
+void	move_node_to_top(t_list *list, t_node *node, char stack_name)
+{
+	int	index;
+	int	size;
+	int	j;
+
+	if (!list || !node)
+		return ;
+	size = get_list_size(list);
+	index = get_index(list, node);
+	if (size == 0 || index == -1)
+		return ;
+	j = 0;
+	if (index <= size / 2)
+	{
+		while (j++ < index)
+			rotate_put(list, stack_name);
+	}
+	else
+	{
+		while (j++ < size - index)
+			rrotate_put(list, stack_name);
+	}
+}
+
 // int main() {
 // 	t_list *list = create_test_list();
 
@@ -59,4 +101,11 @@ int	get_index(t_list *list, t_node *node)
 // 	ft_putstr("\n");
 // 	int minIndex = get_index(list, minNode);
 // 	printf("%d\n", minIndex);
+
+// 	size_t size = get_list_size(list);
+// 	printf("%zu\n", size);
+
+// 	move_node_to_top(list, minNode, 'a');
+// 	ft_putstr("\n");
+// 	putlist_as_stack(list);
 // }

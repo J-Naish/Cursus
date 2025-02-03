@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 01:56:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 04:57:14 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/04 04:27:08 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,22 @@ static void	reverse_rotate(t_list *list)
 	new_last->next = list->sentinel;
 }
 
-void	rra(t_list *list)
+void	rrotate_put(t_list *list, char stack_name)
 {
 	reverse_rotate(list);
-	ft_putstr("rra\n");
+	ft_putstr("rr");
+	ft_putchar(stack_name);
+	ft_putchar('\n');
+}
+
+void	rra(t_list *list)
+{
+	rrotate_put(list, 'a');
 }
 
 void	rrb(t_list *list)
 {
-	reverse_rotate(list);
-	ft_putstr("rrb\n");
+	rrotate_put(list, 'b');
 }
 
 void	rrr(t_list *list_a, t_list *list_b)
