@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 02:21:26 by nash              #+#    #+#             */
-/*   Updated: 2025/02/01 19:22:54 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/03 16:50:24 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ static char	*ft_save_text(char *buffer)
 		return (NULL);
 	}
 	save = (char *)ft_calloc(ft_strlen(buffer) - i + 1, sizeof(char));
+	if (!save)
+		return (NULL);
 	i++;
 	j = 0;
 	while (buffer[i + j])
