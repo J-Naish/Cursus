@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 05:01:43 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 06:21:15 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/04 02:59:41 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ static void	sort3(t_list *list)
 	else if (z > x && x > y)
 		sa(list);
 }
+
+
 
 void	sort_sm(t_list *list_a, t_list *list_b, int size)
 {
