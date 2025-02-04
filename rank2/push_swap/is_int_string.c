@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:22:21 by nash              #+#    #+#             */
-/*   Updated: 2025/01/31 10:05:33 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/04 17:55:41 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ bool	is_int_string(const char *s, int *num)
 			return (false);
 		i++;
 	}
-	*num = value;
+	*num = value * sign;
 	return (true);
 }
 
