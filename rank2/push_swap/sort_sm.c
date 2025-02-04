@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 05:01:43 by nash              #+#    #+#             */
-/*   Updated: 2025/02/04 04:56:02 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/04 16:20:11 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	sort2(t_list *list)
 		sa(list);
 }
 
-static void	sort3(t_list *list)
+static void	sort3(t_list *list, char stack_name)
 {
 	int	x;
 	int	y;
@@ -31,20 +31,20 @@ static void	sort3(t_list *list)
 		return ;
 	else if (x > y && y > z)
 	{
-		sa(list);
-		rra(list);
+		swap_put(list, stack_name);
+		rrotate_put(list, stack_name);
 	}
 	else if (x > z && z > y)
-		ra(list);
+		rotate_put(list, stack_name);
 	else if (y > z && z > x)
 	{
-		sa(list);
+		swap_put(list, stack_name);
 		ra(list);
 	}
 	else if (y > x && x > z)
-		rra(list);
+		rrotate_put(list, stack_name);
 	else if (z > x && x > y)
-		sa(list);
+		swap_put(list, stack_name);
 }
 
 static void	sort6(t_list *list_a, t_list *list_b, int size)
@@ -58,7 +58,7 @@ static void	sort6(t_list *list_a, t_list *list_b, int size)
 		pb(list_a, list_b);
 		pushed += 1;
 	}
-	sort3(list_a);
+	sort3(list_a, 'a');
 	while (pushed)
 	{
 		pa(list_a, list_b);
@@ -77,7 +77,7 @@ void	sort_sm(t_list *list_a, t_list *list_b, int size)
 	else if (size == 2)
 		sort2(list_a);
 	else if (size == 3)
-		sort3(list_a);
+		sort3(list_a, 'a');
 	else
 		sort6(list_a, list_b, size);
 	free_list(list_a);
