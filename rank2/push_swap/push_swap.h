@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/04 04:46:15 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/04 16:17:22 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ t_list	*create_test_list(void);
 
 void	put_error(void);
 
+void	swap_put(t_list *list, char stack_name);
 void	sa(t_list *list);
 void	sb(t_list *list);
 void	ss(t_list *list_a, t_list *list_b);
