@@ -6,106 +6,106 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 03:30:54 by nash              #+#    #+#             */
-/*   Updated: 2025/02/04 03:10:13 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/12 22:42:00 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*ft_get_text(int fd, char *buffer)
+static char	*join_free(char *buffer, char *text)
 {
-	char	*text;
-	ssize_t	bytes_read;
+	char	*result;
 
-	text = (char *)ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	if (!text)
-		return (NULL);
-	bytes_read = 1;
-	while (bytes_read > 0)
-	{
-		bytes_read = read(fd, text, BUFFER_SIZE);
-		if (bytes_read < 0)
-			return (free(text), NULL);
-		text[bytes_read] = '\0';
-		buffer = ft_join_and_free(buffer, text);
-		if (!buffer)
-			return (free(text), NULL);
-		if (ft_includes_newline(text))
-			break ;
-	}
-	free(text);
-	return (buffer);
+	result = ft_strjoin(buffer, text);
+	if (!result)
+		return (free(buffer), free(text), NULL);
+	free(buffer);
+	return (result);
 }
 
-static char	*ft_extract_line(char *buffer)
+static char	*save_rest(char *buffer)
 {
-	char	*line;
-	size_t	i;
-
-	if (!buffer[0])
-		return (NULL);
-	i = 0;
-	while (buffer[i] && buffer[i] != '\n')
-		i++;
-	line = (char *)ft_calloc(i + 2, sizeof(char));
-	if (!line)
-		return (NULL);
-	i = 0;
-	while (buffer[i] && buffer[i] != '\n')
-	{
-		line[i] = buffer[i];
-		i++;
-	}
-	if (buffer[i] == '\n')
-		line[i] = buffer[i];
-	return (line);
-}
-
-static char	*ft_save_text(char *buffer)
-{
-	char	*save;
-	size_t	i;
-	size_t	j;
+	int		i;
+	int		j;
+	char	*rest;
 
 	i = 0;
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
 	if (!buffer[i])
 		return (free(buffer), NULL);
-	save = (char *)ft_calloc(ft_strlen(buffer) - i + 1, sizeof(char));
-	if (!save)
+	rest = ft_calloc((ft_strlen(buffer) - i + 1), sizeof(char));
+	if (!rest)
 		return (free(buffer), NULL);
 	i++;
 	j = 0;
-	while (buffer[i + j])
-	{
-		save[j] = buffer[i + j];
-		j++;
-	}
+	while (buffer[i])
+		rest[j++] = buffer[i++];
 	free(buffer);
-	return (save);
+	return (rest);
+}
+
+static char	*extract_line(char *buffer)
+{
+	char	*line;
+	int		i;
+
+	i = 0;
+	if (!buffer[i])
+		return (NULL);
+	while (buffer[i] && buffer[i] != '\n')
+		i++;
+	line = ft_calloc(i + 2, sizeof(char));
+	if (!line)
+		return (NULL);
+	i = 0;
+	while (buffer[i] && buffer[i] != '\n')
+	{
+		line[i] = buffer[i];
+		i++;
+	}
+	if (buffer[i] && buffer[i] == '\n')
+		line[i++] = '\n';
+	return (line);
+}
+
+static char	*read_text(int fd, char *buffer)
+{
+	char	*text;
+	int		bytes_read;
+
+	if (!buffer)
+		buffer = ft_calloc(1, 1);
+	text = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	bytes_read = 1;
+	while (bytes_read > 0)
+	{
+		bytes_read = read(fd, text, BUFFER_SIZE);
+		if (bytes_read == -1)
+			return (free(text), free(buffer), NULL);
+		text[bytes_read] = '\0';
+		buffer = join_free(buffer, text);
+		if (!buffer)
+			return (free(text), NULL);
+		if (ft_strchr(text, '\n'))
+			break ;
+	}
+	free(text);
+	return (buffer);
 }
 
 char	*get_next_line(int fd)
 {
-	static char		*buffer;
-	char			*line;
+	static char	*buffer;
+	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0))
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	if (!buffer)
-	{
-		buffer = (char *)ft_calloc(1, sizeof(char));
-		if (!buffer)
-			return (NULL);
-	}
-	buffer = ft_get_text(fd, buffer);
+	buffer = read_text(fd, buffer);
 	if (!buffer)
 		return (NULL);
-	line = ft_extract_line(buffer);
-	if (!line)
-		return (NULL);
-	buffer = ft_save_text(buffer);
+	line = extract_line(buffer);
+	buffer = save_rest(buffer);
 	return (line);
 }
 
@@ -117,7 +117,6 @@ char	*get_next_line(int fd)
 // 		perror("open failed\n");
 // 		return 1;
 // 	}
-
 // 	while (1) {
 // 		char *line = get_next_line(fd);
 // 		printf("%s\n", line);
@@ -127,7 +126,6 @@ char	*get_next_line(int fd)
 // 		}
 // 		free(line);
 // 	}
-
 // 	close(fd);
 // 	return (0);
 // }

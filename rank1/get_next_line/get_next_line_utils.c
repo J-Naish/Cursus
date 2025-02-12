@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/10 03:30:57 by nash              #+#    #+#             */
-/*   Updated: 2025/02/01 15:37:56 by nash             ###   ########.fr       */
+/*   Created: 2025/02/12 21:46:46 by nash              #+#    #+#             */
+/*   Updated: 2025/02/12 22:34:08 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,62 +14,78 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	i;
+	int	i;
 
+	i = 0;
 	if (!s)
 		return (0);
-	i = 0;
 	while (s[i])
 		i++;
 	return (i);
 }
 
-static char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	len;
+	int		total_size;
 	char	*result;
-	size_t	i;
-	size_t	j;
+	int		i;
+	int		j;
 
-	if (!s1 || !s2)
-		return (NULL);
-	len = ft_strlen(s1) + ft_strlen(s2);
-	result = (char *)malloc((len + 1) * sizeof(char));
-	if (!result)
-		return (NULL);
 	i = 0;
-	while (s1[i])
+	total_size = ft_strlen(s1) + ft_strlen(s2);
+	result = malloc(sizeof(char) * (total_size + 1));
+	if (!result || !s1 || !s2)
+		return (NULL);
+	while (s1[i] != 0)
 	{
 		result[i] = s1[i];
 		i++;
 	}
 	j = 0;
-	while (s2[j])
+	while (s2[j] != 0)
 	{
-		result[i + j] = s2[j];
+		result[i] = s2[j];
+		i++;
 		j++;
 	}
-	result[i + j] = '\0';
+	result[total_size] = 0;
 	return (result);
 }
 
-char	*ft_join_and_free(char *buffer, char *text)
+char	*ft_strchr(const char *s, int c)
 {
-	char	*result;
+	char	*str;
 
-	if (!buffer)
+	if (!s)
 		return (NULL);
-	result = ft_strjoin(buffer, text);
-	if (!result)
+	str = (char *)s;
+	while (*str != c && *str != 0)
+		str++;
+	if (*str == c)
+		return (str);
+	else
 		return (NULL);
-	free(buffer);
-	return (result);
+}
+
+static void	ft_bzero(void *s, size_t n)
+{
+	char	*str;
+	size_t	i;
+
+	if (!s)
+		return ;
+	str = (char *)s;
+	i = 0;
+	while (i < n)
+	{
+		str[i] = '\0';
+		i++;
+	}
 }
 
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*result;
-	size_t	i;
 
 	if (count == 0 || size == 0)
 		return ((void *)malloc(0));
@@ -78,24 +94,6 @@ void	*ft_calloc(size_t count, size_t size)
 	result = (void *)malloc(count * size);
 	if (!result)
 		return (NULL);
-	i = 0;
-	while (i < count * size)
-	{
-		((unsigned char *)result)[i] = 0;
-		i++;
-	}
+	ft_bzero(result, (count * size));
 	return (result);
-}
-
-bool	ft_includes_newline(char *s)
-{
-	if (!s)
-		return (false);
-	while (*s)
-	{
-		if (*s == '\n')
-			return (true);
-		s++;
-	}
-	return (false);
 }
