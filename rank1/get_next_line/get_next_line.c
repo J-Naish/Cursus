@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 03:30:54 by nash              #+#    #+#             */
-/*   Updated: 2025/02/12 22:42:00 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/12 22:49:31 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static char	*join_free(char *buffer, char *text)
 
 	result = ft_strjoin(buffer, text);
 	if (!result)
-		return (free(buffer), free(text), NULL);
+		return (free(buffer), NULL);
 	free(buffer);
 	return (result);
 }
