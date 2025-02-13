@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:35:29 by nash              #+#    #+#             */
-/*   Updated: 2025/02/14 01:48:04 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/14 04:43:44 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 	stack_a = parse(argc, argv);
 	if (!stack_a)
 		return (EXIT_FAILURE);
-	stack_b = create_list();
+	stack_b = init_list();
 	if (!stack_b)
 		return (EXIT_FAILURE);
 	if (argc <= 6)

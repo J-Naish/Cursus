@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:27:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 04:41:23 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/14 04:43:37 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ t_list	*create_test_list(void)
 {
 	t_list	*list;
 
-	list = create_list();
+	list = init_list();
 	if (!list)
 		return (NULL);
 	append_node(list, 42);

@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 09:27:20 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 03:57:29 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/14 04:43:46 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_list	*parse(int argc, char **argv)
 
 	if (argc < 2)
 		return (NULL);
-	list = create_list();
+	list = init_list();
 	if (!list)
 		return (NULL);
 	i = 1;

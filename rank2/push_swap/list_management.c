@@ -6,13 +6,13 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 05:18:26 by nash              #+#    #+#             */
-/*   Updated: 2025/02/04 04:07:42 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/14 04:43:32 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*create_list(void)
+t_list	*init_list(void)
 {
 	t_list	*list;
 

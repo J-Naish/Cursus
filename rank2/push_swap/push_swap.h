@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/04 16:17:22 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/14 04:43:58 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct t_list
 	t_node	*sentinel;
 }	t_list;
 
-t_list	*create_list(void);
+t_list	*init_list(void);
 void	free_list(t_list *list);
 
 void	prepend_node(t_list *list, int value);
