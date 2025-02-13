@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 05:01:43 by nash              #+#    #+#             */
-/*   Updated: 2025/02/14 01:44:57 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/14 04:49:15 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,4 @@ void	sort_sm(t_list *list_a, t_list *list_b, int size)
 		sort3(list_a, 'a');
 	else
 		sort5(list_a, list_b, size);
-	free_list(list_a);
-	free_list(list_b);
 }
