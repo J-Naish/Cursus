@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 06:39:59 by nash              #+#    #+#             */
-/*   Updated: 2025/02/04 04:46:03 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/14 05:01:47 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_node	*get_min_node(t_list *list)
 	t_node	*min;
 	t_node	*current;
 
-	if (!list || list->sentinel->next == list->sentinel)
+	if (!list || is_empty(list))
 		return (NULL);
 	min = list->sentinel->next;
 	current = min->next;
@@ -54,7 +54,7 @@ int	get_list_size(t_list *list)
 	t_node	*current;
 	int		len;
 
-	if (!list || list->sentinel->next == list->sentinel)
+	if (!list || is_empty(list))
 		return (0);
 	current = list->sentinel->next;
 	len = 0;

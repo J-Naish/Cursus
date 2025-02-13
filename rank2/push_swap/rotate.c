@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 01:13:54 by nash              #+#    #+#             */
-/*   Updated: 2025/02/04 04:28:26 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/14 05:03:14 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ static void	rotate(t_list *list)
 
 	if (!list)
 		return ;
-	if (list->sentinel->next == list->sentinel
-		|| list->sentinel->next->next == list->sentinel)
+	if (is_empty(list) || is_singleton(list))
 		return ;
 	last = list->sentinel->prev;
 	first = list->sentinel->next;

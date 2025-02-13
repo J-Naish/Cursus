@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:05:24 by nash              #+#    #+#             */
-/*   Updated: 2025/02/04 16:14:35 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/14 05:03:28 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ static void	swap(t_list *list)
 
 	if (!list)
 		return ;
-	if (list->sentinel->next == list->sentinel
-		|| list->sentinel->next->next == list->sentinel)
+	if (is_empty(list) || is_singleton(list))
 		return ;
 	first = list->sentinel->next;
 	second = first->next;

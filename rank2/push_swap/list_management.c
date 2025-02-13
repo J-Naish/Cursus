@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 05:18:26 by nash              #+#    #+#             */
-/*   Updated: 2025/02/14 04:53:16 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/14 05:02:06 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,20 @@ void	free_list(t_list *list)
 	}
 	free(list->sentinel);
 	free(list);
+}
+
+bool	is_empty(t_list *list)
+{
+	if (list->sentinel->next == list->sentinel)
+		return (true);
+	else
+		return (false);
+}
+
+bool	is_singleton(t_list *list)
+{
+	if (list->sentinel->next->next == list->sentinel)
+		return (true);
+	else
+		return (false);
 }

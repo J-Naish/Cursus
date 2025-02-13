@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/14 04:53:25 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/14 05:00:52 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ typedef struct t_list
 
 t_list	*init_list(void);
 void	free_list(t_list *list);
+
+bool	is_empty(t_list *list);
+bool	is_singleton(t_list *list);
 
 void	prepend_node(t_list *list, int value);
 void	append_node(t_list *list, int value);
