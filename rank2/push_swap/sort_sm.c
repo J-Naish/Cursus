@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 05:01:43 by nash              #+#    #+#             */
-/*   Updated: 2025/02/04 16:20:11 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/14 01:44:57 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	sort3(t_list *list, char stack_name)
 		swap_put(list, stack_name);
 }
 
-static void	sort6(t_list *list_a, t_list *list_b, int size)
+static void	sort5(t_list *list_a, t_list *list_b, int size)
 {
 	int	pushed;
 
@@ -70,7 +70,7 @@ void	sort_sm(t_list *list_a, t_list *list_b, int size)
 {
 	if (!list_a || !list_b)
 		exit(EXIT_FAILURE);
-	if (size > 6)
+	if (size > 5)
 		return ;
 	else if (size == 1)
 		return ;
@@ -79,7 +79,7 @@ void	sort_sm(t_list *list_a, t_list *list_b, int size)
 	else if (size == 3)
 		sort3(list_a, 'a');
 	else
-		sort6(list_a, list_b, size);
+		sort5(list_a, list_b, size);
 	free_list(list_a);
 	free_list(list_b);
 }
