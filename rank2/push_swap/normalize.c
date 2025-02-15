@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 05:07:23 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 05:40:02 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 05:45:03 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ void	normalize_list(t_list *list)
 	free(arr);
 }
 
-int main() {
-	t_list *list = create_test_list();
-	putlist_as_stack(list);
-	printf("\n");
-	normalize_list(list);
-	putlist_as_stack(list);
-}
+// int main() {
+// 	t_list *list = create_test_list();
+// 	putlist_as_stack(list);
+// 	printf("\n");
+// 	normalize_list(list);
+// 	putlist_as_stack(list);
+// }

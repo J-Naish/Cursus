@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:35:29 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 05:14:43 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 05:45:54 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	main(int argc, char **argv)
 	stack_b = init_list();
 	if (!stack_b)
 		return (free(stack_a), EXIT_FAILURE);
+	normalize_list(stack_a);
 	if (argc <= 5)
 		sort_sm(stack_a, stack_b, argc - 1);
 	free_list(stack_a);
