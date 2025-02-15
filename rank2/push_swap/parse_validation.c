@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 07:51:43 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 07:28:25 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 07:29:33 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ bool	is_valid_arg(int argc, char **argv)
 
 	arr = (int *)malloc((argc - 1) * sizeof(int));
 	if (!arr)
-		return (false);
+		exit(EXIT_FAILURE);
 	i = 1;
 	while (i < argc)
 	{

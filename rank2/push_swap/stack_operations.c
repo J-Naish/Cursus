@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 19:40:01 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 07:28:33 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 07:29:51 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	prepend_node(t_stack *stack, int value)
 		return ;
 	new = (t_node *)malloc(sizeof(t_node));
 	if (!new)
-		return ;
+		exit(EXIT_FAILURE);
 	first = stack->sentinel->next;
 	new->value = value;
 	new->next = first;
@@ -39,7 +39,7 @@ void	append_node(t_stack *stack, int value)
 		return ;
 	new = (t_node *)malloc(sizeof(t_node));
 	if (!new)
-		return ;
+		exit(EXIT_FAILURE);
 	last = stack->sentinel->prev;
 	new->value = value;
 	new->next = stack->sentinel;

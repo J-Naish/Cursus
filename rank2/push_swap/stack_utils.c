@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_management.c                                  :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/03 05:18:26 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 07:10:25 by nash             ###   ########.fr       */
+/*   Created: 2025/02/16 07:30:45 by nash              #+#    #+#             */
+/*   Updated: 2025/02/16 07:30:47 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,13 @@ t_stack	*init_stack(void)
 
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!stack)
-		return (NULL);
+		exit(EXIT_FAILURE);
 	stack->sentinel = (t_node *)malloc(sizeof(t_node));
 	if (!stack->sentinel)
-		return (free(stack), NULL);
+	{
+		free(stack);
+		exit(EXIT_FAILURE);
+	}
 	stack->sentinel->next = stack->sentinel;
 	stack->sentinel->prev = stack->sentinel;
 	return (stack);
