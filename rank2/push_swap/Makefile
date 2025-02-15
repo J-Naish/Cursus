@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 05:10:22 by nash              #+#    #+#              #
-#    Updated: 2025/02/16 06:09:39 by nash             ###   ########.fr        #
+#    Updated: 2025/02/16 07:06:56 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,14 +15,14 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 SRCS = debug.c\
 		error.c\
-		is_int_string.c\
-		is_valid_arg.c\
 		libft.c\
 		list_management.c\
 		list_operations.c\
 		list_utils.c\
 		main.c\
 		normalize.c\
+		parse_validation_utils.c\
+		parse_validation.c\
 		parse.c\
 		push.c\
 		quick_sort.c\
