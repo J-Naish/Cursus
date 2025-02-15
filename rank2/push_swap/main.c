@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:35:29 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 06:29:20 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 06:47:38 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	if (!is_valid_arg(argc, argv))
 	{
 		put_error();
-		return (0);
+		return (1);
 	}
 	if (argc == 2)
 		exit(0);
