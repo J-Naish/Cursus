@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:22:21 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 07:28:23 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 08:03:15 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static bool	ft_is_digit(char c)
 		return (false);
 }
 
-bool	is_sign(char c)
+static bool	is_sign(char c)
 {
 	if (c == '+' || c == '-')
 		return (true);
