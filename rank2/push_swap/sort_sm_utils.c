@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils.c                                       :+:      :+:    :+:   */
+/*   sort_sm_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 06:39:59 by nash              #+#    #+#             */
-/*   Updated: 2025/02/14 05:01:47 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 07:14:14 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*get_min_node(t_list *list)
+static t_node	*get_min_node(t_list *list)
 {
 	t_node	*min;
 	t_node	*current;
@@ -30,7 +30,7 @@ t_node	*get_min_node(t_list *list)
 	return (min);
 }
 
-int	get_index(t_list *list, t_node *node)
+static int	get_index(t_list *list, t_node *node)
 {
 	int		i;
 	t_node	*current;
@@ -49,24 +49,7 @@ int	get_index(t_list *list, t_node *node)
 	return (-1);
 }
 
-int	get_list_size(t_list *list)
-{
-	t_node	*current;
-	int		len;
-
-	if (!list || is_empty(list))
-		return (0);
-	current = list->sentinel->next;
-	len = 0;
-	while (current != list->sentinel)
-	{
-		len++;
-		current = current->next;
-	}
-	return (len);
-}
-
-void	move_node_to_top(t_list *list, t_node *node, char stack_name)
+static void	move_node_to_top(t_list *list, t_node *node, char stack_name)
 {
 	int	index;
 	int	size;
