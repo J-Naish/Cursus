@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 05:45:11 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 06:17:35 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,7 @@ int		atoi_strict(const char *s);
 t_list	*parse(int argc, char **argv);
 
 void	sort_sm(t_list *list_a, t_list *list_b, int size);
+
+void	sort_lg(t_list *stack_a, t_list *stack_b);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 05:10:22 by nash              #+#    #+#              #
-#    Updated: 2025/02/16 05:39:16 by nash             ###   ########.fr        #
+#    Updated: 2025/02/16 06:09:39 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRCS = debug.c\
 		reverse_rotate.c\
 		rotate.c\
 		sort_sm.c\
+		sort_lg.c\
 		swap.c
 OBJS = $(SRCS:.c=.o)
 
