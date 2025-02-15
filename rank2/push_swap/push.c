@@ -6,13 +6,13 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 00:15:04 by nash              #+#    #+#             */
-/*   Updated: 2025/02/03 04:46:47 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 07:19:33 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push(t_list *to, t_list *from)
+static void	push(t_stack *to, t_stack *from)
 {
 	int		value;
 
@@ -25,44 +25,44 @@ static void	push(t_list *to, t_list *from)
 	prepend_node(to, value);
 }
 
-void	pa(t_list *list_a, t_list *list_b)
+void	pa(t_stack *stack_a, t_stack *stack_b)
 {
-	push(list_a, list_b);
+	push(stack_a, stack_b);
 	ft_putstr("pa\n");
 }
 
-void	pb(t_list *list_a, t_list *list_b)
+void	pb(t_stack *stack_a, t_stack *stack_b)
 {
-	push(list_b, list_a);
+	push(stack_b, stack_a);
 	ft_putstr("pb\n");
 }
 
 // int main() {
-// 	t_list *listA = create_test_list();
-// 	t_list *listB = create_test_list();
+// 	t_stack *stackA = create_test_stack();
+// 	t_stack *stackB = create_test_stack();
 
-// 	printf("initial list a: \n");
-// 	putlist(listA);
+// 	printf("initial stack a: \n");
+// 	putstack(stackA);
 // 	printf("\n");
-// 	printf("initial list b: \n");
-// 	putlist(listB);
+// 	printf("initial stack b: \n");
+// 	putstack(stackB);
 // 	printf("\n\n");
 
-// 	pa(listA, listB);
+// 	pa(stackA, stackB);
 
-// 	printf("after pa list A: \n");
-// 	putlist(listA);
+// 	printf("after pa stack A: \n");
+// 	putstack(stackA);
 // 	printf("\n");
-// 	printf("after pa list b: \n");
-// 	putlist(listB);
+// 	printf("after pa stack b: \n");
+// 	putstack(stackB);
 // 	printf("\n\n");
 
-// 	pb(listA, listB);
+// 	pb(stackA, stackB);
 
-// 	printf("after pb list A: \n");
-// 	putlist(listA);
+// 	printf("after pb stack A: \n");
+// 	putstack(stackA);
 // 	printf("\n");
-// 	printf("after pb list b: \n");
-// 	putlist(listB);
+// 	printf("after pb stack b: \n");
+// 	putstack(stackB);
 // 	printf("\n\n");
 // }

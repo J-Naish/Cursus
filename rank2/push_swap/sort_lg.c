@@ -6,13 +6,13 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 06:09:23 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 06:21:06 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 07:20:01 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	radix_sort(t_list *stack_a, t_list *stack_b, int size_a)
+static void	radix_sort(t_stack *stack_a, t_stack *stack_b, int size_a)
 {
 	int	max_bits;
 	int	count;
@@ -34,17 +34,17 @@ static void	radix_sort(t_list *stack_a, t_list *stack_b, int size_a)
 			else
 				pb(stack_a, stack_b);
 		}
-		while (get_list_size(stack_b) > 0)
+		while (get_stack_size(stack_b) > 0)
 			pa(stack_a, stack_b);
 		i++;
 	}
 }
 
-void	sort_lg(t_list *stack_a, t_list *stack_b)
+void	sort_lg(t_stack *stack_a, t_stack *stack_b)
 {
 	int	size_a;
 
-	normalize_list(stack_a);
-	size_a = get_list_size(stack_a);
+	normalize_stack(stack_a);
+	size_a = get_stack_size(stack_a);
 	radix_sort(stack_a, stack_b, size_a);
 }

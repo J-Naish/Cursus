@@ -6,78 +6,78 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 05:01:43 by nash              #+#    #+#             */
-/*   Updated: 2025/02/14 04:49:15 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 07:20:13 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	sort2(t_list *list)
+static void	sort2(t_stack *stack)
 {
-	if (list->sentinel->next->value > list->sentinel->next->next->value)
-		sa(list);
+	if (stack->sentinel->next->value > stack->sentinel->next->next->value)
+		sa(stack);
 }
 
-static void	sort3(t_list *list, char stack_name)
+static void	sort3(t_stack *stack, char stack_name)
 {
 	int	x;
 	int	y;
 	int	z;
 
-	x = list->sentinel->next->value;
-	y = list->sentinel->next->next->value;
-	z = list->sentinel->next->next->next->value;
+	x = stack->sentinel->next->value;
+	y = stack->sentinel->next->next->value;
+	z = stack->sentinel->next->next->next->value;
 	if (y > x && z > y)
 		return ;
 	else if (x > y && y > z)
 	{
-		swap_put(list, stack_name);
-		rrotate_put(list, stack_name);
+		swap_put(stack, stack_name);
+		rrotate_put(stack, stack_name);
 	}
 	else if (x > z && z > y)
-		rotate_put(list, stack_name);
+		rotate_put(stack, stack_name);
 	else if (y > z && z > x)
 	{
-		swap_put(list, stack_name);
-		ra(list);
+		swap_put(stack, stack_name);
+		ra(stack);
 	}
 	else if (y > x && x > z)
-		rrotate_put(list, stack_name);
+		rrotate_put(stack, stack_name);
 	else if (z > x && x > y)
-		swap_put(list, stack_name);
+		swap_put(stack, stack_name);
 }
 
-static void	sort5(t_list *list_a, t_list *list_b, int size)
+static void	sort5(t_stack *stack_a, t_stack *stack_b, int size)
 {
 	int	pushed;
 
 	pushed = 0;
 	while (size - pushed > 3)
 	{
-		move_min_to_top(list_a, 'a');
-		pb(list_a, list_b);
+		move_min_to_top(stack_a, 'a');
+		pb(stack_a, stack_b);
 		pushed += 1;
 	}
-	sort3(list_a, 'a');
+	sort3(stack_a, 'a');
 	while (pushed)
 	{
-		pa(list_a, list_b);
+		pa(stack_a, stack_b);
 		pushed -= 1;
 	}
 }
 
-void	sort_sm(t_list *list_a, t_list *list_b, int size)
+void	sort_sm(t_stack *stack_a, t_stack *stack_b, int size)
 {
-	if (!list_a || !list_b)
+	if (!stack_a || !stack_b)
 		exit(EXIT_FAILURE);
 	if (size > 5)
 		return ;
 	else if (size == 1)
 		return ;
 	else if (size == 2)
-		sort2(list_a);
+		sort2(stack_a);
 	else if (size == 3)
-		sort3(list_a, 'a');
+		sort3(stack_a, 'a');
 	else
-		sort5(list_a, list_b, size);
+		sort5(stack_a, stack_b, size);
 }

@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:27:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/14 04:53:14 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 07:22:41 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,30 +40,14 @@ void	putnode(t_node *node)
 	putint(node->value);
 }
 
-void	putlist(t_list *list)
+void	putstack(t_stack *stack)
 {
 	t_node	*current;
 
-	if (!list)
+	if (!stack)
 		return ;
-	current = list->sentinel->next;
-	while (current != list->sentinel)
-	{
-		putnode(current);
-		current = current->next;
-		if (current != list->sentinel)
-			ft_putstr(", ");
-	}
-}
-
-void	putlist_as_stack(t_list *list)
-{
-	t_node	*current;
-
-	if (!list)
-		return ;
-	current = list->sentinel->next;
-	while (current != list->sentinel)
+	current = stack->sentinel->next;
+	while (current != stack->sentinel)
 	{
 		putnode(current);
 		current = current->next;
@@ -71,22 +55,22 @@ void	putlist_as_stack(t_list *list)
 	}
 }
 
-t_list	*create_test_list(void)
+t_stack	*create_test_stack(void)
 {
-	t_list	*list;
+	t_stack	*stack;
 
-	list = init_list();
-	if (!list)
+	stack = init_stack();
+	if (!stack)
 		return (NULL);
-	append_node(list, 42);
-	append_node(list, -42);
-	append_node(list, 123);
-	append_node(list, 0);
-	append_node(list, 12345);
-	append_node(list, -67890);
-	append_node(list, INT_MAX);
-	append_node(list, INT_MIN);
-	return (list);
+	append_node(stack, 42);
+	append_node(stack, -42);
+	append_node(stack, 123);
+	append_node(stack, 0);
+	append_node(stack, 12345);
+	append_node(stack, -67890);
+	append_node(stack, INT_MAX);
+	append_node(stack, INT_MIN);
+	return (stack);
 }
 
 // int main() {

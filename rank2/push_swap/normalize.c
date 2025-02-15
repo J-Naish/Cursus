@@ -6,29 +6,29 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 05:07:23 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 05:45:03 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 07:22:56 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	*get_arr(t_list *list)
+static int	*get_arr(t_stack *stack)
 {
 	int		size;
 	int		*arr;
 	t_node	*current;
 	int		i;
 
-	size = get_list_size(list);
+	size = get_stack_size(stack);
 	arr = (int *)malloc(size * sizeof(int));
 	if (!arr)
 	{
-		free(list);
+		free(stack);
 		exit(EXIT_FAILURE);
 	}
-	current = list->sentinel->next;
+	current = stack->sentinel->next;
 	i = 0;
-	while (current != list->sentinel)
+	while (current != stack->sentinel)
 	{
 		arr[i++] = current->value;
 		current = current->next;
@@ -36,18 +36,18 @@ static int	*get_arr(t_list *list)
 	return (arr);
 }
 
-void	normalize_list(t_list *list)
+void	normalize_stack(t_stack *stack)
 {
 	int		*arr;
 	int		size;
 	t_node	*current;
 	int		i;
 
-	current = list->sentinel->next;
-	arr = get_arr(list);
-	size = get_list_size(list);
+	current = stack->sentinel->next;
+	arr = get_arr(stack);
+	size = get_stack_size(stack);
 	quick_sort(arr, size);
-	while (current != list->sentinel)
+	while (current != stack->sentinel)
 	{
 		i = 0;
 		while (i < size)
@@ -65,9 +65,9 @@ void	normalize_list(t_list *list)
 }
 
 // int main() {
-// 	t_list *list = create_test_list();
-// 	putlist_as_stack(list);
+// 	t_stack *stack = create_test_stack();
+// 	putstack(stack);
 // 	printf("\n");
-// 	normalize_list(list);
-// 	putlist_as_stack(list);
+// 	normalize_stack(stack);
+// 	putstack(stack);
 // }

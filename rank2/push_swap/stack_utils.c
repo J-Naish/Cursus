@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_management.c                                  :+:      :+:    :+:   */
+/*   stack_management.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,65 +12,65 @@
 
 #include "push_swap.h"
 
-t_list	*init_list(void)
+t_stack	*init_stack(void)
 {
-	t_list	*list;
+	t_stack	*stack;
 
-	list = (t_list *)malloc(sizeof(t_list));
-	if (!list)
+	stack = (t_stack *)malloc(sizeof(t_stack));
+	if (!stack)
 		return (NULL);
-	list->sentinel = (t_node *)malloc(sizeof(t_node));
-	if (!list->sentinel)
-		return (free(list), NULL);
-	list->sentinel->next = list->sentinel;
-	list->sentinel->prev = list->sentinel;
-	return (list);
+	stack->sentinel = (t_node *)malloc(sizeof(t_node));
+	if (!stack->sentinel)
+		return (free(stack), NULL);
+	stack->sentinel->next = stack->sentinel;
+	stack->sentinel->prev = stack->sentinel;
+	return (stack);
 }
 
-void	free_list(t_list *list)
+void	free_stack(t_stack *stack)
 {
 	t_node	*current;
 	t_node	*next;
 
-	if (!list)
+	if (!stack)
 		return ;
-	current = list->sentinel->next;
-	while (current != list->sentinel)
+	current = stack->sentinel->next;
+	while (current != stack->sentinel)
 	{
 		next = current->next;
 		free(current);
 		current = next;
 	}
-	free(list->sentinel);
-	free(list);
+	free(stack->sentinel);
+	free(stack);
 }
 
-bool	is_empty(t_list *list)
+bool	is_empty(t_stack *stack)
 {
-	if (list->sentinel->next == list->sentinel)
+	if (stack->sentinel->next == stack->sentinel)
 		return (true);
 	else
 		return (false);
 }
 
-bool	is_singleton(t_list *list)
+bool	is_singleton(t_stack *stack)
 {
-	if (list->sentinel->next->next == list->sentinel)
+	if (stack->sentinel->next->next == stack->sentinel)
 		return (true);
 	else
 		return (false);
 }
 
-int	get_list_size(t_list *list)
+int	get_stack_size(t_stack *stack)
 {
 	t_node	*current;
 	int		len;
 
-	if (!list || is_empty(list))
+	if (!stack || is_empty(stack))
 		return (0);
-	current = list->sentinel->next;
+	current = stack->sentinel->next;
 	len = 0;
-	while (current != list->sentinel)
+	while (current != stack->sentinel)
 	{
 		len++;
 		current = current->next;

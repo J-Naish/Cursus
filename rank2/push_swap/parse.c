@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 09:27:20 by nash              #+#    #+#             */
-/*   Updated: 2025/02/14 04:53:22 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 07:19:22 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,23 +35,23 @@ int	atoi_strict(const char *s)
 	return (result * (-1 * sign));
 }
 
-t_list	*parse(int argc, char **argv)
+t_stack	*parse(int argc, char **argv)
 {
-	t_list	*list;
+	t_stack	*stack;
 	int		i;
 
 	if (argc < 2)
 		return (NULL);
-	list = init_list();
-	if (!list)
+	stack = init_stack();
+	if (!stack)
 		return (NULL);
 	i = 1;
 	while (i < argc)
 	{
-		append_node(list, atoi_strict(argv[i]));
+		append_node(stack, atoi_strict(argv[i]));
 		i++;
 	}
-	return (list);
+	return (stack);
 }
 
 // void testAtoiStrict(const char *s) {
@@ -81,8 +81,8 @@ t_list	*parse(int argc, char **argv)
 // 	"2147483647", "-2147483648"
 //   };
 
-//   t_list* list = parse(8, testArgv);
-//   putlist(list);
+//   t_stack* stack = parse(8, testArgv);
+//   putstack(stack);
 
 //   return 0;
 // }

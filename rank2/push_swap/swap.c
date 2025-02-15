@@ -6,88 +6,88 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:05:24 by nash              #+#    #+#             */
-/*   Updated: 2025/02/14 05:03:28 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 07:20:22 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(t_list *list)
+static void	swap(t_stack *stack)
 {
 	t_node	*first;
 	t_node	*second;
 	int		temp;
 
-	if (!list)
+	if (!stack)
 		return ;
-	if (is_empty(list) || is_singleton(list))
+	if (is_empty(stack) || is_singleton(stack))
 		return ;
-	first = list->sentinel->next;
+	first = stack->sentinel->next;
 	second = first->next;
 	temp = first->value;
 	first->value = second->value;
 	second->value = temp;
 }
 
-void	swap_put(t_list *list, char stack_name)
+void	swap_put(t_stack *stack, char stack_name)
 {
-	swap(list);
+	swap(stack);
 	ft_putchar('s');
 	ft_putchar(stack_name);
 	ft_putchar('\n');
 }
 
-void	sa(t_list *list)
+void	sa(t_stack *stack)
 {
-	swap_put(list, 'a');
+	swap_put(stack, 'a');
 }
 
-void	sb(t_list *list)
+void	sb(t_stack *stack)
 {
-	swap_put(list, 'b');
+	swap_put(stack, 'b');
 }
 
-void	ss(t_list *list_a, t_list *list_b)
+void	ss(t_stack *stack_a, t_stack *stack_b)
 {
-	swap(list_a);
-	swap(list_b);
+	swap(stack_a);
+	swap(stack_b);
 	ft_putstr("ss\n");
 }
 
 // int main() {
-// 	t_list *testA = create_test_list();
-// 	printf("initial list a:\n");
-// 	putlist(testA);
+// 	t_stack *testA = create_test_stack();
+// 	printf("initial stack a:\n");
+// 	putstack(testA);
 // 	printf("\n");
 // 	sa(testA);
-// 	printf("list a after sa:\n");
-// 	putlist(testA);
+// 	printf("stack a after sa:\n");
+// 	putstack(testA);
 // 	printf("\n\n");
 
-// 	t_list *testB = create_test_list();
-// 	printf("initial list b:\n");
-// 	putlist(testB);
+// 	t_stack *testB = create_test_stack();
+// 	printf("initial stack b:\n");
+// 	putstack(testB);
 // 	sa(testB);
 // 	printf("\n");
-// 	printf("list a after sb:\n");
-// 	putlist(testB);
+// 	printf("stack a after sb:\n");
+// 	putstack(testB);
 // 	printf("\n\n");
 
 // 	printf("before ss:\n");
-// 	printf("list a:\n");
-// 	putlist(testA);
+// 	printf("stack a:\n");
+// 	putstack(testA);
 // 	printf("\n");
-// 	printf("list b:\n");
-// 	putlist(testB);
+// 	printf("stack b:\n");
+// 	putstack(testB);
 // 	printf("\n");
 
 // 	ss(testA, testB);
 
 // 	printf("after ss:\n");
-// 	printf("list a:\n");
-// 	putlist(testA);
+// 	printf("stack a:\n");
+// 	putstack(testA);
 // 	printf("\n");
-// 	printf("list b:\n");
-// 	putlist(testB);
+// 	printf("stack b:\n");
+// 	putstack(testB);
 // 	printf("\n");
 // }

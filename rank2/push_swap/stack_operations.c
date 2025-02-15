@@ -6,75 +6,75 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 19:40:01 by nash              #+#    #+#             */
-/*   Updated: 2025/02/14 04:53:18 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 07:18:07 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	prepend_node(t_list *list, int value)
+void	prepend_node(t_stack *stack, int value)
 {
 	t_node	*new;
 	t_node	*first;
 
-	if (!list)
+	if (!stack)
 		return ;
 	new = (t_node *)malloc(sizeof(t_node));
 	if (!new)
 		return ;
-	first = list->sentinel->next;
+	first = stack->sentinel->next;
 	new->value = value;
 	new->next = first;
-	new->prev = list->sentinel;
-	list->sentinel->next = new;
+	new->prev = stack->sentinel;
+	stack->sentinel->next = new;
 	first->prev = new;
 }
 
-void	append_node(t_list *list, int value)
+void	append_node(t_stack *stack, int value)
 {
 	t_node	*new;
 	t_node	*last;
 
-	if (!list)
+	if (!stack)
 		return ;
 	new = (t_node *)malloc(sizeof(t_node));
 	if (!new)
 		return ;
-	last = list->sentinel->prev;
+	last = stack->sentinel->prev;
 	new->value = value;
-	new->next = list->sentinel;
+	new->next = stack->sentinel;
 	new->prev = last;
-	list->sentinel->prev = new;
+	stack->sentinel->prev = new;
 	last->next = new;
 }
 
-void	shift_node(t_list *list)
+void	shift_node(t_stack *stack)
 {
 	t_node	*first;
 
-	if (!list)
+	if (!stack)
 		return ;
-	first = list->sentinel->next;
-	first->next->prev = list->sentinel;
-	list->sentinel->next = first->next;
+	first = stack->sentinel->next;
+	first->next->prev = stack->sentinel;
+	stack->sentinel->next = first->next;
 	free(first);
 }
 
-void	pop_node(t_list *list)
+void	pop_node(t_stack *stack)
 {
 	t_node	*last;
 
-	if (!list)
+	if (!stack)
 		return ;
-	last = list->sentinel->prev;
-	last->prev->next = list->sentinel;
-	list->sentinel->prev = last->prev;
+	last = stack->sentinel->prev;
+	last->prev->next = stack->sentinel;
+	stack->sentinel->prev = last->prev;
 	free(last);
 }
 
 // int main() {
-//   t_list* list = init_list();
-//   if (!list) perror("malloc fails");
+//   t_stack* stack = init_stack();
+//   if (!stack) perror("malloc fails");
 
 //   int nums[] = {
 // 	0, -1, 1, 42, -42, 12345, -67890, INT_MIN, INT_MAX,
@@ -82,22 +82,22 @@ void	pop_node(t_list *list)
 //   };
 
 //   for (int i = 0; i < sizeof(nums) / sizeof(int); i++) {
-// 	append_node(list, nums[i]);
+// 	append_node(stack, nums[i]);
 //   }
 
-//   putlist(list);
+//   putstack(stack);
 //   printf("\n");
 
-//   pop_node(list);
-//   putlist(list);
+//   pop_node(stack);
+//   putstack(stack);
 //   printf("\n");
 
-//   prepend_node(list, 100);
-//   putlist(list);
+//   prepend_node(stack, 100);
+//   putstack(stack);
 //   printf("\n");
 
-//   shift_node(list);
-//   putlist(list);
+//   shift_node(stack);
+//   putstack(stack);
 //   printf("\n");
 
 // }

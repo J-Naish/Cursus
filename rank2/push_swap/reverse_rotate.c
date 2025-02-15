@@ -6,69 +6,69 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 01:56:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/14 05:03:01 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 07:23:03 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	reverse_rotate(t_list *list)
+static void	reverse_rotate(t_stack *stack)
 {
 	t_node	*first;
 	t_node	*last;
 	t_node	*new_last;
 
-	if (!list)
+	if (!stack)
 		return ;
-	if (is_empty(list) || is_singleton(list))
+	if (is_empty(stack) || is_singleton(stack))
 		return ;
-	first = list->sentinel->next;
-	last = list->sentinel->prev;
+	first = stack->sentinel->next;
+	last = stack->sentinel->prev;
 	new_last = last->prev;
-	last->prev = list->sentinel;
+	last->prev = stack->sentinel;
 	last->next = first;
 	first->prev = last;
-	list->sentinel->next = last;
-	list->sentinel->prev = new_last;
-	new_last->next = list->sentinel;
+	stack->sentinel->next = last;
+	stack->sentinel->prev = new_last;
+	new_last->next = stack->sentinel;
 }
 
-void	rrotate_put(t_list *list, char stack_name)
+void	rrotate_put(t_stack *stack, char stack_name)
 {
-	reverse_rotate(list);
+	reverse_rotate(stack);
 	ft_putstr("rr");
 	ft_putchar(stack_name);
 	ft_putchar('\n');
 }
 
-void	rra(t_list *list)
+void	rra(t_stack *stack)
 {
-	rrotate_put(list, 'a');
+	rrotate_put(stack, 'a');
 }
 
-void	rrb(t_list *list)
+void	rrb(t_stack *stack)
 {
-	rrotate_put(list, 'b');
+	rrotate_put(stack, 'b');
 }
 
-void	rrr(t_list *list_a, t_list *list_b)
+void	rrr(t_stack *stack_a, t_stack *stack_b)
 {
-	reverse_rotate(list_a);
-	reverse_rotate(list_b);
+	reverse_rotate(stack_a);
+	reverse_rotate(stack_b);
 	ft_putstr("rrr\n");
 }
 
 // int main() {
-// 	t_list *listA = create_test_list();
+// 	t_stack *stackA = create_test_stack();
 
 // 	printf("initial stack a:\n");
-// 	putlist_as_stack(listA);
+// 	putstack(stackA);
 // 	printf("\n");
 
-// 	rra(listA);
+// 	rra(stackA);
 // 	printf("\n");
 
 // 	printf("after rra stack a:\n");
-// 	putlist_as_stack(listA);
+// 	putstack(stackA);
 // 	printf("\n");
 // }
