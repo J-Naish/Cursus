@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 05:01:43 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 07:28:31 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 07:43:39 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,7 @@ static void	sort5(t_stack *stack_a, t_stack *stack_b, int size)
 
 void	sort_sm(t_stack *stack_a, t_stack *stack_b, int size)
 {
-	if (!stack_a || !stack_b)
-		exit(EXIT_FAILURE);
-	if (size > 5)
-		return ;
-	else if (size == 1)
+	if (size == 1)
 		return ;
 	else if (size == 2)
 		sort2(stack_a);
