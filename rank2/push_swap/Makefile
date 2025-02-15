@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 05:10:22 by nash              #+#    #+#              #
-#    Updated: 2025/02/04 04:04:44 by nash             ###   ########.fr        #
+#    Updated: 2025/02/16 05:39:16 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS = debug.c\
 		list_operations.c\
 		list_utils.c\
 		main.c\
+		normalize.c\
 		parse.c\
 		push.c\
 		quick_sort.c\
@@ -46,5 +47,9 @@ fclean:
 	rm -f $(NAME) $(OBJS)
 
 re: fclean all
+
+unit_test:
+	$(CC) $(CFLAGS) $(filter-out main.c, $(SRCS))
+	./a.out
 
 .PHONY: all clean fclean re
