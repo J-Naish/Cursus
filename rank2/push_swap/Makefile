@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 05:10:22 by nash              #+#    #+#              #
-#    Updated: 2025/02/16 07:27:08 by nash             ###   ########.fr        #
+#    Updated: 2025/02/16 07:41:28 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ SRCS = debug.c\
 		error.c\
 		libft.c\
 		main.c\
-		normalize.c\
 		op_push.c\
 		op_reverse_rotate.c\
 		op_rotate.c\
@@ -28,6 +27,7 @@ SRCS = debug.c\
 		parse.c\
 		sort_sm_utils.c\
 		sort_sm.c\
+		sort_lg_utils.c\
 		sort_lg.c\
 		stack_operations.c\
 		stack_utils.c\
