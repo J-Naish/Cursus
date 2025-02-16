@@ -6,13 +6,13 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 02:06:53 by nash              #+#    #+#             */
-/*   Updated: 2025/02/17 03:30:35 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/17 03:33:06 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	open_infile()
+void	open_infile(void)
 {
 	int		pipefd[2];
 	pid_t	pid;

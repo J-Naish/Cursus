@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/17 03:29:57 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/17 03:32:36 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 int	main(int argc, char **argv)
 {
-	char	*infilefd;
-	char	*outfilefd;
-	char	**cmds;
+	int	infilefd;
+	int	outfilefd;
 
 	if (argc < 5)
 		return (0);

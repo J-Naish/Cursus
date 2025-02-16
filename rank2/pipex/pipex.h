@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/02/17 03:28:56 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/17 03:33:00 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,10 @@
 # include <string.h>
 # include <errno.h>
 
-void	exec_command(char *cmd, char **args);
-
 void	puterrno(void);
 void	error_exit(void);
 
-void	open_infile(char *infilename, char *outfilename, char **cmds);
+void	open_infile(void);
 
 size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *s1);

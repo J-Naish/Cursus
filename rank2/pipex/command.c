@@ -6,20 +6,20 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 02:56:01 by nash              #+#    #+#             */
-/*   Updated: 2025/02/17 03:16:42 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/17 03:32:03 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	exec_command(char *cmd, char **args)
-{
-	char	**envp;
+// void	exec_command(char *cmd, char **args)
+// {
+// 	char	**envp;
 
-	*envp = NULL;
-	if (execve(cmd, args, envp) == -1)
-	{
-		puterrno();
-		exit(1);
-	}
-}
+// 	*envp = NULL;
+// 	if (execve(cmd, args, envp) == -1)
+// 	{
+// 		puterrno();
+// 		exit(1);
+// 	}
+// }
