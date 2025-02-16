@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:57:57 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 23:18:25 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/17 01:36:52 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,12 @@ char	*ft_strdup(const char *s1)
 	}
 	copy[i] = '\0';
 	return (copy);
+}
+
+void	*ft_putstr_fd(int fd, const char *s)
+{
+	size_t	size;
+
+	size = ft_strlen(s);
+	write(fd, s, size);
 }
