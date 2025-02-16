@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 19:33:45 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 20:04:41 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 20:36:28 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,24 +45,18 @@ int	total_cost(int cost_a, int cost_b)
 
 int	find_insert_position_in_b(t_stack *b, int value)
 {
-	int		size;
-	int		min;
-	int		max;
 	int		max_index;
 	int		pos;
 	int		index;
 	t_node	*current;
 
-	size = get_stack_size(b);
-	if (size == 0)
+	if (get_stack_size(b) == 0)
 		return (0);
-	max = find_max(b);
-	min = find_min(b);
-	if (value > max || value < min)
+	if (value > find_max(b) || value < find_min(b))
 	{
 		max_index = find_index_of_max(b);
 		pos = max_index + 1;
-		if (pos >= size)
+		if (pos >= get_stack_size(b))
 			pos = 0;
 		return (pos);
 	}
