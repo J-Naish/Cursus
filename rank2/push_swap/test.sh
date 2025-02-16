@@ -1,4 +1,3 @@
 #!/bin/bash
-random_numbers=$(seq -500 500 | shuf -n 500)
-echo "$random_numbers"
+random_numbers=$(seq -500 500 | shuf -n 5)
 ./push_swap $random_numbers
