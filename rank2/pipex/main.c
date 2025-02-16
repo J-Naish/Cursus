@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/17 04:43:52 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/17 04:58:10 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int	main(int argc, char **argv, char **envp)
 	int		i;
 	int		pipefd[2];
 	pid_t	pid;
+	int		prev_pipe_fd;
 
+	prev_pipe_fd = -1;
 	if (argc < 5)
 		return (0);
 	infilefd = open(argv[1], O_RDONLY);
@@ -31,8 +33,11 @@ int	main(int argc, char **argv, char **envp)
 	i = 2;
 	while (i < argc - 1)
 	{
-		if (pipe(pipefd) == -1)
-			error_exit();
+		if (i < argc - 2)
+		{
+			if (pipe(pipefd) == -1)
+				error_exit();
+		}
 		pid = fork();
 		if (pid == -1)
 			error_exit();
@@ -44,15 +49,41 @@ int	main(int argc, char **argv, char **envp)
 					error_exit();
 				close(infilefd);
 			}
-			close(pipefd[0]);
+			else
+			{
+				if (dup2(prev_pipe_fd, STDIN_FILENO) == -1)
+					error_exit();
+			}
+			if (i == argc - 2)
+			{
+				if (dup2(prev_pipe_fd, STDIN_FILENO) == -1)
+					error_exit();
+				if (dup2(outfilefd, STDOUT_FILENO) == -1)
+					error_exit();
+				close(outfilefd);
+			}
+			else
+			{
+				if (dup2(pipefd[1], STDOUT_FILENO) == -1)
+					error_exit();
+			}
+			if (i < argc - 2)
+			{
+				close(pipefd[0]);
+				close(pipefd[1]);
+			}
 			exec_cmd(argv[i], envp);
-			close(pipefd[1]);
-			exit(EXIT_SUCCESS);
+			exit(EXIT_FAILURE);
 		}
 		else
 		{
-			close(pipefd[0]);
-			close(pipefd[1]);
+			if (prev_pipe_fd != -1)
+				close(prev_pipe_fd);
+			if (i < argc - 2)
+			{
+				prev_pipe_fd = pipefd[0];
+				close(pipefd[1]);
+			}
 		}
 		i++;
 	}
