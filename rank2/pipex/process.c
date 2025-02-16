@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 02:06:53 by nash              #+#    #+#             */
-/*   Updated: 2025/02/17 02:50:40 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/17 02:54:17 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,12 @@ void	open_infile(char *infilename, char *outfilename, char **cmds)
 		error_exit(infilename, outfilename, cmds);
 	if (pid == 0)
 	{
-		printf("child process\n");
 		close(pipefd[1]);
 		close(pipefd[0]);
 	}
 	else
 	{
 		waitpid(pid, NULL, 0);
-		printf("parent process\n");
 		close(pipefd[0]);
 		close(pipefd[1]);
 	}
