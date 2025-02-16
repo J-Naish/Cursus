@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/17 04:08:59 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/17 04:37:51 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	process_all(int argc, char **argv, char **envp)
 		pid = fork();
 		if (pid == -1)
 			error_exit();
-		if (pid == 0)
+		else if (pid == 0)
 		{
 			close(pipefd[0]);
 			exec_cmd(argv[i], envp);
