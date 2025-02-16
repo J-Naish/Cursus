@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 03:56:49 by nash              #+#    #+#             */
-/*   Updated: 2025/02/17 04:08:28 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/17 04:22:35 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 void	exec_cmd(char *cmd, char **envp)
 {
-	(void)cmd;
-	(void)envp;
+	char	*args[2];
+
+	args[0] = cmd;
+	args[1] = NULL;
+	if (execve(cmd, args, envp) == -1)
+		error_exit();
 }
