@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 05:10:22 by nash              #+#    #+#              #
-#    Updated: 2025/02/16 08:01:03 by nash             ###   ########.fr        #
+#    Updated: 2025/02/16 09:42:50 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,10 +25,12 @@ SRCS = debug.c\
 		parse_validation_utils.c\
 		parse_validation.c\
 		parse.c\
-		sort_lg_utils.c\
+		sort_lg_utils1.c\
+		sort_lg_utils2.c\
 		sort_lg.c\
 		sort_sm_utils.c\
 		sort_sm.c\
+		stack_normalize.c\
 		stack_operations.c\
 		stack_utils.c
 OBJS = $(SRCS:.c=.o)

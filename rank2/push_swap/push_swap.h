@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 08:05:23 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 09:42:39 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	append_node(t_stack *stack, int value);
 void	shift_node(t_stack *stack);
 void	pop_node(t_stack *stack);
 
+void	normalize_stack(t_stack *stack);
+
 size_t	ft_strlen(const char *s);
 void	ft_putchar(char c);
 void	ft_putstr(const char *s);
@@ -80,7 +82,10 @@ t_stack	*parse(int argc, char **argv);
 void	move_min_to_top(t_stack *stack, char stack_name);
 void	sort_sm(t_stack *stack_a, t_stack *stack_b, int size);
 
-void	normalize_stack(t_stack *stack);
+bool	has_in_chunk(t_stack *stack, int chunk_min, int chunk_max);
+int		find_max(t_stack *stack);
+int		get_index_of_value(t_stack *stack, int value);
+void	sort_large(t_stack *a, t_stack *b);
 void	sort_lg(t_stack *stack_a, t_stack *stack_b);
 
 #endif
