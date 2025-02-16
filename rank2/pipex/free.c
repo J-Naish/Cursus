@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 23:31:04 by nash             ###   ########.fr       */
+/*   Created: 2025/02/16 23:26:13 by nash              #+#    #+#             */
+/*   Updated: 2025/02/16 23:30:53 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "pipex.h"
 
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <string.h>
+static void	free_cmds(char **cmds)
+{
+	int	i;
 
-void	free_all(char *infilename, char *outfilename, char **cmds);
+	i = 0;
+	while (cmds[i])
+	{
+		free(cmds[i]);
+		i++;
+	}
+	free(cmds);
+}
 
-char	**get_cmds(int argc, char **argv);
-char	*get_infilename(char **argv);
-char	*get_outfilename(int argc, char **argv);
-
-size_t	ft_strlen(const char *s);
-char	*ft_strdup(const char *s1);
-
-#endif
+void	free_all(char *infilename, char *outfilename, char **cmds)
+{
+	free(infilename);
+	free(outfilename);
+	free_cmds(cmds);
+}

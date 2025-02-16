@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_cmd.c                                        :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:54:39 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 23:11:00 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 23:21:57 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,43 @@ char	**get_cmds(int argc, char **argv)
 {
 	char	**strarr;
 	int		i;
-	char	*str;
 
-	strarr = (char **)malloc((argc - 3) * sizeof(char *));
+	strarr = (char **)malloc((argc - 2) * sizeof(char *));
 	if (!strarr)
-		exit(EXIT_FAILURE);
+		return (NULL);
 	i = 0;
 	while (i < argc - 3)
 	{
-		strarr[i] = argv[i + 2];
+		strarr[i] = ft_strdup(argv[i + 2]);
+		if (!strarr[i])
+		{
+			while (i > 0)
+				free(strarr[i]);
+			free(strarr);
+			return (NULL);
+		}
 		i++;
 	}
+	strarr[i] = NULL;
 	return (strarr);
+}
+
+char	*get_infilename(char **argv)
+{
+	char	*infilename;
+
+	infilename = ft_strdup(argv[1]);
+	if (!infilename)
+		return (NULL);
+}
+
+char	*get_outfilename(int argc, char **argv)
+{
+	char	*outfilename;
+
+	outfilename = ft_strdup(argv[argc - 1]);
+	if (!outfilename)
+		return (NULL);
 }
 
 // int main() {

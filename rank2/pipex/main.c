@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 22:53:33 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 23:31:18 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,21 @@
 
 int	main(int argc, char **argv)
 {
-	char	*input_file;
-	char	*output_file;
+	char	*infilename;
+	char	*outfilename;
+	char	**cmds;
 
 	if (argc < 5)
 		return (0);
-	input_file = argv[1];
-	output_file = argv[argc - 1];
+	infilename = get_infilename(argv);
+	if (!infilename)
+		return (EXIT_FAILURE);
+	outfilename = get_outfilename(argc, argv);
+	if (!outfilename)
+		return (free(infilename), EXIT_FAILURE);
+	cmds = get_cmds(argc, argv);
+	if (!cmds)
+		return (free(infilename), free(outfilename), EXIT_FAILURE);
+	free_all(infilename, outfilename, cmds);
 	return (0);
 }
