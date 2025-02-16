@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 05:07:23 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 09:46:15 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 09:47:12 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	find_max(t_stack *stack)
 	return (max);
 }
 
-int	get_index_of_value(t_stack *stack, int value)
+int	get_index(t_stack *stack, int value)
 {
 	int		i;
 	t_node	*current;

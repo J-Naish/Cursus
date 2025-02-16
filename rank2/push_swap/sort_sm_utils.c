@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 06:39:59 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 07:28:30 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 09:47:31 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static t_node	*get_min_node(t_stack *stack)
 	return (min);
 }
 
-static int	get_index(t_stack *stack, t_node *node)
+static int	get_index_of_node(t_stack *stack, t_node *node)
 {
 	int		i;
 	t_node	*current;
@@ -58,7 +58,7 @@ static void	move_node_to_top(t_stack *stack, t_node *node, char stack_name)
 	if (!stack || !node)
 		return ;
 	size = get_stack_size(stack);
-	index = get_index(stack, node);
+	index = get_index_of_node(stack, node);
 	if (size == 0 || index == -1)
 		return ;
 	j = 0;
@@ -92,7 +92,7 @@ void	move_min_to_top(t_stack *stack, char stack_name)
 // 	ft_putstr("\n");
 // 	putnode(minNode);
 // 	ft_putstr("\n");
-// 	int minIndex = get_index(stack, minNode);
+// 	int minIndex = get_index_of_node(stack, minNode);
 // 	printf("%d\n", minIndex);
 
 // 	size_t size = get_stack_size(stack);

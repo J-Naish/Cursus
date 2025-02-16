@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 06:09:23 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 09:45:59 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 09:48:04 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	push_back_to_a(t_stack *a, t_stack *b)
 	while (get_stack_size(b) > 0)
 	{
 		max = find_max(b);
-		pos = get_index_of_value(b, max);
+		pos = get_index(b, max);
 		b_size = get_stack_size(b);
 		if (pos <= b_size / 2)
 		{
