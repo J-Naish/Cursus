@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   command.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/17 02:19:01 by nash              #+#    #+#             */
-/*   Updated: 2025/02/17 03:13:21 by nash             ###   ########.fr       */
+/*   Created: 2025/02/17 02:56:01 by nash              #+#    #+#             */
+/*   Updated: 2025/02/17 03:16:42 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	puterrno(void)
+void	exec_command(char *cmd, char **args)
 {
-	ft_putstr_fd(STDERR_FILENO, strerror(errno));
-	ft_putstr_fd(STDERR_FILENO, "\n");
-}
+	char	**envp;
 
-void	error_exit(char *infile, char *outfile, char **cmds)
-{
-	free_all(infile, outfile, cmds);
-	puterrno();
-	exit(EXIT_FAILURE);
+	*envp = NULL;
+	if (execve(cmd, args, envp) == -1)
+	{
+		puterrno();
+		exit(1);
+	}
 }
