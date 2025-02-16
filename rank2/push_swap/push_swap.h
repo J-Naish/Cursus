@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 20:44:58 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 20:53:37 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ int		find_index_of_max(t_stack *stack);
 int		find_index_of_min(t_stack *stack);
 
 void	perform_rot(t_stack *a, t_stack *b, int cost_a, int cost_b);
+
+int		rot_to_insert_a(t_stack *a, int value);
 
 int		calculate_cost(int index, int size);
 int		total_cost(int cost_a, int cost_b);

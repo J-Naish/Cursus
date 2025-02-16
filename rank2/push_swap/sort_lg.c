@@ -6,44 +6,11 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 06:09:23 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 20:45:54 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 20:54:29 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	rotations_to_insert_a(t_stack *a, int value)
-{
-	int		size;
-	int		i;
-	t_node	*current;
-	t_node	*next;
-	int		cost;
-	int		min_index;
-
-	size = get_stack_size(a);
-	if (size == 0)
-		return (0);
-	current = a->sentinel->next;
-	i = 0;
-	while (i < size)
-	{
-		next = (i == size - 1) ? a->sentinel->next : current->next;
-		if (current->value > next->value)
-		{
-			if (value > current->value || value < next->value)
-				return (calculate_cost(i + 1, size));
-		}
-		if (value > current->value && value < next->value)
-			return (calculate_cost(i + 1, size));
-
-		current = current->next;
-		i++;
-	}
-	min_index = find_index_of_min(a);
-	cost = calculate_cost(min_index, size);
-	return (cost);
-}
 
 static void	push_back_to_a(t_stack *a, t_stack *b)
 {
@@ -66,7 +33,7 @@ static void	push_back_to_a(t_stack *a, t_stack *b)
 		while (curr != b->sentinel)
 		{
 			int cost_b = calculate_cost(index, size_b);
-			int cost_a = rotations_to_insert_a(a, curr->value);
+			int cost_a = rot_to_insert_a(a, curr->value);
 			current_total_cost = total_cost(cost_a, cost_b);
 			if (current_total_cost < min_total_cost)
 			{
