@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:35:29 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 07:44:02 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 09:45:11 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int argc, char **argv)
 	stack_a = parse(argc, argv);
 	if (!stack_a)
 		return (EXIT_FAILURE);
+	normalize_stack(stack_a);
 	stack_b = init_stack();
 	if (!stack_b)
 		return (free(stack_a), EXIT_FAILURE);
