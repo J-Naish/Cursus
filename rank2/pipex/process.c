@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   infile.c                                           :+:      :+:    :+:   */
+/*   process.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 02:06:53 by nash              #+#    #+#             */
-/*   Updated: 2025/02/17 02:38:12 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/17 02:44:47 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	open_infile(char *infilename)
+void	open_infile(char *infilename, char *outfilename, char **cmds)
 {
 	int		fd;
 	int		pipefd[2];
@@ -20,21 +20,12 @@ void	open_infile(char *infilename)
 
 	fd = open(infilename, O_RDONLY);
 	if (fd < 0)
-	{
-		puterrno();
-		exit(EXIT_FAILURE);
-	}
+		error_exit(infilename, outfilename, cmds);
 	if (pipe(pipefd) == -1)
-	{
-		puterrno();
-		exit(EXIT_FAILURE);
-	}
+		error_exit(infilename, outfilename, cmds);
 	pid = fork();
 	if (pid == -1)
-	{
-		puterrno();
-		exit(EXIT_FAILURE);
-	}
+		error_exit(infilename, outfilename, cmds);
 	if (pid == 0)
 	{
 		printf("child process\n");
