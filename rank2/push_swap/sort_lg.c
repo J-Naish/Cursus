@@ -6,13 +6,13 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 06:09:23 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 20:10:06 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 20:39:21 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void perform_rotations(t_stack *a, t_stack *b, int cost_a, int cost_b)
+static void perform_rotations(t_stack *a, t_stack *b, int cost_a, int cost_b)
 {
 	while (cost_a > 0 && cost_b > 0)
 	{
@@ -48,7 +48,7 @@ void perform_rotations(t_stack *a, t_stack *b, int cost_a, int cost_b)
 	}
 }
 
-int	rotations_to_insert_a(t_stack *a, int value)
+static int	rotations_to_insert_a(t_stack *a, int value)
 {
 	int		size;
 	int		i;
@@ -81,7 +81,7 @@ int	rotations_to_insert_a(t_stack *a, int value)
 	return (cost);
 }
 
-void	push_back_to_a(t_stack *a, t_stack *b)
+static void	push_back_to_a(t_stack *a, t_stack *b)
 {
 	int		size_b;
 	int		min_total_cost;
@@ -118,7 +118,7 @@ void	push_back_to_a(t_stack *a, t_stack *b)
 	}
 }
 
-void	final_arrangement(t_stack *a)
+static void	final_arrangement(t_stack *a)
 {
 	int	min_index;
 	int	size;
