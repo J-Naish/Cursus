@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 23:31:18 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/17 02:38:34 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(int argc, char **argv)
 	cmds = get_cmds(argc, argv);
 	if (!cmds)
 		return (free(infilename), free(outfilename), EXIT_FAILURE);
+	open_infile(infilename);
 	free_all(infilename, outfilename, cmds);
 	return (0);
 }

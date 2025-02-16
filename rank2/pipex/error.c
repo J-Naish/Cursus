@@ -1,46 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/16 22:57:57 by nash              #+#    #+#             */
-/*   Updated: 2025/02/17 02:34:42 by nash             ###   ########.fr       */
+/*   Created: 2025/02/17 02:19:01 by nash              #+#    #+#             */
+/*   Updated: 2025/02/17 02:21:00 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-size_t	ft_strlen(const char *s)
+void	puterrno(void)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strdup(const char *s1)
-{
-	int		i;
-	char	*copy;
-
-	copy = (char *)malloc((ft_strlen(s1) + 1) * sizeof(char));
-	if (!copy)
-		return (NULL);
-	i = 0;
-	while (s1[i])
-	{
-		copy[i] = s1[i];
-		i++;
-	}
-	copy[i] = '\0';
-	return (copy);
-}
-
-void	ft_putstr_fd(int fd, const char *s)
-{
-	write(fd, s, ft_strlen(s));
+	ft_putstr_fd(STDERR_FILENO, strerror(errno));
+	ft_putstr_fd(STDERR_FILENO, "\n");
 }
