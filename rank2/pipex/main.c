@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/17 04:43:03 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/17 04:43:52 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,12 @@ int	main(int argc, char **argv, char **envp)
 			error_exit();
 		else if (pid == 0)
 		{
+			if (i == 2)
+			{
+				if (dup2(infilefd, STDIN_FILENO) == -1)
+					error_exit();
+				close(infilefd);
+			}
 			close(pipefd[0]);
 			exec_cmd(argv[i], envp);
 			close(pipefd[1]);
