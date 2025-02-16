@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 05:01:43 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 07:43:39 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 19:55:05 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	sort2(t_stack *stack)
 		sa(stack);
 }
 
-static void	sort3(t_stack *stack, char stack_name)
+void	sort3(t_stack *stack, char stack_name)
 {
 	int	x;
 	int	y;

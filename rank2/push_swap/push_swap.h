@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 09:47:47 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 19:55:10 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,19 @@ bool	is_valid_arg(int argc, char **argv);
 t_stack	*parse(int argc, char **argv);
 
 void	move_min_to_top(t_stack *stack, char stack_name);
+void	sort3(t_stack *stack, char stack_name);
 void	sort_sm(t_stack *stack_a, t_stack *stack_b, int size);
 
-bool	has_in_chunk(t_stack *stack, int chunk_min, int chunk_max);
+int		find_index(t_stack *stack, t_node *node);
 int		find_max(t_stack *stack);
-int		get_index(t_stack *stack, int value);
+int		find_min(t_stack *stack);
+int		find_index_of_max(t_stack *stack);
+int		find_index_of_min(t_stack *stack);
+
+int		calculate_cost(int index, int size);
+int		total_cost(int cost_a, int cost_b);
+int		find_insert_position_in_b(t_stack *b, int value);
+
 void	sort_lg(t_stack *stack_a, t_stack *stack_b);
 
 #endif

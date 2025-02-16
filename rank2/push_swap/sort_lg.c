@@ -6,80 +6,152 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 06:09:23 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 09:48:04 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 19:55:40 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push_chunks_to_b(t_stack *a, t_stack *b, int size, int chunk_size)
+void perform_rotations(t_stack *a, t_stack *b, int cost_a, int cost_b)
 {
-	int	i;
-	int	min;
-	int	max;
-	int	mid;
-
-	i = 0;
-	while (i < size)
+	while (cost_a > 0 && cost_b > 0)
 	{
-		min = i;
-		max = i + chunk_size - 1;
-		if (max >= size)
-			max = size - 1;
-		mid = (min + max) / 2;
-		while (has_in_chunk(a, min, max))
-		{
-			if (a->sentinel->next->value >= min
-				&& a->sentinel->next->value <= max)
-			{
-				pb(a, b);
-				if (b->sentinel->next->value < mid)
-					rb(b);
-			}
-			else
-				ra(a);
-		}
-		i += chunk_size;
+		rr(a, b);
+		cost_a--;
+		cost_b--;
+	}
+	while (cost_a < 0 && cost_b < 0)
+	{
+		rrr(a, b);
+		cost_a++;
+		cost_b++;
+	}
+	while (cost_a > 0)
+	{
+		ra(a);
+		cost_a--;
+	}
+	while (cost_a < 0)
+	{
+		rra(a);
+		cost_a++;
+	}
+	while (cost_b > 0)
+	{
+		rb(b);
+		cost_b--;
+	}
+	while (cost_b < 0)
+	{
+		rrb(b);
+		cost_b++;
 	}
 }
 
-static void	push_back_to_a(t_stack *a, t_stack *b)
+int	rotations_to_insert_a(t_stack *a, int value)
 {
-	int	max;
-	int	pos;
-	int	b_size;
-	int	r;
+	int		size;
+	int		i;
+	t_node	*current;
+	int		min_value;
+	int		max_value;
+	int		min_index;
+
+	size = get_stack_size(a);
+	i = 0;
+	current = a->sentinel->next;
+	min_value = find_min(a);
+	max_value = find_max(a);
+	if (value < min_value || value > max_value)
+	{
+		min_index = find_index_of_min(a);
+		return (calculate_cost(min_index, size));
+	}
+	while (i < size)
+	{
+		if (current->value > value)
+			return (calculate_cost(i, size));
+		current = current->next;
+		i++;
+	}
+	return (0);
+}
+
+void	push_back_to_a(t_stack *a, t_stack *b)
+{
+	int	cost;
 
 	while (get_stack_size(b) > 0)
 	{
-		max = find_max(b);
-		pos = get_index(b, max);
-		b_size = get_stack_size(b);
-		if (pos <= b_size / 2)
+		cost = rotations_to_insert_a(a, b->sentinel->next->value);
+		while (cost > 0)
 		{
-			while (pos-- > 0)
-				rb(b);
+			ra(a);
+			cost--;
 		}
-		else
+		while (cost < 0)
 		{
-			r = b_size - pos;
-			while (r-- > 0)
-				rrb(b);
+			rra(a);
+			cost++;
 		}
 		pa(a, b);
 	}
 }
 
+void	final_arrangement(t_stack *a)
+{
+	int	min_index;
+	int	size;
+	int	cost;
+
+	min_index = find_index_of_min(a);
+	size = get_stack_size(a);
+	cost = calculate_cost(min_index, size);
+	while (cost > 0)
+	{
+		ra(a);
+		cost--;
+	}
+	while (cost < 0)
+	{
+		rra(a);
+		cost++;
+	}
+}
+
 void	sort_lg(t_stack *a, t_stack *b)
 {
-	int	size;
-	int	chunk_size;
+	int size;
 
-	size = get_stack_size(a);
-	if (size <= 100)
-		chunk_size = 15;
-	else
-		chunk_size = 30;
-	push_chunks_to_b(a, b, size, chunk_size);
+	pb(a, b);
+	pb(a, b);
+	while ((size = get_stack_size(a)) > 3)
+	{
+		t_node *curr = a->sentinel->next;
+		int index = 0;
+		int min_total_cost = INT_MAX;
+		int best_cost_a = 0;
+		int best_cost_b = 0;
+		while (curr != a->sentinel)
+		{
+			int cost_a = calculate_cost(index, size);
+			int pos_in_b = find_insert_position_in_b(b, curr->value);
+			int size_b = get_stack_size(b);
+			int cost_b = calculate_cost(pos_in_b, size_b);
+			int current_total_cost = total_cost(cost_a, cost_b);
+			if (current_total_cost < min_total_cost)
+			{
+				min_total_cost = current_total_cost;
+				best_cost_a = cost_a;
+				best_cost_b = cost_b;
+			}
+			curr = curr->next;
+			index++;
+		}
+		perform_rotations(a, b, best_cost_a, best_cost_b);
+		pb(a, b);
+	}
+	sort3(a, 'a');
 	push_back_to_a(a, b);
+	final_arrangement(a);
 }
