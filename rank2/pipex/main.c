@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 22:52:00 by nash             ###   ########.fr       */
+/*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
+/*   Updated: 2025/02/16 22:53:33 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "pipex.h"
 
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
+int	main(int argc, char **argv)
+{
+	char	*input_file;
+	char	*output_file;
 
-#endif
+	if (argc < 5)
+		return (0);
+	input_file = argv[1];
+	output_file = argv[argc - 1];
+	return (0);
+}
