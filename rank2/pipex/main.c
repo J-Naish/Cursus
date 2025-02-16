@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/17 04:06:40 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/17 04:08:59 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	process_all(int argc, char **argv, char **envp)
 	pid_t	pid;
 
 	i = 2;
-	(void) envp;
 	while (i < argc - 1)
 	{
 		if (pipe(pipefd) == -1)
@@ -30,6 +29,7 @@ void	process_all(int argc, char **argv, char **envp)
 		if (pid == 0)
 		{
 			close(pipefd[0]);
+			exec_cmd(argv[i], envp);
 			close(pipefd[1]);
 			exit(EXIT_SUCCESS);
 		}

@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 21:45:38 by nash              #+#    #+#              #
-#    Updated: 2025/02/17 03:48:30 by nash             ###   ########.fr        #
+#    Updated: 2025/02/17 03:59:16 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = command.c\
 		error.c\
+		exec_cmd.c\
 		main.c\
 		utils.c
 OBJS = $(SRCS:.c=.o)
