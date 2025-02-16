@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/02/17 03:33:00 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/17 03:37:12 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	error_exit(void);
 void	open_infile(void);
 
 size_t	ft_strlen(const char *s);
-char	*ft_strdup(const char *s1);
 void	ft_putstr_fd(int fd, const char *s);
 
 #endif
