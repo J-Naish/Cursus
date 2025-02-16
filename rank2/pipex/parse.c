@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:54:39 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 23:21:57 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 23:39:26 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ char	*get_infilename(char **argv)
 	infilename = ft_strdup(argv[1]);
 	if (!infilename)
 		return (NULL);
+	return (infilename);
 }
 
 char	*get_outfilename(int argc, char **argv)
@@ -53,39 +54,20 @@ char	*get_outfilename(int argc, char **argv)
 	outfilename = ft_strdup(argv[argc - 1]);
 	if (!outfilename)
 		return (NULL);
+	return (outfilename);
 }
 
-// int main() {
-// 	char *argv1[] = {
-// 		"./pipex",
-// 		"infile",
-// 		"ls -l",
-// 		"grep a1",
-// 		"outfile"
-// 	};
-// 	char **cmds1 = get_cmds(5, argv1);
-// 	printf("%s\n", cmds1[0]);
-// 	printf("%s\n\n", cmds1[1]);
-
-// 	char *argv2[] = {
-// 		"./pipex",
-// 		"infile",
-// 		"ls -l",
-// 		"grep a1",
-// 		"cat",
-// 		"echo",
-// 		"cd",
-// 		"mkdir",
-// 		"vim",
-// 		"outfile"
-// 	};
-// 	char **cmds2 = get_cmds(10, argv2);
-// 	printf("%s\n", cmds2[0]);
-// 	printf("%s\n", cmds2[1]);
-// 	printf("%s\n", cmds2[2]);
-// 	printf("%s\n", cmds2[3]);
-// 	printf("%s\n", cmds2[4]);
-// 	printf("%s\n", cmds2[5]);
-// 	printf("%s\n", cmds2[6]);
+// int main(int argc, char **argv) {
+// 	char *infilename = get_infilename(argv);
+// 	char *outfilename = get_outfilename(argc, argv);
+// 	char **cmds = get_cmds(argc, argv);
+// 	printf("infile name is: %s\n", infilename);
+// 	printf("outfile name is: %s\n", outfilename);
+// 	int i = 0;
+// 	while (cmds[i])
+// 	{
+// 		printf("cmd %d is: %s\n", i + 1, cmds[i]);
+// 		i++;
+// 	}
 // 	return 0;
 // }

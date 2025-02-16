@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 21:45:38 by nash              #+#    #+#              #
-#    Updated: 2025/02/16 23:27:46 by nash             ###   ########.fr        #
+#    Updated: 2025/02/16 23:38:24 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,5 +34,8 @@ fclean:
 	rm -f $(NAME) $(OBJS)
 
 re: fclean all
+
+unit_test:
+	$(CC) $(CFLAGS) $(filter-out main.c, $(SRCS))
 
 .PHONY: all clean fclean re
