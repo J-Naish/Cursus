@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 05:10:22 by nash              #+#    #+#              #
-#    Updated: 2025/02/16 19:56:03 by nash             ###   ########.fr        #
+#    Updated: 2025/02/16 20:45:13 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS = debug.c\
 		parse.c\
 		sort_lg_utils1.c\
 		sort_lg_utils2.c\
+		sort_lg_utils3.c\
 		sort_lg.c\
 		sort_sm_utils.c\
 		sort_sm.c\

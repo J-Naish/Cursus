@@ -6,47 +6,11 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 06:09:23 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 20:39:21 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 20:45:54 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void perform_rotations(t_stack *a, t_stack *b, int cost_a, int cost_b)
-{
-	while (cost_a > 0 && cost_b > 0)
-	{
-		rr(a, b);
-		cost_a--;
-		cost_b--;
-	}
-	while (cost_a < 0 && cost_b < 0)
-	{
-		rrr(a, b);
-		cost_a++;
-		cost_b++;
-	}
-	while (cost_a > 0)
-	{
-		ra(a);
-		cost_a--;
-	}
-	while (cost_a < 0)
-	{
-		rra(a);
-		cost_a++;
-	}
-	while (cost_b > 0)
-	{
-		rb(b);
-		cost_b--;
-	}
-	while (cost_b < 0)
-	{
-		rrb(b);
-		cost_b++;
-	}
-}
 
 static int	rotations_to_insert_a(t_stack *a, int value)
 {
@@ -113,7 +77,7 @@ static void	push_back_to_a(t_stack *a, t_stack *b)
 			curr = curr->next;
 			index++;
 		}
-		perform_rotations(a, b, best_cost_a, best_cost_b);
+		perform_rot(a, b, best_cost_a, best_cost_b);
 		pa(a, b);
 	}
 }
@@ -168,7 +132,7 @@ void	sort_lg(t_stack *a, t_stack *b)
 			curr = curr->next;
 			index++;
 		}
-		perform_rotations(a, b, best_cost_a, best_cost_b);
+		perform_rot(a, b, best_cost_a, best_cost_b);
 		pb(a, b);
 	}
 	sort3(a, 'a');
