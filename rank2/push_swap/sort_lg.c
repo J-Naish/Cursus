@@ -6,48 +6,11 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 06:09:23 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 20:54:29 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 21:04:50 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	push_back_to_a(t_stack *a, t_stack *b)
-{
-	int		size_b;
-	int		min_total_cost;
-	int		best_cost_a;
-	int		best_cost_b;
-	int		index;
-	int		current_total_cost;
-	t_node	*curr;
-
-	while (get_stack_size(b) > 0)
-	{
-		size_b = get_stack_size(b);
-		min_total_cost = INT_MAX;
-		best_cost_a = 0;
-		best_cost_b = 0;
-		index = 0;
-		curr = b->sentinel->next;
-		while (curr != b->sentinel)
-		{
-			int cost_b = calculate_cost(index, size_b);
-			int cost_a = rot_to_insert_a(a, curr->value);
-			current_total_cost = total_cost(cost_a, cost_b);
-			if (current_total_cost < min_total_cost)
-			{
-				min_total_cost = current_total_cost;
-				best_cost_a = cost_a;
-				best_cost_b = cost_b;
-			}
-			curr = curr->next;
-			index++;
-		}
-		perform_rot(a, b, best_cost_a, best_cost_b);
-		pa(a, b);
-	}
-}
 
 static void	final_arrangement(t_stack *a)
 {
