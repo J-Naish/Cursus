@@ -6,15 +6,14 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 21:45:38 by nash              #+#    #+#              #
-#    Updated: 2025/02/17 03:59:16 by nash             ###   ########.fr        #
+#    Updated: 2025/02/17 04:25:01 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pipex
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = command.c\
-		error.c\
+SRCS = error.c\
 		exec_cmd.c\
 		main.c\
 		utils.c
