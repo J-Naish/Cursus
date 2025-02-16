@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 19:33:45 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 19:42:40 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 20:04:41 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,19 @@ int	calculate_cost(int index, int size)
 		return (index - size);
 }
 
-static int	get_abs(int num)
-{
-	if (num < 0)
-		return (-num);
-	else
-		return (num);
-}
-
 int	total_cost(int cost_a, int cost_b)
 {
 	int	abs_a;
 	int	abs_b;
 
-	abs_a = get_abs(cost_a);
-	abs_b = get_abs(cost_b);
+	if (cost_a < 0)
+		abs_a = -cost_a;
+	else
+		abs_a = cost_a;
+	if (cost_b < 0)
+		abs_b = -cost_b;
+	else
+		abs_b = cost_b;
 	if ((cost_a >= 0 && cost_b >= 0) || (cost_a < 0 && cost_b < 0))
 	{
 		if (abs_a > abs_b)
