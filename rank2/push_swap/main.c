@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:35:29 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 20:53:21 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 21:33:44 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int	main(int argc, char **argv)
 		sort_sm(stack_a, stack_b, argc - 1);
 	else
 		sort_lg(stack_a, stack_b);
-	putstack(stack_a);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);
