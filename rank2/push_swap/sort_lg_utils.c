@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_lg_utils1.c                                   :+:      :+:    :+:   */
+/*   sort_lg_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 05:07:23 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 09:42:17 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 09:46:15 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,3 @@ int	get_index_of_value(t_stack *stack, int value)
 	}
 	return (i);
 }
-
-// int main() {
-// 	t_stack *stack = create_test_stack();
-// 	putstack(stack);
-// 	printf("\n");
-// 	normalize_stack(stack);
-// 	putstack(stack);
-// }

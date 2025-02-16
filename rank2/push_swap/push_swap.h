@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 09:42:39 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 09:46:26 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ void	sort_sm(t_stack *stack_a, t_stack *stack_b, int size);
 bool	has_in_chunk(t_stack *stack, int chunk_min, int chunk_max);
 int		find_max(t_stack *stack);
 int		get_index_of_value(t_stack *stack, int value);
-void	sort_large(t_stack *a, t_stack *b);
 void	sort_lg(t_stack *stack_a, t_stack *stack_b);
 
 #endif
