@@ -6,32 +6,11 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 06:09:23 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 21:04:50 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/16 21:19:15 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	final_arrangement(t_stack *a)
-{
-	int	min_index;
-	int	size;
-	int	cost;
-
-	min_index = find_index_of_min(a);
-	size = get_stack_size(a);
-	cost = calculate_cost(min_index, size);
-	while (cost > 0)
-	{
-		ra(a);
-		cost--;
-	}
-	while (cost < 0)
-	{
-		rra(a);
-		cost++;
-	}
-}
 
 void	sort_lg(t_stack *a, t_stack *b)
 {
