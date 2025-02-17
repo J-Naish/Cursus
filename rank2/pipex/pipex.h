@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/02/17 04:08:14 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/17 21:03:16 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ void	puterrno(void);
 void	error_exit(void);
 
 void	exec_cmd(char *cmd, char **envp);
+
+int		open_infile(const char *filename);
+int		open_outfile(const char *filename);
 
 size_t	ft_strlen(const char *s);
 void	ft_putstr_fd(int fd, const char *s);
