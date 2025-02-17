@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 21:02:36 by nash              #+#    #+#             */
-/*   Updated: 2025/02/17 21:02:48 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/18 00:00:40 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,23 @@ int	open_outfile(const char *filename)
 		error_exit();
 	return (fd);
 }
+
+char	**get_cmd_args(char const *cmd)
+{
+	char	**cmd_args;
+
+	cmd_args = ft_split(cmd, ' ');
+	if (!cmd_args)
+		return (NULL);
+	return (cmd_args);
+}
+
+// int main() {
+// 	char **test =
+// 		get_cmd_args("cc -Wall -Wextra -Werror");
+// 	printf("%s\n", test[0]);
+// 	printf("%s\n", test[1]);
+// 	printf("%s\n", test[2]);
+// 	printf("%s\n", test[3]);
+// 	printf("%s\n", test[4]);
+// }
