@@ -6,11 +6,23 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/17 04:58:10 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/17 18:59:20 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+void	wait_children(int num_children)
+{
+	int	i;
+
+	i = 0;
+	while  (i < num_children)
+	{
+		wait(NULL);
+		i++;
+	}
+}
 
 int	main(int argc, char **argv, char **envp)
 {
@@ -87,11 +99,6 @@ int	main(int argc, char **argv, char **envp)
 		}
 		i++;
 	}
-	i = 2;
-	while (i < argc - 1)
-	{
-		wait(NULL);
-		i++;
-	}
+	wait_children(argc - 3);
 	return (0);
 }
