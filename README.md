@@ -28,11 +28,11 @@
 
 # After Common Core
 ## やりたいのリスト
-- Assembly
-- AI
-- Security
-- Linux
-- Algorithm
-- Network
-- Cloud
-- 3D
+1. Assembly & deep C
+2. Security
+3. AI
+4. Linux
+5. Network
+6. Cloud
+7. 3D Graphics
+8. Algorithm
