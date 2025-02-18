@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 03:56:49 by nash              #+#    #+#             */
-/*   Updated: 2025/02/19 07:18:27 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/19 07:21:29 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,47 +27,42 @@ char	*join_path(const char *dir, const char *cmd)
 	return (full_path);
 }
 
-// char	*find_command_path(const char *cmd, char **envp)
-// {
-// 	char	*path_env = NULL;
-// 	char	*token;
-// 	char	*saveptr;
-// 	char	*full_path;
+char	*find_command_path(const char *cmd, char **envp)
+{
+	char	*path_env;
+	char	*paths;
+	char	*token;
+	char	*saveptr;
+	char	*full_path;
 
-// 	for (int i = 0; envp[i] != NULL; i++)
-// 	{
-// 		if (strncmp(envp[i], "PATH=", 5) == 0)
-// 		{
-// 			path_env = envp[i] + 5;
-// 			break ;
-// 		}
-// 	}
-// 	if (!path_env)
-// 		return (NULL);
-// 	char *paths = strdup(path_env);
-// 	if (!paths)
-// 		return (NULL);
-
-// 	token = strtok_r(paths, ":", &saveptr);
-// 	while (token != NULL)
-// 	{
-// 		full_path = join_path(token, cmd);
-// 		if (!full_path)
-// 		{
-// 			free(paths);
-// 			return (NULL);
-// 		}
-// 		if (access(full_path, X_OK) == 0)
-// 		{
-// 			free(paths);
-// 			return (full_path);
-// 		}
-// 		free(full_path);
-// 		token = strtok_r(NULL, ":", &saveptr);
-// 	}
-// 	free(paths);
-// 	return (NULL);
-// }
+	path_env = NULL;
+	for (int i = 0; envp[i] != NULL; i++)
+	{
+		if (strncmp(envp[i], "PATH=", 5) == 0)
+		{
+			path_env = envp[i] + 5;
+			break ;
+		}
+	}
+	if (!path_env)
+		return (NULL);
+	*paths = ft_strdup(path_env);
+	if (!paths)
+		return (NULL);
+	token = strtok_r(paths, ":", &saveptr);
+	while (token != NULL)
+	{
+		full_path = join_path(token, cmd);
+		if (!full_path)
+			return (free(paths), NULL);
+		if (access(full_path, X_OK) == 0)
+			return (free(paths), full_path);
+		free(full_path);
+		token = strtok_r(NULL, ":", &saveptr);
+	}
+	free(paths);
+	return (NULL);
+}
 
 // void	exec_cmd(char *cmd, char **envp)
 // {
