@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 03:56:49 by nash              #+#    #+#             */
-/*   Updated: 2025/02/19 06:50:21 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/19 06:51:22 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char *join_path(const char *dir, const char *cmd)
 {
-    size_t len_dir = strlen(dir);
-    size_t len_cmd = strlen(cmd);
-    char *full_path = malloc(len_dir + 1 + len_cmd + 1); // dir + '/' + cmd + '\0'
+    size_t len_dir = ft_strlen(dir);
+    size_t len_cmd = ft_strlen(cmd);
+    char *full_path = malloc(len_dir + 1 + len_cmd + 1);
     if (!full_path)
         return (NULL);
     strcpy(full_path, dir);
@@ -64,7 +64,7 @@ char *find_command_path(const char *cmd, char **envp)
         token = strtok_r(NULL, ":", &saveptr);
     }
     free(paths);
-    return (NULL); // command not found in PATH
+    return (NULL);
 }
 
 void	exec_cmd(char *cmd, char **envp)
