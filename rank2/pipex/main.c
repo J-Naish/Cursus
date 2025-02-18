@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/17 21:10:00 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/19 06:05:32 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ int	main(int argc, char **argv, char **envp)
 	prev_pipe_fd = -1;
 	if (argc < 5)
 		return (0);
-	infilefd = open_infile(argv[1]);
-	outfilefd = open_outfile(argv[argc - 1]);
 	i = 2;
 	while (i < argc - 1)
 	{
@@ -59,6 +57,7 @@ int	main(int argc, char **argv, char **envp)
 		{
 			if (i == 2)
 			{
+				infilefd = open_infile(argv[1]);
 				dup2_wrapper(infilefd, STDIN_FILENO);
 				close(infilefd);
 			}
@@ -67,6 +66,7 @@ int	main(int argc, char **argv, char **envp)
 			if (i == argc - 2)
 			{
 				dup2_wrapper(prev_pipe_fd, STDIN_FILENO);
+				outfilefd = open_outfile(argv[argc - 1]);
 				dup2_wrapper(outfilefd, STDOUT_FILENO);
 				close(outfilefd);
 			}
