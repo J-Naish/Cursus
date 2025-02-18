@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/02/18 00:05:00 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/19 06:49:56 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ char	**get_cmd_args(char const *cmd);
 size_t	ft_strlen(const char *s);
 void	ft_putstr_fd(int fd, const char *s);
 char	**ft_split(char const *s, char c);
+char	*ft_strchr(const char *s, int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strdup(const char *s1);
 
