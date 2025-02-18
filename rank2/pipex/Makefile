@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 21:45:38 by nash              #+#    #+#              #
-#    Updated: 2025/02/19 06:50:09 by nash             ###   ########.fr        #
+#    Updated: 2025/02/19 07:17:19 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS = error.c\
 		ft_split.c\
 		ft_strchr.c\
 		ft_strdup.c\
+		ft_strjoin.c\
 		ft_substr.c\
 		main.c\
 		parse.c\
