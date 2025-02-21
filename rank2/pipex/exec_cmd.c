@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 03:56:49 by nash              #+#    #+#             */
-/*   Updated: 2025/02/21 19:35:33 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/21 19:39:37 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*find_command_path(const char *cmd, char **envp)
 	path_env = get_path_env(envp);
 	if (!path_env)
 		return (NULL);
-	*paths = ft_strdup(path_env);
+	paths = ft_strdup(path_env);
 	if (!paths)
 		return (NULL);
 	token = strtok_r(paths, ":", &saveptr);
@@ -107,6 +107,6 @@ char	*find_command_path(const char *cmd, char **envp)
 // }
 
 
-int main() {
-	printf("%s\n", join_path("bin", "ls"));
-}
+// int main() {
+// 	printf("%s\n", join_path("bin", "ls"));
+// }
