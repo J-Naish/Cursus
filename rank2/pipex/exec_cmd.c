@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 03:56:49 by nash              #+#    #+#             */
-/*   Updated: 2025/02/19 07:22:37 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/21 19:35:33 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,20 @@ char	*join_path(const char *dir, const char *cmd)
 	return (full_path);
 }
 
+char	*get_path_env(char **envp)
+{
+	int		i;
+
+	i = 0;
+	while (envp[i])
+	{
+		if (ft_strncmp(envp[i], "PATH=", 5) == 0)
+			return (envp[i] + 5);
+		i++;
+	}
+	return (NULL);
+}
+
 char	*find_command_path(const char *cmd, char **envp)
 {
 	char	*path_env;
@@ -35,15 +49,7 @@ char	*find_command_path(const char *cmd, char **envp)
 	char	*saveptr;
 	char	*full_path;
 
-	path_env = NULL;
-	for (int i = 0; envp[i] != NULL; i++)
-	{
-		if (ft_strncmp(envp[i], "PATH=", 5) == 0)
-		{
-			path_env = envp[i] + 5;
-			break ;
-		}
-	}
+	path_env = get_path_env(envp);
 	if (!path_env)
 		return (NULL);
 	*paths = ft_strdup(path_env);
