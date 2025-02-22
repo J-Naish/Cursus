@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 06:33:11 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 07:06:33 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <string.h>
 # include <errno.h>
 
-void	puterrno(void);
 void	error_exit(void);
 
 void	exec_cmd(char *cmd, char **envp);
@@ -32,9 +31,6 @@ void	dup_infile(char *filepath);
 void	dup_outfile(char *filepath);
 void	close_pipefd(int pipefd[2]);
 
-void	ft_putchar_fd(char c, int fd);
-void	ft_putnbr_fd(int n, int fd);
-void	ft_putstr_fd(const char *s, int fd);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);

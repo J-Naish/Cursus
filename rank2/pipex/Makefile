@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 21:45:38 by nash              #+#    #+#              #
-#    Updated: 2025/02/23 06:32:38 by nash             ###   ########.fr        #
+#    Updated: 2025/02/23 07:06:37 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,6 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = error.c\
 		exec_cmd.c\
-		ft_putchar_fd.c\
-		ft_putnbr_fd.c\
-		ft_putstr_fd.c\
 		ft_split.c\
 		ft_strchr.c\
 		ft_strdup.c\
