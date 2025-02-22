@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 03:56:49 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 01:39:53 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 01:55:41 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,18 @@ static char	*join_path(const char *dir, const char *cmd)
 static char	**get_paths(char **envp)
 {
 	int		i;
+	char	**paths;
 
 	i = 0;
 	while (envp[i])
 	{
 		if (ft_strncmp(envp[i], "PATH=", 5) == 0)
-			return (ft_split(envp[i] + 5, ':'));
+		{
+			paths = ft_split(envp[i] + 5, ':');
+			if (!paths)
+				error_exit();
+			return (paths);
+		}
 		i++;
 	}
 	return (NULL);
@@ -60,9 +66,9 @@ static char	*find_command_path(const char *cmd, char **envp)
 	char	**paths;
 	int		i;
 
+	if (ft_strchr(cmd, '/'))
+		return (ft_strdup(cmd));
 	paths = get_paths(envp);
-	if (!paths)
-		error_exit();
 	i = 0;
 	while (paths[i])
 	{
@@ -84,10 +90,7 @@ void	exec_cmd(char *cmd, char **envp)
 	char	*cmd_path;
 
 	args = get_cmd_args(cmd);
-	if (ft_strchr(cmd, '/'))
-		cmd_path = ft_strdup(cmd);
-	else
-		cmd_path = find_command_path(args[0], envp);
+	cmd_path = find_command_path(args[0], envp);
 	if (execve(cmd_path, args, envp) == -1)
 		error_exit();
 }
