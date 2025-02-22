@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 06:33:29 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 06:39:42 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ int	wait_children(int num_children)
 	return (result);
 }
 
+void	pipe_wrapper(int pipefd[2])
+{
+	if (pipe(pipefd) == -1)
+		error_exit();
+}
+
 int	main(int argc, char **argv, char **envp)
 {
 	int		i;
@@ -45,10 +51,7 @@ int	main(int argc, char **argv, char **envp)
 	while (i < argc - 1)
 	{
 		if (i < argc - 2)
-		{
-			if (pipe(pipefd) == -1)
-				error_exit();
-		}
+			pipe_wrapper(pipefd);
 		pid = fork();
 		if (pid == -1)
 			error_exit();
