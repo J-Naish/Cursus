@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 21:02:36 by nash              #+#    #+#             */
-/*   Updated: 2025/02/18 00:00:40 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 01:39:14 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	**get_cmd_args(char const *cmd)
 
 	cmd_args = ft_split(cmd, ' ');
 	if (!cmd_args)
-		return (NULL);
+		error_exit();
 	return (cmd_args);
 }
 

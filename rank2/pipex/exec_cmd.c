@@ -6,13 +6,13 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 03:56:49 by nash              #+#    #+#             */
-/*   Updated: 2025/02/21 19:39:37 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 01:38:38 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-char	*join_path(const char *dir, const char *cmd)
+static char	*join_path(const char *dir, const char *cmd)
 {
 	char	*tmp;
 	char	*full_path;
@@ -27,7 +27,7 @@ char	*join_path(const char *dir, const char *cmd)
 	return (full_path);
 }
 
-char	*get_path_env(char **envp)
+static char	**get_paths(char **envp)
 {
 	int		i;
 
@@ -35,78 +35,61 @@ char	*get_path_env(char **envp)
 	while (envp[i])
 	{
 		if (ft_strncmp(envp[i], "PATH=", 5) == 0)
-			return (envp[i] + 5);
+			return (ft_split(envp[i] + 5, ':'));
 		i++;
 	}
 	return (NULL);
 }
 
-char	*find_command_path(const char *cmd, char **envp)
+static void	free_paths(char **paths)
 {
-	char	*path_env;
-	char	*paths;
-	char	*token;
-	char	*saveptr;
-	char	*full_path;
+	int	i;
 
-	path_env = get_path_env(envp);
-	if (!path_env)
-		return (NULL);
-	paths = ft_strdup(path_env);
-	if (!paths)
-		return (NULL);
-	token = strtok_r(paths, ":", &saveptr);
-	while (token != NULL)
+	i = 0;
+	while (paths[i])
 	{
-		full_path = join_path(token, cmd);
-		if (!full_path)
-			return (free(paths), NULL);
-		if (access(full_path, X_OK) == 0)
-			return (free(paths), full_path);
-		free(full_path);
-		token = strtok_r(NULL, ":", &saveptr);
+		free(paths[i]);
+		i++;
 	}
 	free(paths);
+}
+
+static char	*find_command_path(const char *cmd, char **envp)
+{
+	char	*full_path;
+	char	**paths;
+	int		i;
+
+	paths = get_paths(envp);
+	if (!paths)
+		error_exit();
+	i = 0;
+	while (paths[i])
+	{
+		full_path = join_path(paths[i], cmd);
+		if (!full_path)
+			error_exit();
+		if (access(full_path, X_OK) == 0)
+			return (free_paths(paths), full_path);
+		free(full_path);
+		i++;
+	}
+	free_paths(paths);
 	return (NULL);
 }
 
-// void	exec_cmd(char *cmd, char **envp)
-// {
-// 	char	**args;
-// 	char	*cmd_path = NULL;
+void	exec_cmd(char *cmd, char **envp)
+{
+	char	**args;
+	char	*cmd_path;
 
-// 	if (ft_strchr(cmd, '/') == NULL)
-// 	{
-// 		args = get_cmd_args(cmd);
-// 		if (!args)
-// 			error_exit();
-// 		cmd_path = find_command_path(args[0], envp);
-// 		if (!cmd_path)
-// 		{
-// 			error_exit();
-// 		}
-// 	}
-// 	else
-// 	{
-// 		cmd_path = strdup(cmd);
-// 		if (!cmd_path)
-// 			error_exit();
-// 		args = get_cmd_args(cmd);
-// 		if (!args)
-// 		{
-// 			free(cmd_path);
-// 			error_exit();
-// 		}
-// 	}
-
-// 	if (execve(cmd_path, args, envp) == -1)
-// 	{
-// 		free(cmd_path);
-// 		error_exit();
-// 	}
-// }
-
-
-// int main() {
-// 	printf("%s\n", join_path("bin", "ls"));
-// }
+	args = get_cmd_args(cmd);
+	if (!args)
+		error_exit();
+	if (ft_strchr(cmd, '/'))
+		cmd_path = ft_strdup(cmd);
+	else
+		cmd_path = find_command_path(args[0], envp);
+	if (execve(cmd_path, args, envp) == -1)
+		error_exit();
+}
