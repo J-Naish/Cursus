@@ -6,13 +6,13 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 21:38:01 by rnishi            #+#    #+#             */
-/*   Updated: 2025/02/23 03:29:52 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 03:42:26 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	ft_putstr_fd(int fd, const char *s)
+void	ft_putstr_fd(const char *s, int fd)
 {
 	write(fd, s, ft_strlen(s));
 }

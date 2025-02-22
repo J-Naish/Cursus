@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 03:29:00 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 03:42:53 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int		open_infile(const char *filename);
 int		open_outfile(const char *filename);
 char	**get_cmd_args(char const *cmd);
 
-void	ft_putstr_fd(int fd, const char *s);
+void	ft_putnbr_fd(int n, int fd);
+void	ft_putstr_fd(const char *s, int fd);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
