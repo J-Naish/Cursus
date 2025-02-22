@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 21:45:38 by nash              #+#    #+#              #
-#    Updated: 2025/02/23 01:18:01 by nash             ###   ########.fr        #
+#    Updated: 2025/02/23 03:29:30 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,15 +15,16 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = error.c\
 		exec_cmd.c\
+		ft_putstr_fd.c\
 		ft_split.c\
 		ft_strchr.c\
 		ft_strdup.c\
 		ft_strjoin.c\
+		ft_strlen.c\
 		ft_strncmp.c\
 		ft_substr.c\
 		main.c\
 		parse.c\
-		utils.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
