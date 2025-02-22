@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 06:39:42 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 06:44:35 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,16 @@ void	pipe_wrapper(int pipefd[2])
 		error_exit();
 }
 
+pid_t	fork_wrapper(void)
+{
+	pid_t	pid;
+
+	pid = fork();
+	if (pid == -1)
+		error_exit();
+	return (pid);
+}
+
 int	main(int argc, char **argv, char **envp)
 {
 	int		i;
@@ -52,10 +62,8 @@ int	main(int argc, char **argv, char **envp)
 	{
 		if (i < argc - 2)
 			pipe_wrapper(pipefd);
-		pid = fork();
-		if (pid == -1)
-			error_exit();
-		else if (pid == 0)
+		pid = fork_wrapper();
+		if (pid == 0)
 		{
 			if (i == 2)
 				dup_infile(argv[1]);
