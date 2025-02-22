@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 06:44:35 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 06:49:49 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ int	main(int argc, char **argv, char **envp)
 			if (i < argc - 2)
 				close_pipefd(pipefd);
 			exec_cmd(argv[i], envp);
-			exit(EXIT_FAILURE);
 		}
 		else
 		{
