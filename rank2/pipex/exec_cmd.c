@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 03:56:49 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 01:38:38 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 01:39:53 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,6 @@ void	exec_cmd(char *cmd, char **envp)
 	char	*cmd_path;
 
 	args = get_cmd_args(cmd);
-	if (!args)
-		error_exit();
 	if (ft_strchr(cmd, '/'))
 		cmd_path = ft_strdup(cmd);
 	else
