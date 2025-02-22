@@ -6,13 +6,13 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 06:49:49 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 07:17:36 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	wait_children(int num_children)
+static int	wait_children(int num_children)
 {
 	int	i;
 	int	status;
@@ -31,13 +31,13 @@ int	wait_children(int num_children)
 	return (result);
 }
 
-void	pipe_wrapper(int pipefd[2])
+static void	pipe_wrapper(int pipefd[2])
 {
 	if (pipe(pipefd) == -1)
 		error_exit();
 }
 
-pid_t	fork_wrapper(void)
+static pid_t	fork_wrapper(void)
 {
 	pid_t	pid;
 
