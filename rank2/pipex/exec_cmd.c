@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 03:56:49 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 02:00:44 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 07:57:06 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static char	*join_path(const char *dir, const char *cmd)
 
 	tmp = ft_strjoin(dir, "/");
 	if (!tmp)
-		error_exit();
+		malloc_failure_exit();
 	full_path = ft_strjoin(tmp, cmd);
 	free(tmp);
 	if (!full_path)
@@ -39,7 +39,7 @@ static char	**get_paths(char **envp)
 		{
 			paths = ft_split(envp[i] + 5, ':');
 			if (!paths)
-				error_exit();
+				malloc_failure_exit();
 			return (paths);
 		}
 		i++;
