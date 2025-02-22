@@ -6,26 +6,29 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 02:56:44 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 04:01:54 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	wait_children(int num_children)
+int	wait_children(int num_children)
 {
 	int	i;
 	int	status;
+	int	result;
 
 	i = 0;
+	result = EXIT_SUCCESS;
 	while (i < num_children)
 	{
 		if (waitpid(-1, &status, 0) == -1)
 			error_exit();
 		if (WIFEXITED(status) && WEXITSTATUS(status) == 1)
-			exit(1);
+			result = EXIT_FAILURE;
 		i++;
 	}
+	return (result);
 }
 
 void	dup2_wrapper(int fd1, int fd2)
@@ -96,6 +99,5 @@ int	main(int argc, char **argv, char **envp)
 		}
 		i++;
 	}
-	wait_children(argc - 3);
-	return (0);
+	return (wait_children(argc - 3));
 }
