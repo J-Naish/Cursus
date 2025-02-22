@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 06:31:30 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 07:46:05 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 08:12:44 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,14 @@ void	close_pipefd(int pipefd[2])
 t_arg	init_arg(int argc, char **argv, char **envp)
 {
 	return ((t_arg){.argc = argc, .argv = argv, .envp = envp});
+}
+
+char	**get_cmd_args(char const *cmd)
+{
+	char	**cmd_args;
+
+	cmd_args = ft_split(cmd, ' ');
+	if (!cmd_args)
+		error_exit();
+	return (cmd_args);
 }
