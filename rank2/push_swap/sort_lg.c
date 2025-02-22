@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:25:00 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 21:25:03 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/22 23:12:00 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,5 @@ void	sort_lg(t_stack *a, t_stack *b)
 	}
 	sort3(a, 'a');
 	push_back_to_a(a, b);
-	final_arrangement(a);
+	rotate_min_to_top(a);
 }

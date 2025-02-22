@@ -6,13 +6,13 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:19:03 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 21:19:30 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/22 23:11:27 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	final_arrangement(t_stack *a)
+void	rotate_min_to_top(t_stack *a)
 {
 	int	min_index;
 	int	size;

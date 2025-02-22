@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 21:19:33 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/22 23:11:44 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int		rot_to_insert_a(t_stack *a, int value);
 
 void	push_back_to_a(t_stack *a, t_stack *b);
 
-void	final_arrangement(t_stack *a);
+void	rotate_min_to_top(t_stack *a);
 
 int		calculate_cost(int index, int size);
 int		total_cost(int cost_a, int cost_b);
