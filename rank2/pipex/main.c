@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 07:36:23 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 07:41:13 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,6 @@ static int	wait_children(int num_children)
 		i++;
 	}
 	return (result);
-}
-
-static void	pipe_wrapper(int pipefd[2])
-{
-	if (pipe(pipefd) == -1)
-		error_exit();
-}
-
-static pid_t	fork_wrapper(void)
-{
-	pid_t	pid;
-
-	pid = fork();
-	if (pid == -1)
-		error_exit();
-	return (pid);
 }
 
 void	child_process(int i, t_arg *arg, int prev_pipefd, int pipefd[2])
