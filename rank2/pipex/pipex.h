@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 07:06:33 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 07:27:25 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@
 # include <string.h>
 # include <errno.h>
 
+typedef struct t_arg
+{
+	int		argc;
+	char	**argv;
+	char	**envp;
+}	t_arg;
+
 void	error_exit(void);
 
 void	exec_cmd(char *cmd, char **envp);
@@ -30,6 +37,7 @@ void	dup2_wrapper(int fd1, int fd2);
 void	dup_infile(char *filepath);
 void	dup_outfile(char *filepath);
 void	close_pipefd(int pipefd[2]);
+t_arg	init_arg(int argc, char **argv, char **envp);
 
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);

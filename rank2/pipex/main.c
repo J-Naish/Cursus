@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 07:17:36 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 07:36:23 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,44 @@ static pid_t	fork_wrapper(void)
 	return (pid);
 }
 
+void	child_process(int i, t_arg *arg, int prev_pipefd, int pipefd[2])
+{
+	if (i == 2)
+		dup_infile(arg->argv[1]);
+	else
+		dup2_wrapper(prev_pipefd, STDIN_FILENO);
+	if (i == arg->argc - 2)
+		dup_outfile(arg->argv[arg->argc - 1]);
+	else
+		dup2_wrapper(pipefd[1], STDOUT_FILENO);
+	if (i < arg->argc - 2)
+		close_pipefd(pipefd);
+	exec_cmd(arg->argv[i], arg->envp);
+}
+
+void	parent_process(int i, int argc, int *prev_pipefd, int pipefd[2])
+{
+	if (*prev_pipefd != -1)
+		close(*prev_pipefd);
+	if (i < argc - 2)
+	{
+		*prev_pipefd = pipefd[0];
+		close(pipefd[1]);
+	}
+}
+
 int	main(int argc, char **argv, char **envp)
 {
 	int		i;
 	int		pipefd[2];
 	pid_t	pid;
-	int		prev_pipe_fd;
+	int		prev_pipefd;
+	t_arg	arg;
 
-	prev_pipe_fd = -1;
 	if (argc < 5)
 		return (0);
+	arg = init_arg(argc, argv, envp);
+	prev_pipefd = -1;
 	i = 2;
 	while (i < argc - 1)
 	{
@@ -64,29 +92,9 @@ int	main(int argc, char **argv, char **envp)
 			pipe_wrapper(pipefd);
 		pid = fork_wrapper();
 		if (pid == 0)
-		{
-			if (i == 2)
-				dup_infile(argv[1]);
-			else
-				dup2_wrapper(prev_pipe_fd, STDIN_FILENO);
-			if (i == argc - 2)
-				dup_outfile(argv[argc - 1]);
-			else
-				dup2_wrapper(pipefd[1], STDOUT_FILENO);
-			if (i < argc - 2)
-				close_pipefd(pipefd);
-			exec_cmd(argv[i], envp);
-		}
+			child_process(i, &arg, prev_pipefd, pipefd);
 		else
-		{
-			if (prev_pipe_fd != -1)
-				close(prev_pipe_fd);
-			if (i < argc - 2)
-			{
-				prev_pipe_fd = pipefd[0];
-				close(pipefd[1]);
-			}
-		}
+			parent_process(i, argc, &prev_pipefd, pipefd);
 		i++;
 	}
 	return (wait_children(argc - 3));
