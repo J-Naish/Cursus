@@ -1,3 +1,6 @@
 #!/bin/bash
-random_numbers=$(seq -500 500 | shuf -n 500)
-./push_swap $random_numbers
+for i in {1..100}
+do
+	random_numbers=$(seq -500 500 | shuf -n 100)
+	./push_swap $random_numbers | wc -l
+done
