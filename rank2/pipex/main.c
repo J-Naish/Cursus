@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/19 06:05:32 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 02:56:44 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@
 void	wait_children(int num_children)
 {
 	int	i;
+	int	status;
 
 	i = 0;
 	while (i < num_children)
 	{
-		wait(NULL);
+		if (waitpid(-1, &status, 0) == -1)
+			error_exit();
+		if (WIFEXITED(status) && WEXITSTATUS(status) == 1)
+			exit(1);
 		i++;
 	}
 }
