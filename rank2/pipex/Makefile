@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 21:45:38 by nash              #+#    #+#              #
-#    Updated: 2025/02/23 03:29:30 by nash             ###   ########.fr        #
+#    Updated: 2025/02/23 03:31:27 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRCS = error.c\
 		ft_strncmp.c\
 		ft_substr.c\
 		main.c\
-		parse.c\
+		parse.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
