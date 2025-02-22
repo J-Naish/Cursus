@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 03:56:49 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 01:55:41 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 02:00:44 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ static char	*join_path(const char *dir, const char *cmd)
 
 	tmp = ft_strjoin(dir, "/");
 	if (!tmp)
-		return (NULL);
+		error_exit();
 	full_path = ft_strjoin(tmp, cmd);
 	free(tmp);
 	if (!full_path)
-		return (NULL);
+		error_exit();
 	return (full_path);
 }
 
@@ -73,8 +73,6 @@ static char	*find_command_path(const char *cmd, char **envp)
 	while (paths[i])
 	{
 		full_path = join_path(paths[i], cmd);
-		if (!full_path)
-			error_exit();
 		if (access(full_path, X_OK) == 0)
 			return (free_paths(paths), full_path);
 		free(full_path);
