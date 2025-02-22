@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 04:40:52 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 05:44:51 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,26 @@ void	dup2_wrapper(int fd1, int fd2)
 		error_exit();
 }
 
+void	dup_infile(char *filepath)
+{
+	int	infilefd;
+
+	infilefd = open_infile(filepath);
+	dup2_wrapper(infilefd, STDIN_FILENO);
+	close(infilefd);
+}
+
+void	dup_outfile(char *filepath)
+{
+	int	outfilefd;
+
+	outfilefd = open_outfile(filepath);
+	dup2_wrapper(outfilefd, STDOUT_FILENO);
+	close(outfilefd);
+}
+
 int	main(int argc, char **argv, char **envp)
 {
-	int		infilefd;
-	int		outfilefd;
 	int		i;
 	int		pipefd[2];
 	pid_t	pid;
@@ -63,19 +79,11 @@ int	main(int argc, char **argv, char **envp)
 		else if (pid == 0)
 		{
 			if (i == 2)
-			{
-				infilefd = open_infile(argv[1]);
-				dup2_wrapper(infilefd, STDIN_FILENO);
-				close(infilefd);
-			}
+				dup_infile(argv[1]);
 			else
 				dup2_wrapper(prev_pipe_fd, STDIN_FILENO);
 			if (i == argc - 2)
-			{
-				outfilefd = open_outfile(argv[argc - 1]);
-				dup2_wrapper(outfilefd, STDOUT_FILENO);
-				close(outfilefd);
-			}
+				dup_outfile(argv[argc - 1]);
 			else
 				dup2_wrapper(pipefd[1], STDOUT_FILENO);
 			if (i < argc - 2)
