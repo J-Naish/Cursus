@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 05:50:38 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 06:29:57 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,12 @@ void	dup_outfile(char *filepath)
 	close(outfilefd);
 }
 
+void	close_pipefd(int pipefd[2])
+{
+	close(pipefd[0]);
+	close(pipefd[1]);
+}
+
 int	main(int argc, char **argv, char **envp)
 {
 	int		i;
@@ -91,10 +97,7 @@ int	main(int argc, char **argv, char **envp)
 			else
 				dup2_wrapper(pipefd[1], STDOUT_FILENO);
 			if (i < argc - 2)
-			{
-				close(pipefd[0]);
-				close(pipefd[1]);
-			}
+				close_pipefd(pipefd);
 			exec_cmd(argv[i], envp);
 			exit(EXIT_FAILURE);
 		}
