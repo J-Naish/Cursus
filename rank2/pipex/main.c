@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 05:44:51 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 05:50:38 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ void	dup_infile(char *filepath)
 {
 	int	infilefd;
 
-	infilefd = open_infile(filepath);
+	infilefd = open(filepath, O_RDONLY);
+	if (infilefd < 0)
+		error_exit();
 	dup2_wrapper(infilefd, STDIN_FILENO);
 	close(infilefd);
 }
@@ -50,7 +52,9 @@ void	dup_outfile(char *filepath)
 {
 	int	outfilefd;
 
-	outfilefd = open_outfile(filepath);
+	outfilefd = open(filepath, O_CREAT | O_RDWR | O_TRUNC, 0644);
+	if (outfilefd < 0)
+		error_exit();
 	dup2_wrapper(outfilefd, STDOUT_FILENO);
 	close(outfilefd);
 }

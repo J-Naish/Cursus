@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 05:39:33 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 05:51:56 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	error_exit(void);
 
 void	exec_cmd(char *cmd, char **envp);
 
-int		open_infile(const char *filepath);
-int		open_outfile(const char *filepath);
 char	**get_cmd_args(char const *cmd);
 
 void	ft_putchar_fd(char c, int fd);
