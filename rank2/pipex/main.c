@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 04:01:54 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 04:40:52 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ int	main(int argc, char **argv, char **envp)
 				dup2_wrapper(prev_pipe_fd, STDIN_FILENO);
 			if (i == argc - 2)
 			{
-				dup2_wrapper(prev_pipe_fd, STDIN_FILENO);
 				outfilefd = open_outfile(argv[argc - 1]);
 				dup2_wrapper(outfilefd, STDOUT_FILENO);
 				close(outfilefd);
