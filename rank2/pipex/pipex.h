@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 05:51:56 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 06:33:11 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ void	error_exit(void);
 void	exec_cmd(char *cmd, char **envp);
 
 char	**get_cmd_args(char const *cmd);
+
+void	dup2_wrapper(int fd1, int fd2);
+void	dup_infile(char *filepath);
+void	dup_outfile(char *filepath);
+void	close_pipefd(int pipefd[2]);
 
 void	ft_putchar_fd(char c, int fd);
 void	ft_putnbr_fd(int n, int fd);
