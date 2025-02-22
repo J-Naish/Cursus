@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 07:42:57 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 07:46:51 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void	exec_cmd(char *cmd, char **envp);
 
 char	**get_cmd_args(char const *cmd);
 
-void	dup2_wrapper(int fd1, int fd2);
-void	pipe_wrapper(int pipefd[2]);
-pid_t	fork_wrapper(void);
+void	safe_dup2(int fd1, int fd2);
+void	safe_pipe(int pipefd[2]);
+pid_t	safe_fork(void);
 
 void	dup_infile(char *filepath);
 void	dup_outfile(char *filepath);

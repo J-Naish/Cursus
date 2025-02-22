@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 07:41:13 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/23 07:46:48 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ void	child_process(int i, t_arg *arg, int prev_pipefd, int pipefd[2])
 	if (i == 2)
 		dup_infile(arg->argv[1]);
 	else
-		dup2_wrapper(prev_pipefd, STDIN_FILENO);
+		safe_dup2(prev_pipefd, STDIN_FILENO);
 	if (i == arg->argc - 2)
 		dup_outfile(arg->argv[arg->argc - 1]);
 	else
-		dup2_wrapper(pipefd[1], STDOUT_FILENO);
+		safe_dup2(pipefd[1], STDOUT_FILENO);
 	if (i < arg->argc - 2)
 		close_pipefd(pipefd);
 	exec_cmd(arg->argv[i], arg->envp);
@@ -73,8 +73,8 @@ int	main(int argc, char **argv, char **envp)
 	while (i < argc - 1)
 	{
 		if (i < argc - 2)
-			pipe_wrapper(pipefd);
-		pid = fork_wrapper();
+			safe_pipe(pipefd);
+		pid = safe_fork();
 		if (pid == 0)
 			child_process(i, &arg, prev_pipefd, pipefd);
 		else
