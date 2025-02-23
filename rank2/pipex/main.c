@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/24 04:54:54 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/24 04:56:58 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	wait_children(int num_children)
 	return (status);
 }
 
-void	child_process(int i, t_arg *arg, int prev_pipefd, int pipefd[2])
+static void	child_process(int i, t_arg *arg, int prev_pipefd, int pipefd[2])
 {
 	if (i == 2)
 		dup_infile(arg->argv[1]);
@@ -42,7 +42,7 @@ void	child_process(int i, t_arg *arg, int prev_pipefd, int pipefd[2])
 	exec_cmd(arg->argv[i], arg->envp);
 }
 
-void	parent_process(int i, int argc, int *prev_pipefd, int pipefd[2])
+static void	parent_process(int i, int argc, int *prev_pipefd, int pipefd[2])
 {
 	if (*prev_pipefd != -1)
 		close(*prev_pipefd);
