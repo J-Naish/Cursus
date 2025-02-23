@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 07:46:48 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/24 04:54:54 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,15 @@ static int	wait_children(int num_children)
 {
 	int	i;
 	int	status;
-	int	result;
 
 	i = 0;
-	result = EXIT_SUCCESS;
 	while (i < num_children)
 	{
 		if (waitpid(-1, &status, 0) == -1)
 			error_exit();
-		if (WIFEXITED(status) && WEXITSTATUS(status) == 1)
-			result = EXIT_FAILURE;
 		i++;
 	}
-	return (result);
+	return (status);
 }
 
 void	child_process(int i, t_arg *arg, int prev_pipefd, int pipefd[2])
