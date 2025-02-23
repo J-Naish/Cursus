@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/02/24 03:42:43 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/24 04:48:51 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <stdio.h>
 # include <string.h>
 # include <errno.h>
+# include <sys/wait.h>
+# include <sys/types.h>
 
 typedef struct t_arg
 {
