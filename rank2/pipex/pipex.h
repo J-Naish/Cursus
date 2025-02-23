@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 08:13:09 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/24 03:42:43 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	dup_infile(char *filepath);
 void	dup_outfile(char *filepath);
 void	close_pipefd(int pipefd[2]);
 t_arg	init_arg(int argc, char **argv, char **envp);
-char	**get_cmd_args(char const *cmd);;
+char	**get_cmd_args(char const *cmd);
 
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);
