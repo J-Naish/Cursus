@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 03:56:49 by nash              #+#    #+#             */
-/*   Updated: 2025/02/23 07:57:06 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/24 05:40:40 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,13 @@ static char	*find_command_path(const char *cmd, char **envp)
 	int		i;
 
 	if (ft_strchr(cmd, '/'))
-		return (ft_strdup(cmd));
+	{
+		full_path = ft_strdup(cmd);
+		if (access(full_path, X_OK) == 0)
+			return (full_path);
+		else
+			error_exit();
+	}
 	paths = get_paths(envp);
 	i = 0;
 	while (paths[i])
