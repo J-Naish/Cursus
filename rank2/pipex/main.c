@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/24 04:56:58 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/24 04:58:12 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	wait_children(int num_children)
 	i = 0;
 	while (i < num_children)
 	{
-		if (waitpid(-1, &status, 0) == -1)
+		if (wait(&status) == -1)
 			error_exit();
 		i++;
 	}
