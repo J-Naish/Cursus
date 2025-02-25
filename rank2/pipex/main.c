@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/25 20:09:56 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/25 20:11:12 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	wait_children(int num_children)
 	while (i < num_children)
 	{
 		if (wait(&status) == -1)
-			perror("");
+			error_exit();
 		if (WIFEXITED(status))
 			last_exit_status = WEXITSTATUS(status);
 		i++;
