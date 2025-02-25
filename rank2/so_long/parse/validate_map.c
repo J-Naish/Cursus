@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:51:18 by nash              #+#    #+#             */
-/*   Updated: 2025/02/26 07:01:42 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/26 07:03:35 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static bool	is_valid_char(char c)
 		return (false);
 }
 
-void	is_composed_of_valid_char(char *map)
+void	is_composed_of_valid_char(const char *map)
 {
 	int	i;
 
@@ -47,7 +47,7 @@ void	is_composed_of_valid_char(char *map)
 	}
 }
 
-bool	validate_map(const char *map)
+void	validate_map(const char *map)
 {
 	is_composed_of_valid_char(map);
 }
