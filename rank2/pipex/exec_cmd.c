@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 03:56:49 by nash              #+#    #+#             */
-/*   Updated: 2025/02/24 05:40:40 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/25 19:05:11 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static char	**get_paths(char **envp)
 	return (NULL);
 }
 
-static void	free_paths(char **paths)
+static void	free_strarr(char **paths)
 {
 	int	i;
 
@@ -80,11 +80,11 @@ static char	*find_command_path(const char *cmd, char **envp)
 	{
 		full_path = join_path(paths[i], cmd);
 		if (access(full_path, X_OK) == 0)
-			return (free_paths(paths), full_path);
+			return (free_strarr(paths), full_path);
 		free(full_path);
 		i++;
 	}
-	free_paths(paths);
+	free_strarr(paths);
 	return (NULL);
 }
 
@@ -95,6 +95,8 @@ void	exec_cmd(char *cmd, char **envp)
 
 	args = get_cmd_args(cmd);
 	cmd_path = find_command_path(args[0], envp);
-	if (execve(cmd_path, args, envp) == -1)
-		error_exit();
+	execve(cmd_path, args, envp);
+	free_strarr(args);
+	free(cmd_path);
+	error_exit();
 }
