@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:51:18 by nash              #+#    #+#             */
-/*   Updated: 2025/02/26 07:03:35 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/26 07:10:39 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static bool	is_valid_char(char c)
 		return (false);
 }
 
-void	is_composed_of_valid_char(const char *map)
+static void	is_composed_of_valid_char(const char *map)
 {
 	int	i;
 
@@ -38,10 +38,16 @@ void	is_composed_of_valid_char(const char *map)
 	while (map[i])
 	{
 		if (map[i] == '\n')
+		{
+			i++;
 			continue ;
+		}
 		if (!is_valid_char(map[i]))
 		{
-			ft_putstr_fd("Error\n", STDERR_FILENO);
+			ft_putstr_fd("Error\nInvalid character in map. ", STDERR_FILENO);
+			ft_putstr_fd("Only '0', '1', 'C', 'E', and 'P' ", STDERR_FILENO);
+			ft_putstr_fd("are allowed.\n", STDERR_FILENO);
+			exit(EXIT_FAILURE);
 		}
 		i++;
 	}
