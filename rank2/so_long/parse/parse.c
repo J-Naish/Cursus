@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/02/26 05:11:59 by nash             ###   ########.fr       */
+/*   Created: 2025/02/26 04:51:18 by nash              #+#    #+#             */
+/*   Updated: 2025/02/26 05:17:44 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "../so_long.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdbool.h>
-
-typedef enum e_map
+size_t	linelen(char *s)
 {
-	EMPTY,
-	WALL,
-	COLLECTIBLE,
-	EXIT,
-	START_POSITION,
-	INVALID
-}	t_map;
+	int	i;
 
-#endif
+	i = 0;
+	while (s[i] && s[i] != '\n')
+		i++;
+	return (i);
+}
+
+bool	is_valid_char(char c)
+{
+	if (c == '0' || c == '1' || c == 'C' || c == 'E' || c == 'P')
+		return (true);
+	else
+		return (false);
+}
+
+// int main() {
+// 	char *map = "11111111\n10000001\n10000001";
+// 	// linelen test
+// 	printf("%zu\n", linelen(map));
+// }
