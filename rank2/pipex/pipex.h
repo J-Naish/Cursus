@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/02/26 01:38:08 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/26 01:44:47 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,14 @@
 # include <errno.h>
 # include <sys/wait.h>
 # include <sys/types.h>
+# include <stdbool.h>
 # include "./libft/libft.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
 # endif
+
+char	*get_next_line(int fd);
 
 void	error_exit(void);
 void	command_not_found(void);
