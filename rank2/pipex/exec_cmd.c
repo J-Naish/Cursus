@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 03:56:49 by nash              #+#    #+#             */
-/*   Updated: 2025/02/25 22:38:25 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/25 22:40:10 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static char	*join_path(const char *dir, const char *cmd)
 	full_path = ft_strjoin(tmp, cmd);
 	free(tmp);
 	if (!full_path)
-		error_exit();
+		malloc_failure_exit();
 	return (full_path);
 }
 
@@ -93,7 +93,7 @@ void	exec_cmd(char *cmd, char **envp)
 	char	**args;
 	char	*cmd_path;
 
-	args = get_csplit_cmdmd_args(cmd);
+	args = split_cmd(cmd);
 	cmd_path = find_command_path(args[0], envp);
 	execve(cmd_path, args, envp);
 	free_strarr(args);
