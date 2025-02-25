@@ -6,21 +6,11 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:51:18 by nash              #+#    #+#             */
-/*   Updated: 2025/02/26 07:26:24 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/26 07:29:23 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-
-// static size_t	get_linelen(char *s)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (s[i] && s[i] != '\n')
-// 		i++;
-// 	return (i);
-// }
 
 static bool	is_valid_char(char c)
 {
