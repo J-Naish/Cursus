@@ -6,13 +6,13 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 05:20:43 by nash              #+#    #+#             */
-/*   Updated: 2025/02/26 06:20:45 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/26 06:28:34 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-static char	*read_map(int fd)
+static char	*get_content(int fd)
 {
 	char	*line;
 	char	*map;
@@ -36,7 +36,7 @@ static char	*read_map(int fd)
 	return (map);
 }
 
-char	*read_ber_file(const char *filename)
+char	*read_map(const char *filename)
 {
 	int		fd;
 	char	*content;
@@ -47,7 +47,7 @@ char	*read_ber_file(const char *filename)
 		perror("");
 		exit(errno);
 	}
-	content = read_map(fd);
+	content = get_content(fd);
 	close(fd);
 	return (content);
 }
