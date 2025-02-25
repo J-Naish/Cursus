@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/28 21:38:31 by rnishi            #+#    #+#             */
-/*   Updated: 2025/02/19 07:14:07 by nash             ###   ########.fr       */
+/*   Created: 2024/04/28 21:38:11 by rnishi            #+#    #+#             */
+/*   Updated: 2024/05/15 15:20:07 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t	len;
-	char	*result;
-	size_t	i;
-	size_t	j;
-
-	len = ft_strlen(s1) + ft_strlen(s2);
-	result = (char *)malloc((len + 1) * sizeof(char));
-	if (!result)
-		return (NULL);
-	i = 0;
-	while (s1[i])
+	while (*s)
 	{
-		result[i] = s1[i];
-		i++;
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
 	}
-	j = 0;
-	while (s2[j])
-	{
-		result[i + j] = s2[j];
-		j++;
-	}
-	result[i + j] = '\0';
-	return (result);
+	if ((char)c == '\0')
+		return ((char *)s);
+	return (NULL);
 }

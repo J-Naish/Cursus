@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rnishi <rnishi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/28 21:38:11 by rnishi            #+#    #+#             */
-/*   Updated: 2025/02/19 06:49:32 by nash             ###   ########.fr       */
+/*   Created: 2024/04/28 21:37:12 by rnishi            #+#    #+#             */
+/*   Updated: 2024/05/15 14:25:45 by rnishi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_lstsize(t_list *lst)
 {
-	while (*s)
+	int		count;
+	t_list	*temp;
+
+	count = 0;
+	temp = lst;
+	while (temp)
 	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
+		count += 1;
+		temp = temp->next;
 	}
-	if ((char)c == '\0')
-		return ((char *)s);
-	return (NULL);
+	return (count);
 }

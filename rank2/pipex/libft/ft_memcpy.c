@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rnishi <rnishi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/28 21:38:22 by rnishi            #+#    #+#             */
-/*   Updated: 2025/02/17 23:59:42 by nash             ###   ########.fr       */
+/*   Created: 2024/04/28 21:37:33 by rnishi            #+#    #+#             */
+/*   Updated: 2024/05/15 14:25:52 by rnishi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-char	*ft_strdup(const char *s1)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int		i;
-	char	*copy;
+	size_t	i;
 
-	copy = (char *)malloc((ft_strlen(s1) + 1) * sizeof(char));
-	if (!copy)
-		return (NULL);
 	i = 0;
-	while (s1[i])
+	if (!dst && !src)
+		return (NULL);
+	while (i < n)
 	{
-		copy[i] = s1[i];
+		((unsigned char *)dst)[i] = ((const unsigned char *)src)[i];
 		i++;
 	}
-	copy[i] = '\0';
-	return (copy);
+	return (dst);
 }

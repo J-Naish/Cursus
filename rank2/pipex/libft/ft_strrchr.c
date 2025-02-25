@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rnishi <rnishi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/28 21:38:51 by rnishi            #+#    #+#             */
-/*   Updated: 2025/02/19 07:22:05 by nash             ###   ########.fr       */
+/*   Created: 2024/04/28 21:39:05 by rnishi            #+#    #+#             */
+/*   Updated: 2024/05/15 14:26:31 by rnishi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t	i;
+	char	*last;
 
-	i = 0;
-	while (i < n)
+	last = NULL;
+	while (*s)
 	{
-		if (s1[i] != s2[i] || !s1[i] || !s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
+		if (*s == (char)c)
+			last = (char *)s;
+		s++;
 	}
-	return (0);
+	if ((char)c == '\0')
+		last = (char *)s;
+	return (last);
 }

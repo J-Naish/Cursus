@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rnishi <rnishi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/28 21:38:42 by rnishi            #+#    #+#             */
-/*   Updated: 2025/02/23 03:29:49 by nash             ###   ########.fr       */
+/*   Created: 2024/04/28 21:37:18 by rnishi            #+#    #+#             */
+/*   Updated: 2024/05/15 14:25:47 by rnishi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t	i;
 
 	i = 0;
-	while (s[i])
+	while (i < n)
+	{
+		if (((unsigned char *)s)[i] == (unsigned char)c)
+			return ((void *)s + i);
 		i++;
-	return (i);
+	}
+	return (NULL);
 }

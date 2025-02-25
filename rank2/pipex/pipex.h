@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/02/24 04:48:51 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/25 20:43:45 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <errno.h>
 # include <sys/wait.h>
 # include <sys/types.h>
+# include "./libft/libft.h"
 
 typedef struct t_arg
 {
@@ -43,13 +44,5 @@ void	dup_outfile(char *filepath);
 void	close_pipefd(int pipefd[2]);
 t_arg	init_arg(int argc, char **argv, char **envp);
 char	**get_cmd_args(char const *cmd);
-
-char	**ft_split(char const *s, char c);
-char	*ft_strchr(const char *s, int c);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strjoin(char const *s1, char const *s2);
-size_t	ft_strlen(const char *s);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-char	*ft_strdup(const char *s1);
 
 #endif
