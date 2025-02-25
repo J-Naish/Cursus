@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/25 21:51:20 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/25 22:00:51 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,5 @@ int	main(int argc, char **argv, char **envp)
 		process(argv[i++], envp);
 	dup_outfile(argv[argc - 1]);
 	exec_cmd(argv[argc - 2], envp);
+	return (EXIT_SUCCESS);
 }
