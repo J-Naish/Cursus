@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:51:18 by nash              #+#    #+#             */
-/*   Updated: 2025/02/26 05:17:44 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/26 05:20:20 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ bool	is_valid_char(char c)
 		return (true);
 	else
 		return (false);
+}
+
+bool	is_valid_map(char *map)
+{
+	char	*line;
 }
 
 // int main() {

@@ -5,43 +5,38 @@
 #                                                     +:+ +:+         +:+      #
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/02/26 04:36:51 by nash              #+#    #+#              #
-#    Updated: 2025/02/26 05:31:30 by nash             ###   ########.fr        #
+#    Created: 2024/04/28 21:40:43 by rnishi            #+#    #+#              #
+#    Updated: 2024/05/18 18:34:13 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = so_long
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = main.c\
-		parse/parse.c
-		parse/get_nex_line.c
-LIBFT = libft/libft.a
-OBJS = $(SRCS:.c=.o)
+ALL_SRCS := $(wildcard *.c)
+BONUS_SRCS := $(wildcard *bonus.c)
+MAN_SRCS := $(filter-out $(BONUS_SRCS),$(ALL_SRCS))
+MAN_OBJS = $(MAN_SRCS:.c=.o)
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+HEADER = libft.h
+NAME = libft.a
+
+.PHONY: all clean fclean re bonus
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	make all -C libft
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+$(NAME): $(MAN_OBJS)
+		ar rcs $(NAME) $(MAN_OBJS)
+
+bonus: $(NAME) $(BONUS_OBJS)
+		ar rcs $(NAME) $(MAN_OBJS) $(BONUS_OBJS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+		$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
-	make clean -C libft
+		rm -f $(MAN_OBJS) $(BONUS_OBJS)
 
 fclean:
-	clean
-	rm -f $(NAME)
-	make fclean -C libft
+		rm -f $(NAME) $(MAN_OBJS) $(BONUS_OBJS)
 
 re: fclean all
-
-.PHONY: all clean fclean re
-
-unit_test:
-	$(CC) $(CFLAGS) $(filter-out main.c, $(SRCS)) $(LIBFT)
-	./a.out
-	rm -f a.out

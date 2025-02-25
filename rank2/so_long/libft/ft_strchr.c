@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/02/26 06:04:33 by nash             ###   ########.fr       */
+/*   Created: 2024/04/28 21:38:11 by rnishi            #+#    #+#             */
+/*   Updated: 2024/05/15 15:20:07 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdbool.h>
-# include <fcntl.h>
-# include <errno.h>
-# include "./libft/libft.h"
-
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1024
-# endif
-
-typedef enum e_map
+char	*ft_strchr(const char *s, int c)
 {
-	EMPTY,
-	WALL,
-	COLLECTIBLE,
-	EXIT,
-	START_POSITION,
-	INVALID
-}	t_map;
-
-char	*get_next_line(int fd);
-
-#endif
+	while (*s)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	if ((char)c == '\0')
+		return ((char *)s);
+	return (NULL);
+}
