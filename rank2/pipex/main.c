@@ -6,13 +6,13 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/25 22:00:51 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/25 22:03:30 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	process(char *arg, char **envp)
+void	run_cmd_process(char *arg, char **envp)
 {
 	pid_t	pid;
 	int		pipefd[2];
@@ -33,6 +33,12 @@ void	process(char *arg, char **envp)
 	}
 }
 
+void	run_last_cmd(int argc, char **argv, char **envp)
+{
+	dup_outfile(argv[argc - 1]);
+	exec_cmd(argv[argc - 2], envp);
+}
+
 int	main(int argc, char **argv, char **envp)
 {
 	int	i;
@@ -42,8 +48,7 @@ int	main(int argc, char **argv, char **envp)
 	dup_infile(argv[1]);
 	i = 2;
 	while (i < argc - 2)
-		process(argv[i++], envp);
-	dup_outfile(argv[argc - 1]);
-	exec_cmd(argv[argc - 2], envp);
+		run_cmd_process(argv[i++], envp);
+	run_last_cmd(argc, argv, envp);
 	return (EXIT_SUCCESS);
 }
