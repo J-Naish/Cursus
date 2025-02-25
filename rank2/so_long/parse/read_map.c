@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 05:20:43 by nash              #+#    #+#             */
-/*   Updated: 2025/02/26 06:05:48 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/26 06:20:45 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,8 @@ static char	*read_map(int fd)
 char	*read_ber_file(const char *filename)
 {
 	int		fd;
-	char	content;
-	size_t	len_filename;
+	char	*content;
 
-	len_filename = ft_strlen(filename);
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 	{
