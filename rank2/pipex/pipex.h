@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/02/25 22:38:27 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/25 23:13:13 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct t_arg
 }	t_arg;
 
 void	error_exit(void);
+void	command_not_found(void);
 void	malloc_failure_exit(void);
 void	arg_error(void);
 

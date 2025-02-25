@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 03:56:49 by nash              #+#    #+#             */
-/*   Updated: 2025/02/25 22:53:09 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/25 23:22:12 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,13 +94,18 @@ void	exec_cmd(char *cmd, char **envp)
 	char	*cmd_path;
 
 	args = split_cmd(cmd);
+	if (!args || !args[0])
+	{
+		if (args)
+			free_strarr(args);
+		command_not_found();
+	}
 	cmd_path = find_command_path(args[0], envp);
 	if (!cmd_path)
 	{
 		free_strarr(args);
 		free(cmd_path);
-		ft_putstr_fd("command not found\n", STDERR_FILENO);
-		exit(127);
+		command_not_found();
 	}
 	execve(cmd_path, args, envp);
 	free_strarr(args);
