@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/02/26 07:03:44 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/26 08:09:28 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef enum e_map
 	START_POSITION,
 	INVALID
 }	t_map;
+
+void	map_error(char *message);
 
 char	*get_next_line(int fd);
 char	*read_map(const char *filename);

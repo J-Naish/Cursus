@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:51:18 by nash              #+#    #+#             */
-/*   Updated: 2025/02/26 08:06:38 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/26 08:14:54 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,7 @@ static void	validate_char(const char *map)
 			continue ;
 		}
 		if (!is_valid_char(map[i]))
-		{
-			ft_putstr_fd("Error\nInvalid character in map. ", STDERR_FILENO);
-			ft_putstr_fd("Only '0', '1', 'C', 'E', and 'P' ", STDERR_FILENO);
-			ft_putstr_fd("are allowed.\n", STDERR_FILENO);
-			exit(EXIT_FAILURE);
-		}
+			map_error("Invalid character in map.");
 		i++;
 	}
 }
@@ -47,11 +42,7 @@ static void	validate_composition(const char *map)
 {
 	if (!ft_strchr(map, '0') || !ft_strchr(map, '1')
 		|| !ft_strchr(map, 'E') || !ft_strchr(map, 'P'))
-	{
-		ft_putstr_fd("Error\nMap must contain ", STDERR_FILENO);
-		ft_putstr_fd("'0', '1', 'E', and 'P'\n", STDERR_FILENO);
-		exit(EXIT_FAILURE);
-	}
+		map_error("Map must contain '0', '1', 'E', and 'P'");
 }
 
 static void	validate_mapsize(const char *map)
@@ -60,83 +51,77 @@ static void	validate_mapsize(const char *map)
 
 	len = ft_strlen(map);
 	if (len == 0)
-	{
-		ft_putstr_fd("Error\nMap is empty.\n", STDERR_FILENO);
-		exit(EXIT_FAILURE);
-	}
+		map_error("Map must not be empty.");
 	if (len < 17)
-	{
-		ft_putstr_fd("Error\nMap is too small.\n", STDERR_FILENO);
-		exit(EXIT_FAILURE);
-	}
+		map_error("Map is too small.");
 }
 
-size_t	count_new_line(char *s)
-{
-	size_t	count;
-	int		i;
+// size_t	count_new_line(char *s)
+// {
+// 	size_t	count;
+// 	int		i;
 
-	i = 0;
-	count = 0;
-	while (s[i])
-	{
-		if (s[i] == '\n')
-			count++;
-		i++;
-	}
-	return (count);
-}
+// 	i = 0;
+// 	count = 0;
+// 	while (s[i])
+// 	{
+// 		if (s[i] == '\n')
+// 			count++;
+// 		i++;
+// 	}
+// 	return (count);
+// }
 
-size_t	strarr_size(char **strarr)
-{
-	size_t	count;
+// size_t	strarr_size(char **strarr)
+// {
+// 	size_t	count;
 
-	while (strarr[count])
-		count++;
-	return (count);
-}
+// 	while (strarr[count])
+// 		count++;
+// 	return (count);
+// }
 
-size_t	linelen(const char *s)
-{
-	size_t	i;
+// size_t	linelen(const char *s)
+// {
+// 	size_t	i;
 
-	i = 0;
-	while (s[i] && s[i] != '\n')
-		i++;
-	return (i);
-}
+// 	i = 0;
+// 	while (s[i] && s[i] != '\n')
+// 		i++;
+// 	return (i);
+// }
 
-void	validate_rect(const char *map)
-{
-	char	**lines;
-	size_t	size_lines;
-	size_t	new_line_count;
-	int		i;
+// void	validate_rect(const char *map)
+// {
+// 	char	**lines;
+// 	size_t	size_lines;
+// 	size_t	new_line_count;
+// 	int		i;
 
-	lines = ft_split(map, '\n');
-	if (!lines)
-	{
-		ft_putstr_fd("Memory allocation failed.\n", STDERR_FILENO);
-		exit(EXIT_FAILURE);
-	}
-	size_lines = strarr_size(lines);
-	new_line_count = count_new_line(map);
-	if (size_lines != new_line_count + 1)
-	{
-		ft_putstr_fd("Error\nToo many line feeds.\n", STDERR_FILENO);
-		exit(EXIT_FAILURE);
-	}
-	i = 0;
-	while (i < size_lines - 1)
-	{
-		if (linelen(lines[i]) != linelen(lines[i + 1]))
-		{
-			ft_putstr_fd("Error\nMap must be rect.\n", STDERR_FILENO);
-			exit(EXIT_FAILURE);
-		}
-		i++;
-	}
-}
+// 	lines = ft_split(map, '\n');
+// 	if (!lines)
+// 	{
+// 		ft_putstr_fd("Memory allocation failed.\n", STDERR_FILENO);
+// 		exit(EXIT_FAILURE);
+// 	}
+// 	size_lines = strarr_size(lines);
+// 	new_line_count = count_new_line(map);
+// 	if (size_lines != new_line_count + 1)
+// 	{
+// 		ft_putstr_fd("Error\nToo many line feeds.\n", STDERR_FILENO);
+// 		exit(EXIT_FAILURE);
+// 	}
+// 	i = 0;
+// 	while (i < size_lines - 1)
+// 	{
+// 		if (linelen(lines[i]) != linelen(lines[i + 1]))
+// 		{
+// 			ft_putstr_fd("Error\nMap must be rect.\n", STDERR_FILENO);
+// 			exit(EXIT_FAILURE);
+// 		}
+// 		i++;
+// 	}
+// }
 
 void	validate_map(const char *map)
 {
