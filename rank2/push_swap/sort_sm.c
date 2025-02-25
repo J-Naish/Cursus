@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 05:01:43 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 19:55:05 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/26 03:45:25 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	sort2(t_stack *stack)
 		sa(stack);
 }
 
-void	sort3(t_stack *stack, char stack_name)
+void	sort3(t_stack *stack)
 {
 	int	x;
 	int	y;
@@ -31,20 +31,20 @@ void	sort3(t_stack *stack, char stack_name)
 		return ;
 	else if (x > y && y > z)
 	{
-		swap_put(stack, stack_name);
-		rrotate_put(stack, stack_name);
+		sa(stack);
+		rra(stack);
 	}
 	else if (x > z && z > y)
-		rotate_put(stack, stack_name);
+		ra(stack);
 	else if (y > z && z > x)
 	{
-		swap_put(stack, stack_name);
+		sa(stack);
 		ra(stack);
 	}
 	else if (y > x && x > z)
-		rrotate_put(stack, stack_name);
+		rra(stack);
 	else if (z > x && x > y)
-		swap_put(stack, stack_name);
+		sa(stack);
 }
 
 static void	sort5(t_stack *stack_a, t_stack *stack_b, int size)
@@ -58,7 +58,7 @@ static void	sort5(t_stack *stack_a, t_stack *stack_b, int size)
 		pb(stack_a, stack_b);
 		pushed += 1;
 	}
-	sort3(stack_a, 'a');
+	sort3(stack_a);
 	while (pushed)
 	{
 		pa(stack_a, stack_b);
@@ -73,7 +73,7 @@ void	sort_sm(t_stack *stack_a, t_stack *stack_b, int size)
 	else if (size == 2)
 		sort2(stack_a);
 	else if (size == 3)
-		sort3(stack_a, 'a');
+		sort3(stack_a);
 	else
 		sort5(stack_a, stack_b, size);
 }

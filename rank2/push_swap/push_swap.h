@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/22 23:11:44 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/26 03:45:43 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ bool	is_valid_arg(int argc, char **argv);
 t_stack	*parse(int argc, char **argv);
 
 void	move_min_to_top(t_stack *stack, char stack_name);
-void	sort3(t_stack *stack, char stack_name);
+void	sort3(t_stack *stack);
 void	sort_sm(t_stack *stack_a, t_stack *stack_b, int size);
 
 int		find_index(t_stack *stack, t_node *node);
