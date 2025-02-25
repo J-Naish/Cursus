@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 06:31:30 by nash              #+#    #+#             */
-/*   Updated: 2025/02/25 21:52:32 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/25 22:38:21 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ void	dup_outfile(char *filepath)
 	close(outfilefd);
 }
 
-char	**get_cmd_args(char const *cmd)
+char	**split_cmd(char const *cmd)
 {
 	char	**cmd_args;
 
 	cmd_args = ft_split(cmd, ' ');
 	if (!cmd_args)
-		error_exit();
+		malloc_failure_exit();
 	return (cmd_args);
 }

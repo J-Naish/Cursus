@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 03:56:49 by nash              #+#    #+#             */
-/*   Updated: 2025/02/25 19:05:11 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/25 22:38:25 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	exec_cmd(char *cmd, char **envp)
 	char	**args;
 	char	*cmd_path;
 
-	args = get_cmd_args(cmd);
+	args = get_csplit_cmdmd_args(cmd);
 	cmd_path = find_command_path(args[0], envp);
 	execve(cmd_path, args, envp);
 	free_strarr(args);
