@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:51:18 by nash              #+#    #+#             */
-/*   Updated: 2025/02/26 07:11:52 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/26 07:17:03 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,27 @@ static void	validate_char(const char *map)
 	}
 }
 
+static void	validate_mapsize(const char *map)
+{
+	size_t	len;
+
+	len = ft_strlen(map);
+	if (len == 0)
+	{
+		ft_putstr_fd("Error\nMap is empty.\n", STDERR_FILENO);
+		exit(EXIT_FAILURE);
+	}
+	if (len < 17)
+	{
+		ft_putstr_fd("Error\nMap is too small.\n", STDERR_FILENO);
+		exit(EXIT_FAILURE);
+	}
+}
+
 void	validate_map(const char *map)
 {
 	validate_char(map);
+	validate_mapsize(map);
 }
 
 // int main() {
