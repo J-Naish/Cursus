@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/26 01:32:46 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/26 01:35:08 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,18 @@ static void	run_last_cmd(int argc, char **argv, char **envp)
 {
 	dup_outfile(argv[argc - 1]);
 	exec_cmd(argv[argc - 2], envp);
+}
+
+static void	here_doc(char *limiter)
+{
+	int		pipefd[2];
+	char	*line;
+
+	safe_pipe(pipefd);
+	while (1)
+	{
+		
+	}
 }
 
 int	main(int argc, char **argv, char **envp)

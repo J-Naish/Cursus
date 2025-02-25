@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/02/25 23:13:13 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/26 01:38:08 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,9 @@
 # include <sys/types.h>
 # include "./libft/libft.h"
 
-typedef struct t_arg
-{
-	int		argc;
-	char	**argv;
-	char	**envp;
-}	t_arg;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
 
 void	error_exit(void);
 void	command_not_found(void);
