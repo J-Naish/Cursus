@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 02:19:01 by nash              #+#    #+#             */
-/*   Updated: 2025/02/25 19:11:52 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/25 21:35:01 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ void	error_exit(void)
 
 void	malloc_failure_exit(void)
 {
-	write(STDERR_FILENO, "memory allocation failed\n", 25);
+	ft_putstr_fd("memory allocation failed\n", STDERR_FILENO);
+	exit(EXIT_FAILURE);
+}
+
+void	arg_error(void)
+{
+	ft_putstr_fd("invalid args\n", STDERR_FILENO);
 	exit(EXIT_FAILURE);
 }

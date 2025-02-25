@@ -6,80 +6,43 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/25 20:11:12 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/25 21:51:20 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-static int	wait_children(int num_children)
+void	process(char *arg, char **envp)
 {
-	int	i;
-	int	status;
-	int	last_exit_status;
+	pid_t	pid;
+	int		pipefd[2];
 
-	last_exit_status = EXIT_SUCCESS;
-	i = 0;
-	while (i < num_children)
+	safe_pipe(pipefd);
+	pid = safe_fork();
+	if (pid == 0)
 	{
-		if (wait(&status) == -1)
-			error_exit();
-		if (WIFEXITED(status))
-			last_exit_status = WEXITSTATUS(status);
-		i++;
-	}
-	return (last_exit_status);
-}
-
-static void	child_process(int i, t_arg *arg, int prev_pipefd, int pipefd[2])
-{
-	if (i == 2)
-		dup_infile(arg->argv[1]);
-	else
-		safe_dup2(prev_pipefd, STDIN_FILENO);
-	if (i == arg->argc - 2)
-		dup_outfile(arg->argv[arg->argc - 1]);
-	else
+		close(pipefd[0]);
 		safe_dup2(pipefd[1], STDOUT_FILENO);
-	if (i < arg->argc - 2)
-		close_pipefd(pipefd);
-	exec_cmd(arg->argv[i], arg->envp);
-}
-
-static void	parent_process(int i, int argc, int *prev_pipefd, int pipefd[2])
-{
-	if (*prev_pipefd != -1)
-		close(*prev_pipefd);
-	if (i < argc - 2)
+		exec_cmd(arg, envp);
+	}
+	else
 	{
-		*prev_pipefd = pipefd[0];
 		close(pipefd[1]);
+		safe_dup2(pipefd[0], STDIN_FILENO);
+		waitpid(pid, NULL, 0);
 	}
 }
 
 int	main(int argc, char **argv, char **envp)
 {
-	int		i;
-	int		pipefd[2];
-	pid_t	pid;
-	int		prev_pipefd;
-	t_arg	arg;
+	int	i;
 
 	if (argc < 5)
-		return (0);
-	arg = init_arg(argc, argv, envp);
-	prev_pipefd = -1;
+		arg_error();
+	dup_infile(argv[1]);
 	i = 2;
-	while (i < argc - 1)
-	{
-		if (i < argc - 2)
-			safe_pipe(pipefd);
-		pid = safe_fork();
-		if (pid == 0)
-			child_process(i, &arg, prev_pipefd, pipefd);
-		else
-			parent_process(i, argc, &prev_pipefd, pipefd);
-		i++;
-	}
-	return (wait_children(argc - 3));
+	while (i < argc - 2)
+		process(argv[i++], envp);
+	dup_outfile(argv[argc - 1]);
+	exec_cmd(argv[argc - 2], envp);
 }

@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/02/25 20:43:45 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/25 21:52:37 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct t_arg
 
 void	error_exit(void);
 void	malloc_failure_exit(void);
+void	arg_error(void);
 
 void	exec_cmd(char *cmd, char **envp);
 
@@ -41,8 +42,6 @@ pid_t	safe_fork(void);
 
 void	dup_infile(char *filepath);
 void	dup_outfile(char *filepath);
-void	close_pipefd(int pipefd[2]);
-t_arg	init_arg(int argc, char **argv, char **envp);
 char	**get_cmd_args(char const *cmd);
 
 #endif
