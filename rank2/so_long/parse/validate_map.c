@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:51:18 by nash              #+#    #+#             */
-/*   Updated: 2025/02/26 07:29:23 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/26 07:30:51 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,9 @@ void	validate_map(const char *map)
 	validate_char(map);
 	validate_mapsize(map);
 	validate_composition(map);
+	// row length validate
+	// col length validate
+	// wall validate
 }
 
 // int main() {
