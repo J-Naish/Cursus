@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/02/26 06:28:43 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/26 07:02:04 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ typedef enum e_map
 char	*get_next_line(int fd);
 char	*read_map(const char *filename);
 void	validate_arg(int argc, char **argv);
+bool	validate_map(const char *map);
 
 #endif

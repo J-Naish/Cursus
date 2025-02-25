@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 04:36:51 by nash              #+#    #+#              #
-#    Updated: 2025/02/26 06:57:01 by nash             ###   ########.fr        #
+#    Updated: 2025/02/26 07:01:24 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,9 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = main.c\
 		parse/get_next_line.c\
-		parse/parse.c\
 		parse/read_map.c\
-		parse/validate_arg.c
+		parse/validate_arg.c\
+		parse/validate_map.c
 LIBFT = libft/libft.a
 OBJS = $(SRCS:.c=.o)
 
