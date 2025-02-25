@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 21:45:38 by nash              #+#    #+#              #
-#    Updated: 2025/02/25 20:54:55 by nash             ###   ########.fr        #
+#    Updated: 2025/02/25 23:28:37 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,10 +39,5 @@ fclean:
 	make fclean -C libft
 
 re: fclean all
-
-unit_test:
-	$(CC) $(CFLAGS) $(filter-out main.c, $(SRCS))
-	./a.out
-	rm -f a.out
 
 .PHONY: all clean fclean re
