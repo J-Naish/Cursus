@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:51:18 by nash              #+#    #+#             */
-/*   Updated: 2025/02/26 07:17:03 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/26 07:26:24 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,17 @@ static void	validate_char(const char *map)
 	}
 }
 
+static void	validate_composition(const char *map)
+{
+	if (!ft_strchr(map, '0') || !ft_strchr(map, '1')
+		|| !ft_strchr(map, 'E') || !ft_strchr(map, 'P'))
+	{
+		ft_putstr_fd("Error\nMap must contain ", STDERR_FILENO);
+		ft_putstr_fd("'0', '1', 'E', and 'P'\n", STDERR_FILENO);
+		exit(EXIT_FAILURE);
+	}
+}
+
 static void	validate_mapsize(const char *map)
 {
 	size_t	len;
@@ -74,6 +85,7 @@ void	validate_map(const char *map)
 {
 	validate_char(map);
 	validate_mapsize(map);
+	validate_composition(map);
 }
 
 // int main() {
