@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 04:38:46 by nash              #+#    #+#             */
-/*   Updated: 2025/02/27 04:51:42 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/27 05:01:20 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ static void	validate_walls(char **lines)
 			j = 0;
 			while (lines[i][j])
 			{
-				if (lines[i][j++])
+				if (lines[i][j++] != '1')
 					map_error("The outline must be wall.");
 			}
-			if (lines[i][0] != '1' || lines[i][linelen(lines[i]) - 1] != '1')
-				map_error("The outline must be wall.");
 		}
+		if (lines[i][0] != '1' || lines[i][linelen(lines[i]) - 1] != '1')
+			map_error("The outline must be wall.");
 		i++;
 	}
 }
