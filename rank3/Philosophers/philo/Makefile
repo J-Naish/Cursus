@@ -6,14 +6,15 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/27 07:41:52 by nash              #+#    #+#              #
-#    Updated: 2025/02/27 07:43:31 by nash             ###   ########.fr        #
+#    Updated: 2025/02/27 08:16:20 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = main.c
+SRCS = main.c\
+		parse/validate.c
 OBJS = $(SRCS:.c=.o)
 
 $(NAME): $(OBJS)

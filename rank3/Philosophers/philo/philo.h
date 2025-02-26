@@ -6,7 +6,16 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/27 07:41:39 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/27 08:15:23 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PHILO_H
+# define PHILO_H
+
+# include <stdlib.h>
+# include <stdbool.h>
+
+bool	is_valid_arg(int argc, char **argv);
+
+#endif
