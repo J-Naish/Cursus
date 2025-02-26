@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 04:36:51 by nash              #+#    #+#              #
-#    Updated: 2025/02/27 05:02:41 by nash             ###   ########.fr        #
+#    Updated: 2025/02/27 06:10:05 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,15 +24,19 @@ SRCS = main.c\
 		parse/validate_map.c
 LIBFT = libft/libft.a
 OBJS = $(SRCS:.c=.o)
+INCLUDES = -I/opt/X11/include -Imlx
+# INCLUDES = -I/usr/include -Imlx
+MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit
+# MLX_FLAGS = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	make all -C libft
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME) $(MLX_FLAGS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
 
 clean:
 	rm -f $(OBJS)
