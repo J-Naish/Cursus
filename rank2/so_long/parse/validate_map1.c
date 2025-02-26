@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:51:18 by nash              #+#    #+#             */
-/*   Updated: 2025/02/27 04:53:25 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/27 04:55:41 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,5 @@ void	validate_chars(const char *map)
 {
 	validate_char(map);
 	validate_composition(map);
+	// not more than 1 P and E
 }
