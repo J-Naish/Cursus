@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/27 08:15:23 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/27 08:20:56 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 
 # include <stdlib.h>
 # include <stdbool.h>
+
+typedef struct t_config
+{
+	int	num_philos;
+	int	time_to_die;
+	int	time_to_eat;
+	int	time_to_sleep;
+	int	times_to_eat_to_exit;
+}	t_config;
 
 bool	is_valid_arg(int argc, char **argv);
 
