@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 04:36:51 by nash              #+#    #+#              #
-#    Updated: 2025/02/26 08:07:56 by nash             ###   ########.fr        #
+#    Updated: 2025/02/27 04:46:33 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,10 @@ SRCS = main.c\
 		parse/get_next_line.c\
 		parse/read_map.c\
 		parse/validate_arg.c\
-		parse/validate_map.c
+		parse/validate_map_utils.c\
+		parse/validate_map.c\
+		parse/validate_map1.c\
+		parse/validate_map2.c
 LIBFT = libft/libft.a
 OBJS = $(SRCS:.c=.o)
 
