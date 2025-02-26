@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:35:29 by nash              #+#    #+#             */
-/*   Updated: 2025/02/26 03:47:45 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/27 07:29:09 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int argc, char **argv)
 	stack_b = init_stack();
 	if (!stack_b)
 		return (free(stack_a), EXIT_FAILURE);
+	exit_if_sorted(stack_a, stack_b);
 	if (argc <= 6)
 		sort_sm(stack_a, stack_b, argc - 1);
 	else

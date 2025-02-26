@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 05:10:22 by nash              #+#    #+#              #
-#    Updated: 2025/02/16 21:19:43 by nash             ###   ########.fr        #
+#    Updated: 2025/02/27 07:26:26 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS = debug.c\
 		sort_lg.c\
 		sort_sm_utils.c\
 		sort_sm.c\
+		sort_utils.c\
 		stack_normalize.c\
 		stack_operations.c\
 		stack_utils.c

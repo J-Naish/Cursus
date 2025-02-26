@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/26 03:45:43 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/27 07:29:00 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,7 @@ int		total_cost(int cost_a, int cost_b);
 int		find_insert_position_in_b(t_stack *b, int value);
 
 void	sort_lg(t_stack *stack_a, t_stack *stack_b);
+
+void	exit_if_sorted(t_stack *stack_a, t_stack *stack_b);
 
 #endif
