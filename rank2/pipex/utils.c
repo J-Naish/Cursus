@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 06:31:30 by nash              #+#    #+#             */
-/*   Updated: 2025/02/25 22:38:21 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/27 07:06:34 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,12 @@ void	dup_infile(char *filepath)
 
 	infilefd = open(filepath, O_RDONLY);
 	if (infilefd < 0)
-		error_exit();
+	{
+		perror("");
+		infilefd = open("/dev/null", O_RDONLY);
+		if (infilefd < 0)
+			error_exit();
+	}
 	safe_dup2(infilefd, STDIN_FILENO);
 	close(infilefd);
 }
