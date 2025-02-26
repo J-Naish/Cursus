@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/02/27 04:50:31 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/27 05:48:03 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,6 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
 # endif
-
-typedef enum e_map
-{
-	EMPTY,
-	WALL,
-	COLLECTIBLE,
-	EXIT,
-	START_POSITION,
-	INVALID
-}	t_map;
 
 void	map_error(char *message);
 
