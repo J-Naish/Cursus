@@ -3,11 +3,11 @@
 ## Entrance Ceremony
 - [x] 2024/04/15  
 
-## Circle 0
+## rank 00
 ### Libft
 - [x] 2024/04/15 - 2024/05/22  
 
-## Circle 1
+## rank 01
 ### ft_printf
 - [x] 2024/05/09 - 2025/01-27  
 ### get_next_line  
@@ -15,7 +15,7 @@
 ### Born2beroot  
 - [x] 2025/01/23 - 2025/02/01  
 
-## Circle 2
+## rank 02
 ### push_swap
 - [ ] 2025/02/02 -  
 ### pipex
@@ -25,6 +25,13 @@
 ### Exam 02
 - [x] 2025/02/18  
 
+## rank 03
+### minishell
+- [ ] 2025/
+### philosopher
+- [ ] 2025/02/27 - 
+### Exam 03
+- [ ] 
 
 # After Common Core
 ## やりたいのリスト
