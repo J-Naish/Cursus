@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 04:36:51 by nash              #+#    #+#              #
-#    Updated: 2025/02/27 06:10:05 by nash             ###   ########.fr        #
+#    Updated: 2025/02/27 06:27:00 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,19 +24,22 @@ SRCS = main.c\
 		parse/validate_map.c
 LIBFT = libft/libft.a
 OBJS = $(SRCS:.c=.o)
-INCLUDES = -I/opt/X11/include -Imlx
-# INCLUDES = -I/usr/include -Imlx
-MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit
-# MLX_FLAGS = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S), Linux)
+	MLXFLAGS = -Lmlx_Linux -lmlx_Linux -L ./mlx -Imlx_Linux -L ./libft -lft -lXext -lX11 -lm -lz
+endif
+ifeq ($(UNAME_S), Darwin)
+	MLXFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
+endif
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	make all -C libft
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME) $(MLX_FLAGS)
+	$(CC) $(CFLAGS) $(MLX_FLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
+	$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
