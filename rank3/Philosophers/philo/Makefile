@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/27 07:41:52 by nash              #+#    #+#              #
-#    Updated: 2025/02/27 08:32:32 by nash             ###   ########.fr        #
+#    Updated: 2025/02/27 08:36:32 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = philo
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = main.c\
+		debug/debug.c\
 		parse/init_config.c\
 		parse/validate.c
 OBJS = $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 08:23:29 by nash              #+#    #+#             */
-/*   Updated: 2025/02/27 08:31:45 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/27 08:39:11 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ t_config	init_config(int argc, char **argv)
 	if (argc == 6)
 		config.times_to_eat_to_exit = convert_to_int(argv[5]);
 	else
-		config.times_to_eat_to_exit = INT_MAX;
+		config.times_to_eat_to_exit = -1;
 	return (config);
 }
