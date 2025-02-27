@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 04:36:51 by nash              #+#    #+#              #
-#    Updated: 2025/02/27 06:33:10 by nash             ###   ########.fr        #
+#    Updated: 2025/02/27 20:51:31 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,15 +31,16 @@ endif
 ifeq ($(UNAME_S), Darwin)
 	MLXFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 endif
+MLX = minilibx/libmlx.a
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	make all -C libft
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) $(MLX_FLAGS) $(OBJS) $(LIBFT) $(MLX) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -Imlx -c $< -o $@
+	$(CC) $(CFLAGS) $(MLX) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
