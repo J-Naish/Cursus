@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 03:44:30 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 05:23:47 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 07:20:49 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 void	end_play(t_game *game)
 {
-	free(game->window);
-	free(game->mlx);
-	free(game->map);
+	destroy_game(game);
 }
