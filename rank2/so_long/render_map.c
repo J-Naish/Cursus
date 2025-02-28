@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 05:12:42 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 05:16:49 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 06:23:59 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 static void	put_image(char c, t_game *game, int x, int y)
 {
 	if (c == '0')
-		mlx_put_image_to_window(game->mlx, game->window, game->empty,
-			x * game->tile_size, y * game->tile_size);
+		mlx_put_image_to_window(game->mlx, game->window,
+			game->images.empty, x * game->tile_size, y * game->tile_size);
 	else if (c == '1')
-		mlx_put_image_to_window(game->mlx, game->window, game->wall,
-			x * game->tile_size, y * game->tile_size);
+		mlx_put_image_to_window(game->mlx, game->window,
+			game->images.wall, x * game->tile_size, y * game->tile_size);
 	else if (c == 'P')
-		mlx_put_image_to_window(game->mlx, game->window, game->player,
-			x * game->tile_size, y * game->tile_size);
+		mlx_put_image_to_window(game->mlx, game->window,
+			game->images.player, x * game->tile_size, y * game->tile_size);
 	else if (c == 'C')
-		mlx_put_image_to_window(game->mlx, game->window, game->collectible,
-			x * game->tile_size, y * game->tile_size);
+		mlx_put_image_to_window(game->mlx, game->window,
+			game->images.collectible, x * game->tile_size, y * game->tile_size);
 	else if (c == 'E')
-		mlx_put_image_to_window(game->mlx, game->window, game->exit,
-			x * game->tile_size, y * game->tile_size);
+		mlx_put_image_to_window(game->mlx, game->window,
+			game->images.exit, x * game->tile_size, y * game->tile_size);
 }
 
 void	render_map(t_game *game)
