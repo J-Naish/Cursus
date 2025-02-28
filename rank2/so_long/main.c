@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:00 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 01:06:52 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 03:05:08 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	main(int argc, char **argv)
 	validate_arg(argc, argv);
 	map = read_map(argv[1]);
 	validate_map(map);
-	printf("%s\n", map);
 	mlx_ptr = mlx_init();
 	if (!mlx_ptr)
 		return (free(map), EXIT_FAILURE);
