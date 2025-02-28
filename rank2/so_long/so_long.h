@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 03:45:34 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 03:52:35 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	load_images(t_game *game);
 
 void	render_map(t_game *game);
 
-int		begin_play(t_game *game);
+void	begin_play(t_game *game);
 void	tick(t_game *game);
 void	end_play(t_game *game);
 

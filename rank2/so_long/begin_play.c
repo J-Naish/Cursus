@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 03:27:48 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 03:49:57 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 03:52:17 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,25 @@ static int	calculate_height(char *map)
 	return (height);
 }
 
-int	begin_play(t_game *game)
+void	begin_play(t_game *game)
 {
 	game->mlx = mlx_init();
 	if (!game->mlx)
-		return (free(game->map), EXIT_FAILURE);
+	{
+		free(game->map);
+		exit(EXIT_FAILURE);
+	}
 	game->width = calculate_width(game->map);
 	game->height = calculate_height(game->map);
 	game->tile_size = TILE_SIZE;
 	game->win = mlx_new_window(game->mlx, game->width * game->tile_size,
 			game->height * game->tile_size, "so_long");
 	if (!game->win)
-		return (free(game->map), free(game->mlx), EXIT_FAILURE);
+	{
+		free(game->map);
+		free(game->mlx);
+		exit(EXIT_FAILURE);
+	}
 	load_images(game);
 	render_map(game);
-	return (EXIT_SUCCESS);
 }

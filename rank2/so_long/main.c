@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:00 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 03:50:05 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 03:52:48 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int	main(int argc, char **argv)
 	if (!game.map)
 		return (EXIT_FAILURE);
 	validate_map(game.map);
-	if (begin_play(&game) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
+	begin_play(&game);
 	tick(&game);
 	end_play(&game);
 	return (EXIT_SUCCESS);
