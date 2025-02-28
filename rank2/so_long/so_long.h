@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 06:29:47 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 06:33:34 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct t_player
 {
 	t_transform	pos;
 	int			moves;
+	int			collected_collectibles;
 }	t_player;
 
 typedef struct t_images

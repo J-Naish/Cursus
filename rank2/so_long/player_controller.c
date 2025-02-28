@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 05:00:06 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 06:27:27 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 06:36:10 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	spawn_player(t_game *game)
 	int	y;
 
 	game->player.moves = 0;
+	game->player.collected_collectibles = 0;
 	i = 0;
 	y = 0;
 	while (game->map[i])
@@ -56,6 +57,8 @@ void	move_player(t_game *game, int dx, int dy)
 		return ;
 	else if (game->map[new_index] == 'E')
 		beat_game(game);
+	else if (game->map[new_index] == 'C')
+		game->player.collected_collectibles += 1;
 	game->map[current_index] = '0';
 	game->map[new_index] = 'P';
 	game->player.pos.x = new_x;
