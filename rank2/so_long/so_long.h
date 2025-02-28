@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 04:20:20 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 04:59:26 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,27 @@
 #  define TILE_SIZE 32
 # endif
 
+typedef struct t_transform
+{
+	int	x;
+	int	y;
+	int	moves;
+}	t_transform;
+
 typedef struct t_game
 {
-	void	*mlx;
-	void	*window;
-	void	*wall;
-	void	*player;
-	void	*collectible;
-	void	*exit;
-	void	*empty;
-	char	*map;
-	int		width;
-	int		height;
-	int		tile_size;
+	void		*mlx;
+	void		*window;
+	void		*wall;
+	void		*player;
+	void		*collectible;
+	void		*exit;
+	void		*empty;
+	char		*map;
+	int			width;
+	int			height;
+	int			tile_size;
+	t_transform	player_pos;
 }	t_game;
 
 void	map_error(char *message);
