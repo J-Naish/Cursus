@@ -1,4 +1,4 @@
-static char *coin_frame3[] = {
+static char *coin3[] = {
 "32 32 4 1",
 ". c None",
 "B c #000000",

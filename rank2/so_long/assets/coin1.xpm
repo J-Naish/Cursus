@@ -1,4 +1,4 @@
-static char *coin[] = {
+static char *coin1[] = {
 "32 32 3 1",
 ". c None",
 "B c #000000",
