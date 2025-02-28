@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 06:27:57 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 06:29:47 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct t_game
 	int			height;
 	int			tile_size;
 	t_player	player;
+	int			num_collectibles;
 }	t_game;
 
 void	map_error(char *message);

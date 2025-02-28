@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 03:27:48 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 05:29:23 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 06:32:20 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,22 @@ static void	calculate_size(t_game *game)
 	game->height = height;
 }
 
+static void	calculate_total_collectibles(t_game *game)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (game->map[i])
+	{
+		if (game->map[i] == 'C')
+			count += 1;
+		i++;
+	}
+	game->num_collectibles = count;
+}
+
 void	begin_play(t_game *game)
 {
 	game->mlx = mlx_init();
@@ -55,6 +71,7 @@ void	begin_play(t_game *game)
 		free(game->mlx);
 		exit(EXIT_FAILURE);
 	}
+	calculate_total_collectibles(game);
 	spawn_player(game);
 	load_images(game);
 	render_map(game);
