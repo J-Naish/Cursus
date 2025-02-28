@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 07:20:30 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 07:37:34 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,20 @@ typedef struct t_player
 	int			collected_collectibles;
 }	t_player;
 
-typedef struct t_images
+typedef struct t_sprite
 {
 	void	*empty;
 	void	*wall;
 	void	*player;
 	void	*collectible;
 	void	*exit;
-}	t_images;
+}	t_sprite;
 
 typedef struct t_game
 {
 	void		*mlx;
 	void		*window;
-	t_images	images;
+	t_sprite	images;
 	char		*map;
 	int			width;
 	int			height;
