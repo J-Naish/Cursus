@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 05:00:06 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 06:36:10 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 06:48:26 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,21 @@ void	spawn_player(t_game *game)
 	}
 }
 
+static int	on_collide(t_game *game, int new_index)
+{
+	if (game->map[new_index] == '1')
+		return (0);
+	else if (game->map[new_index] == 'E')
+	{
+		if (game->player.collected_collectibles < game->num_collectibles)
+			return (0);
+		beat_game(game);
+	}
+	else if (game->map[new_index] == 'C')
+		game->player.collected_collectibles += 1;
+	return (1);
+}
+
 void	move_player(t_game *game, int dx, int dy)
 {
 	int	new_x;
@@ -53,12 +68,8 @@ void	move_player(t_game *game, int dx, int dy)
 	current_index = game->player.pos.y
 		* (game->width + 1) + game->player.pos.x;
 	new_index = new_y * (game->width + 1) + new_x;
-	if (game->map[new_index] == '1')
+	if (on_collide(game, new_index) == 0)
 		return ;
-	else if (game->map[new_index] == 'E')
-		beat_game(game);
-	else if (game->map[new_index] == 'C')
-		game->player.collected_collectibles += 1;
 	game->map[current_index] = '0';
 	game->map[new_index] = 'P';
 	game->player.pos.x = new_x;
