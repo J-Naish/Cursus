@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 02:38:46 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 03:45:34 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,25 @@
 #  define BUFFER_SIZE 256
 # endif
 
+# ifndef TILE_SIZE
+#  define TILE_SIZE 64
+# endif
+
+typedef struct t_game
+{
+	void	*mlx;
+	void	*win;
+	void	*wall;
+	void	*player;
+	void	*collectible;
+	void	*exit;
+	void	*empty;
+	char	*map;
+	int		width;
+	int		height;
+	int		tile_size;
+}	t_game;
+
 void	map_error(char *message);
 
 char	*get_next_line(int fd);
@@ -44,9 +63,12 @@ void	validate_rect(const char *map);
 
 void	validate_map(const char *map);
 
-void	*read_wall(void *mlx, int width, int height);
-void	*read_player(void *mlx, int width, int height);
-void	*read_collectible(void *mlx, int width, int height);
-void	*read_exit(void *mlx, int width, int height);
+void	load_images(t_game *game);
+
+void	render_map(t_game *game);
+
+int		begin_play(t_game *game);
+void	tick(t_game *game);
+void	end_play(t_game *game);
 
 #endif

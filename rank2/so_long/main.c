@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:00 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 03:05:08 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 03:30:15 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ int	main(int argc, char **argv)
 	char	*map;
 	void	*mlx_ptr;
 	void	*win_ptr;
+	t_game	game;
 
 	validate_arg(argc, argv);
-	map = read_map(argv[1]);
+	game.map = read_map(argv[1]);
 	validate_map(map);
 	mlx_ptr = mlx_init();
 	if (!mlx_ptr)

@@ -6,22 +6,27 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 04:36:51 by nash              #+#    #+#              #
-#    Updated: 2025/03/01 00:42:46 by nash             ###   ########.fr        #
+#    Updated: 2025/03/01 03:47:02 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = main.c\
-		parse/error.c\
+SRCS = parse/error.c\
 		parse/get_next_line.c\
 		parse/read_map.c\
 		parse/validate_arg.c\
 		parse/validate_map_chars.c\
 		parse/validate_map_rect.c\
 		parse/validate_map_utils.c\
-		parse/validate_map.c
+		parse/validate_map.c\
+		begin_play.c\
+		end_play.c\
+		tick.c\
+		load_images.c\
+		render_map.c\
+		main.c\
 LIBFT = libft/libft.a
 OBJS = $(SRCS:.c=.o)
 UNAME_S := $(shell uname -s)
