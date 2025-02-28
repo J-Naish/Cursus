@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   end_play.c                                         :+:      :+:    :+:   */
+/*   destroy_game.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 03:44:30 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 05:21:00 by nash             ###   ########.fr       */
+/*   Created: 2025/03/01 05:19:57 by nash              #+#    #+#             */
+/*   Updated: 2025/03/01 05:20:24 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	end_play(t_game *game)
+void	destroy_game(t_game *game)
 {
-	destroy_game(game);
+	free(game->window);
+	free(game->mlx);
+	free(game->map);
 }
