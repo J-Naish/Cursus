@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:27:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 07:28:02 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/28 20:06:36 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ static void	putint(int num)
 	casted_num = (long long)num;
 	if (casted_num < 0)
 	{
-		ft_putchar('-');
+		ft_putchar_fd('-', STDOUT_FILENO);
 		casted_num *= -1;
 	}
 	if (casted_num < 10)
 	{
-		ft_putchar('0' + casted_num);
+		ft_putchar_fd('0' + casted_num, STDOUT_FILENO);
 	}
 	if (casted_num >= 10)
 	{
@@ -51,7 +51,7 @@ void	putstack(t_stack *stack)
 	{
 		putnode(current);
 		current = current->next;
-		ft_putchar('\n');
+		ft_putchar_fd('\n', STDOUT_FILENO);
 	}
 }
 
@@ -72,19 +72,3 @@ t_stack	*create_test_stack(void)
 	append_node(stack, INT_MIN);
 	return (stack);
 }
-
-// int main() {
-// 	// putintのテストケース
-// 	// 引数は必ずint型であると想定
-// 	int numCases[] = {
-// 		0, 1, -2, 4, 100, 12345, -5483, INT_MAX, INT_MIN
-// 	};
-
-// 	for (int i = 0; i < sizeof(numCases) / sizeof(int); i++) {
-// 		printf("Expected: %d\n", numCases[i]);
-// 		printf("Result  : ");
-// 		fflush(stdout);
-// 		putint(numCases[i]);
-// 		printf("\n\n");
-// 	}
-// }

@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.c                                            :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rnishi <rnishi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/31 06:11:22 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 07:28:05 by nash             ###   ########.fr       */
+/*   Created: 2024/04/28 21:37:18 by rnishi            #+#    #+#             */
+/*   Updated: 2024/05/15 14:25:47 by rnishi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t	i;
 
 	i = 0;
-	while (s[i])
+	while (i < n)
+	{
+		if (((unsigned char *)s)[i] == (unsigned char)c)
+			return ((void *)s + i);
 		i++;
-	return (i);
-}
-
-void	ft_putchar(char c)
-{
-	write(STDOUT_FILENO, &c, 1);
-}
-
-void	ft_putstr(const char *s)
-{
-	size_t	len;
-
-	len = ft_strlen(s);
-	write(STDOUT_FILENO, s, len);
+	}
+	return (NULL);
 }

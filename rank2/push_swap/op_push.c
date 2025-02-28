@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 00:15:04 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 07:28:16 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/28 20:06:47 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,41 +28,11 @@ static void	push(t_stack *to, t_stack *from)
 void	pa(t_stack *stack_a, t_stack *stack_b)
 {
 	push(stack_a, stack_b);
-	ft_putstr("pa\n");
+	ft_putstr_fd("pa\n", STDOUT_FILENO);
 }
 
 void	pb(t_stack *stack_a, t_stack *stack_b)
 {
 	push(stack_b, stack_a);
-	ft_putstr("pb\n");
+	ft_putstr_fd("pb\n", STDOUT_FILENO);
 }
-
-// int main() {
-// 	t_stack *stackA = create_test_stack();
-// 	t_stack *stackB = create_test_stack();
-
-// 	printf("initial stack a: \n");
-// 	putstack(stackA);
-// 	printf("\n");
-// 	printf("initial stack b: \n");
-// 	putstack(stackB);
-// 	printf("\n\n");
-
-// 	pa(stackA, stackB);
-
-// 	printf("after pa stack A: \n");
-// 	putstack(stackA);
-// 	printf("\n");
-// 	printf("after pa stack b: \n");
-// 	putstack(stackB);
-// 	printf("\n\n");
-
-// 	pb(stackA, stackB);
-
-// 	printf("after pb stack A: \n");
-// 	putstack(stackA);
-// 	printf("\n");
-// 	printf("after pb stack b: \n");
-// 	putstack(stackB);
-// 	printf("\n\n");
-// }

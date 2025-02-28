@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 01:56:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/16 07:28:17 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/28 20:07:01 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ static void	reverse_rotate(t_stack *stack)
 void	rrotate_put(t_stack *stack, char stack_name)
 {
 	reverse_rotate(stack);
-	ft_putstr("rr");
-	ft_putchar(stack_name);
-	ft_putchar('\n');
+	ft_putstr_fd("rr", STDOUT_FILENO);
+	ft_putchar_fd(stack_name, STDOUT_FILENO);
+	ft_putchar_fd('\n', STDOUT_FILENO);
 }
 
 void	rra(t_stack *stack)
@@ -55,20 +55,5 @@ void	rrr(t_stack *stack_a, t_stack *stack_b)
 {
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
-	ft_putstr("rrr\n");
+	ft_putstr_fd("rrr\n", STDOUT_FILENO);
 }
-
-// int main() {
-// 	t_stack *stackA = create_test_stack();
-
-// 	printf("initial stack a:\n");
-// 	putstack(stackA);
-// 	printf("\n");
-
-// 	rra(stackA);
-// 	printf("\n");
-
-// 	printf("after rra stack a:\n");
-// 	putstack(stackA);
-// 	printf("\n");
-// }

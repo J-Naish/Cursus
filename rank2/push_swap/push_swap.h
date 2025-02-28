@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/27 07:29:00 by nash             ###   ########.fr       */
+/*   Updated: 2025/02/28 20:06:09 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <stdbool.h>
 # include <stdint.h>
 # include <limits.h>
-
 # include <stdio.h>
+# include "./libft/libft.h"
 
 typedef struct t_node
 {
@@ -45,10 +45,6 @@ void	shift_node(t_stack *stack);
 void	pop_node(t_stack *stack);
 
 void	normalize_stack(t_stack *stack);
-
-size_t	ft_strlen(const char *s);
-void	ft_putchar(char c);
-void	ft_putstr(const char *s);
 
 void	putnode(t_node *node);
 void	putstack(t_stack *stack);
@@ -104,5 +100,7 @@ int		find_insert_position_in_b(t_stack *b, int value);
 void	sort_lg(t_stack *stack_a, t_stack *stack_b);
 
 void	exit_if_sorted(t_stack *stack_a, t_stack *stack_b);
+
+void	free_strarr(char **strarr);
 
 #endif

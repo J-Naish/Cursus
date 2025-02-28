@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 05:10:22 by nash              #+#    #+#              #
-#    Updated: 2025/02/27 07:26:26 by nash             ###   ########.fr        #
+#    Updated: 2025/02/28 20:04:36 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 SRCS = debug.c\
 		error.c\
-		libft.c\
 		main.c\
 		op_push.c\
 		op_reverse_rotate.c\
@@ -37,22 +36,27 @@ SRCS = debug.c\
 		sort_utils.c\
 		stack_normalize.c\
 		stack_operations.c\
-		stack_utils.c
+		stack_utils.c\
+		utils.c
 OBJS = $(SRCS:.c=.o)
+LIBFT = ./libft/libft.a
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	make all -C libft
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
+	make clean -C libft
 
 fclean:
 	rm -f $(NAME) $(OBJS)
+	make fclean -C libft
 
 re: fclean all
 
