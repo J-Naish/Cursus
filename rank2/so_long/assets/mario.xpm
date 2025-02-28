@@ -1,0 +1,24 @@
+static char *mario[] = {
+"12 16 4 1",
+". c None",
+"R c #D80001",
+"B c #6E6901",
+"Y c #F8AC01",
+
+"...RRRRR....",
+"..RRRRRRRRR.",
+"..BBBYYBY...",
+".BYBYYYBYYY.",
+".BYBBYYYBYYY",
+".BBYYYYBBBB.",
+"...YYYYYYY..",
+"..BBRBBB....",
+".BBBRBBRBBB.",
+"BBBBRRRRBBBB",
+"YYBRYRRYRBYY",
+"YYYRRRRRRYYY",
+"YYRRRRRRRRYY",
+"..RRR..RRR..",
+".BBB....BBB.",
+"BBBB....BBBB"
+};

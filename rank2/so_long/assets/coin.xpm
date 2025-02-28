@@ -1,0 +1,22 @@
+static char *coin[] = {
+"14 16 3 1",
+". c None",
+"B c #000000",
+"Y c #FFFF00",
+"....BBBBBB....",
+"..BBB...BBBB..",
+".BB..YYYYYBB..",
+".B.YY...BYYBB.",
+"BB.YY.YYBYYBB.",
+"B.YYY.YYBYYYBB",
+"B.YYY.YYBYYYBB",
+"B.YYY.YYBYYYBB",
+"B.YYY.YYBYYYBB",
+"B.YYY.YYBYYYBB",
+"B.YYY.YYBYYYBB",
+"BB.YY.YYBYYBB.",
+".B.YYBBBBYYBB.",
+".BB.YYYYYYBB..",
+"..BBBYYYBBBB..",
+"....BBBBBB...."
+};
