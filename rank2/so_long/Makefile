@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 04:36:51 by nash              #+#    #+#              #
-#    Updated: 2025/02/27 20:51:31 by nash             ###   ########.fr        #
+#    Updated: 2025/03/01 00:36:33 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,29 +26,36 @@ LIBFT = libft/libft.a
 OBJS = $(SRCS:.c=.o)
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S), Linux)
-	MLXFLAGS = -Lmlx_Linux -lmlx_Linux -L ./mlx -Imlx_Linux -L ./libft -lft -lXext -lX11 -lm -lz
+	MLX_FLAGS = -Lmlx_Linux -lmlx_Linux -L ./mlx -Imlx_Linux -L ./libft -lft -lXext -lX11 -lm -lz
 endif
 ifeq ($(UNAME_S), Darwin)
-	MLXFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
+	MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 endif
-MLX = minilibx/libmlx.a
+MLX = mlx/libmlx.a
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	make all -C libft
+$(NAME): $(OBJS) $(LIBFT) $(MLX)
 	$(CC) $(CFLAGS) $(MLX_FLAGS) $(OBJS) $(LIBFT) $(MLX) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(MLX) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(MLX):
+	make all -C mlx
+
+$(LIBFT):
+	make all -C libft
 
 clean:
 	rm -f $(OBJS)
 	make clean -C libft
+	make clean -C mlx
 
 fclean: clean
 	rm -f $(NAME)
 	make fclean -C libft
+	make clean -C mlx
 
 re: fclean all
 
