@@ -6,21 +6,11 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 03:42:29 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 05:26:43 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 05:31:15 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-// static int	on_press_escape(int keycode, t_game *game)
-// {
-// 	if (keycode == 53 || keycode == 65307)
-// 	{
-// 		mlx_destroy_window(game->mlx, game->window);
-// 		exit(EXIT_SUCCESS);
-// 	}
-// 	return (0);
-// }
 
 static int	on_key_press(int keycode, t_game *game)
 {
