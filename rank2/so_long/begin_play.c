@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 03:27:48 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 03:42:13 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 03:49:57 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,5 @@ int	begin_play(t_game *game)
 		return (free(game->map), free(game->mlx), EXIT_FAILURE);
 	load_images(game);
 	render_map(game);
+	return (EXIT_SUCCESS);
 }
