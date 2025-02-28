@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 04:59:26 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 05:14:48 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,9 @@ void	validate_chars(const char *map);
 void	validate_rect(const char *map);
 
 void	validate_map(const char *map);
+
+void	load_images(t_game *game);
+void	render_map(t_game *game);
 
 void	begin_play(t_game *game);
 void	tick(t_game *game);
