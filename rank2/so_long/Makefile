@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 04:36:51 by nash              #+#    #+#              #
-#    Updated: 2025/03/01 04:08:28 by nash             ###   ########.fr        #
+#    Updated: 2025/03/01 05:27:08 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,10 @@ SRCS = parse/error.c\
 		parse/validate_map.c\
 		begin_play.c\
 		end_play.c\
+		load_images.c\
 		main.c\
+		player_controller.c\
+		render_map.c\
 		tick.c
 LIBFT = libft/libft.a
 OBJS = $(SRCS:.c=.o)

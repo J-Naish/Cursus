@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 03:27:48 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 05:15:14 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 05:29:23 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	begin_play(t_game *game)
 		free(game->mlx);
 		exit(EXIT_FAILURE);
 	}
+	spawn_player(game);
 	load_images(game);
 	render_map(game);
 }
