@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 00:36:48 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 02:38:46 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,10 @@ void	validate_chars(const char *map);
 void	validate_rect(const char *map);
 
 void	validate_map(const char *map);
+
+void	*read_wall(void *mlx, int width, int height);
+void	*read_player(void *mlx, int width, int height);
+void	*read_collectible(void *mlx, int width, int height);
+void	*read_exit(void *mlx, int width, int height);
 
 #endif
