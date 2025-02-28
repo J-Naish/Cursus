@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 05:00:06 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 05:39:06 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 06:17:15 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void	move_player(t_game *game, int dx, int dy)
 	new_index = new_y * (game->width + 1) + new_x;
 	if (game->map[new_index] == '1')
 		return ;
+	else if (game->map[new_index] == 'E')
+		beat_game(game);
 	game->map[current_index] = '0';
 	game->map[new_index] = 'P';
 	game->player_pos.x = new_x;

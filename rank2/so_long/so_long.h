@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 05:37:47 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 06:15:41 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ void	render_map(t_game *game);
 
 void	spawn_player(t_game *game);
 void	move_player(t_game *game, int dx, int dy);
+
+void	beat_game(t_game *game);
 
 void	begin_play(t_game *game);
 void	tick(t_game *game);
