@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 06:20:13 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 06:27:57 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,13 @@ typedef struct t_transform
 {
 	int	x;
 	int	y;
-	int	moves;
 }	t_transform;
+
+typedef struct t_player
+{
+	t_transform	pos;
+	int			moves;
+}	t_player;
 
 typedef struct t_images
 {
@@ -55,7 +60,7 @@ typedef struct t_game
 	int			width;
 	int			height;
 	int			tile_size;
-	t_transform	player_pos;
+	t_player	player;
 }	t_game;
 
 void	map_error(char *message);
