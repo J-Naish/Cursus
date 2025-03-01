@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 05:14:11 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 00:52:49 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 00:58:06 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,4 @@ void	load_images(t_game *game)
 			"./assets/coin2.xpm", &width, &height);
 	game->images.collectible[2] = mlx_xpm_file_to_image(game->mlx,
 			"./assets/coin3.xpm", &width, &height);
-	game->current_frame = 0;
-	game->frame_counter = 0;
-	game->animation_speed = 100;
 }

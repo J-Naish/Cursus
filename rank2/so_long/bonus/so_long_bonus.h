@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 00:41:04 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 00:59:20 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@
 
 # ifndef TILE_SIZE
 #  define TILE_SIZE 32
+# endif
+
+# ifndef ANIMATION_SPEED
+#  define ANIMATION_SPEED 1
 # endif
 
 typedef struct t_transform
