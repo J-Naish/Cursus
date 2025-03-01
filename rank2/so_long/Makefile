@@ -6,11 +6,12 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 04:36:51 by nash              #+#    #+#              #
-#    Updated: 2025/03/01 23:49:42 by nash             ###   ########.fr        #
+#    Updated: 2025/03/01 23:55:22 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
+BONUS_NAME = so_long_bonus
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = parse/error.c\
@@ -63,8 +64,10 @@ all: $(NAME)
 $(NAME): $(OBJS) $(LIBFT) $(MLX)
 	$(CC) $(CFLAGS) $(MLX_FLAGS) $(OBJS) $(LIBFT) $(MLX) -o $(NAME)
 
-bonus: $(BONUS_OBJS) $(LIBFT) $(MLX)
-	$(CC) $(CFLAGS) $(MLX_FLAGS) $(BONUS_OBJS) $(LIBFT) $(MLX) -o $(NAME)
+bonus: $(BONUS_NAME)
+
+$(BONUS_NAME): $(BONUS_OBJS) $(LIBFT) $(MLX)
+	$(CC) $(CFLAGS) $(MLX_FLAGS) $(BONUS_OBJS) $(LIBFT) $(MLX) -o $(BONUS_NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
