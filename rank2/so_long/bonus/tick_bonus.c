@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 03:42:29 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 00:46:26 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 01:52:39 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	update_animation(t_game *game)
 	if (game->frame_counter >= game->animation_speed)
 	{
 		game->frame_counter = 0;
-		game->current_frame = (game->current_frame + 1) % 3;
+		game->current_frame = (game->current_frame + 1) % ANIMATION_FRAMES;
 		render_map(game);
 	}
 	return (0);

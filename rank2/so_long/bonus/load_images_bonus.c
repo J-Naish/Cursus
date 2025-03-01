@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 05:14:11 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 01:48:08 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 01:51:20 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	init_collectible(t_game *game)
 {
-	game->images.collectible = malloc(sizeof(void *) * 3);
+	game->images.collectible = malloc(sizeof(void *) * ANIMATION_FRAMES);
 	if (!game->images.collectible)
 	{
 		destroy_game(game);

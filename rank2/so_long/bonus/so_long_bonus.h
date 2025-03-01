@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 01:34:17 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 01:53:42 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@
 #  define ANIMATION_SPEED 1
 # endif
 
+# ifndef ANIMATION_FRAMES
+#  define ANIMATION_FRAMES 3
+# endif
+
 typedef struct t_transform
 {
 	int	x;
@@ -55,7 +59,7 @@ typedef struct t_enemy
 
 typedef struct t_animation
 {
-	void	*frames[3];
+	void	*frames[ANIMATION_FRAMES];
 }	t_animation;
 
 typedef struct t_sprite
