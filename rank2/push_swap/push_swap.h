@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 05:14:16 by nash              #+#    #+#             */
-/*   Updated: 2025/02/28 20:06:09 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 19:58:48 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,5 @@ int		find_insert_position_in_b(t_stack *b, int value);
 void	sort_lg(t_stack *stack_a, t_stack *stack_b);
 
 void	exit_if_sorted(t_stack *stack_a, t_stack *stack_b);
-
-void	free_strarr(char **strarr);
 
 #endif

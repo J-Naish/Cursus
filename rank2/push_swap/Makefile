@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 05:10:22 by nash              #+#    #+#              #
-#    Updated: 2025/02/28 20:04:36 by nash             ###   ########.fr        #
+#    Updated: 2025/03/01 19:58:40 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,8 +36,7 @@ SRCS = debug.c\
 		sort_utils.c\
 		stack_normalize.c\
 		stack_operations.c\
-		stack_utils.c\
-		utils.c
+		stack_utils.c
 OBJS = $(SRCS:.c=.o)
 LIBFT = ./libft/libft.a
 
