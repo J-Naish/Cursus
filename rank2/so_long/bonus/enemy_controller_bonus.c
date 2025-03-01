@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 01:13:45 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 02:59:01 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 03:19:42 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,6 @@ void	move_enemy(t_game *game)
 		&& new_y < game->height && game->map[new_index] != '1'
 		&& game->map[new_index] != 'C' && game->map[new_index] != 'E')
 	{
-		if (new_x == game->player.pos.x && new_y == game->player.pos.y)
-			game_over(game);
 		game->map[current_index] = '0';
 		game->map[new_index] = 'e';
 		game->enemy.pos.x = new_x;

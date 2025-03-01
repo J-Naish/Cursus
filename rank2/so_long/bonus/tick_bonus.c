@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 03:42:29 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 02:59:57 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 03:20:23 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,13 @@ static int	close_window(t_game *game)
 	return (0);
 }
 
+void	check_collisions(t_game *game)
+{
+	if (game->player.pos.x == game->enemy.pos.x
+		&& game->player.pos.y == game->enemy.pos.y)
+		game_over(game);
+}
+
 static int	update_animation(t_game *game)
 {
 	game->frame_counter += 1;
@@ -53,6 +60,7 @@ static int	update_animation(t_game *game)
 		game->enemy_move_counter = 0;
 		render_map(game);
 	}
+	check_collisions(game);
 	return (0);
 }
 
