@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 06:31:30 by nash              #+#    #+#             */
-/*   Updated: 2025/02/27 07:06:34 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 04:08:31 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,17 @@ char	**split_cmd(char const *cmd)
 	if (!cmd_args)
 		malloc_failure_exit();
 	return (cmd_args);
+}
+
+void	free_strarr(char **paths)
+{
+	int	i;
+
+	i = 0;
+	while (paths[i])
+	{
+		free(paths[i]);
+		i++;
+	}
+	free(paths);
 }

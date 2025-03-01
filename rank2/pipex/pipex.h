@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/02/26 01:44:47 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 04:08:38 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ pid_t	safe_fork(void);
 void	dup_infile(char *filepath);
 void	dup_outfile(char *filepath);
 char	**split_cmd(char const *cmd);
+void	free_strarr(char **paths);
 
 #endif

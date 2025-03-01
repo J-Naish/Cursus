@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 03:56:49 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 03:55:37 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 04:08:24 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,6 @@ static char	**get_paths(char **envp)
 		i++;
 	}
 	return (NULL);
-}
-
-static void	free_strarr(char **paths)
-{
-	int	i;
-
-	i = 0;
-	while (paths[i])
-	{
-		free(paths[i]);
-		i++;
-	}
-	free(paths);
 }
 
 static char	*find_command_path(const char *cmd, char **envp)
