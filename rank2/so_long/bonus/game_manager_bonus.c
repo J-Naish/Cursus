@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 06:10:30 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 01:40:38 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 02:48:47 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 void	beat_game(t_game *game)
 {
 	ft_putstr_fd("You've beaten the game!!!\n", STDOUT_FILENO);
+	mlx_destroy_window(game->mlx, game->window);
+	exit(EXIT_SUCCESS);
+}
+
+void	game_over(t_game *game)
+{
+	ft_putstr_fd("Game Over! Enemy caught you!\n", STDOUT_FILENO);
 	mlx_destroy_window(game->mlx, game->window);
 	exit(EXIT_SUCCESS);
 }

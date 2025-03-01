@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 03:42:29 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 02:38:27 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 02:59:57 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,18 @@ static int	close_window(t_game *game)
 
 static int	update_animation(t_game *game)
 {
-	static int	enemy_move_counter = 0;
-
-	game->frame_counter++;
+	game->frame_counter += 1;
 	if (game->frame_counter >= game->animation_speed)
 	{
 		game->frame_counter = 0;
 		game->current_frame = (game->current_frame + 1) % ANIMATION_FRAMES;
 		render_map(game);
 	}
-	enemy_move_counter++;
-	if (enemy_move_counter >= 30)
+	game->enemy_move_counter += 1;
+	if (game->enemy_move_counter >= 30)
 	{
 		move_enemy(game);
-		enemy_move_counter = 0;
+		game->enemy_move_counter = 0;
 		render_map(game);
 	}
 	return (0);

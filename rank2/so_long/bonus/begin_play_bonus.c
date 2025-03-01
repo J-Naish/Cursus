@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 03:27:48 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 01:46:15 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 02:53:13 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ void	begin_play(t_game *game)
 	game->animation_speed = ANIMATION_SPEED;
 	calculate_total_collectibles(game);
 	spawn_player(game);
+	game->enemy_move_counter = 0;
 	spawn_enemy(game);
-	printf("%s\n", game->map);
 	load_images(game);
 	render_map(game);
 }

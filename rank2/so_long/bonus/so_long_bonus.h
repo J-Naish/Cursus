@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 02:38:45 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 02:50:46 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct t_player
 typedef struct t_enemy
 {
 	t_transform	pos;
+	int			move_count;
 }	t_enemy;
 
 typedef struct t_animation
@@ -82,6 +83,7 @@ typedef struct t_game
 	int			tile_size;
 	t_player	player;
 	t_enemy		enemy;
+	int			enemy_move_counter;
 	int			num_collectibles;
 	int			current_frame;
 	int			frame_counter;
@@ -116,6 +118,7 @@ void	spawn_player(t_game *game);
 void	move_player(t_game *game, int dx, int dy);
 
 void	beat_game(t_game *game);
+void	game_over(t_game *game);
 void	destroy_game(t_game *game);
 
 void	begin_play(t_game *game);
