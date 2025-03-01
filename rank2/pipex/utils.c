@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 06:31:30 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 04:08:31 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 04:11:12 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,10 @@ void	free_strarr(char **paths)
 		i++;
 	}
 	free(paths);
+}
+
+bool	detect_here_doc(int argc, char **argv)
+{
+	return (argc > 1 && ft_strncmp(argv[1], "here_doc", 8) == 0
+		&& ft_strlen(argv[1]) == 8);
 }

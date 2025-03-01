@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/02/26 01:51:03 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 04:11:39 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	main(int argc, char **argv, char **envp)
 	int		i;
 	bool	is_heredoc;
 
-	is_heredoc = (argc > 1 && ft_strncmp(argv[1], "here_doc", 8) == 0);
+	is_heredoc = detect_here_doc(argc, argv);
 	if ((!is_heredoc && argc < 5) || (is_heredoc && argc < 6))
 		arg_error();
 	if (is_heredoc)
