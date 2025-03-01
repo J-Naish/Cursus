@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 01:53:42 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 02:26:00 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <stdbool.h>
 # include <fcntl.h>
 # include <errno.h>
-# include <math.h>
 # include "../mlx/mlx.h"
 # include "../libft/libft.h"
 
