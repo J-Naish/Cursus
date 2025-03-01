@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 23:52:40 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 00:41:04 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,17 @@ typedef struct t_player
 	int			collected_collectibles;
 }	t_player;
 
+typedef struct t_animation
+{
+	void	*frames[3];
+}	t_animation;
+
 typedef struct t_sprite
 {
 	void	*empty;
 	void	*wall;
 	void	*player;
-	void	*collectible;
+	void	**collectible;
 	void	*exit;
 }	t_sprite;
 
@@ -63,6 +68,9 @@ typedef struct t_game
 	int			tile_size;
 	t_player	player;
 	int			num_collectibles;
+	int			current_frame;
+	int			frame_counter;
+	int			animation_speed;
 }	t_game;
 
 void	map_error(char *message);

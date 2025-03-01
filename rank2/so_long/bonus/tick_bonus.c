@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 03:42:29 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 23:52:26 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 00:46:26 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,22 @@ static int	close_window(t_game *game)
 	return (0);
 }
 
+static int	update_animation(t_game *game)
+{
+	game->frame_counter++;
+	if (game->frame_counter >= game->animation_speed)
+	{
+		game->frame_counter = 0;
+		game->current_frame = (game->current_frame + 1) % 3;
+		render_map(game);
+	}
+	return (0);
+}
+
 void	tick(t_game *game)
 {
 	mlx_key_hook(game->window, on_key_press, game);
 	mlx_hook(game->window, 17, 0, close_window, game);
+	mlx_loop_hook(game->mlx, update_animation, game);
 	mlx_loop(game->mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 05:14:11 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 23:52:12 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 00:52:49 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,16 @@ void	load_images(t_game *game)
 			"./assets/block.xpm", &width, &height);
 	game->images.player = mlx_xpm_file_to_image(game->mlx,
 			"./assets/mario.xpm", &width, &height);
-	game->images.collectible = mlx_xpm_file_to_image(game->mlx,
-			"./assets/coin.xpm", &width, &height);
 	game->images.exit = mlx_xpm_file_to_image(game->mlx,
 			"./assets/pipe.xpm", &width, &height);
+	game->images.collectible = malloc(sizeof(void *) * 3);
+	game->images.collectible[0] = mlx_xpm_file_to_image(game->mlx,
+			"./assets/coin1.xpm", &width, &height);
+	game->images.collectible[1] = mlx_xpm_file_to_image(game->mlx,
+			"./assets/coin2.xpm", &width, &height);
+	game->images.collectible[2] = mlx_xpm_file_to_image(game->mlx,
+			"./assets/coin3.xpm", &width, &height);
+	game->current_frame = 0;
+	game->frame_counter = 0;
+	game->animation_speed = 100;
 }
