@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 06:10:30 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 23:52:06 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 01:06:00 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,17 @@ void	beat_game(t_game *game)
 
 void	destroy_game(t_game *game)
 {
+	mlx_destroy_image(game->mlx, game->images.empty);
+	mlx_destroy_image(game->mlx, game->images.wall);
+	mlx_destroy_image(game->mlx, game->images.player);
+	mlx_destroy_image(game->mlx, game->images.exit);
+	if (game->images.collectible)
+	{
+		mlx_destroy_image(game->mlx, game->images.collectible[0]);
+		mlx_destroy_image(game->mlx, game->images.collectible[1]);
+		mlx_destroy_image(game->mlx, game->images.collectible[2]);
+	}
+	free(game->images.collectible);
 	free(game->window);
 	free(game->mlx);
 	free(game->map);

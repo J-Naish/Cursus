@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 05:14:11 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 00:58:06 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 01:06:11 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ void	load_images(t_game *game)
 	game->images.exit = mlx_xpm_file_to_image(game->mlx,
 			"./assets/pipe.xpm", &width, &height);
 	game->images.collectible = malloc(sizeof(void *) * 3);
+	if (!game->images.collectible)
+	{
+		destroy_game(game);
+		exit(EXIT_FAILURE);
+	}
 	game->images.collectible[0] = mlx_xpm_file_to_image(game->mlx,
 			"./assets/coin1.xpm", &width, &height);
 	game->images.collectible[1] = mlx_xpm_file_to_image(game->mlx,
