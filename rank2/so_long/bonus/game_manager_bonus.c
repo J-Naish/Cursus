@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 06:10:30 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 01:06:00 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 01:40:38 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	destroy_game(t_game *game)
 	mlx_destroy_image(game->mlx, game->images.wall);
 	mlx_destroy_image(game->mlx, game->images.player);
 	mlx_destroy_image(game->mlx, game->images.exit);
+	mlx_destroy_image(game->mlx, game->images.enemy);
 	if (game->images.collectible)
 	{
 		mlx_destroy_image(game->mlx, game->images.collectible[0]);

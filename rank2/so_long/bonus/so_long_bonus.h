@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 01:09:32 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 01:34:17 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,11 @@ typedef struct t_player
 	int			collected_collectibles;
 }	t_player;
 
+typedef struct t_enemy
+{
+	t_transform	pos;
+}	t_enemy;
+
 typedef struct t_animation
 {
 	void	*frames[3];
@@ -60,6 +65,7 @@ typedef struct t_sprite
 	void	*player;
 	void	**collectible;
 	void	*exit;
+	void	*enemy;
 }	t_sprite;
 
 typedef struct t_game
@@ -72,6 +78,7 @@ typedef struct t_game
 	int			height;
 	int			tile_size;
 	t_player	player;
+	t_enemy		enemy;
 	int			num_collectibles;
 	int			current_frame;
 	int			frame_counter;
@@ -98,6 +105,8 @@ void	validate_map(const char *map);
 
 void	load_images(t_game *game);
 void	render_map(t_game *game);
+
+void	spawn_enemy(t_game *game);
 
 void	spawn_player(t_game *game);
 void	move_player(t_game *game, int dx, int dy);

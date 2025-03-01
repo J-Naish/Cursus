@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 05:12:42 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 00:46:32 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 01:45:14 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ static void	put_image(char c, t_game *game, int x, int y)
 		mlx_put_image_to_window(game->mlx, game->window,
 			game->images.collectible[game->current_frame],
 			x * game->tile_size, y * game->tile_size);
+	else if (c == 'e')
+		mlx_put_image_to_window(game->mlx, game->window,
+			game->images.enemy, x * game->tile_size, y * game->tile_size);
 	else if (c == 'E')
 		mlx_put_image_to_window(game->mlx, game->window,
 			game->images.exit, x * game->tile_size, y * game->tile_size);
