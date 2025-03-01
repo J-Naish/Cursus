@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 05:00:06 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 23:45:10 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 23:48:36 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,5 @@ void	move_player(t_game *game, int dx, int dy)
 	game->player.pos.y = new_y;
 	game->player.moves++;
 	mlx_clear_window(game->mlx, game->window);
-	print_movements(game->player.moves);
 	render_map(game);
 }

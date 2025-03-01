@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 04:36:51 by nash              #+#    #+#              #
-#    Updated: 2025/03/01 23:46:03 by nash             ###   ########.fr        #
+#    Updated: 2025/03/01 23:48:50 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,6 @@ BONUS_SRCS = parse/error.c\
 		parse/validate_map_utils.c\
 		parse/validate_map.c\
 		bonus/begin_play_bonus.c\
-		bonus/debug_bonus.c\
 		bonus/end_play_bonus.c\
 		bonus/game_manager_bonus.c\
 		bonus/load_images_bonus.c\
