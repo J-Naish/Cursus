@@ -6,11 +6,11 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 03:27:48 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 23:45:27 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 23:51:56 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long_bonus.h"
 
 static void	calculate_size(t_game *game)
 {

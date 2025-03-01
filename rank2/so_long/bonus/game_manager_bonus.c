@@ -6,11 +6,11 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 06:10:30 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 23:45:17 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 23:52:06 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long_bonus.h"
 
 void	beat_game(t_game *game)
 {

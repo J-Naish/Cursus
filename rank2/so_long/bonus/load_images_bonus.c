@@ -6,11 +6,11 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 05:14:11 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 23:45:15 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 23:52:12 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long_bonus.h"
 
 void	load_images(t_game *game)
 {

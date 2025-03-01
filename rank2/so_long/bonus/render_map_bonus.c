@@ -6,11 +6,11 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 05:12:42 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 23:45:07 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 23:52:22 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long_bonus.h"
 
 static void	put_image(char c, t_game *game, int x, int y)
 {

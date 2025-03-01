@@ -6,11 +6,11 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 05:00:06 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 23:48:36 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/01 23:52:19 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long_bonus.h"
 
 void	spawn_player(t_game *game)
 {
