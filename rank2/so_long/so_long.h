@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/03 07:32:05 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/03 07:46:59 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,10 @@
 
 # ifndef COLLECTIBLE
 #  define COLLECTIBLE 'C'
+# endif
+
+# ifndef VISITED
+#  define VISITED 'V'
 # endif
 
 typedef struct t_transform
