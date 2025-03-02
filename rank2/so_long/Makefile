@@ -6,12 +6,12 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 04:36:51 by nash              #+#    #+#              #
-#    Updated: 2025/03/02 21:10:15 by nash             ###   ########.fr        #
+#    Updated: 2025/03/02 21:11:48 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-BONUS_NAME = so_long
+BONUS_NAME = so_long_bonus
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = parse/error.c\
