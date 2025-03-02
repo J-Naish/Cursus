@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 03:42:29 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 03:20:23 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/02 19:20:32 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	on_key_press(int keycode, t_game *game)
 {
 	if (keycode == 53 || keycode == 65307)
 	{
-		mlx_destroy_window(game->mlx, game->window);
+		destroy_game(game);
 		exit(EXIT_SUCCESS);
 	}
 	else if (keycode == 13 || keycode == 119)
@@ -32,7 +32,7 @@ static int	on_key_press(int keycode, t_game *game)
 
 static int	close_window(t_game *game)
 {
-	mlx_destroy_window(game->mlx, game->window);
+	destroy_game(game);
 	exit(EXIT_SUCCESS);
 	return (0);
 }
