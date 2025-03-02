@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 05:00:06 by nash              #+#    #+#             */
-/*   Updated: 2025/03/01 23:52:19 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/03 07:32:52 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,15 @@ void	spawn_player(t_game *game)
 
 static int	on_collide(t_game *game, int new_index)
 {
-	if (game->map[new_index] == '1')
+	if (game->map[new_index] == WALL)
 		return (0);
-	else if (game->map[new_index] == 'E')
+	else if (game->map[new_index] == EXIT)
 	{
 		if (game->player.collected_collectibles < game->num_collectibles)
 			return (0);
 		beat_game(game);
 	}
-	else if (game->map[new_index] == 'C')
+	else if (game->map[new_index] == COLLECTIBLE)
 		game->player.collected_collectibles += 1;
 	return (1);
 }

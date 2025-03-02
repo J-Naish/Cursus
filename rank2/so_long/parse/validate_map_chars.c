@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:51:18 by nash              #+#    #+#             */
-/*   Updated: 2025/02/27 05:41:56 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/03 07:33:35 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ static void	validate_char(const char *map)
 
 static void	validate_composition(const char *map)
 {
-	if (!ft_strchr(map, '1') || !ft_strchr(map, 'C')
-		|| !ft_strchr(map, 'E') || !ft_strchr(map, 'P'))
+	if (!ft_strchr(map, WALL) || !ft_strchr(map, COLLECTIBLE)
+		|| !ft_strchr(map, EXIT) || !ft_strchr(map, PLAYER))
 		map_error("Map must contain '1', 'C', 'E', and 'P'");
 }
 

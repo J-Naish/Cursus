@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 01:13:45 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 03:19:42 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/03 07:32:39 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,11 @@ void	move_enemy(t_game *game)
 	current_index = game->enemy.pos.y * (game->width + 1) + game->enemy.pos.x;
 	new_index = new_y * (game->width + 1) + new_x;
 	if (new_x >= 0 && new_x < game->width && new_y >= 0
-		&& new_y < game->height && game->map[new_index] != '1'
-		&& game->map[new_index] != 'C' && game->map[new_index] != 'E')
+		&& new_y < game->height && game->map[new_index] != WALL
+		&& game->map[new_index] != COLLECTIBLE && game->map[new_index] != EXIT)
 	{
-		game->map[current_index] = '0';
-		game->map[new_index] = 'e';
+		game->map[current_index] = EMPTY;
+		game->map[new_index] = ENEMY;
 		game->enemy.pos.x = new_x;
 		game->enemy.pos.y = new_y;
 	}

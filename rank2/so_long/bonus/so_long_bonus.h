@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 02:50:46 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/03 07:32:10 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,30 @@
 
 # ifndef ANIMATION_FRAMES
 #  define ANIMATION_FRAMES 3
+# endif
+
+# ifndef EMPTY
+#  define EMPTY '0'
+# endif
+
+# ifndef WALL
+#  define WALL '1'
+# endif
+
+# ifndef PLAYER
+#  define PLAYER 'P'
+# endif
+
+# ifndef EXIT
+#  define EXIT 'E'
+# endif
+
+# ifndef COLLECTIBLE
+#  define COLLECTIBLE 'C'
+# endif
+
+# ifndef ENEMY
+#  define ENEMY 'e'
 # endif
 
 typedef struct t_transform

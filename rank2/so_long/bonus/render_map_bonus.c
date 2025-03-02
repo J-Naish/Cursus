@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 05:12:42 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 01:45:14 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/03 07:33:17 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 static void	put_image(char c, t_game *game, int x, int y)
 {
-	if (c == '0')
+	if (c == EMPTY)
 		mlx_put_image_to_window(game->mlx, game->window,
 			game->images.empty, x * game->tile_size, y * game->tile_size);
-	else if (c == '1')
+	else if (c == WALL)
 		mlx_put_image_to_window(game->mlx, game->window,
 			game->images.wall, x * game->tile_size, y * game->tile_size);
-	else if (c == 'P')
+	else if (c == PLAYER)
 		mlx_put_image_to_window(game->mlx, game->window,
 			game->images.player, x * game->tile_size, y * game->tile_size);
-	else if (c == 'C')
+	else if (c == COLLECTIBLE)
 		mlx_put_image_to_window(game->mlx, game->window,
 			game->images.collectible[game->current_frame],
 			x * game->tile_size, y * game->tile_size);
-	else if (c == 'e')
+	else if (c == ENEMY)
 		mlx_put_image_to_window(game->mlx, game->window,
 			game->images.enemy, x * game->tile_size, y * game->tile_size);
-	else if (c == 'E')
+	else if (c == EXIT)
 		mlx_put_image_to_window(game->mlx, game->window,
 			game->images.exit, x * game->tile_size, y * game->tile_size);
 }

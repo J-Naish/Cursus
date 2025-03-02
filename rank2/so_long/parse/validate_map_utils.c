@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 04:11:48 by nash              #+#    #+#             */
-/*   Updated: 2025/02/27 04:50:22 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/03 07:34:34 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	free_strarr(char **lines)
 
 bool	is_valid_char(char c)
 {
-	if (c == '0' || c == '1' || c == 'C' || c == 'E' || c == 'P')
+	if (c == EMPTY || c == WALL || c == COLLECTIBLE || c == EXIT || c == PLAYER)
 		return (true);
 	else
 		return (false);
