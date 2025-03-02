@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 04:36:51 by nash              #+#    #+#              #
-#    Updated: 2025/03/02 01:37:01 by nash             ###   ########.fr        #
+#    Updated: 2025/03/02 19:22:01 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,7 +85,7 @@ clean:
 	make clean -C mlx
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(BONUS_NAME)
 	make fclean -C libft
 	make clean -C mlx
 
