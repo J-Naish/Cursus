@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnishi <rnishi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 21:40:25 by rnishi            #+#    #+#             */
-/*   Updated: 2024/05/15 14:26:40 by rnishi           ###   ########.fr       */
+/*   Updated: 2025/03/03 11:25:27 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include <stdint.h>
 
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
