@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 04:36:51 by nash              #+#    #+#              #
-#    Updated: 2025/03/03 09:15:44 by nash             ###   ########.fr        #
+#    Updated: 2025/03/03 10:00:19 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,8 @@ endif
 ifeq ($(UNAME_S), Darwin)
 	MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 endif
-MLX = mlx/libmlx.a
+MLX_DIR = mlx
+MLX = $(MLX_DIR)/libmlx.a
 
 all: $(NAME)
 
@@ -75,7 +76,7 @@ $(BONUS_NAME): $(BONUS_OBJS) $(LIBFT) $(MLX)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(MLX):
-	make all -C mlx
+	make all -C $(MLX_DIR)
 
 $(LIBFT):
 	make all -C libft
@@ -83,12 +84,12 @@ $(LIBFT):
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
 	make clean -C libft
-	make clean -C mlx
+	make clean -C $(MLX_DIR)
 
 fclean: clean
 	rm -f $(NAME) $(BONUS_NAME)
 	make fclean -C libft
-	make clean -C mlx
+	make clean -C $(MLX_DIR)
 
 re: fclean all
 
