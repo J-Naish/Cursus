@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 04:36:51 by nash              #+#    #+#              #
-#    Updated: 2025/03/03 10:11:08 by nash             ###   ########.fr        #
+#    Updated: 2025/03/03 10:13:07 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,24 +14,24 @@ NAME = so_long
 BONUS_NAME = so_long_bonus
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = parse/error.c\
-		parse/get_next_line.c\
-		parse/read_map.c\
-		parse/validate_arg.c\
-		parse/validate_map_chars.c\
-		parse/validate_map_playability.c\
-		parse/validate_map_rect.c\
-		parse/validate_map_utils.c\
-		parse/validate_map.c\
-		begin_play.c\
-		debug.c\
-		end_play.c\
-		game_manager.c\
-		load_images.c\
-		main.c\
-		player_controller.c\
-		render_map.c\
-		tick.c
+SRCS = src/parse/error.c\
+		src/parse/get_next_line.c\
+		src/parse/read_map.c\
+		src/parse/validate_arg.c\
+		src/parse/validate_map_chars.c\
+		src/parse/validate_map_playability.c\
+		src/parse/validate_map_rect.c\
+		src/parse/validate_map_utils.c\
+		src/parse/validate_map.c\
+		src/begin_play.c\
+		src/debug.c\
+		src/end_play.c\
+		src/game_manager.c\
+		src/load_images.c\
+		src/main.c\
+		src/player_controller.c\
+		src/render_map.c\
+		src/tick.c
 BONUS_SRCS = bonus_src/parse/error.c\
 		bonus_src/parse/get_next_line.c\
 		bonus_src/parse/read_map.c\

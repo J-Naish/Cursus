@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/03 10:06:07 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/03 10:13:31 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <stdbool.h>
 # include <fcntl.h>
 # include <errno.h>
-# include "./minilibx-linux/mlx.h"
-# include "./libft/libft.h"
+# include "../minilibx-linux/mlx.h"
+# include "../libft/libft.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 256
