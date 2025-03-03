@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 20:42:45 by nash              #+#    #+#             */
-/*   Updated: 2025/03/03 09:14:19 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/03 09:17:36 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static bool	includes(char **grid, t_transform size, int c)
 	return (false);
 }
 
-void	validate_playability(const char *map)
+void	validate_playability(char *map)
 {
 	char		**grid;
 	t_transform	size;

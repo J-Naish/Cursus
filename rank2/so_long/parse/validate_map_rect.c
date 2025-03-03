@@ -6,13 +6,13 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 04:38:46 by nash              #+#    #+#             */
-/*   Updated: 2025/03/03 07:33:51 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/03 09:17:24 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-static void	validate_new_line(char **lines, const char *map)
+static void	validate_new_line(char **lines, char *map)
 {
 	if (strarr_size(lines) != count_new_line(map) + 1)
 		map_error("Too many line feeds.");
@@ -66,7 +66,7 @@ static void	validate_map_size(char **lines)
 		map_error("Map X must not be fewer than 5.");
 }
 
-void	validate_rect(const char *map)
+void	validate_rect(char *map)
 {
 	char	**lines;
 

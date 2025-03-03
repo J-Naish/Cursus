@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/03 07:46:59 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/03 09:19:18 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,10 +102,12 @@ size_t	linelen(const char *s);
 void	free_strarr(char **lines);
 bool	is_valid_char(char c);
 
-void	validate_chars(const char *map);
-void	validate_rect(const char *map);
+void	validate_chars(char *map);
+void	validate_rect(char *map);
 
-void	validate_map(const char *map);
+void	validate_playability(char *map);
+
+void	validate_map(char *map);
 
 void	print_movements(int n);
 

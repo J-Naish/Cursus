@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 04:36:51 by nash              #+#    #+#              #
-#    Updated: 2025/03/02 21:11:48 by nash             ###   ########.fr        #
+#    Updated: 2025/03/03 09:15:44 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS = parse/error.c\
 		parse/read_map.c\
 		parse/validate_arg.c\
 		parse/validate_map_chars.c\
+		parse/validate_map_playability.c\
 		parse/validate_map_rect.c\
 		parse/validate_map_utils.c\
 		parse/validate_map.c\

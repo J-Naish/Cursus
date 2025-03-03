@@ -6,13 +6,13 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:51:18 by nash              #+#    #+#             */
-/*   Updated: 2025/03/03 07:33:35 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/03 09:17:58 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-static void	validate_char(const char *map)
+static void	validate_char(char *map)
 {
 	int	i;
 
@@ -30,14 +30,14 @@ static void	validate_char(const char *map)
 	}
 }
 
-static void	validate_composition(const char *map)
+static void	validate_composition(char *map)
 {
 	if (!ft_strchr(map, WALL) || !ft_strchr(map, COLLECTIBLE)
 		|| !ft_strchr(map, EXIT) || !ft_strchr(map, PLAYER))
 		map_error("Map must contain '1', 'C', 'E', and 'P'");
 }
 
-static void	validate_p_e_count(const char *map)
+static void	validate_p_e_count(char *map)
 {
 	int	p_count;
 	int	e_count;
@@ -60,7 +60,7 @@ static void	validate_p_e_count(const char *map)
 		map_error("Map must contain only one E.");
 }
 
-void	validate_chars(const char *map)
+void	validate_chars(char *map)
 {
 	validate_char(map);
 	validate_composition(map);
