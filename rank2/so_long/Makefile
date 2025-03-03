@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 04:36:51 by nash              #+#    #+#              #
-#    Updated: 2025/03/03 10:09:33 by nash             ###   ########.fr        #
+#    Updated: 2025/03/03 10:11:08 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,24 +32,24 @@ SRCS = parse/error.c\
 		player_controller.c\
 		render_map.c\
 		tick.c
-BONUS_SRCS = bonus/parse/error.c\
-		bonus/parse/get_next_line.c\
-		bonus/parse/read_map.c\
-		bonus/parse/validate_arg.c\
-		bonus/parse/validate_map_chars.c\
-		bonus/parse/validate_map_playability.c\
-		bonus/parse/validate_map_rect.c\
-		bonus/parse/validate_map_utils.c\
-		bonus/parse/validate_map.c\
-		bonus/begin_play_bonus.c\
-		bonus/end_play_bonus.c\
-		bonus/enemy_controller_bonus.c\
-		bonus/game_manager_bonus.c\
-		bonus/load_images_bonus.c\
-		bonus/main_bonus.c\
-		bonus/player_controller_bonus.c\
-		bonus/render_map_bonus.c\
-		bonus/tick_bonus.c
+BONUS_SRCS = bonus_src/parse/error.c\
+		bonus_src/parse/get_next_line.c\
+		bonus_src/parse/read_map.c\
+		bonus_src/parse/validate_arg.c\
+		bonus_src/parse/validate_map_chars.c\
+		bonus_src/parse/validate_map_playability.c\
+		bonus_src/parse/validate_map_rect.c\
+		bonus_src/parse/validate_map_utils.c\
+		bonus_src/parse/validate_map.c\
+		bonus_src/begin_play_bonus.c\
+		bonus_src/end_play_bonus.c\
+		bonus_src/enemy_controller_bonus.c\
+		bonus_src/game_manager_bonus.c\
+		bonus_src/load_images_bonus.c\
+		bonus_src/main_bonus.c\
+		bonus_src/player_controller_bonus.c\
+		bonus_src/render_map_bonus.c\
+		bonus_src/tick_bonus.c
 LIBFT = libft/libft.a
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
