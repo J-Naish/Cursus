@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 04:36:51 by nash              #+#    #+#              #
-#    Updated: 2025/03/03 10:00:19 by nash             ###   ########.fr        #
+#    Updated: 2025/03/03 10:05:46 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,15 +52,15 @@ BONUS_SRCS = parse/error.c\
 LIBFT = libft/libft.a
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+MLX_DIR = minilibx-linux
+MLX = $(MLX_DIR)/libmlx.a
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S), Linux)
-	MLX_FLAGS = -Lmlx_Linux -lmlx_Linux -L ./mlx -Imlx_Linux -L ./libft -lft -lXext -lX11 -lm -lz
+	MLX_FLAGS = -L$(MLX_DIR) -lmlx -I$(MLX_DIR) -L./libft -lft -lXext -lX11 -lm -lz
 endif
 ifeq ($(UNAME_S), Darwin)
-	MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
+	MLX_FLAGS = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 endif
-MLX_DIR = mlx
-MLX = $(MLX_DIR)/libmlx.a
 
 all: $(NAME)
 
