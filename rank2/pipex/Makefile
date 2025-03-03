@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 21:45:38 by nash              #+#    #+#              #
-#    Updated: 2025/02/26 01:51:44 by nash             ###   ########.fr        #
+#    Updated: 2025/03/03 11:22:14 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS = error.c\
 		main.c\
 		utils.c\
 		wrappers.c\
-		get_next_line/get_next_line.c
+		get_next_line.c
 LIBFT = ./libft/libft.a
 OBJS = $(SRCS:.c=.o)
 
