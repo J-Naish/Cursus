@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/03 09:19:18 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/03 09:23:41 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ typedef struct t_game
 }	t_game;
 
 void	map_error(char *message);
+void	arg_error(char *message);
 
 char	*get_next_line(int fd);
 char	*read_map(const char *filename);
