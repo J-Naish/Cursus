@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 20:42:45 by nash              #+#    #+#             */
-/*   Updated: 2025/03/03 09:31:17 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/03 09:49:44 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ static void	flood_fill(char **grid, t_transform size, int x, int y)
 	if (y < 0 || x < 0 || y >= size.y || x >= size.x
 		|| grid[y][x] == WALL || grid[y][x] == VISITED)
 		return ;
+	if (grid[y][x] == EXIT)
+	{
+		grid[y][x] = VISITED;
+		return ;
+	}
 	grid[y][x] = VISITED;
 	flood_fill(grid, size, x + 1, y);
 	flood_fill(grid, size, x - 1, y);
