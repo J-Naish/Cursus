@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/03 09:19:38 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/03 09:33:06 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,8 @@ typedef struct t_game
 	int			animation_speed;
 }	t_game;
 
-void	map_error(char *message);
+void	map_error(char *message, char *map);
+void	arg_error(char *message);
 
 char	*get_next_line(int fd);
 char	*read_map(const char *filename);
@@ -133,6 +134,8 @@ bool	is_valid_char(char c);
 
 void	validate_chars(char *map);
 void	validate_rect(char *map);
+
+void	validate_playability(char *map);
 
 void	validate_map(char *map);
 
