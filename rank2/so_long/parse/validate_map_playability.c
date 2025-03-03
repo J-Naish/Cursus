@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 20:42:45 by nash              #+#    #+#             */
-/*   Updated: 2025/03/03 09:17:36 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/03 09:31:17 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,7 @@ void	validate_playability(char *map)
 
 	grid = ft_split(map, '\n');
 	if (!grid)
-	{
-		free(map);
-		map_error("Memory allocation failed.");
-	}
+		map_error("Memory allocation failed.", map);
 	size.x = linelen(grid[0]);
 	size.y = strarr_size(grid);
 	pos_player = find_player_pos(grid, size);
@@ -84,8 +81,7 @@ void	validate_playability(char *map)
 	if (includes(grid, size, EXIT) || includes(grid, size, COLLECTIBLE))
 	{
 		free_strarr(grid);
-		free(map);
-		map_error("Map is not playable.");
+		map_error("Map is not playable.", map);
 	}
 	free_strarr(grid);
 }

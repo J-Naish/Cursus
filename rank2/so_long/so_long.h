@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:39:12 by nash              #+#    #+#             */
-/*   Updated: 2025/03/03 09:23:41 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/03 09:26:48 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ typedef struct t_game
 	int			num_collectibles;
 }	t_game;
 
-void	map_error(char *message);
+void	map_error(char *message, char *map);
 void	arg_error(char *message);
 
 char	*get_next_line(int fd);

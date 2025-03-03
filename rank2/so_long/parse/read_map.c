@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 05:20:43 by nash              #+#    #+#             */
-/*   Updated: 2025/02/26 08:11:19 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/03 09:27:10 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*read_map(const char *filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-		map_error(strerror(errno));
+		arg_error(strerror(errno));
 	content = get_content(fd);
 	close(fd);
 	return (content);
