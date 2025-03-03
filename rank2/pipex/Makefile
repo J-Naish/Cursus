@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 21:45:38 by nash              #+#    #+#              #
-#    Updated: 2025/03/03 11:24:05 by nash             ###   ########.fr        #
+#    Updated: 2025/03/03 11:31:07 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,13 +19,14 @@ SRCS = src/error.c\
 		src/utils.c\
 		src/wrappers.c\
 		src/get_next_line.c
-LIBFT = ./libft/libft.a
 OBJS = $(SRCS:.c=.o)
+LIBFT_DIR = libft
+LIBFT = ./$(LIBFT_DIR)/libft.a
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	make all -C libft
+	make all -C $(LIBFT_DIR)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 %.o: %.c
@@ -33,11 +34,11 @@ $(NAME): $(OBJS)
 
 clean:
 	rm -f $(OBJS)
-	make clean -C libft
+	make clean -C $(LIBFT_DIR)
 
 fclean:
 	rm -f $(NAME) $(OBJS)
-	make fclean -C libft
+	make fclean -C $(LIBFT_DIR)
 
 re: fclean all
 
