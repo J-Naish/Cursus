@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 04:51:18 by nash              #+#    #+#             */
-/*   Updated: 2025/03/03 10:08:02 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/03 10:23:36 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ static void	validate_p_e_count(char *map)
 		i++;
 	}
 	if (p_count != 1)
-		map_error("Map must contain only one P.", map);
+		map_error("Map must not contain more than one P.", map);
 	if (e_count != 1)
-		map_error("Map must contain only one E.", map);
+		map_error("Map must not contain more than one E.", map);
 }
 
 void	validate_chars(char *map)
