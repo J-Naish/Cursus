@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 04:36:51 by nash              #+#    #+#              #
-#    Updated: 2025/03/03 10:05:46 by nash             ###   ########.fr        #
+#    Updated: 2025/03/03 10:09:33 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,14 +32,15 @@ SRCS = parse/error.c\
 		player_controller.c\
 		render_map.c\
 		tick.c
-BONUS_SRCS = parse/error.c\
-		parse/get_next_line.c\
-		parse/read_map.c\
-		parse/validate_arg.c\
-		parse/validate_map_chars.c\
-		parse/validate_map_rect.c\
-		parse/validate_map_utils.c\
-		parse/validate_map.c\
+BONUS_SRCS = bonus/parse/error.c\
+		bonus/parse/get_next_line.c\
+		bonus/parse/read_map.c\
+		bonus/parse/validate_arg.c\
+		bonus/parse/validate_map_chars.c\
+		bonus/parse/validate_map_playability.c\
+		bonus/parse/validate_map_rect.c\
+		bonus/parse/validate_map_utils.c\
+		bonus/parse/validate_map.c\
 		bonus/begin_play_bonus.c\
 		bonus/end_play_bonus.c\
 		bonus/enemy_controller_bonus.c\
