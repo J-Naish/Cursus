@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 06:10:30 by nash              #+#    #+#             */
-/*   Updated: 2025/03/02 21:32:06 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/06 18:41:37 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	destroy_game(t_game *game)
 	destroy_images(game);
 	if (game->window)
 		mlx_destroy_window(game->mlx, game->window);
+	mlx_destroy_display(game->mlx);
 	free(game->mlx);
 	free(game->map);
 }
