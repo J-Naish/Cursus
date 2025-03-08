@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 21:45:38 by nash              #+#    #+#              #
-#    Updated: 2025/03/03 11:31:07 by nash             ###   ########.fr        #
+#    Updated: 2025/03/08 21:58:14 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = src/error.c\
 		src/exec_cmd.c\
+		src/here_doc.c\
 		src/main.c\
 		src/utils.c\
 		src/wrappers.c\

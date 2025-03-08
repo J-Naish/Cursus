@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/03/08 21:00:40 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/08 22:01:17 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ void	dup_infile(char *filepath);
 void	dup_outfile(char *filepath);
 char	**split_cmd(char const *cmd);
 void	free_strarr(char **paths);
-bool	detect_here_doc(int argc, char **argv);
+bool	is_here_doc(int argc, char **argv);
+
+void	here_doc(char *limiter);
+void	append_outfile(char *file);
 
 #endif
