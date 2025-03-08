@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 03:56:49 by nash              #+#    #+#             */
-/*   Updated: 2025/03/03 13:15:56 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/08 20:59:16 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ void	exec_cmd(char *cmd, char **envp)
 	if (!cmd_path)
 	{
 		free_strarr(args);
-		free(cmd_path);
 		command_not_found();
 	}
 	execve(cmd_path, args, envp);
