@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 02:19:01 by nash              #+#    #+#             */
-/*   Updated: 2025/03/03 11:23:50 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/08 21:00:35 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ void	command_not_found(void)
 {
 	ft_putstr_fd("command not found\n", STDERR_FILENO);
 	exit(127);
+}
+
+void	not_enough_arguments_error(void)
+{
+	ft_putstr_fd("Not enough arguments\n", STDERR_FILENO);
+	exit(EXIT_FAILURE);
 }
 
 void	malloc_failure_exit(void)

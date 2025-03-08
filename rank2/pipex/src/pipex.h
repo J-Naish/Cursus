@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:50:42 by nash              #+#    #+#             */
-/*   Updated: 2025/03/03 11:24:15 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/08 21:00:40 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ char	*get_next_line(int fd);
 
 void	error_exit(void);
 void	command_not_found(void);
+void	not_enough_arguments_error(void);
 void	malloc_failure_exit(void);
 void	arg_error(void);
 
