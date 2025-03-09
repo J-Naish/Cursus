@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/10 01:43:32 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/10 04:14:35 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <stdbool.h>
 # include <limits.h>
 # include <unistd.h>
+# include <time.h>
+# include <sys/types.h>
+# include <pthread.h>
 
 typedef struct t_config
 {
