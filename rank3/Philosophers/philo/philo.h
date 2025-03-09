@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/10 01:26:16 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/10 01:30:14 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct t_table
 }	t_table;
 
 void		print_config(t_config config);
+void		print_philos(t_table table);
 
 bool		is_valid_arg(int argc, char **argv);
 t_table		init_table(int argc, char **argv);
