@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 08:02:29 by nash              #+#    #+#             */
-/*   Updated: 2025/03/10 01:08:50 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/10 07:01:58 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,26 @@ static bool	has_zero_prefix(const char *s)
 		return (false);
 }
 
+static bool	can_be_int(const char *s)
+{
+	int	i;
+	int	sum;
+	int	prev_sum;
+
+	i = 0;
+	sum = 0;
+	prev_sum = 0;
+	while (s[i])
+	{
+		sum = sum * 10 + (s[i] - '0');
+		if (prev_sum > sum)
+			return (false);
+		prev_sum = sum;
+		i++;
+	}
+	return (true);
+}
+
 bool	is_valid_arg(int argc, char **argv)
 {
 	int	i;
@@ -59,6 +79,8 @@ bool	is_valid_arg(int argc, char **argv)
 		if (is_empty(argv[i]) || !is_numstr(argv[i]))
 			return (false);
 		if (has_zero_prefix(argv[i]))
+			return (false);
+		if (!can_be_int(argv[i]))
 			return (false);
 		i++;
 	}
