@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 08:02:29 by nash              #+#    #+#             */
-/*   Updated: 2025/02/27 08:16:30 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/10 01:05:50 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,19 @@ static bool	is_numstr(const char *s)
 		i++;
 	}
 	return (true);
+}
+
+static bool	has_zero_prefix(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	if (i > 1 && s[0] == '0')
+		return (true);
+	else
+		return (false);
 }
 
 static bool	is_empty(const char *s)
@@ -44,6 +57,8 @@ bool	is_valid_arg(int argc, char **argv)
 	while (i < argc)
 	{
 		if (is_empty(argv[i]) || !is_numstr(argv[i]))
+			return (false);
+		if (has_zero_prefix(argv[i]))
 			return (false);
 		i++;
 	}
