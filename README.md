@@ -32,14 +32,3 @@
 - [ ] 2025/02/27 - 
 ### Exam 03
 - [ ] 
-
-# After Common Core
-## やりたいのリスト
-1. Assembly & deep C
-2. Security
-3. AI
-4. Linux
-5. Network
-6. Cloud
-7. 3D Graphics
-8. Algorithm
