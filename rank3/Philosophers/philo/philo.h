@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/10 04:14:35 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/10 06:34:25 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,16 @@ typedef struct t_philo
 	int	number;
 }	t_philo;
 
+typedef struct t_fork
+{
+	int		number;
+	bool	is_in_use;
+}	t_fork;
+
 typedef struct t_table
 {
 	t_philo		*philos;
+	t_fork		*forks;
 	t_config	config;
 }	t_table;
 
