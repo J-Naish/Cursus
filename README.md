@@ -1,4 +1,4 @@
-# 42 Tokyo Cursus
+# 42 Tokyo Cursus Common Core
 
 ## Entrance Ceremony
 - [x] 2024/04/15  
