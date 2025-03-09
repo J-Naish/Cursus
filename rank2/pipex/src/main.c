@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 22:50:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/08 22:01:39 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/10 02:01:53 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,14 @@ static pid_t	run_cmd_process(char *arg, char **envp)
 	{
 		close(pipefd[0]);
 		safe_dup2(pipefd[1], STDOUT_FILENO);
+		close(pipefd[1]);
 		exec_cmd(arg, envp);
 	}
 	else
 	{
 		close(pipefd[1]);
 		safe_dup2(pipefd[0], STDIN_FILENO);
+		close(pipefd[0]);
 	}
 	return (pid);
 }
