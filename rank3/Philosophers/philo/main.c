@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:04 by nash              #+#    #+#             */
-/*   Updated: 2025/02/27 08:37:03 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/10 00:50:32 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ int	main(int argc, char **argv)
 	t_config	config;
 
 	if (!is_valid_arg(argc, argv))
+	{
+		write(STDERR_FILENO, "Invalid args\n", 13);
 		return (EXIT_FAILURE);
+	}
 	config = init_config(argc, argv);
 	print_config(config);
 	return (EXIT_SUCCESS);
