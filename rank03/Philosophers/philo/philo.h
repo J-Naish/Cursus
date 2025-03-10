@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/11 03:16:14 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/11 05:31:59 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,17 @@ void	print_config(t_config config);
 void	print_philos(t_table table);
 void	print_start_time(t_table table);
 
-void	log_take_fork(int timestamp, t_philo philo);
-void	log_eat(int timestamp, t_philo philo);
-void	log_sleep(int timestamp, t_philo philo);
-void	log_sleep(int timestamp, t_philo philo);
-void	log_think(int timestamp, t_philo philo);
-void	log_died(int timestamp, t_philo philo);
+void	log_take_fork(struct timeval start_time, t_philo philo);
+void	log_eat(struct timeval start_time, t_philo philo);
+void	log_sleep(struct timeval start_time, t_philo philo);
+void	log_sleep(struct timeval start_time, t_philo philo);
+void	log_think(struct timeval start_time, t_philo philo);
+void	log_died(struct timeval start_time, t_philo philo);
 
 bool	is_valid_arg(int argc, char **argv);
 t_table	init_table(int argc, char **argv);
 
 void	cleanup_table(t_table table);
+int		get_elapsed_time(struct timeval start_time);
 
 #endif
