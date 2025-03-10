@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 08:33:09 by nash              #+#    #+#             */
-/*   Updated: 2025/03/10 01:31:54 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/11 03:17:38 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,10 @@ void	print_philos(t_table table)
 		printf("Philo %d is on the table.\n", table.philos[i].number);
 		i++;
 	}
+}
+
+void	print_start_time(t_table table)
+{
+	printf("start time(tv_sec) : %ld\n", table.start_time.tv_sec);
+	printf("start time(tv_usec): %d\n", table.start_time.tv_usec);
 }

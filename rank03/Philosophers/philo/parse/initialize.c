@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 08:23:29 by nash              #+#    #+#             */
-/*   Updated: 2025/03/10 06:39:10 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/11 03:14:15 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ t_table	init_table(int argc, char **argv)
 		table.forks[i] = init_fork(i + 1);
 		i++;
 	}
+	gettimeofday(&table.start_time, NULL);
 	return (table);
 }
