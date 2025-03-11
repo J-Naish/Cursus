@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/27 07:41:52 by nash              #+#    #+#              #
-#    Updated: 2025/03/11 05:30:44 by nash             ###   ########.fr        #
+#    Updated: 2025/03/11 20:44:40 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = main.c\
 		debug/debug.c\
 		debug/log.c\
-		parse/initialize.c\
+		parse/init.c\
 		parse/validate.c\
-		utils/cleanup.c\
+		utils/deinit.c\
 		utils/time.c
 OBJS = $(SRCS:.c=.o)
 

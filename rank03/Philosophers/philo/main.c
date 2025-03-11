@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:04 by nash              #+#    #+#             */
-/*   Updated: 2025/03/11 05:33:02 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/11 20:44:24 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int	main(int argc, char **argv)
 	print_start_time(table);
 	sleep(2);
 	log_take_fork(table.start_time, table.philos[0]);
-	cleanup_table(table);
+	deinit_table(table);
 	return (EXIT_SUCCESS);
 }
