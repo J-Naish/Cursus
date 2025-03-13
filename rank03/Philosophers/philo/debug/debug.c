@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 08:33:09 by nash              #+#    #+#             */
-/*   Updated: 2025/03/11 03:17:38 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/13 10:50:42 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,21 @@ void	print_config(t_config config)
 		config.times_to_eat_to_exit);
 }
 
-void	print_philos(t_table table)
+void	print_philo(t_philo philo)
 {
-	int	i;
-
-	i = 0;
-	while (i < table.config.num_philos)
-	{
-		printf("Philo %d is on the table.\n", table.philos[i].number);
-		i++;
-	}
+	printf("Philo %d\n", philo.number);
+	printf("state: ");
+	if (philo.state == THINKING)
+		printf("THINKING\n");
+	else if (philo.state == SLEEPING)
+		printf("SLEEPING\n");
+	else if (philo.state == EATING)
+		printf("EATING\n");
+	printf("is_dead: %d\n", philo.is_dead);
+	printf("is_full: %d\n", philo.is_full);
+	printf("eating_count: %d\n", philo.eating_count);
+	printf("elapsed time from last meal: %d\n",
+		get_elapsed_time(philo.last_meal_time));
 }
 
 void	print_start_time(t_table table)

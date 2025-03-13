@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:04 by nash              #+#    #+#             */
-/*   Updated: 2025/03/13 09:39:40 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/13 10:52:31 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,7 @@ int	main(int argc, char **argv)
 	}
 	table = init_table(argc, argv);
 	print_config(table.config);
-	print_philos(table);
-	print_start_time(table);
 	usleep(2000000);
-	log_take_fork(table.start_time, table.philos[0]);
 	create_threads(table);
 	deinit_table(table);
 	return (EXIT_SUCCESS);
