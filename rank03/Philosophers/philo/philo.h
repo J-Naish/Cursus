@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/13 10:10:16 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/13 10:16:13 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,6 @@
 # include <sys/types.h>
 # include <pthread.h>
 
-# ifndef THINKING
-#  define THINKING 0
-# endif
-
-# ifndef SLEEPING
-#  define SLEEPING 1
-# endif
-
-# ifndef EATING
-#  define EATING 2
-# endif
-
 typedef struct t_config
 {
 	int	num_philos;
@@ -43,6 +31,13 @@ typedef struct t_config
 	int	time_to_sleep;
 	int	times_to_eat_to_exit;
 }	t_config;
+
+typedef enum e_philo_state
+{
+	THINKING = 0,
+	SLEEPING = 1,
+	EATING = 2
+}	t_philo_state;
 
 typedef struct t_philo
 {
@@ -67,7 +62,6 @@ typedef struct t_thread_data
 {
 	t_philo	philo;
 	t_fork	left_fork;
-	
 }	t_thread_data;
 
 void	print_config(t_config config);
