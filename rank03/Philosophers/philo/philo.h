@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/13 10:16:13 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/13 10:18:11 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ typedef enum e_philo_state
 
 typedef struct t_philo
 {
-	int	number;
+	int				number;
+	t_philo_state	state;
 }	t_philo;
 
 typedef struct t_fork
