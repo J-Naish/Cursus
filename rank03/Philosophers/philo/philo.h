@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/11 20:44:15 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/13 09:39:10 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,7 @@ t_table	init_table(int argc, char **argv);
 
 void	deinit_table(t_table table);
 int		get_elapsed_time(struct timeval start_time);
+
+void	create_threads(t_table table);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/27 07:41:52 by nash              #+#    #+#              #
-#    Updated: 2025/03/13 09:27:31 by nash             ###   ########.fr        #
+#    Updated: 2025/03/13 09:39:25 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = philo
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = main.c\
+		thread.c\
 		debug/debug.c\
 		debug/log.c\
 		parse/init.c\
