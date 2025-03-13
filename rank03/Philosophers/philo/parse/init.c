@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 08:23:29 by nash              #+#    #+#             */
-/*   Updated: 2025/03/13 10:24:40 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/13 10:37:46 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@ static t_philo	init_philo(int number)
 	t_philo	philo;
 
 	philo.number = number;
+	philo.state = THINKING;
+	philo.is_dead = false;
+	philo.is_full = false;
+	philo.eating_count = 0;
+	gettimeofday(&philo.last_meal_time, NULL);
 	return (philo);
 }
 

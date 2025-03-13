@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/13 10:18:11 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/13 10:36:33 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ typedef struct t_philo
 {
 	int				number;
 	t_philo_state	state;
+	bool			is_dead;
+	bool			is_full;
+	int				eating_count;
+	struct timeval	last_meal_time;
 }	t_philo;
 
 typedef struct t_fork
@@ -58,12 +62,6 @@ typedef struct t_table
 	t_config		config;
 	struct timeval	start_time;
 }	t_table;
-
-typedef struct t_thread_data
-{
-	t_philo	philo;
-	t_fork	left_fork;
-}	t_thread_data;
 
 void	print_config(t_config config);
 void	print_philos(t_table table);
