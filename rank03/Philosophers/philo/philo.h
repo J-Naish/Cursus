@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/13 09:39:10 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/13 10:10:16 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,18 @@
 # include <sys/time.h>
 # include <sys/types.h>
 # include <pthread.h>
+
+# ifndef THINKING
+#  define THINKING 0
+# endif
+
+# ifndef SLEEPING
+#  define SLEEPING 1
+# endif
+
+# ifndef EATING
+#  define EATING 2
+# endif
 
 typedef struct t_config
 {
@@ -50,6 +62,13 @@ typedef struct t_table
 	t_config		config;
 	struct timeval	start_time;
 }	t_table;
+
+typedef struct t_thread_data
+{
+	t_philo	philo;
+	t_fork	left_fork;
+	
+}	t_thread_data;
 
 void	print_config(t_config config);
 void	print_philos(t_table table);
