@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 08:33:09 by nash              #+#    #+#             */
-/*   Updated: 2025/03/13 10:57:40 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/13 11:04:52 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,17 @@ static char	*get_boolstr(bool b)
 void	print_philo(t_philo philo)
 {
 	printf("Philo %d\n", philo.number);
-	printf("state: ");
+	printf("pthread_t                  : %ld\n", (long)philo.tid);
+	printf("state                      : ");
 	if (philo.state == THINKING)
-		printf("THINKING\n");
+		printf("thinking\n");
 	else if (philo.state == SLEEPING)
-		printf("SLEEPING\n");
+		printf("sleeping\n");
 	else if (philo.state == EATING)
-		printf("EATING\n");
-	printf("is_dead: %s\n", get_boolstr(philo.is_dead));
-	printf("is_full: %s\n", get_boolstr(philo.is_full));
-	printf("eating_count: %d\n", philo.eating_count);
+		printf("eating\n");
+	printf("is_dead                    : %s\n", get_boolstr(philo.is_dead));
+	printf("is_full                    : %s\n", get_boolstr(philo.is_full));
+	printf("eating_count               : %d\n", philo.eating_count);
 	printf("elapsed time from last meal: %d\n",
 		get_elapsed_time(philo.last_meal_time));
 }
