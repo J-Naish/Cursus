@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:33:27 by nash              #+#    #+#             */
-/*   Updated: 2025/03/13 09:41:50 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/13 09:50:40 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 static void	*start_routine(void *arg)
 {
-	(void)arg;
+	t_table	table;
+
+	table = *((t_table *)arg);
+	(void)table;
 	return (NULL);
 }
 
@@ -26,7 +29,7 @@ void	create_threads(t_table table)
 	i = 0;
 	while (i < table.config.num_philos)
 	{
-		pthread_create(&tids[i], NULL, start_routine, NULL);
+		pthread_create(&tids[i], NULL, start_routine, &table);
 		i++;
 	}
 }
