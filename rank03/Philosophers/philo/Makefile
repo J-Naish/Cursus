@@ -6,7 +6,7 @@
 #    By: nash <nash@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/27 07:41:52 by nash              #+#    #+#              #
-#    Updated: 2025/03/11 20:44:40 by nash             ###   ########.fr        #
+#    Updated: 2025/03/13 09:27:31 by nash             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,8 @@ SRCS = main.c\
 		utils/deinit.c\
 		utils/time.c
 OBJS = $(SRCS:.c=.o)
+
+all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
