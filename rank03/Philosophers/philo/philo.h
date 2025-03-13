@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/13 10:51:02 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/13 10:53:38 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct t_philo
 	bool			is_full;
 	int				eating_count;
 	struct timeval	last_meal_time;
+	pthread_t		tid;
 }	t_philo;
 
 typedef struct t_fork
