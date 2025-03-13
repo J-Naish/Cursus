@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 08:33:09 by nash              #+#    #+#             */
-/*   Updated: 2025/03/13 10:50:42 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/13 10:57:40 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ void	print_config(t_config config)
 		config.times_to_eat_to_exit);
 }
 
+static char	*get_boolstr(bool b)
+{
+	if (b)
+		return ("true");
+	else
+		return ("false");
+}
+
 void	print_philo(t_philo philo)
 {
 	printf("Philo %d\n", philo.number);
@@ -36,8 +44,8 @@ void	print_philo(t_philo philo)
 		printf("SLEEPING\n");
 	else if (philo.state == EATING)
 		printf("EATING\n");
-	printf("is_dead: %d\n", philo.is_dead);
-	printf("is_full: %d\n", philo.is_full);
+	printf("is_dead: %s\n", get_boolstr(philo.is_dead));
+	printf("is_full: %s\n", get_boolstr(philo.is_full));
 	printf("eating_count: %d\n", philo.eating_count);
 	printf("elapsed time from last meal: %d\n",
 		get_elapsed_time(philo.last_meal_time));
