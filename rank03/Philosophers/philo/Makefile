@@ -3,8 +3,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = main.c\
 		thread.c\
-		debug/debug.c\
-		debug/log.c\
+		debug.c\
+		log.c\
 		parse/init.c\
 		parse/validate.c\
 		utils/deinit.c\
