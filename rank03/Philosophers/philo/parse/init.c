@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 08:23:29 by nash              #+#    #+#             */
-/*   Updated: 2025/03/25 21:50:19 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/25 21:54:27 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static t_config	init_config(int argc, char **argv)
 	return (config);
 }
 
-static t_philo	init_philo(int number, struct timeval start_time)
+static t_philo	init_philo(int number, t_table table)
 {
 	t_philo	philo;
 
@@ -50,7 +50,8 @@ static t_philo	init_philo(int number, struct timeval start_time)
 	philo.state = THINKING;
 	philo.eating_count = 0;
 	gettimeofday(&philo.last_meal_time, NULL);
-	philo.start_time = start_time;
+	philo.start_time = table.start_time;
+	philo.config = table.config;
 	return (philo);
 }
 
@@ -82,7 +83,7 @@ t_table	init_table(int argc, char **argv)
 	i = 0;
 	while (i < table.config.num_philos)
 	{
-		table.philos[i] = init_philo(i + 1, table.start_time);
+		table.philos[i] = init_philo(i + 1, table);
 		table.forks[i] = init_fork(i + 1);
 		i++;
 	}
