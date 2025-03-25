@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 08:23:29 by nash              #+#    #+#             */
-/*   Updated: 2025/03/25 21:47:15 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/25 21:50:19 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static t_config	init_config(int argc, char **argv)
 	return (config);
 }
 
-static t_philo	init_philo(int number)
+static t_philo	init_philo(int number, struct timeval start_time)
 {
 	t_philo	philo;
 
@@ -50,6 +50,7 @@ static t_philo	init_philo(int number)
 	philo.state = THINKING;
 	philo.eating_count = 0;
 	gettimeofday(&philo.last_meal_time, NULL);
+	philo.start_time = start_time;
 	return (philo);
 }
 
@@ -68,6 +69,7 @@ t_table	init_table(int argc, char **argv)
 	int			i;
 
 	table.config = init_config(argc, argv);
+	gettimeofday(&table.start_time, NULL);
 	table.philos = malloc(sizeof(t_philo) * table.config.num_philos);
 	if (!table.philos)
 		exit(EXIT_FAILURE);
@@ -80,10 +82,9 @@ t_table	init_table(int argc, char **argv)
 	i = 0;
 	while (i < table.config.num_philos)
 	{
-		table.philos[i] = init_philo(i + 1);
+		table.philos[i] = init_philo(i + 1, table.start_time);
 		table.forks[i] = init_fork(i + 1);
 		i++;
 	}
-	gettimeofday(&table.start_time, NULL);
 	return (table);
 }

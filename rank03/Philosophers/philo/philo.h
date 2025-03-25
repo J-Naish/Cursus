@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/25 21:47:21 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/25 21:48:10 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct s_philo
 	t_philo_state	state;
 	int				eating_count;
 	struct timeval	last_meal_time;
+	struct timeval	start_time;
 	pthread_t		tid;
 }	t_philo;
 
