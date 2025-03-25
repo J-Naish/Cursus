@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 08:23:29 by nash              #+#    #+#             */
-/*   Updated: 2025/03/25 21:54:27 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/25 22:17:52 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ static t_philo	init_philo(int number, t_table table)
 	gettimeofday(&philo.last_meal_time, NULL);
 	philo.start_time = table.start_time;
 	philo.config = table.config;
+	philo.l_fork = &table.forks[number - 1];
+	if (number == 1)
+		philo.r_fork = &table.forks[table.config.num_philos - 1];
+	else
+		philo.r_fork = &table.forks[number - 2];
 	return (philo);
 }
 
