@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/25 19:51:52 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/25 20:44:52 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <sys/types.h>
 # include <pthread.h>
 
-typedef struct t_config
+typedef struct s_config
 {
 	int	num_philos;
 	int	time_to_die;
@@ -39,13 +39,13 @@ typedef enum e_philo_state
 	EATING = 2
 }	t_philo_state;
 
-typedef struct t_fork
+typedef struct s_fork
 {
 	int		number;
 	bool	is_in_use;
 }	t_fork;
 
-typedef struct t_philo
+typedef struct s_philo
 {
 	int				number;
 	t_philo_state	state;
@@ -56,7 +56,7 @@ typedef struct t_philo
 	pthread_t		tid;
 }	t_philo;
 
-typedef struct t_table
+typedef struct s_table
 {
 	t_philo			*philos;
 	t_fork			*forks;
