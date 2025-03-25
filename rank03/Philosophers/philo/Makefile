@@ -9,21 +9,23 @@ SRCS = main.c\
 		parse/validate.c\
 		utils/deinit.c\
 		utils/time.c
-OBJS = $(SRCS:.c=.o)
+OBJ_DIR = obj
+OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
-%.o: %.c
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	rm -rf $(OBJ_DIR)
 
-fclean:
-	rm -f $(NAME) $(OBJS)
+fclean: clean
+	rm -f $(NAME)
 
 re: fclean all
 
