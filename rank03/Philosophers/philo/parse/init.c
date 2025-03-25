@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 08:23:29 by nash              #+#    #+#             */
-/*   Updated: 2025/03/25 22:27:26 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/25 22:35:28 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ static t_philo	init_philo(int number, t_table table)
 		philo.r_fork = &table.forks[table.config.num_philos - 1];
 	else
 		philo.r_fork = &table.forks[number - 2];
-	pthread_mutex_init(&philo.fork_mutex, NULL);
 	return (philo);
 }
 
@@ -67,6 +66,7 @@ static t_fork	init_fork(int number)
 
 	fork.number = number;
 	fork.is_in_use = false;
+	pthread_mutex_init(&fork.mutex, NULL);
 	return (fork);
 }
 
