@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/13 10:53:38 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/25 19:43:35 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,12 @@ typedef enum e_philo_state
 	EATING = 2
 }	t_philo_state;
 
+typedef struct t_fork
+{
+	int		number;
+	bool	is_in_use;
+}	t_fork;
+
 typedef struct t_philo
 {
 	int				number;
@@ -48,13 +54,9 @@ typedef struct t_philo
 	int				eating_count;
 	struct timeval	last_meal_time;
 	pthread_t		tid;
+	t_fork			*left_fork;
+	t_fork			*right_fork;
 }	t_philo;
-
-typedef struct t_fork
-{
-	int		number;
-	bool	is_in_use;
-}	t_fork;
 
 typedef struct t_table
 {
