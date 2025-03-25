@@ -7,8 +7,8 @@ SRCS = main.c\
 		log.c\
 		parse/init.c\
 		parse/validate.c\
-		utils/deinit.c\
-		utils/time.c
+		deinit.c\
+		time.c
 OBJ_DIR = obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
