@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:33:27 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 00:55:14 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 05:37:03 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	*start_routine(void *arg)
 	return (NULL);
 }
 
-void	create_threads(t_table *table)
+void	create_philo_threads(t_table *table)
 {
 	int			i;
 
@@ -41,7 +41,7 @@ void	create_threads(t_table *table)
 	}
 }
 
-void	join_threads(t_table *table)
+void	join_philo_threads(t_table *table)
 {
 	int	i;
 

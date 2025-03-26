@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 05:32:22 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 05:37:11 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,8 @@ int		get_elapsed_time(struct timeval start_time);
 bool	is_philo_starving(t_philo philo);
 void	custom_sleep(int duration, t_philo *philo);
 
-void	create_threads(t_table *table);
-void	join_threads(t_table *table);
+void	create_philo_threads(t_table *table);
+void	join_philo_threads(t_table *table);
 
 void	philo_eat(t_philo *philo);
 void	philo_sleep(t_philo *philo);
