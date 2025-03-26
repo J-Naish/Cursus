@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 01:37:26 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 00:24:32 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 00:35:52 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,24 @@ void	log_take_fork(t_philo philo)
 
 void	log_eat(t_philo philo)
 {
-	printf("%d %d is eating\n",
+	printf(YELLOW "%d %d is eating\n" RESET,
 		get_elapsed_time(philo.start_time), philo.number);
 }
 
 void	log_sleep(t_philo philo)
 {
-	printf("%d %d is sleeping\n",
+	printf(CYAN "%d %d is sleeping\n" RESET,
 		get_elapsed_time(philo.start_time), philo.number);
 }
 
 void	log_think(t_philo philo)
 {
-	printf("%d %d is thinking\n",
+	printf(GREEN "%d %d is thinking\n" RESET,
 		get_elapsed_time(philo.start_time), philo.number);
 }
 
 void	log_died(t_philo philo)
 {
-	printf("\033[31m%d %d died\n\033[0m",
+	printf(RED "%d %d died\n" RESET,
 		get_elapsed_time(philo.start_time), philo.number);
 }

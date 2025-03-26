@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/26 23:57:16 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 00:34:22 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,26 @@
 
 # ifndef SLEEP_UNIT
 #  define SLEEP_UNIT 5
+# endif
+
+# ifndef RED
+#  define RED "\033[31m"
+# endif
+
+# ifndef YELLOW
+#  define YELLOW "\033[33m"
+# endif
+
+# ifndef CYAN
+#  define CYAN "\033[36m"
+# endif
+
+# ifndef GREEN
+#  define GREEN "\033[32m"
+# endif
+
+# ifndef RESET
+#  define RESET "\033[0m"
 # endif
 
 typedef struct s_config
@@ -89,6 +109,7 @@ void	deinit_table(t_table *table);
 
 int		get_elapsed_time(struct timeval start_time);
 bool	is_philo_dead(t_philo philo);
+void	custom_sleep(int duration, t_philo philo);
 
 void	create_threads(t_table *table);
 void	join_threads(t_table *table);
