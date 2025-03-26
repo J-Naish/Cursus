@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:33:27 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 05:37:03 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 06:12:40 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,21 @@
 
 static void	*start_routine(void *arg)
 {
-	t_philo	philo;
+	t_philo	*philo;
 
-	philo = *((t_philo *)arg);
+	philo = (t_philo *)arg;
 	while (1)
 	{
-		if (philo.state == DEAD)
+		pthread_mutex_lock(philo->monitor_mutex);
+		if (philo->state == DEAD || !philo->simulation_running)
+		{
+			pthread_mutex_unlock(philo->monitor_mutex);
 			break ;
-		philo_eat(&philo);
-		philo_sleep(&philo);
-		philo_think(&philo);
+		}
+		pthread_mutex_unlock(philo->monitor_mutex);
+		philo_eat(philo);
+		philo_sleep(philo);
+		philo_think(philo);
 	}
 	return (NULL);
 }

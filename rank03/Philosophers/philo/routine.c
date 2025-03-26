@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 16:17:42 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 05:46:51 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 06:16:17 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ void	philo_sleep(t_philo *philo)
 
 void	philo_think(t_philo *philo)
 {
-	if (philo->state == DEAD)
-		return ;
 	philo->state = THINKING;
 	log_think(*philo);
 }
