@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   monitor.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 07:41:04 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 05:30:17 by nash             ###   ########.fr       */
+/*   Created: 2025/03/27 05:03:26 by nash              #+#    #+#             */
+/*   Updated: 2025/03/27 05:30:34 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char **argv)
+void	*monitor_routine(void *arg)
 {
-	t_table	table;
+	t_table	*table;
+	int		i;
 
-	if (!is_valid_arg(argc, argv))
+	table = (t_table *)arg;
+	table->simulation_running = true;
+	while (table->simulation_running)
 	{
-		write(STDERR_FILENO, "Invalid args\n", 13);
-		return (EXIT_FAILURE);
+		i = 0;
+		while (i < table->config.num_philos)
+		{
+			if (is_philo_starving(table->philos[i]))
+			{
+				table->philos[i].state = DEAD;
+				log_died(table->philos[i]);
+				table->simulation_running = false;
+				return (NULL);
+			}
+			i++;
+		}
 	}
-	table = init_table(argc, argv);
-	create_threads(&table);
-	pthread_create(&table.monitor_tid, NULL, monitor_routine, &table);
-	join_threads(&table);
-	pthread_join(table.monitor_tid, NULL);
-	deinit_table(&table);
-	return (EXIT_SUCCESS);
+	return (NULL);
 }

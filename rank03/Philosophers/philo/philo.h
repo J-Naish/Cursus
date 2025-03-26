@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 04:10:49 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 05:30:41 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ typedef struct s_table
 	t_philo			*philos;
 	t_fork			*forks;
 	t_config		config;
+	pthread_t		monitor_tid;
+	bool			simulation_running;
 	struct timeval	start_time;
 }	t_table;
 
@@ -119,5 +121,7 @@ void	philo_eat(t_philo *philo);
 void	philo_sleep(t_philo *philo);
 void	philo_think(t_philo *philo);
 void	philo_die(t_philo *philo);
+
+void	*monitor_routine(void *arg);
 
 #endif

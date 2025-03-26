@@ -5,6 +5,7 @@ SRCS = debug.c\
 		deinit.c\
 		log.c\
 		main.c\
+		monitor.c\
 		routine.c\
 		thread.c\
 		utils.c\
