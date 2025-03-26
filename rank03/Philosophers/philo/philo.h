@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 00:34:22 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 00:51:21 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ typedef enum e_philo_state
 {
 	THINKING = 0,
 	SLEEPING = 1,
-	EATING = 2
+	EATING = 2,
+	DEAD = 3
 }	t_philo_state;
 
 typedef struct s_fork
@@ -109,7 +110,7 @@ void	deinit_table(t_table *table);
 
 int		get_elapsed_time(struct timeval start_time);
 bool	is_philo_dead(t_philo philo);
-void	custom_sleep(int duration, t_philo philo);
+void	custom_sleep(int duration, t_philo *philo);
 
 void	create_threads(t_table *table);
 void	join_threads(t_table *table);

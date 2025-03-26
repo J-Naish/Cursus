@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 03:29:48 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 00:41:38 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 00:50:54 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ bool	is_philo_dead(t_philo philo)
 		&& philo.state != EATING);
 }
 
-void	custom_sleep(int duration, t_philo philo)
+void	custom_sleep(int duration, t_philo *philo)
 {
 	int	slept;
 	int	unit;
@@ -45,9 +45,9 @@ void	custom_sleep(int duration, t_philo philo)
 			usleep(unit * 1000);
 		else
 			usleep((duration - slept) * 1000);
-		if (is_philo_dead(philo))
+		if (is_philo_dead(*philo))
 		{
-			log_died(philo);
+			log_died(*philo);
 			break ;
 		}
 		slept += unit;
