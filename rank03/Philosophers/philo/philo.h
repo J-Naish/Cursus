@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/26 19:47:49 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/26 21:07:58 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ typedef enum e_philo_state
 typedef struct s_fork
 {
 	int				number;
-	bool			is_in_use;
 	pthread_mutex_t	mutex;
 }	t_fork;
 

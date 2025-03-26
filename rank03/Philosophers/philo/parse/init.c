@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 08:23:29 by nash              #+#    #+#             */
-/*   Updated: 2025/03/25 22:35:28 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/26 21:08:10 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ static t_fork	init_fork(int number)
 	t_fork	fork;
 
 	fork.number = number;
-	fork.is_in_use = false;
 	pthread_mutex_init(&fork.mutex, NULL);
 	return (fork);
 }
