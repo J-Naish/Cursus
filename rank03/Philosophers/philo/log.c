@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 01:37:26 by nash              #+#    #+#             */
-/*   Updated: 2025/03/26 15:37:26 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 00:24:32 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ void	log_think(t_philo philo)
 
 void	log_died(t_philo philo)
 {
-	printf("%d %d died\n",
+	printf("\033[31m%d %d died\n\033[0m",
 		get_elapsed_time(philo.start_time), philo.number);
 }
