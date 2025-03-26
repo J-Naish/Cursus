@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:33:27 by nash              #+#    #+#             */
-/*   Updated: 2025/03/25 21:09:21 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/26 15:38:33 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,12 @@ static void	*start_routine(void *arg)
 	t_philo	philo;
 
 	philo = *((t_philo *)arg);
-	(void)philo;
+	while (1)
+	{
+		log_take_fork(philo);
+		log_eat(philo);
+		philo.state = EATING;
+	}
 	return (NULL);
 }
 
