@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:33:27 by nash              #+#    #+#             */
-/*   Updated: 2025/03/26 16:28:42 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/26 16:36:09 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	create_threads(t_table table)
 	{
 		pthread_create(&table.philos[i].tid, NULL,
 			start_routine, &table.philos[i]);
-		print_philo(table.philos[i]);
 		i++;
 	}
 }
