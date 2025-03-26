@@ -31,4 +31,8 @@ fclean: clean
 
 re: fclean all
 
+test:
+	@chmod +x test.sh
+	./test.sh
+
 .PHONY: all clean fclean re
