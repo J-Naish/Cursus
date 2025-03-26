@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/26 17:51:24 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/26 18:27:34 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ typedef struct s_table
 
 void	print_config(t_config config);
 void	print_philo(t_philo philo);
+void	print_table(t_table table);
 void	print_start_time(t_table table);
 
 void	log_take_fork(t_philo philo);

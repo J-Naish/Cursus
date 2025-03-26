@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 08:33:09 by nash              #+#    #+#             */
-/*   Updated: 2025/03/25 21:51:33 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/26 18:21:11 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,21 @@ void	print_philo(t_philo philo)
 	printf("eating_count               : %d\n", philo.eating_count);
 	printf("elapsed time from last meal: %d\n",
 		get_elapsed_time(philo.last_meal_time));
+	printf("left fork number           : %d\n", philo.l_fork->number);
+	printf("right fork number          : %d\n", philo.r_fork->number);
+}
+
+void	print_table(t_table table)
+{
+	int	i;
+
+	i = 0;
+	while (i < table.config.num_philos)
+	{
+		print_philo(table.philos[i]);
+		i++;
+	}
+	print_config(table.config);
 }
 
 void	print_start_time(t_table table)
