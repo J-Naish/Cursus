@@ -6,13 +6,13 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 05:03:26 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 05:33:37 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 05:40:23 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	*monitor_routine(void *arg)
+static void	*monitor_routine(void *arg)
 {
 	t_table	*table;
 	int		i;
@@ -34,4 +34,14 @@ void	*monitor_routine(void *arg)
 		}
 	}
 	return (NULL);
+}
+
+void	create_monitor_thread(t_table *table)
+{
+	pthread_create(&(*table).monitor_tid, NULL, monitor_routine, table);
+}
+
+void	join_monitor_thread(t_table *table)
+{
+	pthread_join((*table).monitor_tid, NULL);
 }

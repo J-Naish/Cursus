@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:04 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 05:37:19 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 05:41:20 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int	main(int argc, char **argv)
 	}
 	table = init_table(argc, argv);
 	create_philo_threads(&table);
-	pthread_create(&table.monitor_tid, NULL, monitor_routine, &table);
+	create_monitor_thread(&table);
 	join_philo_threads(&table);
-	pthread_join(table.monitor_tid, NULL);
+	join_monitor_thread(&table);
 	deinit_table(&table);
 	return (EXIT_SUCCESS);
 }
