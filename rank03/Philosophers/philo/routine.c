@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 16:17:42 by nash              #+#    #+#             */
-/*   Updated: 2025/03/26 20:27:28 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/26 21:15:54 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ static void	philo_think(t_philo *philo)
 
 void	routine(t_philo *philo)
 {
-	if ((*philo).state != THINKING)
-		return ;
 	philo_eat(philo);
 	philo_sleep(philo);
 	philo_think(philo);
