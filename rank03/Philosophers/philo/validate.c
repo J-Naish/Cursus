@@ -6,11 +6,11 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 08:02:29 by nash              #+#    #+#             */
-/*   Updated: 2025/03/10 07:01:58 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/26 23:48:56 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../philo.h"
+#include "philo.h"
 
 static bool	is_numstr(const char *s)
 {

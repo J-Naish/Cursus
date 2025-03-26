@@ -6,11 +6,11 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 08:23:29 by nash              #+#    #+#             */
-/*   Updated: 2025/03/26 21:08:10 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/26 23:49:01 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../philo.h"
+#include "philo.h"
 
 static int	convert_to_int(const char *s)
 {
