@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 16:17:42 by nash              #+#    #+#             */
-/*   Updated: 2025/03/26 23:08:22 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/26 23:18:02 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	philo_take_fork(t_philo *philo)
 	}
 }
 
-static void	philo_eat(t_philo *philo)
+void	philo_eat(t_philo *philo)
 {
 	philo_take_fork(philo);
 	log_eat(*philo);
@@ -50,22 +50,15 @@ static void	philo_eat(t_philo *philo)
 	}
 }
 
-static void	philo_sleep(t_philo *philo)
+void	philo_sleep(t_philo *philo)
 {
 	(*philo).state = THINKING;
 	log_sleep(*philo);
 	usleep((*philo).config.time_to_sleep * 1000);
 }
 
-static void	philo_think(t_philo *philo)
+void	philo_think(t_philo *philo)
 {
 	(*philo).state = THINKING;
 	log_think(*philo);
-}
-
-void	routine(t_philo *philo)
-{
-	philo_eat(philo);
-	philo_sleep(philo);
-	philo_think(philo);
 }

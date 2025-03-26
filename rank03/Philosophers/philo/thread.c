@@ -6,11 +6,18 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:33:27 by nash              #+#    #+#             */
-/*   Updated: 2025/03/26 19:48:48 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/26 23:18:09 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+static void	routine(t_philo *philo)
+{
+	philo_eat(philo);
+	philo_sleep(philo);
+	philo_think(philo);
+}
 
 static void	*start_routine(void *arg)
 {
