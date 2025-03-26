@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/26 23:55:28 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/26 23:57:16 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 # include <sys/time.h>
 # include <sys/types.h>
 # include <pthread.h>
+
+# ifndef SLEEP_UNIT
+#  define SLEEP_UNIT 5
+# endif
 
 typedef struct s_config
 {
