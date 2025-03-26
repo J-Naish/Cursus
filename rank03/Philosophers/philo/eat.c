@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 16:17:42 by nash              #+#    #+#             */
-/*   Updated: 2025/03/26 16:28:11 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/26 16:34:28 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 void	start_eat(t_philo *philo)
 {
+	if ((*philo).state == EATING)
+		return ;
+	if ((*philo).l_fork->is_in_use || (*philo).r_fork->is_in_use)
+		return ;
 	pthread_mutex_lock(&(*philo).l_fork->mutex);
 	pthread_mutex_lock(&(*philo).r_fork->mutex);
 	log_take_fork(*philo);
