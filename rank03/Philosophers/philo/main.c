@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:04 by nash              #+#    #+#             */
-/*   Updated: 2025/03/26 16:35:32 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/26 17:51:47 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 	table = init_table(argc, argv);
-	create_threads(table);
-	join_threads(table);
-	deinit_table(table);
+	create_threads(&table);
+	join_threads(&table);
+	deinit_table(&table);
 	return (EXIT_SUCCESS);
 }
