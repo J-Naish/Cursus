@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 05:30:41 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 05:32:22 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ typedef struct s_table
 	t_fork			*forks;
 	t_config		config;
 	pthread_t		monitor_tid;
+	pthread_mutex_t	monitor_mutex;
 	bool			simulation_running;
 	struct timeval	start_time;
 }	t_table;

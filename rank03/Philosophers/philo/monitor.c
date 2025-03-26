@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 05:03:26 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 05:30:34 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 05:33:37 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	*monitor_routine(void *arg)
 	int		i;
 
 	table = (t_table *)arg;
-	table->simulation_running = true;
 	while (table->simulation_running)
 	{
 		i = 0;

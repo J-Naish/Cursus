@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 01:25:30 by nash              #+#    #+#             */
-/*   Updated: 2025/03/26 17:50:40 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 05:35:19 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	deinit_table(t_table *table)
 {
 	int	i;
 
+	pthread_mutex_destroy(&(*table).monitor_mutex);
 	free((*table).philos);
 	i = 0;
 	while (i < (*table).config.num_philos)
