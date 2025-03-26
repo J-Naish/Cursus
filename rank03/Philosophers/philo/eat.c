@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 16:17:42 by nash              #+#    #+#             */
-/*   Updated: 2025/03/26 16:34:28 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/26 18:30:05 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	start_eat(t_philo *philo)
 {
-	if ((*philo).state == EATING)
+	if ((*philo).state != THINKING)
 		return ;
 	if ((*philo).l_fork->is_in_use || (*philo).r_fork->is_in_use)
 		return ;
