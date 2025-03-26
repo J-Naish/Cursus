@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 16:17:42 by nash              #+#    #+#             */
-/*   Updated: 2025/03/26 23:18:02 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/26 23:35:29 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,13 @@ void	philo_think(t_philo *philo)
 {
 	(*philo).state = THINKING;
 	log_think(*philo);
+}
+
+void	philo_die(t_philo *philo)
+{
+	if (get_elapsed_time((*philo).last_meal_time)
+		>= (*philo).config.time_to_die)
+	{
+		log_died(*philo);
+	}
 }

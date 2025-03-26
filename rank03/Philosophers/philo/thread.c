@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:33:27 by nash              #+#    #+#             */
-/*   Updated: 2025/03/26 23:18:09 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/26 23:36:32 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static void	routine(t_philo *philo)
 {
+	philo_die(philo);
 	philo_eat(philo);
 	philo_sleep(philo);
 	philo_think(philo);
