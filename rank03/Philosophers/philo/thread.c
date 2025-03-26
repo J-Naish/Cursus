@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:33:27 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 00:48:56 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 00:55:14 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static void	*start_routine(void *arg)
 	philo = *((t_philo *)arg);
 	while (1)
 	{
+		if (philo.state == DEAD)
+			break ;
 		philo_eat(&philo);
 		philo_sleep(&philo);
 		philo_think(&philo);

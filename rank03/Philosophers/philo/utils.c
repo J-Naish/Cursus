@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 03:29:48 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 00:50:54 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 00:55:01 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	custom_sleep(int duration, t_philo *philo)
 			usleep((duration - slept) * 1000);
 		if (is_philo_dead(*philo))
 		{
+			philo->state = DEAD;
 			log_died(*philo);
 			break ;
 		}
