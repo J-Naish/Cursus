@@ -1,14 +1,15 @@
 NAME = philo
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = main.c\
-		thread.c\
-		debug.c\
-		log.c\
-		parse/init.c\
-		parse/validate.c\
+SRCS = debug.c\
 		deinit.c\
-		time.c
+		eat.c\
+		log.c\
+		main.c\
+		thread.c\
+		time.c\
+		parse/init.c\
+		parse/validate.c
 OBJ_DIR = obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
