@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 03:29:48 by nash              #+#    #+#             */
-/*   Updated: 2025/03/26 23:54:35 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 00:41:38 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,28 @@ int	get_elapsed_time(struct timeval start_time)
 
 bool	is_philo_dead(t_philo philo)
 {
-	return (get_elapsed_time(philo.last_meal_time) >= philo.config.time_to_die);
+	return (get_elapsed_time(philo.last_meal_time) >= philo.config.time_to_die
+		&& philo.state != EATING);
+}
+
+void	custom_sleep(int duration, t_philo philo)
+{
+	int	slept;
+	int	unit;
+
+	slept = 0;
+	unit = SLEEP_UNIT;
+	while (slept <= duration)
+	{
+		if (slept + unit < duration)
+			usleep(unit * 1000);
+		else
+			usleep((duration - slept) * 1000);
+		if (is_philo_dead(philo))
+		{
+			log_died(philo);
+			break ;
+		}
+		slept += unit;
+	}
 }

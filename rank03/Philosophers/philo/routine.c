@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 16:17:42 by nash              #+#    #+#             */
-/*   Updated: 2025/03/26 23:57:51 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 00:21:26 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	philo_eat(t_philo *philo)
 {
 	philo_take_fork(philo);
 	log_eat(*philo);
-	gettimeofday(&(*philo).last_meal_time, NULL);
 	(*philo).state = EATING;
 	usleep((*philo).config.time_to_eat * 1000);
 	(*philo).eating_count++;
@@ -48,13 +47,14 @@ void	philo_eat(t_philo *philo)
 		pthread_mutex_unlock(&(*philo).r_fork->mutex);
 		pthread_mutex_unlock(&(*philo).l_fork->mutex);
 	}
+	gettimeofday(&(*philo).last_meal_time, NULL);
 }
 
 void	philo_sleep(t_philo *philo)
 {
 	(*philo).state = THINKING;
 	log_sleep(*philo);
-	usleep((*philo).config.time_to_sleep * 1000);
+	custom_sleep((*philo).config.time_to_sleep, *philo);
 }
 
 void	philo_think(t_philo *philo)
