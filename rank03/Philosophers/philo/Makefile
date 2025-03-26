@@ -7,7 +7,7 @@ SRCS = debug.c\
 		main.c\
 		routine.c\
 		thread.c\
-		time.c\
+		utils.c\
 		init.c\
 		validate.c
 OBJ_DIR = obj
