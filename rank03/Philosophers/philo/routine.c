@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 16:17:42 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 04:10:35 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 05:46:51 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	philo_sleep(t_philo *philo)
 {
 	philo->state = SLEEPING;
 	log_sleep(*philo);
-	custom_sleep((*philo).config.time_to_sleep, philo);
+	usleep((*philo).config.time_to_sleep * 1000);
 }
 
 void	philo_think(t_philo *philo)

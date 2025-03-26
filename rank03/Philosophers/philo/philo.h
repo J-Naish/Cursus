@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 05:40:36 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 06:05:56 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ typedef struct s_philo
 	pthread_t		tid;
 	t_fork			*l_fork;
 	t_fork			*r_fork;
+	bool			*simulation_running;
+	pthread_mutex_t	*monitor_mutex;
 }	t_philo;
 
 typedef struct s_table
@@ -113,7 +115,6 @@ void	deinit_table(t_table *table);
 
 int		get_elapsed_time(struct timeval start_time);
 bool	is_philo_starving(t_philo philo);
-void	custom_sleep(int duration, t_philo *philo);
 
 void	create_philo_threads(t_table *table);
 void	join_philo_threads(t_table *table);

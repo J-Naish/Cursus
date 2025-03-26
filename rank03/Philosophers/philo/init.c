@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 08:23:29 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 05:34:18 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 06:06:57 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ static t_philo	init_philo(int number, t_table table)
 		philo.r_fork = &table.forks[table.config.num_philos - 1];
 	else
 		philo.r_fork = &table.forks[number - 2];
+	philo.simulation_running = &table.simulation_running;
+	philo.monitor_mutex = &table.monitor_mutex;
 	return (philo);
 }
 
