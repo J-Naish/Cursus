@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 03:29:48 by nash              #+#    #+#             */
-/*   Updated: 2025/03/26 23:50:40 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/26 23:54:35 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,9 @@ int	get_elapsed_time(struct timeval start_time)
 	usec_diff = now.tv_usec - start_time.tv_usec;
 	elapsed = sec_diff * 1000 + usec_diff / 1000;
 	return (elapsed);
+}
+
+bool	is_philo_dead(t_philo philo)
+{
+	return (get_elapsed_time(philo.last_meal_time) >= philo.config.time_to_die);
 }
