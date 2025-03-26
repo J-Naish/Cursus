@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 16:17:42 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 00:51:26 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 00:52:57 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	philo_eat(t_philo *philo)
 {
 	philo_take_fork(philo);
 	log_eat(*philo);
-	(*philo).state = EATING;
+	philo->state = EATING;
 	usleep((*philo).config.time_to_eat * 1000);
 	(*philo).eating_count++;
 	if ((*philo).number % 2 == 0)
@@ -52,14 +52,14 @@ void	philo_eat(t_philo *philo)
 
 void	philo_sleep(t_philo *philo)
 {
-	(*philo).state = THINKING;
+	philo->state = SLEEPING;
 	log_sleep(*philo);
 	custom_sleep((*philo).config.time_to_sleep, philo);
 }
 
 void	philo_think(t_philo *philo)
 {
-	(*philo).state = THINKING;
+	philo->state = THINKING;
 	log_think(*philo);
 }
 
@@ -67,6 +67,7 @@ void	philo_die(t_philo *philo)
 {
 	if (is_philo_dead(*philo))
 	{
+		philo->state = DEAD;
 		log_died(*philo);
 	}
 }
