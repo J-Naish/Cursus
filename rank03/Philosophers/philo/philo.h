@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 00:51:21 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 04:10:49 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ t_table	init_table(int argc, char **argv);
 void	deinit_table(t_table *table);
 
 int		get_elapsed_time(struct timeval start_time);
-bool	is_philo_dead(t_philo philo);
+bool	is_philo_starving(t_philo philo);
 void	custom_sleep(int duration, t_philo *philo);
 
 void	create_threads(t_table *table);
