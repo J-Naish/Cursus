@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 05:03:26 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 06:09:56 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 17:13:35 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ static void	*monitor_routine(void *arg)
 			pthread_mutex_lock(&table->monitor_mutex);
 			if (is_philo_starving(table->philos[i]))
 			{
-				table->philos[i].state = DEAD;
 				log_died(table->philos[i]);
 				table->simulation_running = false;
 				pthread_mutex_unlock(&table->monitor_mutex);

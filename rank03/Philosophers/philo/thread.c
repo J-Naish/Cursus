@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:33:27 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 06:12:40 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 17:13:24 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	*start_routine(void *arg)
 	while (1)
 	{
 		pthread_mutex_lock(philo->monitor_mutex);
-		if (philo->state == DEAD || !philo->simulation_running)
+		if (!philo->simulation_running)
 		{
 			pthread_mutex_unlock(philo->monitor_mutex);
 			break ;
