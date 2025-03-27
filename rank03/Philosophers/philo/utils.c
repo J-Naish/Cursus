@@ -39,12 +39,12 @@ void	split_sleep(int duration, t_philo *philo)
 	}
 }
 
-bool	should_simulation_continue(t_philo *philo)
+bool	should_simulation_continue(t_philo philo)
 {
 	bool	simulation_running;
 
-	pthread_mutex_lock(philo->monitor_mutex);
-	simulation_running = *(philo->simulation_running);
-	pthread_mutex_unlock(philo->monitor_mutex);
+	pthread_mutex_lock(philo.monitor_mutex);
+	simulation_running = *(philo.simulation_running);
+	pthread_mutex_unlock(philo.monitor_mutex);
 	return (simulation_running);
 }
