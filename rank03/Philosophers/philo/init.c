@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 08:23:29 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 18:43:19 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 18:49:33 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,19 +77,18 @@ t_table	*init_table(int argc, char **argv)
 	int			i;
 
 	table = (t_table *)malloc(sizeof(t_table));
+	if (!table)
+		return (NULL);
 	(*table).config = init_config(argc, argv);
 	gettimeofday(&(*table).start_time, NULL);
 	(*table).simulation_running = true;
 	pthread_mutex_init(&(*table).monitor_mutex, NULL);
 	(*table).philos = malloc(sizeof(t_philo) * (*table).config.num_philos);
 	if (!(*table).philos)
-		exit(EXIT_FAILURE);
+		return (free(table), NULL);
 	(*table).forks = malloc(sizeof(t_fork) * (*table).config.num_philos);
 	if (!(*table).forks)
-	{
-		free((*table).philos);
-		exit(EXIT_FAILURE);
-	}
+		return (free(table), free(table->philos), NULL);
 	i = 0;
 	while (i < (*table).config.num_philos)
 	{
