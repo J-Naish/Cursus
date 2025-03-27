@@ -20,11 +20,21 @@ bool	is_philo_starving(t_philo philo)
 		&& philo.state != EATING);
 }
 
-void	split_sleep(int duration)
+void	split_sleep(int duration, t_philo *philo)
 {
 	struct timeval	start;
 
 	gettimeofday(&start, NULL);
 	while (get_elapsed_time(start) < duration)
+	{
+		pthread_mutex_lock(philo->monitor_mutex);
+		if (!*(philo->simulation_running))
+		{
+			*(philo->simulation_running) = false;
+			pthread_mutex_unlock(philo->monitor_mutex);
+			break ;
+		}
+		pthread_mutex_unlock(philo->monitor_mutex);
 		usleep(1000);
+	}
 }

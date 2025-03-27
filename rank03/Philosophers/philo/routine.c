@@ -42,7 +42,7 @@ void	philo_sleep(t_philo *philo)
 {
 	philo->state = SLEEPING;
 	log_sleep(*philo);
-	split_sleep(philo->config.time_to_sleep);
+	split_sleep(philo->config.time_to_sleep, philo);
 }
 
 void	philo_think(t_philo *philo)

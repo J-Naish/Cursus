@@ -105,7 +105,7 @@ void	deinit_table(t_table *table);
 // utils.c
 int		get_elapsed_time(struct timeval start_time);
 bool	is_philo_starving(t_philo philo);
-void	split_sleep(int duration);
+void	split_sleep(int duration, t_philo *philo);
 
 // thread.c
 void	create_philo_threads(t_table *table);
