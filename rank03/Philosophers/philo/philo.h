@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 18:43:38 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/28 00:44:49 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@
 # include <sys/time.h>
 # include <sys/types.h>
 # include <pthread.h>
-
-# ifndef SLEEP_UNIT
-#  define SLEEP_UNIT 5
-# endif
 
 # ifndef RED
 #  define RED "\033[31m"
@@ -114,6 +110,7 @@ void	deinit_table(t_table *table);
 
 int		get_elapsed_time(struct timeval start_time);
 bool	is_philo_starving(t_philo philo);
+void	split_sleep(int duration);
 
 void	create_philo_threads(t_table *table);
 void	join_philo_threads(t_table *table);

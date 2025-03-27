@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 03:29:48 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 05:47:21 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/28 00:43:26 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,13 @@ bool	is_philo_starving(t_philo philo)
 {
 	return (get_elapsed_time(philo.last_meal_time) >= philo.config.time_to_die
 		&& philo.state != EATING);
+}
+
+void	split_sleep(int duration)
+{
+	struct timeval	start;
+
+	gettimeofday(&start, NULL);
+	while (get_elapsed_time(start) < duration)
+		usleep(1000);
 }
