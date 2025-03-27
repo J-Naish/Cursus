@@ -107,6 +107,7 @@ int		get_elapsed_time(struct timeval start_time);
 bool	is_philo_starving(t_philo philo);
 void	split_sleep(int duration, t_philo *philo);
 bool	should_simulation_continue(t_philo philo);
+bool	have_eaten_enough(t_table table);
 
 // thread.c
 void	create_philo_threads(t_table *table);

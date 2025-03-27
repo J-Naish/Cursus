@@ -48,3 +48,22 @@ bool	should_simulation_continue(t_philo philo)
 	pthread_mutex_unlock(philo.monitor_mutex);
 	return (simulation_running);
 }
+
+bool	have_eaten_enough(t_table table)
+{
+	bool	eaten_enough;
+	int		i;
+
+	eaten_enough = true;
+	i = 0;
+	while (i < table.config.num_philos)
+	{
+		if (table.philos[i].eating_count < table.config.times_to_eat_to_exit)
+		{
+			eaten_enough = false;
+			break ;
+		}
+		i++;
+	}
+	return (eaten_enough);
+}
