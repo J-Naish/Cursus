@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 17:14:30 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 18:43:38 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ void	log_think(t_philo philo);
 void	log_died(t_philo philo);
 
 bool	is_valid_arg(int argc, char **argv);
-t_table	init_table(int argc, char **argv);
+t_table	*init_table(int argc, char **argv);
 
 void	deinit_table(t_table *table);
 

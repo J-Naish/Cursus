@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 08:23:29 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 18:26:08 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 18:43:19 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,29 +71,30 @@ static t_fork	init_fork(int number)
 	return (fork);
 }
 
-t_table	init_table(int argc, char **argv)
+t_table	*init_table(int argc, char **argv)
 {
-	t_table		table;
+	t_table		*table;
 	int			i;
 
-	table.config = init_config(argc, argv);
-	gettimeofday(&table.start_time, NULL);
-	table.simulation_running = true;
-	pthread_mutex_init(&table.monitor_mutex, NULL);
-	table.philos = malloc(sizeof(t_philo) * table.config.num_philos);
-	if (!table.philos)
+	table = (t_table *)malloc(sizeof(t_table));
+	(*table).config = init_config(argc, argv);
+	gettimeofday(&(*table).start_time, NULL);
+	(*table).simulation_running = true;
+	pthread_mutex_init(&(*table).monitor_mutex, NULL);
+	(*table).philos = malloc(sizeof(t_philo) * (*table).config.num_philos);
+	if (!(*table).philos)
 		exit(EXIT_FAILURE);
-	table.forks = malloc(sizeof(t_fork) * table.config.num_philos);
-	if (!table.forks)
+	(*table).forks = malloc(sizeof(t_fork) * (*table).config.num_philos);
+	if (!(*table).forks)
 	{
-		free(table.philos);
+		free((*table).philos);
 		exit(EXIT_FAILURE);
 	}
 	i = 0;
-	while (i < table.config.num_philos)
+	while (i < (*table).config.num_philos)
 	{
-		table.philos[i] = init_philo(i + 1, &table);
-		table.forks[i] = init_fork(i + 1);
+		(*table).philos[i] = init_philo(i + 1, &(*table));
+		(*table).forks[i] = init_fork(i + 1);
 		i++;
 	}
 	return (table);
