@@ -11,15 +11,14 @@ static void	*monitor_routine(void *arg)
 		i = 0;
 		while (i < table->config.num_philos)
 		{
-			pthread_mutex_lock(&table->monitor_mutex);
 			if (is_philo_starving(table->philos[i]))
 			{
 				log_died(table->philos[i]);
+				pthread_mutex_lock(&table->monitor_mutex);
 				table->simulation_running = false;
 				pthread_mutex_unlock(&table->monitor_mutex);
 				return (NULL);
 			}
-			pthread_mutex_unlock(&table->monitor_mutex);
 			i++;
 		}
 	}
