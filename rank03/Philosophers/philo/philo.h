@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 07:41:35 by nash              #+#    #+#             */
-/*   Updated: 2025/03/28 00:44:49 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/28 00:46:14 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,13 @@ typedef struct s_table
 	struct timeval	start_time;
 }	t_table;
 
+// debug.c
 void	print_config(t_config config);
 void	print_philo(t_philo philo);
 void	print_table(t_table table);
 void	print_start_time(t_table table);
 
+// log.c
 void	log_take_fork(t_philo philo);
 void	log_eat(t_philo philo);
 void	log_sleep(t_philo philo);
@@ -103,22 +105,30 @@ void	log_sleep(t_philo philo);
 void	log_think(t_philo philo);
 void	log_died(t_philo philo);
 
+// validate.c
 bool	is_valid_arg(int argc, char **argv);
+
+// init.c
 t_table	*init_table(int argc, char **argv);
 
+// deinit.c
 void	deinit_table(t_table *table);
 
+// utils.c
 int		get_elapsed_time(struct timeval start_time);
 bool	is_philo_starving(t_philo philo);
 void	split_sleep(int duration);
 
+// thread.c
 void	create_philo_threads(t_table *table);
 void	join_philo_threads(t_table *table);
 
+// routine.c
 void	philo_eat(t_philo *philo);
 void	philo_sleep(t_philo *philo);
 void	philo_think(t_philo *philo);
 
+// monitor.c
 void	create_monitor_thread(t_table *table);
 void	join_monitor_thread(t_table *table);
 
