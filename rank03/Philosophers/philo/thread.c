@@ -7,13 +7,8 @@ static void	*philo_routine(void *arg)
 	philo = (t_philo *)arg;
 	while (1)
 	{
-		pthread_mutex_lock(philo->monitor_mutex);
-		if (!(*philo->simulation_running))
-		{
-			pthread_mutex_unlock(philo->monitor_mutex);
+		if (!should_simulation_continue(*philo))
 			break ;
-		}
-		pthread_mutex_unlock(philo->monitor_mutex);
 		philo_eat(philo);
 		philo_sleep(philo);
 		philo_think(philo);
