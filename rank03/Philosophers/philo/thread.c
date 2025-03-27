@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:33:27 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 18:38:42 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 18:53:42 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static void	*start_routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	printf("philo: %p\n", philo->simulation_running);
 	while (1)
 	{
 		pthread_mutex_lock(philo->monitor_mutex);

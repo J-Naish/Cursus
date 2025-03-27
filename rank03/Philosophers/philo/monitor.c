@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 05:03:26 by nash              #+#    #+#             */
-/*   Updated: 2025/03/27 18:39:08 by nash             ###   ########.fr       */
+/*   Updated: 2025/03/27 18:53:36 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static void	*monitor_routine(void *arg)
 	int		i;
 
 	table = (t_table *)arg;
-	printf("table: %p\n", &table->simulation_running);
 	while (table->simulation_running)
 	{
 		i = 0;
