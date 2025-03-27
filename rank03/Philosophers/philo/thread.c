@@ -1,6 +1,6 @@
 #include "philo.h"
 
-static void	*start_routine(void *arg)
+static void	*philo_routine(void *arg)
 {
 	t_philo	*philo;
 
@@ -29,7 +29,7 @@ void	create_philo_threads(t_table *table)
 	while (i < table->config.num_philos)
 	{
 		pthread_create(&table->philos[i].tid, NULL,
-			start_routine, &table->philos[i]);
+			philo_routine, &table->philos[i]);
 		i++;
 	}
 }
