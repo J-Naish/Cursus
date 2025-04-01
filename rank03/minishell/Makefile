@@ -28,7 +28,3 @@ fclean: clean
 	make fclean -C $(LIBFT_DIR)
 
 re: fclean all
-
-submit:
-	@chmod +x submit.sh
-	./submit.sh
