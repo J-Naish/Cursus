@@ -5,7 +5,7 @@ SRC := main.c
 OBJ_DIR := obj
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 LIBFT_DIR := libft
-LIBFT = ./$(LIBFT)/libft.a
+LIBFT := ./$(LIBFT_DIR)/libft.a
 
 all: $(NAME)
 
