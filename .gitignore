@@ -2,7 +2,6 @@
 *.out
 *.a
 *.o
-*.pdf
 
 .*
 !.gitignore
