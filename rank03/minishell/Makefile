@@ -27,4 +27,8 @@ fclean: clean
 
 re: fclean all
 
+submit:
+	@chmod +x submit.sh
+	./submit.sh
+
 .PHONY: all clean fclean re
