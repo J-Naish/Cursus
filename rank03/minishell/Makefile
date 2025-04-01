@@ -7,6 +7,8 @@ OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 LIBFT_DIR := libft
 LIBFT := ./$(LIBFT_DIR)/libft.a
 
+.PHONY: all clean fclean re submit
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
@@ -30,5 +32,3 @@ re: fclean all
 submit:
 	@chmod +x submit.sh
 	./submit.sh
-
-.PHONY: all clean fclean re
