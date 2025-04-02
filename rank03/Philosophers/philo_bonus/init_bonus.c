@@ -38,12 +38,12 @@ static t_meta	*init_meta(int argc, char **argv)
 	if (!meta)
 		return (NULL);
 	meta->config = init_config(argc, argv);
-	meta->sem_name = "/forks";
-	meta->sem_forks
-		= sem_open(meta->sem_name, O_CREAT, 0644, meta->config.num_philos);
+	meta->sem_name_forks = "/forks";
+	meta->sem_forks = sem_open(meta->sem_name_forks, O_CREAT,
+			0644, meta->config.num_philos);
 	if (meta->sem_forks == SEM_FAILED)
 		return (NULL);
-	sem_unlink(meta->sem_name);
+	sem_unlink(meta->sem_name_forks);
 	meta->start_time = get_current_time();
 	return (meta);
 }

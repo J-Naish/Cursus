@@ -44,7 +44,7 @@ typedef struct s_config
 typedef struct s_meta
 {
 	t_config		config;
-	char			*sem_name;
+	char			*sem_name_forks;
 	sem_t			*sem_forks;
 	struct timeval	start_time;
 }	t_meta;
