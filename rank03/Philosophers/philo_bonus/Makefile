@@ -1,7 +1,8 @@
 NAME = philo_bonus
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRC = main_bonus.c\
+SRC = init_bonus.c\
+		main_bonus.c\
 		validate_bonus.c
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))

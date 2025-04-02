@@ -50,6 +50,7 @@ typedef enum e_philo_state
 
 typedef struct s_philo
 {
+	size_t			number;
 	pid_t			pid;
 	t_philo_state	state;
 	size_t			eating_count;
@@ -58,8 +59,14 @@ typedef struct s_philo
 
 typedef struct s_table
 {
-	sem_t	sem_fork;
+	sem_t			sem_forks;
+	t_philo			*philos;
+	struct timeval	start_time;
+	t_config		config;
 }	t_table;
+
+// init_bonus.c
+t_table	*init_table(int argc, char **argv);
 
 // validate_bonus.c
 bool	is_valid_arg(int argc, char **argv);
