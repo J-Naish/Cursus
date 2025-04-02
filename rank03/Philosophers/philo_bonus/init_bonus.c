@@ -30,14 +30,30 @@ static t_config	init_config(int argc, char **argv)
 	return (config);
 }
 
-static t_philo	init_philo(size_t number)
+static t_meta	*init_meta(int argc, char **argv)
+{
+	t_meta	*meta;
+
+	meta = (t_meta *)malloc(sizeof(t_meta));
+	meta->config = init_config(argc, argv);
+	meta->sem_name = "/forks";
+	meta->sem_forks
+		= sem_open(meta->sem_name, O_CREAT, 0644, meta->config.num_philos);
+	if (meta->sem_forks == SEM_FAILED)
+		return (NULL);
+	meta->start_time = get_current_time();
+	return (meta);
+}
+
+static t_philo	init_philo(size_t index, t_meta *meta)
 {
 	t_philo	philo;
 
-	philo.number = number;
+	philo.number = index + 1;
 	philo.state = THINKING;
 	philo.eating_count = 0;
-	gettimeofday(&(philo.last_meal_time), NULL);
+	philo.last_meal_time = get_current_time();
+	philo.meta = meta;
 	return (philo);
 }
 
@@ -49,22 +65,18 @@ t_table	*init_table(int argc, char **argv)
 	table = (t_table *)malloc(sizeof(t_table));
 	if (!table)
 		return (NULL);
-	table->config = init_config(argc, argv);
-	gettimeofday(&(table->start_time), NULL);
-	table->philos
-		= (t_philo *)malloc(sizeof(t_philo) * table->config.num_philos);
-	if (!table->philos)
+	table->meta = init_meta(argc, argv);
+	if (!table->meta)
 		return (free(table), NULL);
+	table->philos
+		= (t_philo *)malloc(sizeof(t_philo) * table->meta->config.num_philos);
+	if (!table->philos)
+		return (free(table->meta), free(table), NULL);
 	i = 0;
-	while (i < table->config.num_philos)
+	while (i < table->meta->config.num_philos)
 	{
-		table->philos[i] = init_philo(i + 1);
+		table->philos[i] = init_philo(i, table->meta);
 		i++;
 	}
-	table->sem_name = "/forks";
-	table->sem_forks
-		= sem_open(table->sem_name, O_CREAT, 0644, table->config.num_philos);
-	if (table->sem_forks == SEM_FAILED)
-		return (free(table->philos), free(table), NULL);
 	return (table);
 }

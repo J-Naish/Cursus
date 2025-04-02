@@ -6,7 +6,7 @@ void	create_processes(t_table *table, void (*routine)(t_philo *))
 	size_t	j;
 
 	i = 0;
-	while (i < table->config.num_philos)
+	while (i < table->meta->config.num_philos)
 	{
 		table->philos[i].pid = fork();
 		if (table->philos[i].pid < 0)

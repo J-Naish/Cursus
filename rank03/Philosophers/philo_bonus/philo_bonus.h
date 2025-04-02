@@ -41,6 +41,14 @@ typedef struct s_config
 	size_t	times_to_eat_to_exit;
 }	t_config;
 
+typedef struct s_meta
+{
+	t_config		config;
+	char			*sem_name;
+	sem_t			*sem_forks;
+	struct timeval	start_time;
+}	t_meta;
+
 typedef enum e_philo_state
 {
 	THINKING = 0,
@@ -55,27 +63,29 @@ typedef struct s_philo
 	t_philo_state	state;
 	size_t			eating_count;
 	struct timeval	last_meal_time;
+	t_meta			*meta;
 }	t_philo;
 
 typedef struct s_table
 {
-	char			*sem_name;
-	sem_t			*sem_forks;
 	t_philo			*philos;
-	struct timeval	start_time;
-	t_config		config;
+	t_meta			*meta;
 }	t_table;
 
 // deinit_bonus.c
-void	deinit_table(t_table *table);
+void			deinit_table(t_table *table);
 
 // init_bonus.c
-t_table	*init_table(int argc, char **argv);
+t_table			*init_table(int argc, char **argv);
 
 // process_bonus.c
-void	create_processes(t_table *table, void (*routine)(t_philo *));
+void			create_processes(t_table *table, void (*routine)(t_philo *));
+
+// time_bonus.c
+struct timeval	get_current_time(void);
+int				get_elapsed_time(struct timeval start_time);
 
 // validate_bonus.c
-bool	is_valid_arg(int argc, char **argv);
+bool			is_valid_arg(int argc, char **argv);
 
 #endif

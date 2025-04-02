@@ -2,8 +2,9 @@
 
 void	deinit_table(t_table *table)
 {
-	sem_unlink(table->sem_name);
-	sem_close(table->sem_forks);
+	sem_unlink(table->meta->sem_name);
+	sem_close(table->meta->sem_forks);
 	free(table->philos);
+	free(table->meta);
 	free(table);
 }

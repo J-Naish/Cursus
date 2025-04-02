@@ -5,6 +5,7 @@ SRC = deinit_bonus.c\
 		init_bonus.c\
 		main_bonus.c\
 		process_bonus.c\
+		time_bonus.c\
 		validate_bonus.c
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
