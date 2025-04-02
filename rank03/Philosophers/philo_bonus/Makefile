@@ -5,6 +5,8 @@ SRC = actions_bonus.c\
 		deinit_bonus.c\
 		init_bonus.c\
 		log_bonus.c\
+		log_utils1_bonus.c\
+		log_utils2_bonus.c\
 		main_bonus.c\
 		process_bonus.c\
 		routine_bonus.c\
