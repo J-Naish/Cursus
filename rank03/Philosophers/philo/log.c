@@ -2,11 +2,8 @@
 
 void	log_take_fork(t_philo philo)
 {
-	struct timeval	now;
-
 	if (!should_simulation_continue(philo))
 		return ;
-	gettimeofday(&now, NULL);
 	printf("%d %d has taken a fork\n",
 		get_elapsed_time(philo.start_time), philo.number);
 }
