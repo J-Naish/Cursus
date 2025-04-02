@@ -3,6 +3,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRC = deinit_bonus.c\
 		init_bonus.c\
+		log_bonus.c\
 		main_bonus.c\
 		process_bonus.c\
 		time_bonus.c\

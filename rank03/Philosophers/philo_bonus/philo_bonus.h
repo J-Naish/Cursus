@@ -78,6 +78,13 @@ void			deinit_table(t_table *table);
 // init_bonus.c
 t_table			*init_table(int argc, char **argv);
 
+// log_bonus.c
+void			log_take_fork(t_philo philo);
+void			log_eat(t_philo philo);
+void			log_sleep(t_philo philo);
+void			log_think(t_philo philo);
+void			log_died(t_philo philo);
+
 // process_bonus.c
 void			create_processes(t_table *table, void (*routine)(t_philo *));
 
