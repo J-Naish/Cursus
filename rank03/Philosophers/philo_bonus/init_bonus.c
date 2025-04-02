@@ -61,9 +61,10 @@ t_table	*init_table(int argc, char **argv)
 		table->philos[i] = init_philo(i + 1);
 		i++;
 	}
+	table->sem_name = "/forks";
 	table->sem_forks
-		= sem_open("/forks", O_CREAT, 0644, table->config.num_philos);
+		= sem_open(table->sem_name, O_CREAT, 0644, table->config.num_philos);
 	if (table->sem_forks == SEM_FAILED)
-		return (free(table), free(table->philos), NULL);
+		return (free(table->philos), free(table), NULL);
 	return (table);
 }

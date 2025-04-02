@@ -59,6 +59,7 @@ typedef struct s_philo
 
 typedef struct s_table
 {
+	char			*sem_name;
 	sem_t			*sem_forks;
 	t_philo			*philos;
 	struct timeval	start_time;
