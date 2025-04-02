@@ -56,6 +56,7 @@ void	monitor(t_table *table)
 				sem_wait(table->meta->sem_simulation);
 				table->meta->is_simulating = false;
 				sem_post(table->meta->sem_simulation);
+				log_died(table->philos[i]);
 				return ;
 			}
 			i++;
