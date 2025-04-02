@@ -30,10 +30,12 @@ void	create_processes(t_table *table, void (*routine)(t_philo *))
 			routine(&(table->philos[i]));
 			exit(EXIT_SUCCESS);
 		}
-		else
-		{
-			waitpid(table->philos[i].pid, NULL, 0);
-		}
+		i++;
+	}
+	i = 0;
+	while (i < table->meta->config.num_philos)
+	{
+		waitpid(table->philos[i].pid, NULL, 0);
 		i++;
 	}
 }
