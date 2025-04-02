@@ -3,6 +3,7 @@
 void	deinit_table(t_table *table)
 {
 	sem_close(table->meta->sem_forks);
+	sem_close(table->meta->sem_simulation);
 	free(table->philos);
 	free(table->meta);
 	free(table);
