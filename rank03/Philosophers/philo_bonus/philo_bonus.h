@@ -8,6 +8,7 @@
 # include <sys/time.h>
 # include <sys/wait.h>
 # include <semaphore.h>
+# include <fcntl.h>
 # include <stdbool.h>
 # include <stdint.h>
 
