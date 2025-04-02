@@ -72,6 +72,11 @@ typedef struct s_table
 	t_meta			*meta;
 }	t_table;
 
+// actions.c
+void			philo_eat(t_philo *philo);
+void			philo_sleep(t_philo *philo);
+void			philo_think(t_philo *philo);
+
 // deinit_bonus.c
 void			deinit_table(t_table *table);
 
@@ -87,6 +92,9 @@ void			log_died(t_philo philo);
 
 // process_bonus.c
 void			create_processes(t_table *table, void (*routine)(t_philo *));
+
+// routine_bonus.c
+void			routine(t_philo *philo);
 
 // time_bonus.c
 struct timeval	get_current_time(void);

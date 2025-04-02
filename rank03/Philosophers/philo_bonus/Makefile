@@ -1,11 +1,13 @@
 NAME = philo_bonus
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRC = deinit_bonus.c\
+SRC = actions_bonus.c\
+		deinit_bonus.c\
 		init_bonus.c\
 		log_bonus.c\
 		main_bonus.c\
 		process_bonus.c\
+		routine_bonus.c\
 		time_bonus.c\
 		validate_bonus.c
 OBJ_DIR = obj
