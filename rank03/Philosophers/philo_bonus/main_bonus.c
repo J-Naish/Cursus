@@ -13,6 +13,7 @@ int	main(int argc, char **argv)
 	if (!table)
 		exit(EXIT_FAILURE);
 	create_processes(table, routine);
+	monitor(table);
 	deinit_table(table);
 	return (EXIT_SUCCESS);
 }

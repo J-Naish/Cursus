@@ -102,6 +102,9 @@ char			*ft_strdup(const char *s1);
 // log_utils2_bonus.c
 void			log_action(t_philo philo, const char *color, const char *s);
 
+// monitor_bonus.c
+void			monitor(t_table *table);
+
 // process_bonus.c
 void			create_processes(t_table *table, void (*routine)(t_philo *));
 
