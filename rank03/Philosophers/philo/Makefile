@@ -1,7 +1,7 @@
 NAME = philo
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = debug.c\
+SRC = debug.c\
 		deinit.c\
 		log.c\
 		main.c\
@@ -12,14 +12,14 @@ SRCS = debug.c\
 		init.c\
 		validate.c
 OBJ_DIR = obj
-OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
+OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(@D)
