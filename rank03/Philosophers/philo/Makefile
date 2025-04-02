@@ -14,6 +14,8 @@ SRCS = debug.c\
 OBJ_DIR = obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
+.PHONY: all clean fclean re
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -31,8 +33,3 @@ fclean: clean
 
 re: fclean all
 
-test:
-	@chmod +x test.sh
-	./test.sh
-
-.PHONY: all clean fclean re
