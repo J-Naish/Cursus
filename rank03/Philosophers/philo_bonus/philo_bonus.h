@@ -46,6 +46,9 @@ typedef struct s_meta
 	t_config		config;
 	char			*sem_name_forks;
 	sem_t			*sem_forks;
+	char			*sem_name_simulation;
+	sem_t			*sem_simulation;
+	bool			is_simulating;
 	struct timeval	start_time;
 }	t_meta;
 
