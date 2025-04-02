@@ -72,6 +72,9 @@ void	deinit_table(t_table *table);
 // init_bonus.c
 t_table	*init_table(int argc, char **argv);
 
+// process_bonus.c
+void	create_processes(t_table *table, void (*routine)(t_philo *));
+
 // validate_bonus.c
 bool	is_valid_arg(int argc, char **argv);
 
