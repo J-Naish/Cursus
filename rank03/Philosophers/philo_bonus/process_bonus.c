@@ -1,9 +1,20 @@
 #include "philo_bonus.h"
 
+static void	destroy_processes(t_table *table, size_t i)
+{
+	size_t	j;
+
+	j = 0;
+	while (j < i)
+	{
+		kill(table->philos[j].pid, SIGTERM);
+		j++;
+	}
+}
+
 void	create_processes(t_table *table, void (*routine)(t_philo *))
 {
 	size_t	i;
-	size_t	j;
 
 	i = 0;
 	while (i < table->meta->config.num_philos)
@@ -11,14 +22,8 @@ void	create_processes(t_table *table, void (*routine)(t_philo *))
 		table->philos[i].pid = fork();
 		if (table->philos[i].pid < 0)
 		{
-			j = 0;
-			while (j < i)
-			{
-				kill(table->philos[j].pid, SIGTERM);
-				j++;
-			}
-			deinit_table(table);
-			exit(EXIT_FAILURE);
+			destroy_processes(table, i);
+			return ;
 		}
 		else if (table->philos[i].pid == 0)
 		{
