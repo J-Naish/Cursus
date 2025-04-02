@@ -8,6 +8,7 @@
 # include <sys/time.h>
 # include <sys/wait.h>
 # include <semaphore.h>
+# include <stdbool.h>
 # include <stdint.h>
 
 # ifndef RED
@@ -53,5 +54,8 @@ typedef struct s_config
 	size_t	time_to_sleep;
 	size_t	times_to_eat_to_exit;
 }	t_config;
+
+// validate_bonus.c
+bool	is_valid_arg(int argc, char **argv);
 
 #endif
