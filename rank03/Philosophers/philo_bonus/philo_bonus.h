@@ -31,6 +31,15 @@
 #  define RESET "\033[0m"
 # endif
 
+typedef struct s_config
+{
+	size_t	num_philos;
+	size_t	time_to_die;
+	size_t	time_to_eat;
+	size_t	time_to_sleep;
+	size_t	times_to_eat_to_exit;
+}	t_config;
+
 typedef enum e_philo_state
 {
 	THINKING = 0,
@@ -46,14 +55,10 @@ typedef struct s_philo
 	struct timeval	last_meal_time;
 }	t_philo;
 
-typedef struct s_config
+typedef struct s_table
 {
-	size_t	num_philos;
-	size_t	time_to_die;
-	size_t	time_to_eat;
-	size_t	time_to_sleep;
-	size_t	times_to_eat_to_exit;
-}	t_config;
+	sem_t	sem_fork;
+}	t_table;
 
 // validate_bonus.c
 bool	is_valid_arg(int argc, char **argv);
