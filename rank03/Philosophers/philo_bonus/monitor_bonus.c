@@ -36,6 +36,7 @@ void	monitor(t_table *table)
 			sem_wait(table->meta->sem_simulation);
 			table->meta->is_simulating = false;
 			sem_post(table->meta->sem_simulation);
+			return ;
 		}
 		i = 0;
 		while (i < table->meta->config.num_philos)
@@ -45,6 +46,7 @@ void	monitor(t_table *table)
 				sem_wait(table->meta->sem_simulation);
 				table->meta->is_simulating = false;
 				sem_post(table->meta->sem_simulation);
+				return ;
 			}
 			i++;
 		}
