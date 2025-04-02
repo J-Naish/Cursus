@@ -38,6 +38,7 @@ static t_philo	init_philo(size_t number)
 	philo.state = THINKING;
 	philo.eating_count = 0;
 	gettimeofday(&(philo.last_meal_time), NULL);
+	return (philo);
 }
 
 t_table	*init_table(int argc, char **argv)
