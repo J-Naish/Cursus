@@ -32,6 +32,12 @@ void	create_processes(t_table *table, void (*routine)(t_philo *))
 		}
 		i++;
 	}
+}
+
+void	wait_for_processes(t_table *table)
+{
+	size_t	i;
+
 	i = 0;
 	while (i < table->meta->config.num_philos)
 	{

@@ -107,6 +107,7 @@ void			monitor(t_table *table);
 
 // process_bonus.c
 void			create_processes(t_table *table, void (*routine)(t_philo *));
+void			wait_for_processes(t_table *table);
 
 // routine_bonus.c
 void			routine(t_philo *philo);

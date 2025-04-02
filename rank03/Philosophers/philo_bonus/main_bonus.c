@@ -14,6 +14,7 @@ int	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	create_processes(table, routine);
 	monitor(table);
+	wait_for_processes(table);
 	deinit_table(table);
 	return (EXIT_SUCCESS);
 }
