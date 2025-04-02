@@ -117,6 +117,7 @@ int				get_elapsed_time(struct timeval start_time);
 
 // utils_bonus.c
 bool			should_simulation_continue(t_philo *philo);
+void			split_sleep(int duration, t_philo *philo);
 
 // validate_bonus.c
 bool			is_valid_arg(int argc, char **argv);
