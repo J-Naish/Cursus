@@ -35,6 +35,8 @@ static t_meta	*init_meta(int argc, char **argv)
 	t_meta	*meta;
 
 	meta = (t_meta *)malloc(sizeof(t_meta));
+	if (!meta)
+		return (NULL);
 	meta->config = init_config(argc, argv);
 	meta->sem_name = "/forks";
 	meta->sem_forks
