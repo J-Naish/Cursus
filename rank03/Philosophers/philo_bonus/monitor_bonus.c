@@ -25,11 +25,21 @@ static bool	is_philo_starving(t_philo philo)
 	return (false);
 }
 
+static bool	get_is_simulating(t_table table)
+{
+	bool	b;
+
+	sem_wait(table.meta->sem_simulation);
+	b = table.meta->is_simulating;
+	sem_post(table.meta->sem_simulation);
+	return (b);
+}
+
 void	monitor(t_table *table)
 {
 	size_t	i;
 
-	while (table->meta->is_simulating)
+	while (get_is_simulating(*table))
 	{
 		if (have_philo_eaten_enough(*table))
 		{
