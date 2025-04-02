@@ -12,5 +12,6 @@ int	main(int argc, char **argv)
 	table = init_table(argc, argv);
 	if (!table)
 		exit(EXIT_FAILURE);
+	deinit_table(table);
 	return (0);
 }

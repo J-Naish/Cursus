@@ -66,6 +66,9 @@ typedef struct s_table
 	t_config		config;
 }	t_table;
 
+// deinit_bonus.c
+void	deinit_table(t_table *table);
+
 // init_bonus.c
 t_table	*init_table(int argc, char **argv);
 
