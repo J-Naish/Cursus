@@ -19,10 +19,6 @@ void	create_monitor_process(t_table *table)
 	{
 		monitor_routine(table);
 	}
-	else
-	{
-		waitpid(table->monitor.pid, NULL, 0);
-	}
 }
 
 void	wait_monitor_process(t_table *table)
