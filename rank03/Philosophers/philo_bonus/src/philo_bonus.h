@@ -80,34 +80,33 @@ typedef struct s_table
 	t_meta			*meta;
 }	t_table;
 
-// actions.c
+// MARK: parse
+// init_bonus.c
+t_table			*init_table(int argc, char **argv);
+// validate_bonus.c
+bool			is_valid_arg(int argc, char **argv);
+
+// MARK: process
+// actions_bonus.c
 void			philo_eat(t_philo *philo);
 void			philo_sleep(t_philo *philo);
 void			philo_think(t_philo *philo);
-
-// deinit_bonus.c
-void			deinit_table(t_table *table);
-
-// init_bonus.c
-t_table			*init_table(int argc, char **argv);
-
 // log_bonus.c
 void			log_take_fork(t_philo philo);
 void			log_eat(t_philo philo);
 void			log_sleep(t_philo philo);
 void			log_think(t_philo philo);
 void			log_died(t_philo philo);
-
 // process_bonus.c
 void			create_processes(t_table *table);
+// subthread_bonus.c
+void			create_monitor_thread(t_philo *philo);
 
+// MARK: utils
+// deinit_bonus.c
+void			deinit_table(t_table *table);
 // time_bonus.c
 struct timeval	get_current_time(void);
 int				get_elapsed_time(struct timeval start_time);
-
-// validate_bonus.c
-bool			is_valid_arg(int argc, char **argv);
-
-void			create_monitor_thread(t_philo *philo);
 
 #endif
