@@ -44,6 +44,12 @@ static t_meta	*init_meta(int argc, char **argv)
 	if (meta->sem_forks == SEM_FAILED)
 		return (free(meta), NULL);
 	sem_unlink(meta->sem_name_forks);
+	meta->sem_name_log = "/log";
+	meta->sem_log = sem_open(meta->sem_name_log,
+			O_CREAT, 0644, 1);
+	if (meta->sem_log == SEM_FAILED)
+		return (sem_close(meta->sem_forks), free(meta), NULL);
+	sem_unlink(meta->sem_name_log);
 	meta->start_time = get_current_time();
 	return (meta);
 }
