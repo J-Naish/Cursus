@@ -13,9 +13,7 @@ int	main(int argc, char **argv)
 	if (!table)
 		exit(EXIT_FAILURE);
 	create_philo_processes(table);
-	create_monitor_process(table);
 	wait_philo_processes(table);
-	wait_monitor_process(table);
 	deinit_table(table);
 	return (EXIT_SUCCESS);
 }

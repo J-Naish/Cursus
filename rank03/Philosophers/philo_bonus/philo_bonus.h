@@ -46,9 +46,6 @@ typedef struct s_meta
 	t_config		config;
 	char			*sem_name_forks;
 	sem_t			*sem_forks;
-	char			*sem_name_simulation;
-	sem_t			*sem_simulation;
-	bool			is_simulating;
 	struct timeval	start_time;
 }	t_meta;
 
@@ -69,16 +66,10 @@ typedef struct s_philo
 	t_meta			*meta;
 }	t_philo;
 
-typedef struct s_monitor
-{
-	pid_t	pid;
-}	t_monitor;
-
 typedef struct s_table
 {
 	t_philo			*philos;
 	t_meta			*meta;
-	t_monitor		monitor;
 }	t_table;
 
 // actions.c
@@ -108,13 +99,6 @@ char			*ft_strdup(const char *s1);
 // log_utils2_bonus.c
 void			log_action(t_philo philo, const char *color, const char *s);
 
-// monitor_process_bonus.c
-void			create_monitor_process(t_table *table);
-void			wait_monitor_process(t_table *table);
-
-// monitor_routine_bonus.c
-void			monitor_routine(t_table *table);
-
 // philo_process_bonus.c
 void			create_philo_processes(t_table *table);
 void			wait_philo_processes(t_table *table);
@@ -125,11 +109,6 @@ void			philo_routine(t_philo *philo);
 // time_bonus.c
 struct timeval	get_current_time(void);
 int				get_elapsed_time(struct timeval start_time);
-
-// utils_bonus.c
-bool			should_simulation_continue(t_philo *philo);
-void			split_sleep(int duration, t_philo *philo);
-bool			get_is_simulating(t_table table);
 
 // validate_bonus.c
 bool			is_valid_arg(int argc, char **argv);
