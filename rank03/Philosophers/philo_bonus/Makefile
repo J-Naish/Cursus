@@ -1,12 +1,10 @@
 NAME = philo_bonus
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRC = src/log/log_bonus.c\
-		src/log/log_utils1_bonus.c\
-		src/log/log_utils2_bonus.c\
-		src/parse/init_bonus.c\
+SRC = src/parse/init_bonus.c\
 		src/parse/validate_bonus.c\
 		src/process/actions_bonus.c\
+		src/process/log_bonus.c\
 		src/process/process_bonus.c\
 		src/utils/deinit_bonus.c\
 		src/utils/time_bonus.c\

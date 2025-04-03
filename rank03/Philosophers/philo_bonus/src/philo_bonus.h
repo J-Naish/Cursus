@@ -94,15 +94,6 @@ void			log_sleep(t_philo philo);
 void			log_think(t_philo philo);
 void			log_died(t_philo philo);
 
-// log_utils1_bonus.c
-size_t			ft_strlen(const char *s);
-char			*ft_strjoin(char const *s1, char const *s2);
-char			*ft_itoa(int n);
-char			*ft_strdup(const char *s1);
-
-// log_utils2_bonus.c
-void			log_action(t_philo philo, const char *color, const char *s);
-
 // process_bonus.c
 void			create_processes(t_table *table);
 
