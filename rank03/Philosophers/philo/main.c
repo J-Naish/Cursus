@@ -11,7 +11,7 @@ int	main(int argc, char **argv)
 	}
 	table = init_table(argc, argv);
 	if (!table)
-		exit(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	create_philo_threads(table);
 	create_monitor_thread(table);
 	join_philo_threads(table);
