@@ -99,12 +99,8 @@ char			*ft_strdup(const char *s1);
 // log_utils2_bonus.c
 void			log_action(t_philo philo, const char *color, const char *s);
 
-// philo_process_bonus.c
-void			create_philo_processes(t_table *table);
-void			wait_philo_processes(t_table *table);
-
-// philo_routine_bonus.c
-void			philo_routine(t_philo *philo);
+// process_bonus.c
+void			create_processes(t_table *table);
 
 // time_bonus.c
 struct timeval	get_current_time(void);

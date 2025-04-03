@@ -12,8 +12,7 @@ int	main(int argc, char **argv)
 	table = init_table(argc, argv);
 	if (!table)
 		exit(EXIT_FAILURE);
-	create_philo_processes(table);
-	wait_philo_processes(table);
+	create_processes(table);
 	deinit_table(table);
 	return (EXIT_SUCCESS);
 }

@@ -12,7 +12,18 @@ static void	destroy_processes(t_table *table, size_t i)
 	}
 }
 
-void	create_philo_processes(t_table *table)
+static void	routine(t_philo *philo)
+{
+	usleep(100);
+	while (1)
+	{
+		philo_eat(philo);
+		philo_sleep(philo);
+		philo_think(philo);
+	}
+}
+
+void	create_processes(t_table *table)
 {
 	size_t	i;
 
@@ -27,21 +38,10 @@ void	create_philo_processes(t_table *table)
 		}
 		else if (table->philos[i].pid == 0)
 		{
-			philo_routine(&(table->philos[i]));
+			routine(&(table->philos[i]));
 			exit(EXIT_SUCCESS);
 		}
 		i++;
 	}
-}
-
-void	wait_philo_processes(t_table *table)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < table->meta->config.num_philos)
-	{
-		waitpid(table->philos[i].pid, NULL, 0);
-		i++;
-	}
+	waitpid(-1, NULL, 0);
 }

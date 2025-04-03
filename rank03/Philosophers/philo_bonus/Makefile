@@ -8,8 +8,7 @@ SRC = actions_bonus.c\
 		log_utils1_bonus.c\
 		log_utils2_bonus.c\
 		main_bonus.c\
-		philo_process_bonus.c\
-		philo_routine_bonus.c\
+		process_bonus.c\
 		time_bonus.c\
 		validate_bonus.c
 OBJ_DIR = obj
