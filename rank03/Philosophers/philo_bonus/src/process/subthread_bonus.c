@@ -11,15 +11,7 @@ static bool	is_starving(t_philo philo)
 		return (false);
 }
 
-static bool	has_eaten_enough(t_philo philo)
-{
-	if (philo.eating_count >= philo.meta->config.times_to_eat_to_exit)
-		return (true);
-	else
-		return (false);
-}
-
-static void	*monitor_thread_routine(void *arg)
+static void	*death_monitor_routine(void *arg)
 {
 	t_philo	*philo;
 
@@ -31,15 +23,13 @@ static void	*monitor_thread_routine(void *arg)
 			log_died(*philo);
 			exit(EXIT_SUCCESS);
 		}
-		if (has_eaten_enough(*philo))
-			exit(EXIT_SUCCESS);
 		usleep(1000);
 	}
 	return (NULL);
 }
 
-void	create_monitor_thread(t_philo *philo)
+void	create_death_monitor_thread(t_philo *philo)
 {
-	pthread_create(&(philo->subthread), NULL, monitor_thread_routine, philo);
-	pthread_detach(philo->subthread);
+	pthread_create(&(philo->death_thread), NULL, death_monitor_routine, philo);
+	pthread_detach(philo->death_thread);
 }

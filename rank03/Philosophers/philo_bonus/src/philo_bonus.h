@@ -69,7 +69,7 @@ typedef struct s_philo
 {
 	size_t			number;
 	pid_t			pid;
-	pthread_t		subthread;
+	pthread_t		death_thread;
 	t_philo_state	state;
 	size_t			eating_count;
 	struct timeval	last_meal_time;
@@ -102,7 +102,7 @@ void			log_died(t_philo philo);
 // process_bonus.c
 void			create_processes(t_table *table);
 // subthread_bonus.c
-void			create_monitor_thread(t_philo *philo);
+void			create_death_monitor_thread(t_philo *philo);
 
 // MARK: utils
 // deinit_bonus.c
