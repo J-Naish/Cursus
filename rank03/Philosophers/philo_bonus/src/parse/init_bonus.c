@@ -18,27 +18,21 @@ static t_config	init_config(int argc, char **argv)
 static t_meta	*init_sems(t_meta *meta)
 {
 	meta->sem_name_forks = "/forks";
+	meta->sem_name_log = "/log";
+	meta->sem_name_meals = "/meals";
+	meta->sem_name_death = "/death";
+	sem_unlink(meta->sem_name_forks);
+	sem_unlink(meta->sem_name_log);
+	sem_unlink(meta->sem_name_meals);
+	sem_unlink(meta->sem_name_death);
 	meta->sem_forks = sem_open(meta->sem_name_forks,
 			O_CREAT, 0644, meta->config.num_philos);
-	if (meta->sem_forks == SEM_FAILED)
-		return (free(meta), NULL);
-	meta->sem_name_log = "/log";
 	meta->sem_log = sem_open(meta->sem_name_log,
 			O_CREAT, 0644, 1);
-	if (meta->sem_log == SEM_FAILED)
-		return (sem_close(meta->sem_forks), free(meta), NULL);
-	meta->sem_name_meals = "/meals";
 	meta->sem_meals = sem_open(meta->sem_name_meals,
 			O_CREAT, 0644, 0);
-	if (meta->sem_meals == SEM_FAILED)
-		return (sem_close(meta->sem_log),
-			sem_close(meta->sem_forks), free(meta), NULL);
-	meta->sem_name_death = "/death";
 	meta->sem_death = sem_open(meta->sem_name_death,
 			O_CREAT, 0644, 1);
-	if (meta->sem_death == SEM_FAILED)
-		return (sem_close(meta->sem_meals), sem_close(meta->sem_log),
-			sem_close(meta->sem_forks), free(meta), NULL);
 	return (meta);
 }
 
