@@ -27,7 +27,10 @@ static void	*monitor_thread_routine(void *arg)
 	while (1)
 	{
 		if (is_starving(*philo))
+		{
+			log_died(*philo);
 			exit(EXIT_SUCCESS);
+		}
 		if (has_eaten_enough(*philo))
 			exit(EXIT_SUCCESS);
 		usleep(1000);
