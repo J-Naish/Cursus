@@ -22,6 +22,7 @@ static void	*routine(void *arg)
 	{
 		if (is_starving(*philo))
 		{
+			sem_wait(philo->meta->sem_death);
 			log_died(*philo);
 			exit(EXIT_SUCCESS);
 		}
