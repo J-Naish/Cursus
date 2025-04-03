@@ -1,4 +1,4 @@
-#include "philo_bonus.h"
+#include "../philo_bonus.h"
 
 static void	ft_putstr(const char *s)
 {

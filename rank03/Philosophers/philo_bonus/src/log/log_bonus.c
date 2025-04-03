@@ -1,4 +1,4 @@
-#include "philo_bonus.h"
+#include "../philo_bonus.h"
 
 void	log_take_fork(t_philo philo)
 {

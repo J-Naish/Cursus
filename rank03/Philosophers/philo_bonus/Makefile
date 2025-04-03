@@ -1,16 +1,16 @@
 NAME = philo_bonus
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRC = actions_bonus.c\
-		deinit_bonus.c\
-		init_bonus.c\
-		log_bonus.c\
-		log_utils1_bonus.c\
-		log_utils2_bonus.c\
-		main_bonus.c\
-		process_bonus.c\
-		time_bonus.c\
-		validate_bonus.c
+SRC = src/log/log_bonus.c\
+		src/log/log_utils1_bonus.c\
+		src/log/log_utils2_bonus.c\
+		src/parse/init_bonus.c\
+		src/parse/validate_bonus.c\
+		src/process/actions_bonus.c\
+		src/process/process_bonus.c\
+		src/utils/deinit_bonus.c\
+		src/utils/time_bonus.c\
+		src/main_bonus.c
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 

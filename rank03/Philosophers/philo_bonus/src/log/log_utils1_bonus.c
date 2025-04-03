@@ -1,4 +1,4 @@
-#include "philo_bonus.h"
+#include "../philo_bonus.h"
 
 size_t	ft_strlen(const char *s)
 {

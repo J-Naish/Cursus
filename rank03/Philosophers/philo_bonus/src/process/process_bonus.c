@@ -1,4 +1,4 @@
-#include "philo_bonus.h"
+#include "../philo_bonus.h"
 
 static void	destroy_processes(t_table *table, size_t i)
 {

@@ -1,4 +1,4 @@
-#include "philo_bonus.h"
+#include "../philo_bonus.h"
 
 static size_t	convert_to_sizet(const char *s)
 {
