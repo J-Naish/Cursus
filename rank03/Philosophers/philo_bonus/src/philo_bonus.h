@@ -53,6 +53,8 @@ typedef struct s_meta
 	sem_t			*sem_forks;
 	char			*sem_name_log;
 	sem_t			*sem_log;
+	char			*sem_name_meals;
+	sem_t			*sem_meals;
 	struct timeval	start_time;
 }	t_meta;
 

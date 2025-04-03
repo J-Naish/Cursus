@@ -43,13 +43,17 @@ static t_meta	*init_meta(int argc, char **argv)
 			O_CREAT, 0644, meta->config.num_philos);
 	if (meta->sem_forks == SEM_FAILED)
 		return (free(meta), NULL);
-	sem_unlink(meta->sem_name_forks);
 	meta->sem_name_log = "/log";
 	meta->sem_log = sem_open(meta->sem_name_log,
 			O_CREAT, 0644, 1);
 	if (meta->sem_log == SEM_FAILED)
 		return (sem_close(meta->sem_forks), free(meta), NULL);
-	sem_unlink(meta->sem_name_log);
+	meta->sem_name_meals = "/meals";
+	meta->sem_meals = sem_open(meta->sem_name_meals,
+			O_CREAT, 0644, 0);
+	if (meta->sem_meals == SEM_FAILED)
+		return (sem_close(meta->sem_log),
+			sem_close(meta->sem_forks), free(meta), NULL);
 	meta->start_time = get_current_time();
 	return (meta);
 }
