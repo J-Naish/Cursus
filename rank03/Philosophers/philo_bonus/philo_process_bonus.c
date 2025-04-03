@@ -27,7 +27,7 @@ void	create_philo_processes(t_table *table)
 		}
 		else if (table->philos[i].pid == 0)
 		{
-			routine(&(table->philos[i]));
+			philo_routine(&(table->philos[i]));
 			exit(EXIT_SUCCESS);
 		}
 		i++;

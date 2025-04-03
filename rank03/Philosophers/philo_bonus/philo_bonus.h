@@ -112,12 +112,15 @@ void			log_action(t_philo philo, const char *color, const char *s);
 void			create_monitor_process(t_table *table);
 void			wait_monitor_process(t_table *table);
 
+// monitor_routine_bonus.c
+void			monitor_routine(t_table *table);
+
 // philo_process_bonus.c
 void			create_philo_processes(t_table *table);
 void			wait_philo_processes(t_table *table);
 
-// routine_bonus.c
-void			routine(t_philo *philo);
+// philo_routine_bonus.c
+void			philo_routine(t_philo *philo);
 
 // time_bonus.c
 struct timeval	get_current_time(void);

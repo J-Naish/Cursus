@@ -1,6 +1,6 @@
 #include "philo_bonus.h"
 
-void	routine(t_philo *philo)
+void	philo_routine(t_philo *philo)
 {
 	usleep(100);
 	while (1)
