@@ -83,6 +83,8 @@ typedef struct s_table
 }	t_table;
 
 // MARK: parse
+// convert_to_sizet_bonus.c
+size_t			convert_to_sizet(const char *s);
 // init_bonus.c
 t_table			*init_table(int argc, char **argv);
 // validate_bonus.c
