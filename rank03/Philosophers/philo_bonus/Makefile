@@ -5,6 +5,7 @@ SRC = src/parse/convert_to_sizet_bonus.c\
 		src/parse/init_bonus.c\
 		src/parse/validate_bonus.c\
 		src/process/actions_bonus.c\
+		src/process/destroy_processes_bonus.c\
 		src/process/log_bonus.c\
 		src/process/monitor_thread_bonus.c\
 		src/process/process_bonus.c\

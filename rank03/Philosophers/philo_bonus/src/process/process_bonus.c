@@ -1,17 +1,5 @@
 #include "../philo_bonus.h"
 
-static void	destroy_processes(t_table *table, size_t i)
-{
-	size_t	j;
-
-	j = 0;
-	while (j < i)
-	{
-		kill(table->philos[j].pid, SIGTERM);
-		j++;
-	}
-}
-
 static void	routine(t_philo *philo)
 {
 	while (1)
