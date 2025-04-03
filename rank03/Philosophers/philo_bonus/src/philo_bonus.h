@@ -9,6 +9,7 @@
 # include <sys/wait.h>
 # include <semaphore.h>
 # include <fcntl.h>
+# include <pthread.h>
 # include <stdbool.h>
 # include <stdint.h>
 
@@ -66,6 +67,7 @@ typedef struct s_philo
 {
 	size_t			number;
 	pid_t			pid;
+	pthread_t		subthread;
 	t_philo_state	state;
 	size_t			eating_count;
 	struct timeval	last_meal_time;
@@ -105,5 +107,7 @@ int				get_elapsed_time(struct timeval start_time);
 
 // validate_bonus.c
 bool			is_valid_arg(int argc, char **argv);
+
+void			create_monitor_thread(t_philo *philo);
 
 #endif
