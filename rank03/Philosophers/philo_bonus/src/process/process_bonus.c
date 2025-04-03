@@ -45,4 +45,7 @@ void	create_processes(t_table *table)
 		i++;
 	}
 	waitpid(-1, NULL, 0);
+	destroy_processes(table, table->meta->config.num_philos);
+	while (waitpid(-1, NULL, 0) > 0)
+		;
 }
