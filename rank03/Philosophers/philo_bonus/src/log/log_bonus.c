@@ -2,25 +2,30 @@
 
 void	log_take_fork(t_philo philo)
 {
-	log_action(philo, NULL, "has taken a fork\n");
+	printf(WHITE"%d %zu has taken a fork\n"RESET,
+		get_elapsed_time(philo.meta->start_time), philo.number);
 }
 
 void	log_eat(t_philo philo)
 {
-	log_action(philo, YELLOW, "is eating\n");
+	printf(YELLOW"%d %zu is eating\n"RESET,
+		get_elapsed_time(philo.meta->start_time), philo.number);
 }
 
 void	log_sleep(t_philo philo)
 {
-	log_action(philo, CYAN, "is sleeping\n");
+	printf(CYAN"%d %zu is sleeping\n"RESET,
+		get_elapsed_time(philo.meta->start_time), philo.number);
 }
 
 void	log_think(t_philo philo)
 {
-	log_action(philo, GREEN, "is thinking\n");
+	printf(GREEN"%d %zu is thinking\n"RESET,
+		get_elapsed_time(philo.meta->start_time), philo.number);
 }
 
 void	log_died(t_philo philo)
 {
-	log_action(philo, RED, "died\n");
+	printf(RED"%d %zu died\n"RESET,
+		get_elapsed_time(philo.meta->start_time), philo.number);
 }

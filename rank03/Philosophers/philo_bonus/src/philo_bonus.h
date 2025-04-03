@@ -20,6 +20,10 @@
 #  define YELLOW "\033[33m"
 # endif
 
+# ifndef WHITE
+#  define WHITE "\033[37m"
+# endif
+
 # ifndef CYAN
 #  define CYAN "\033[36m"
 # endif
