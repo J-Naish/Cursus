@@ -100,7 +100,7 @@ void			log_died(t_philo philo);
 // process_bonus.c
 void			create_processes(t_table *table);
 // subthread_bonus.c
-int				create_monitor_thread(t_philo *philo);
+void			create_monitor_thread(t_philo *philo);
 
 // MARK: utils
 // deinit_bonus.c
