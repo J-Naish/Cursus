@@ -114,5 +114,7 @@ void			deinit_table(t_table *table);
 // time_bonus.c
 struct timeval	get_current_time(void);
 int				get_elapsed_time(struct timeval start_time);
+// unlink_sems_bonus.c
+void			unlink_sems(t_meta *meta);
 
 #endif

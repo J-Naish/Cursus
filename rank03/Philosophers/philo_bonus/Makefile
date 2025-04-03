@@ -10,6 +10,7 @@ SRC = src/parse/convert_to_sizet_bonus.c\
 		src/process/process_bonus.c\
 		src/utils/deinit_bonus.c\
 		src/utils/time_bonus.c\
+		src/utils/unlink_sems_bonus.c\
 		src/main_bonus.c
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
