@@ -21,7 +21,7 @@ static t_meta	*init_sems(t_meta *meta)
 	meta->sem_name_log = "/log";
 	meta->sem_name_meals = "/meals";
 	meta->sem_name_death = "/death";
-	unlink_sems(meta);
+	unlink_sems(*meta);
 	meta->sem_forks = sem_open(meta->sem_name_forks,
 			O_CREAT, 0644, meta->config.num_philos);
 	meta->sem_log = sem_open(meta->sem_name_log,
