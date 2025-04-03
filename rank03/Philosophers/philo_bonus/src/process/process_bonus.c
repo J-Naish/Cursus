@@ -37,7 +37,7 @@ void	create_processes(t_table *table)
 		}
 		else if (table->philos[i].pid == 0)
 		{
-			create_subthread(&(table->philos[i]));
+			create_monitor_thread(&(table->philos[i]));
 			routine(&(table->philos[i]));
 			exit(EXIT_SUCCESS);
 		}

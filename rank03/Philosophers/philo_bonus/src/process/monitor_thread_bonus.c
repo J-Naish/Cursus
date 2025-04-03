@@ -11,7 +11,7 @@ static bool	is_starving(t_philo philo)
 		return (false);
 }
 
-static void	*subthread_routine(void *arg)
+static void	*routine(void *arg)
 {
 	t_philo	*philo;
 	bool	has_eaten_enough;
@@ -36,8 +36,8 @@ static void	*subthread_routine(void *arg)
 	return (NULL);
 }
 
-void	create_subthread(t_philo *philo)
+void	create_monitor_thread(t_philo *philo)
 {
-	pthread_create(&(philo->subthread), NULL, subthread_routine, philo);
-	pthread_detach(philo->subthread);
+	pthread_create(&(philo->monitor_thread), NULL, routine, philo);
+	pthread_detach(philo->monitor_thread);
 }
