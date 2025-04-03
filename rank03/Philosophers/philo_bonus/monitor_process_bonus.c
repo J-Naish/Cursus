@@ -25,17 +25,7 @@ static bool	is_philo_starving(t_philo philo)
 	return (false);
 }
 
-static bool	get_is_simulating(t_table table)
-{
-	bool	b;
-
-	sem_wait(table.meta->sem_simulation);
-	b = table.meta->is_simulating;
-	sem_post(table.meta->sem_simulation);
-	return (b);
-}
-
-void	monitor(t_table *table)
+static void	monitor_routine(t_table *table)
 {
 	size_t	i;
 
@@ -62,4 +52,34 @@ void	monitor(t_table *table)
 			i++;
 		}
 	}
+}
+
+void	create_monitor_process(t_table *table)
+{
+	size_t	i;
+
+	table->monitor.pid = fork();
+	if (table->monitor.pid < 0)
+	{
+		i = 0;
+		while (i < table->meta->config.num_philos)
+		{
+			kill(table->philos[i].pid, SIGTERM);
+			i++;
+		}
+		return ;
+	}
+	else if (table->monitor.pid == 0)
+	{
+		monitor_routine(table);
+	}
+	else
+	{
+		waitpid(table->monitor.pid, NULL, 0);
+	}
+}
+
+void	wait_monitor_process(t_table *table)
+{
+	waitpid(table->monitor.pid, NULL, 0);
 }

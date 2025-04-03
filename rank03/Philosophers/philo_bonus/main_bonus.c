@@ -12,9 +12,10 @@ int	main(int argc, char **argv)
 	table = init_table(argc, argv);
 	if (!table)
 		exit(EXIT_FAILURE);
-	create_processes(table, routine);
-	monitor(table);
-	wait_for_processes(table);
+	create_philo_processes(table);
+	create_monitor_process(table);
+	wait_philo_processes(table);
+	wait_monitor_process(table);
 	deinit_table(table);
 	return (EXIT_SUCCESS);
 }

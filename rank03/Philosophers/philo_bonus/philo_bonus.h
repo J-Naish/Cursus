@@ -69,10 +69,16 @@ typedef struct s_philo
 	t_meta			*meta;
 }	t_philo;
 
+typedef struct s_monitor
+{
+	pid_t	pid;
+}	t_monitor;
+
 typedef struct s_table
 {
 	t_philo			*philos;
 	t_meta			*meta;
+	t_monitor		monitor;
 }	t_table;
 
 // actions.c
@@ -102,12 +108,13 @@ char			*ft_strdup(const char *s1);
 // log_utils2_bonus.c
 void			log_action(t_philo philo, const char *color, const char *s);
 
-// monitor_bonus.c
-void			monitor(t_table *table);
+// monitor_process_bonus.c
+void			create_monitor_process(t_table *table);
+void			wait_monitor_process(t_table *table);
 
-// process_bonus.c
-void			create_processes(t_table *table, void (*routine)(t_philo *));
-void			wait_for_processes(t_table *table);
+// philo_process_bonus.c
+void			create_philo_processes(t_table *table);
+void			wait_philo_processes(t_table *table);
 
 // routine_bonus.c
 void			routine(t_philo *philo);
@@ -119,6 +126,7 @@ int				get_elapsed_time(struct timeval start_time);
 // utils_bonus.c
 bool			should_simulation_continue(t_philo *philo);
 void			split_sleep(int duration, t_philo *philo);
+bool			get_is_simulating(t_table table);
 
 // validate_bonus.c
 bool			is_valid_arg(int argc, char **argv);

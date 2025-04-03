@@ -27,3 +27,13 @@ void	split_sleep(int duration, t_philo *philo)
 		usleep(1000);
 	}
 }
+
+bool	get_is_simulating(t_table table)
+{
+	bool	b;
+
+	sem_wait(table.meta->sem_simulation);
+	b = table.meta->is_simulating;
+	sem_post(table.meta->sem_simulation);
+	return (b);
+}

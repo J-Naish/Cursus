@@ -8,8 +8,8 @@ SRC = actions_bonus.c\
 		log_utils1_bonus.c\
 		log_utils2_bonus.c\
 		main_bonus.c\
-		monitor_bonus.c\
-		process_bonus.c\
+		monitor_process_bonus.c\
+		philo_process_bonus.c\
 		routine_bonus.c\
 		time_bonus.c\
 		utils_bonus.c\

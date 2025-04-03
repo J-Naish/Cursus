@@ -12,7 +12,7 @@ static void	destroy_processes(t_table *table, size_t i)
 	}
 }
 
-void	create_processes(t_table *table, void (*routine)(t_philo *))
+void	create_philo_processes(t_table *table)
 {
 	size_t	i;
 
@@ -34,7 +34,7 @@ void	create_processes(t_table *table, void (*routine)(t_philo *))
 	}
 }
 
-void	wait_for_processes(t_table *table)
+void	wait_philo_processes(t_table *table)
 {
 	size_t	i;
 
