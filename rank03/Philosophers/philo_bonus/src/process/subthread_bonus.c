@@ -38,8 +38,14 @@ static void	*monitor_thread_routine(void *arg)
 	return (NULL);
 }
 
-void	create_monitor_thread(t_philo *philo)
+int	create_monitor_thread(t_philo *philo)
 {
-	pthread_create(&(philo->subthread), NULL, monitor_thread_routine, philo);
+	int	result;
+
+	result = pthread_create(&(philo->subthread), NULL,
+			monitor_thread_routine, philo);
+	if (result == -1)
+		return (-1);
 	pthread_detach(philo->subthread);
+	return (0);
 }
