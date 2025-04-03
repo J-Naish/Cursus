@@ -14,7 +14,6 @@ static void	destroy_processes(t_table *table, size_t i)
 
 static void	routine(t_philo *philo)
 {
-	usleep(100);
 	while (1)
 	{
 		philo_eat(philo);
