@@ -7,10 +7,6 @@ RUN apt-get update && \
 
 WORKDIR /app
 
-COPY philo/ /app/philo/
-COPY philo_bonus/ /app/philo_bonus/
-
-RUN cd /app/philo && make fclean && \
-    cd /app/philo_bonus && make fclean
+COPY . /app/
 
 CMD ["bash"]
