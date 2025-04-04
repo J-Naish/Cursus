@@ -1,13 +1,20 @@
 #include "../philo.h"
 
+static t_monitor	*init_monitor(void)
+{
+	t_monitor	*monitor;
+
+	monitor = (t_monitor *)malloc(sizeof(t_monitor));
+	if (!monitor)
+		return (NULL);
+	return (monitor);
+}
+
 static t_meta	*init_meta(int argc, char **argv)
 {
 	t_meta		*meta;
 	t_config	config;
 
-	meta = (t_meta *)malloc(sizeof(t_meta));
-	if (!meta)
-		return (NULL);
 	config.num_philos = convert_to_sizet(argv[1]);
 	config.time_to_die = convert_to_sizet(argv[2]);
 	config.time_to_eat = convert_to_sizet(argv[3]);
@@ -16,8 +23,14 @@ static t_meta	*init_meta(int argc, char **argv)
 		config.times_to_eat_to_exit = convert_to_sizet(argv[5]);
 	else
 		config.times_to_eat_to_exit = SIZE_MAX;
+	meta = (t_meta *)malloc(sizeof(t_meta));
+	if (!meta)
+		return (NULL);
 	meta->config = config;
 	meta->start_time = get_current_time();
+	meta->monitor = init_monitor();
+	if (!meta->monitor)
+		return (free(meta), NULL);
 	return (meta);
 }
 

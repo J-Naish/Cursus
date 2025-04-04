@@ -48,10 +48,16 @@ typedef struct s_config
 	size_t	times_to_eat_to_exit;
 }	t_config;
 
+typedef struct s_monitor
+{
+	pthread_t	tid;
+}	t_monitor;
+
 typedef struct s_meta
 {
 	struct timeval	start_time;
 	t_config		config;
+	t_monitor		*monitor;
 }	t_meta;
 
 typedef enum e_philo_state
