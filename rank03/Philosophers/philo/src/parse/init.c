@@ -76,6 +76,7 @@ static t_philo	*init_philos(t_meta *meta, t_fork *forks)
 			philos[i].r_fork = &(forks[i - 1]);
 		philos[i].meta = meta;
 		pthread_mutex_init(&(philos[i].mutex_last_meal_time), NULL);
+		pthread_mutex_init(&(philos[i].mutex_eating_count), NULL);
 		i++;
 	}
 	return (philos);

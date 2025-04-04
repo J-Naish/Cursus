@@ -9,6 +9,7 @@ static void	destroy_mutexes(t_table *table)
 	{
 		pthread_mutex_destroy(&(table->forks[i].mutex));
 		pthread_mutex_destroy(&(table->philos[i].mutex_last_meal_time));
+		pthread_mutex_destroy(&(table->philos[i].mutex_eating_count));
 		i++;
 	}
 	pthread_mutex_destroy(&(table->meta->monitor->mutex));
