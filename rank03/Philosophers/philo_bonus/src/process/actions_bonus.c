@@ -13,8 +13,8 @@ void	philo_eat(t_philo *philo)
 	philo_take_fork(philo);
 	philo->state = EATING;
 	log_eat(*philo);
-	usleep(1000 * philo->meta->config.time_to_eat);
 	philo->last_meal_time = get_current_time();
+	usleep(1000 * philo->meta->config.time_to_eat);
 	philo->eating_count += 1;
 	sem_post(philo->meta->sem_forks);
 	sem_post(philo->meta->sem_forks);

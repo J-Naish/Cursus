@@ -36,6 +36,7 @@ void	philo_eat(t_philo *philo)
 	philo_take_fork(philo);
 	log_eat(*philo);
 	philo->state = EATING;
+	gettimeofday(&philo->last_meal_time, NULL);
 	usleep(philo->config.time_to_eat * 1000);
 	philo->eating_count += 1;
 	if (philo->number % 2 == 0)
@@ -48,7 +49,6 @@ void	philo_eat(t_philo *philo)
 		pthread_mutex_unlock(&philo->r_fork->mutex);
 		pthread_mutex_unlock(&philo->l_fork->mutex);
 	}
-	gettimeofday(&philo->last_meal_time, NULL);
 }
 
 void	philo_sleep(t_philo *philo)
