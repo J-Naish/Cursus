@@ -41,9 +41,6 @@ static t_meta	*init_meta(int argc, char **argv)
 	if (!meta)
 		return (NULL);
 	meta->config = init_config(argc, argv);
-	meta->sem_name_forks = "/forks";
-	meta->sem_forks = sem_open(meta->sem_name_forks,
-			O_CREAT, 0644, meta->config.num_philos);
 	meta = init_sems(meta);
 	if (!meta)
 		return (NULL);
