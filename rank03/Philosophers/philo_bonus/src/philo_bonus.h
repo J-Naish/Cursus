@@ -33,6 +33,10 @@
 #  define GREEN "\033[32m"
 # endif
 
+# ifndef MAGENTA
+#  define MAGENTA "\033[35m"
+# endif
+
 # ifndef RESET
 #  define RESET "\033[0m"
 # endif
@@ -58,6 +62,7 @@ typedef struct s_meta
 	char			*sem_name_death;
 	sem_t			*sem_death;
 	struct timeval	start_time;
+	pid_t			monitor_pid;
 }	t_meta;
 
 typedef enum e_philo_state
@@ -84,7 +89,7 @@ typedef struct s_table
 	t_meta			*meta;
 }	t_table;
 
-// MARK: parse
+// MARK: parse/
 // convert_to_sizet_bonus.c
 size_t			convert_to_sizet(const char *s);
 // init_bonus.c
@@ -92,7 +97,7 @@ t_table			*init_table(int argc, char **argv);
 // validate_bonus.c
 bool			is_valid_arg(int argc, char **argv);
 
-// MARK: process
+// MARK: process/
 // actions_bonus.c
 void			philo_eat(t_philo *philo);
 void			philo_sleep(t_philo *philo);
@@ -105,12 +110,14 @@ void			log_eat(t_philo philo);
 void			log_sleep(t_philo philo);
 void			log_think(t_philo philo);
 void			log_died(t_philo philo);
+// monitor_process_bonus.c
+void			create_monitor_process(t_table *table);
+// monitor_thread_bonus.c
+void			create_monitor_thread(t_philo *philo);
 // process_bonus.c
 void			create_processes(t_table *table);
-// subthread_bonus.c
-void			create_monitor_thread(t_philo *philo);
 
-// MARK: utils
+// MARK: utils/
 // deinit_bonus.c
 void			deinit_table(t_table *table);
 // time_bonus.c

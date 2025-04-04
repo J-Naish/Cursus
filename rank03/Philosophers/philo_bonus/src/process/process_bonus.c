@@ -31,8 +31,10 @@ void	create_processes(t_table *table)
 		}
 		i++;
 	}
+	create_monitor_process(table);
 	waitpid(-1, NULL, 0);
 	destroy_processes(table, table->meta->config.num_philos);
+	kill(table->meta->monitor_pid, SIGTERM);
 	while (waitpid(-1, NULL, 0) > 0)
 		;
 }
