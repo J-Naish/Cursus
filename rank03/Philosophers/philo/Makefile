@@ -4,8 +4,9 @@ CFLAGS = -Wall -Wextra -Werror
 SRC = src/parse/convert_to_sizet.c\
 		src/parse/init.c\
 		src/parse/validate.c\
-		src/parse/actions.c\
+		src/thread/actions.c\
 		src/thread/log.c\
+		src/thread/thread.c\
 		src/utils/deinit.c\
 		src/utils/time.c\
 		src/main.c

@@ -12,6 +12,7 @@ int	main(int argc, char **argv)
 	table = init_table(argc, argv);
 	if (!table)
 		return (EXIT_FAILURE);
+	create_threads(table);
 	deinit_table(table);
 	return (0);
 }

@@ -105,6 +105,8 @@ void			log_eat(t_philo philo);
 void			log_sleep(t_philo philo);
 void			log_think(t_philo philo);
 void			log_die(t_philo philo);
+// thread.c
+void			create_threads(t_table *table);
 
 // MARK: utils
 // deinit.c

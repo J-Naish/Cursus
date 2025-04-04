@@ -20,6 +20,7 @@ static void	philo_take_fork(t_philo *philo)
 
 void	philo_eat(t_philo *philo)
 {
+	philo_take_fork(philo);
 	log_eat(*philo);
 	philo->state = EATING;
 	philo->last_meal_time = get_current_time();
