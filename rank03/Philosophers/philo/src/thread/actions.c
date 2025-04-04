@@ -15,6 +15,13 @@ static void	philo_take_fork(t_philo *philo)
 	{
 		pthread_mutex_lock(&(philo->r_fork->mutex));
 		log_take_fork(philo);
+		if (philo->meta->config.num_philos == 1)
+		{
+			while (!should_simulation_stop(philo->meta->monitor))
+				usleep(1000);
+			pthread_mutex_unlock(&(philo->r_fork->mutex));
+			return ;
+		}
 		pthread_mutex_lock(&(philo->l_fork->mutex));
 		log_take_fork(philo);
 	}
