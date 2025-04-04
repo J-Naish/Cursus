@@ -5,7 +5,7 @@ static void	routine(t_table *table)
 	size_t	finished_count;
 
 	finished_count = 0;
-	while (finished_count < table->meta->config.times_to_eat_to_exit)
+	while (finished_count < table->meta->config.num_philos)
 	{
 		sem_wait(table->meta->sem_meals);
 		finished_count++;
