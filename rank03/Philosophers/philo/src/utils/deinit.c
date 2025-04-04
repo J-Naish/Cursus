@@ -11,6 +11,7 @@ static void	destroy_mutexes(t_table *table)
 		pthread_mutex_destroy(&(table->philos[i].mutex));
 		i++;
 	}
+	pthread_mutex_destroy(&(table->meta->monitor->mutex));
 }
 
 void	deinit_table(t_table *table)

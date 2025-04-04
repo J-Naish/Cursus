@@ -51,6 +51,8 @@ typedef struct s_config
 typedef struct s_monitor
 {
 	pthread_t		tid;
+	bool			*is_simulating;
+	pthread_mutex_t	mutex;
 }	t_monitor;
 
 typedef struct s_meta
