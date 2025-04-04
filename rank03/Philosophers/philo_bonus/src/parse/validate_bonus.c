@@ -24,12 +24,7 @@ static bool	is_empty(const char *s)
 
 static bool	has_zero_prefix(const char *s)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	if (i > 1 && s[0] == '0')
+	if (s[0] == '0')
 		return (true);
 	else
 		return (false);
