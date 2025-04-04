@@ -64,7 +64,7 @@ typedef enum e_philo_state
 typedef struct s_fork
 {
 	size_t			number;
-	pthread_mutex_t	*mutex;
+	pthread_mutex_t	mutex;
 }	t_fork;
 
 typedef struct s_philo

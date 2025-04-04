@@ -39,7 +39,7 @@ static t_fork	*init_forks(t_meta *meta)
 	while (i < meta->config.num_philos)
 	{
 		forks[i].number = i + 1;
-		pthread_mutex_init(forks[i].mutex, NULL);
+		pthread_mutex_init(&(forks[i].mutex), NULL);
 		i++;
 	}
 	return (forks);
