@@ -7,9 +7,6 @@ RUN apt-get update && \
 
 WORKDIR /app
 
-COPY src/ /app/src/
-COPY Makefile /app/Makefile
-
-RUN make fclean
+COPY . /app/
 
 CMD ["bash"]
