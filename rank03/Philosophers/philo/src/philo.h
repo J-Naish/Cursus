@@ -115,6 +115,9 @@ void			log_eat(t_philo philo);
 void			log_sleep(t_philo philo);
 void			log_think(t_philo philo);
 void			log_die(t_philo philo);
+// monitor.c
+bool			is_one_of_philos_starving(t_table *table);
+bool			have_all_philos_eaten_enough(t_table *table);
 // thread.c
 void			create_threads(t_table *table);
 

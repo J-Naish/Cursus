@@ -22,6 +22,21 @@ static void	*monitor_routine(void *arg)
 	(void)table;
 	while (1)
 	{
+		if (is_one_of_philos_starving(table))
+		{
+			pthread_mutex_lock(&(table->meta->monitor->mutex));
+			table->meta->monitor->is_simulating = false;
+			pthread_mutex_unlock(&(table->meta->monitor->mutex));
+			return (NULL);
+		}
+		if (have_all_philos_eaten_enough(table))
+		{
+			pthread_mutex_lock(&(table->meta->monitor->mutex));
+			table->meta->monitor->is_simulating = false;
+			pthread_mutex_unlock(&(table->meta->monitor->mutex));
+			return (NULL);
+		}
+		usleep(1000);
 	}
 	return (NULL);
 }
