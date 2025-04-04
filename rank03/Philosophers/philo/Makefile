@@ -4,6 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRC = src/parse/convert_to_sizet.c\
 		src/parse/init.c\
 		src/parse/validate.c\
+		src/utils/deinit.c\
 		src/utils/time.c\
 		src/main.c
 OBJ_DIR = obj

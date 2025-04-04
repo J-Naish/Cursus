@@ -95,6 +95,8 @@ t_table			*init_table(int argc, char **argv);
 bool			is_valid_arg(int argc, char **argv);
 
 // MARK: utils
+// deinit.c
+void			deinit_table(t_table *table);
 // time.c
 struct timeval	get_current_time(void);
 int				get_elapsed_time(struct timeval start_time);
