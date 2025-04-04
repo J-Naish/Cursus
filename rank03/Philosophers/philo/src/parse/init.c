@@ -7,6 +7,7 @@ static t_monitor	*init_monitor(void)
 	monitor = (t_monitor *)malloc(sizeof(t_monitor));
 	if (!monitor)
 		return (NULL);
+	pthread_mutex_init(&(monitor->philo_mutex), NULL);
 	return (monitor);
 }
 

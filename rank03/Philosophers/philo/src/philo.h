@@ -50,7 +50,8 @@ typedef struct s_config
 
 typedef struct s_monitor
 {
-	pthread_t	tid;
+	pthread_t		tid;
+	pthread_mutex_t	philo_mutex;
 }	t_monitor;
 
 typedef struct s_meta
