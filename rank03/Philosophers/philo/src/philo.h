@@ -95,6 +95,10 @@ t_table			*init_table(int argc, char **argv);
 bool			is_valid_arg(int argc, char **argv);
 
 // MARK: thread
+// actions.c
+void			philo_eat(t_philo *philo);
+void			philo_sleep(t_philo *philo);
+void			philo_think(t_philo *philo);
 // log.c
 void			log_take_fork(t_philo philo);
 void			log_eat(t_philo philo);
