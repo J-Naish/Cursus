@@ -61,6 +61,8 @@ typedef struct s_meta
 	sem_t			*sem_monitor;
 	char			*sem_name_eating_count;
 	sem_t			*sem_eating_count;
+	char			*sem_name_last_meal_time;
+	sem_t			*sem_last_meal_time;
 	struct timeval	start_time;
 	pid_t			monitor_pid;
 }	t_meta;

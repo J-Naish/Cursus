@@ -1,14 +1,19 @@
 #include "../philo_bonus.h"
 
-static bool	is_starving(t_philo philo)
+static bool	is_starving(t_philo *philo)
 {
-	if (philo.state == EATING)
-		return (false);
-	if ((size_t)get_elapsed_time(philo.last_meal_time)
-		>= philo.meta->config.time_to_die)
+	sem_wait(philo->meta->sem_last_meal_time);
+	if ((size_t)get_elapsed_time(philo->last_meal_time)
+		>= philo->meta->config.time_to_die)
+	{
+		sem_post(philo->meta->sem_last_meal_time);
 		return (true);
+	}
 	else
+	{
+		sem_post(philo->meta->sem_last_meal_time);
 		return (false);
+	}
 }
 
 static void	*routine(void *arg)
@@ -20,7 +25,7 @@ static void	*routine(void *arg)
 	has_eaten_enough = false;
 	while (1)
 	{
-		if (is_starving(*philo))
+		if (is_starving(philo))
 		{
 			sem_wait(philo->meta->sem_log);
 			printf(RED"%d %zu died\n"RESET,
