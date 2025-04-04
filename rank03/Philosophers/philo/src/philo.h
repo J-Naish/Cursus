@@ -64,7 +64,7 @@ typedef enum e_philo_state
 typedef struct s_fork
 {
 	size_t			number;
-	pthread_mutex_t	mutex;
+	pthread_mutex_t	*mutex;
 }	t_fork;
 
 typedef struct s_philo
@@ -75,7 +75,7 @@ typedef struct s_philo
 	struct timeval	last_meal_time;
 	pthread_t		tid;
 	t_fork			*l_fork;
-	t_fork			r_fork;
+	t_fork			*r_fork;
 	t_meta			*meta;
 }	t_philo;
 
@@ -85,5 +85,18 @@ typedef struct s_table
 	t_fork	*forks;
 	t_meta	*meta;
 }	t_table;
+
+// MARK: parse
+// convert_to_sizet.c
+size_t			convert_to_sizet(const char *s);
+// init.c
+t_table			*init_table(int argc, char **argv);
+// validate.c
+bool			is_valid_arg(int argc, char **argv);
+
+// MARK: utils
+// time.c
+struct timeval	get_current_time(void);
+int				get_elapsed_time(struct timeval start_time);
 
 #endif

@@ -1,7 +1,11 @@
 NAME = philo
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRC = src/main.c
+SRC = src/parse/convert_to_sizet.c\
+		src/parse/init.c\
+		src/parse/validate.c\
+		src/utils/time.c\
+		src/main.c
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
