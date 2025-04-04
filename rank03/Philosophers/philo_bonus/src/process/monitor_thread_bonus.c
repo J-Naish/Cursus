@@ -29,11 +29,13 @@ static void	*routine(void *arg)
 		}
 		if (!has_eaten_enough)
 		{
+			sem_wait(philo->meta->sem_eating_count);
 			if (philo->eating_count >= philo->meta->config.times_to_eat_to_exit)
 			{
 				has_eaten_enough = true;
 				sem_post(philo->meta->sem_monitor);
 			}
+			sem_post(philo->meta->sem_eating_count);
 		}
 		usleep(1000);
 	}

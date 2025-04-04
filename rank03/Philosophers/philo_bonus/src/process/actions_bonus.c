@@ -15,7 +15,9 @@ void	philo_eat(t_philo *philo)
 	log_eat(*philo);
 	philo->last_meal_time = get_current_time();
 	usleep(1000 * philo->meta->config.time_to_eat);
+	sem_wait(philo->meta->sem_eating_count);
 	philo->eating_count += 1;
+	sem_post(philo->meta->sem_eating_count);
 	sem_post(philo->meta->sem_forks);
 	sem_post(philo->meta->sem_forks);
 }
