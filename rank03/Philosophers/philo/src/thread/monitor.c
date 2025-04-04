@@ -35,6 +35,7 @@ bool	have_all_philos_eaten_enough(t_table *table)
 			pthread_mutex_unlock(&(table->philos[i].mutex_eating_count));
 			return (false);
 		}
+		pthread_mutex_unlock(&(table->philos[i].mutex_eating_count));
 		i++;
 	}
 	printf(MAGENTA"All the philosophers have eaten enough times\n"RESET);
