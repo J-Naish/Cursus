@@ -32,7 +32,7 @@ static void	*routine(void *arg)
 			if (philo->eating_count >= philo->meta->config.times_to_eat_to_exit)
 			{
 				has_eaten_enough = true;
-				sem_post(philo->meta->sem_meals);
+				sem_post(philo->meta->sem_monitor);
 			}
 		}
 		usleep(1000);

@@ -7,7 +7,7 @@ static void	routine(t_table *table)
 	finished_count = 0;
 	while (finished_count < table->meta->config.num_philos)
 	{
-		sem_wait(table->meta->sem_meals);
+		sem_wait(table->meta->sem_monitor);
 		finished_count++;
 	}
 }

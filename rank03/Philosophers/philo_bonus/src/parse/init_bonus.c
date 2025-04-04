@@ -19,13 +19,13 @@ static t_meta	*init_sems(t_meta *meta)
 {
 	meta->sem_name_forks = "/forks";
 	meta->sem_name_log = "/log";
-	meta->sem_name_meals = "/meals";
+	meta->sem_name_monitor = "/monitor";
 	unlink_sems(*meta);
 	meta->sem_forks = sem_open(meta->sem_name_forks,
 			O_CREAT, 0644, meta->config.num_philos);
 	meta->sem_log = sem_open(meta->sem_name_log,
 			O_CREAT, 0644, 1);
-	meta->sem_meals = sem_open(meta->sem_name_meals,
+	meta->sem_monitor = sem_open(meta->sem_name_monitor,
 			O_CREAT, 0644, 0);
 	return (meta);
 }
