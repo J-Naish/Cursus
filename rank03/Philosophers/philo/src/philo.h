@@ -94,6 +94,14 @@ t_table			*init_table(int argc, char **argv);
 // validate.c
 bool			is_valid_arg(int argc, char **argv);
 
+// MARK: thread
+// log.c
+void			log_take_fork(t_philo philo);
+void			log_eat(t_philo philo);
+void			log_sleep(t_philo philo);
+void			log_think(t_philo philo);
+void			log_die(t_philo philo);
+
 // MARK: utils
 // deinit.c
 void			deinit_table(t_table *table);
