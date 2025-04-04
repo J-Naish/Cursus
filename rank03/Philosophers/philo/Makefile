@@ -5,7 +5,9 @@ SRC = src/parse/convert_to_sizet.c\
 		src/parse/init.c\
 		src/parse/validate.c\
 		src/thread/actions.c\
+		src/thread/helpers.c\
 		src/thread/log.c\
+		src/thread/monitor.c\
 		src/thread/thread.c\
 		src/utils/deinit.c\
 		src/utils/time.c\
