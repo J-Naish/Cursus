@@ -8,7 +8,7 @@ static void	destroy_mutexes(t_table *table)
 	while (i < table->meta->config.num_philos)
 	{
 		pthread_mutex_destroy(&(table->forks[i].mutex));
-		pthread_mutex_destroy(&(table->philos[i].mutex));
+		pthread_mutex_destroy(&(table->philos[i].mutex_last_meal_time));
 		i++;
 	}
 	pthread_mutex_destroy(&(table->meta->monitor->mutex));

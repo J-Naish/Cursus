@@ -51,7 +51,7 @@ typedef struct s_config
 typedef struct s_monitor
 {
 	pthread_t		tid;
-	bool			*is_simulating;
+	bool			is_simulating;
 	pthread_mutex_t	mutex;
 }	t_monitor;
 
@@ -85,7 +85,8 @@ typedef struct s_philo
 	t_fork			*l_fork;
 	t_fork			*r_fork;
 	t_meta			*meta;
-	pthread_mutex_t	mutex;
+	pthread_mutex_t	mutex_last_meal_time;
+	pthread_mutex_t	mutex_eating_count;
 }	t_philo;
 
 typedef struct s_table

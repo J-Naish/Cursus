@@ -23,7 +23,9 @@ void	philo_eat(t_philo *philo)
 	philo_take_fork(philo);
 	log_eat(*philo);
 	philo->state = EATING;
+	pthread_mutex_lock(&(philo->mutex_last_meal_time));
 	philo->last_meal_time = get_current_time();
+	pthread_mutex_unlock(&(philo->mutex_last_meal_time));
 	usleep(philo->meta->config.time_to_eat * 1000);
 	philo->eating_count += 1;
 	if (philo->number % 2 == 0)

@@ -7,6 +7,7 @@ static t_monitor	*init_monitor(void)
 	monitor = (t_monitor *)malloc(sizeof(t_monitor));
 	if (!monitor)
 		return (NULL);
+	monitor->is_simulating = true;
 	pthread_mutex_init(&(monitor->mutex), NULL);
 	return (monitor);
 }
@@ -74,7 +75,7 @@ static t_philo	*init_philos(t_meta *meta, t_fork *forks)
 		else
 			philos[i].r_fork = &(forks[i - 1]);
 		philos[i].meta = meta;
-		pthread_mutex_init(&(philos[i].mutex), NULL);
+		pthread_mutex_init(&(philos[i].mutex_last_meal_time), NULL);
 		i++;
 	}
 	return (philos);
