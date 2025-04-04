@@ -1,0 +1,8 @@
+**/minishell
+
+**/obj/
+
+Dockerfile
+start.sh
+README.md
+subject.pdf
