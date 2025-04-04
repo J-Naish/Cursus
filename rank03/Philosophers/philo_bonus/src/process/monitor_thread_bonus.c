@@ -16,6 +16,14 @@ static bool	is_starving(t_philo *philo)
 	}
 }
 
+static void	declare_death(t_philo *philo)
+{
+	sem_wait(philo->meta->sem_log);
+	printf(RED"%d %zu died\n"RESET,
+		get_elapsed_time(philo->meta->start_time), philo->number);
+	exit(EXIT_SUCCESS);
+}
+
 static void	*routine(void *arg)
 {
 	t_philo	*philo;
@@ -26,12 +34,7 @@ static void	*routine(void *arg)
 	while (1)
 	{
 		if (is_starving(philo))
-		{
-			sem_wait(philo->meta->sem_log);
-			printf(RED"%d %zu died\n"RESET,
-				get_elapsed_time(philo->meta->start_time), philo->number);
-			exit(EXIT_SUCCESS);
-		}
+			declare_death(philo);
 		if (!has_eaten_enough)
 		{
 			sem_wait(philo->meta->sem_eating_count);
