@@ -22,6 +22,7 @@ void	create_monitor_process(t_table *table)
 	else if (table->meta->monitor_pid == 0)
 	{
 		routine(table);
+		sem_wait(table->meta->sem_log);
 		printf(MAGENTA"All the philosophers have eaten enough times\n"RESET);
 		exit(EXIT_FAILURE);
 	}
