@@ -1,0 +1,7 @@
+**/philo_bonus/philo_bonus
+**/philo/philo
+
+**/obj/
+
+Dockerfile
+start.sh
