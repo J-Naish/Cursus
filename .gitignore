@@ -2,8 +2,3 @@
 *.out
 *.a
 *.o
-
-.*
-!.gitignore
-!.vscode
-!.gitkeep
