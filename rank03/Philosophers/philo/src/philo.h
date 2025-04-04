@@ -51,7 +51,6 @@ typedef struct s_config
 typedef struct s_monitor
 {
 	pthread_t		tid;
-	pthread_mutex_t	philo_mutex;
 }	t_monitor;
 
 typedef struct s_meta
@@ -84,6 +83,7 @@ typedef struct s_philo
 	t_fork			*l_fork;
 	t_fork			*r_fork;
 	t_meta			*meta;
+	pthread_mutex_t	mutex;
 }	t_philo;
 
 typedef struct s_table
