@@ -32,17 +32,16 @@ void	philo_eat(t_philo *philo)
 	if (should_simulation_stop(philo->meta->monitor))
 		return ;
 	philo_take_fork(philo);
+	if (philo->meta->config.num_philos == 1)
+		return ;
 	log_eat(philo);
 	pthread_mutex_lock(&(philo->mutex_last_meal_time));
 	philo->last_meal_time = get_current_time();
 	pthread_mutex_unlock(&(philo->mutex_last_meal_time));
 	split_sleep(philo->meta->config.time_to_eat, philo->meta->monitor);
-	if (!should_simulation_stop(philo->meta->monitor))
-	{
-		pthread_mutex_lock(&(philo->mutex_eating_count));
-		philo->eating_count += 1;
-		pthread_mutex_unlock(&(philo->mutex_eating_count));
-	}
+	pthread_mutex_lock(&(philo->mutex_eating_count));
+	philo->eating_count += 1;
+	pthread_mutex_unlock(&(philo->mutex_eating_count));
 	if (philo->number % 2 == 0)
 	{
 		pthread_mutex_unlock(&(philo->r_fork->mutex));
