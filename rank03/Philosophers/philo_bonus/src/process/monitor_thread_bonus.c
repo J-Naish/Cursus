@@ -27,11 +27,13 @@ static void	*routine(void *arg)
 				get_elapsed_time(philo->meta->start_time), philo->number);
 			exit(EXIT_SUCCESS);
 		}
-		if (!has_eaten_enough
-			&& philo->eating_count >= philo->meta->config.times_to_eat_to_exit)
+		if (!has_eaten_enough)
 		{
-			has_eaten_enough = true;
-			sem_post(philo->meta->sem_meals);
+			if (philo->eating_count >= philo->meta->config.times_to_eat_to_exit)
+			{
+				has_eaten_enough = true;
+				sem_post(philo->meta->sem_meals);
+			}
 		}
 		usleep(1000);
 	}
