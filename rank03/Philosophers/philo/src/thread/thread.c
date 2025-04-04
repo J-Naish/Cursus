@@ -7,6 +7,8 @@ static void	*routine(void *arg)
 	philo = (t_philo *)arg;
 	while (1)
 	{
+		if (should_simulation_stop(philo->meta->monitor))
+			return (NULL);
 		philo_eat(philo);
 		philo_sleep(philo);
 		philo_think(philo);

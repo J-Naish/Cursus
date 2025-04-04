@@ -15,7 +15,7 @@ void	split_sleep(size_t duration, t_monitor *monitor)
 	struct timeval	start;
 
 	start = get_current_time();
-	while ((size_t)get_elapsed_time(start) <= duration)
+	while ((size_t)get_elapsed_time(start) < duration)
 	{
 		if (should_simulation_stop(monitor))
 			return ;
