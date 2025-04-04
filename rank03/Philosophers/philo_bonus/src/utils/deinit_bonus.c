@@ -6,6 +6,7 @@ void	deinit_table(t_table *table)
 	sem_close(table->meta->sem_monitor);
 	sem_close(table->meta->sem_log);
 	sem_close(table->meta->sem_forks);
+	sem_close(table->meta->sem_eating_count);
 	free(table->philos);
 	free(table->meta);
 	free(table);

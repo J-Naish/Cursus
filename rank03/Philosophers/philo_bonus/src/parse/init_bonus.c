@@ -20,6 +20,7 @@ static t_meta	*init_sems(t_meta *meta)
 	meta->sem_name_forks = "/forks";
 	meta->sem_name_log = "/log";
 	meta->sem_name_monitor = "/monitor";
+	meta->sem_name_eating_count = "/eating_count";
 	unlink_sems(*meta);
 	meta->sem_forks = sem_open(meta->sem_name_forks,
 			O_CREAT, 0644, meta->config.num_philos);
@@ -27,6 +28,8 @@ static t_meta	*init_sems(t_meta *meta)
 			O_CREAT, 0644, 1);
 	meta->sem_monitor = sem_open(meta->sem_name_monitor,
 			O_CREAT, 0644, 0);
+	meta->sem_eating_count = sem_open(meta->sem_name_eating_count,
+			O_CREAT, 0644, 1);
 	return (meta);
 }
 

@@ -59,6 +59,8 @@ typedef struct s_meta
 	sem_t			*sem_log;
 	char			*sem_name_monitor;
 	sem_t			*sem_monitor;
+	char			*sem_name_eating_count;
+	sem_t			*sem_eating_count;
 	struct timeval	start_time;
 	pid_t			monitor_pid;
 }	t_meta;
