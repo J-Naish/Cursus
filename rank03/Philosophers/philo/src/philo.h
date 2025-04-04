@@ -110,7 +110,7 @@ void			philo_eat(t_philo *philo);
 void			philo_sleep(t_philo *philo);
 void			philo_think(t_philo *philo);
 // helpers.c
-bool			get_is_simulating(t_monitor *monitor);
+bool			should_simulation_stop(t_monitor *monitor);
 void			split_sleep(size_t duration, t_monitor *monitor);
 // log.c
 void			log_take_fork(t_philo philo);
