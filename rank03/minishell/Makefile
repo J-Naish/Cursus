@@ -1,10 +1,10 @@
 NAME := minishell
 CC := cc
 CFLAGS := -Wall -Wextra -Werror
-SRC := main.c
+SRC := src/main.c
 OBJ_DIR := obj
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
-LIBFT_DIR := libft
+LIBFT_DIR := src/libft
 LIBFT := ./$(LIBFT_DIR)/libft.a
 
 .PHONY: all clean fclean re submit
