@@ -8,7 +8,7 @@ bool	is_one_of_philos_starving(t_table *table)
 	while (i < table->meta->config.num_philos)
 	{
 		pthread_mutex_lock(&(table->philos[i].mutex_last_meal_time));
-		if (get_elapsed_time(table->philos[i].last_meal_time)
+		if ((size_t)get_elapsed_time(table->philos[i].last_meal_time)
 			>= table->meta->config.time_to_die)
 		{
 			pthread_mutex_unlock(&(table->philos[i].mutex_last_meal_time));
