@@ -22,8 +22,9 @@ static void	*routine(void *arg)
 	{
 		if (is_starving(*philo))
 		{
-			sem_wait(philo->meta->sem_death);
-			log_died(*philo);
+			sem_wait(philo->meta->sem_log);
+			printf(RED"%d %zu died\n"RESET,
+				get_elapsed_time(philo->meta->start_time), philo->number);
 			exit(EXIT_SUCCESS);
 		}
 		if (!has_eaten_enough

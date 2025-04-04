@@ -59,8 +59,6 @@ typedef struct s_meta
 	sem_t			*sem_log;
 	char			*sem_name_meals;
 	sem_t			*sem_meals;
-	char			*sem_name_death;
-	sem_t			*sem_death;
 	struct timeval	start_time;
 	pid_t			monitor_pid;
 }	t_meta;
@@ -109,7 +107,6 @@ void			log_take_fork(t_philo philo);
 void			log_eat(t_philo philo);
 void			log_sleep(t_philo philo);
 void			log_think(t_philo philo);
-void			log_died(t_philo philo);
 // monitor_process_bonus.c
 void			create_monitor_process(t_table *table);
 // monitor_thread_bonus.c

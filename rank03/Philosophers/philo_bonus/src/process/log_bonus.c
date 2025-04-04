@@ -31,11 +31,3 @@ void	log_think(t_philo philo)
 		get_elapsed_time(philo.meta->start_time), philo.number);
 	sem_post(philo.meta->sem_log);
 }
-
-void	log_died(t_philo philo)
-{
-	sem_wait(philo.meta->sem_log);
-	printf(RED"%d %zu died\n"RESET,
-		get_elapsed_time(philo.meta->start_time), philo.number);
-	sem_post(philo.meta->sem_log);
-}
