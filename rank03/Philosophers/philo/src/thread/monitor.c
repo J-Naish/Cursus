@@ -12,6 +12,7 @@ bool	is_one_of_philos_starving(t_table *table)
 			>= table->meta->config.time_to_die)
 		{
 			pthread_mutex_unlock(&(table->philos[i].mutex_last_meal_time));
+			log_die(table->philos[i]);
 			return (true);
 		}
 		pthread_mutex_unlock(&(table->philos[i].mutex_last_meal_time));
@@ -36,5 +37,6 @@ bool	have_all_philos_eaten_enough(t_table *table)
 		}
 		i++;
 	}
+	printf(MAGENTA"All the philosophers have eaten enough times\n"RESET);
 	return (true);
 }
