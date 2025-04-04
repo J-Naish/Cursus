@@ -12,7 +12,7 @@ bool	is_one_of_philos_starving(t_table *table)
 			>= table->meta->config.time_to_die)
 		{
 			pthread_mutex_unlock(&(table->philos[i].mutex_last_meal_time));
-			log_die(table->philos[i]);
+			log_die(&(table->philos[i]));
 			return (true);
 		}
 		pthread_mutex_unlock(&(table->philos[i].mutex_last_meal_time));

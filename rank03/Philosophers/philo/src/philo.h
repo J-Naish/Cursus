@@ -63,13 +63,6 @@ typedef struct s_meta
 	t_monitor		*monitor;
 }	t_meta;
 
-typedef enum e_philo_state
-{
-	THINKING = 0,
-	SLEEPING = 1,
-	EATING = 2,
-}	t_philo_state;
-
 typedef struct s_fork
 {
 	size_t			number;
@@ -79,7 +72,6 @@ typedef struct s_fork
 typedef struct s_philo
 {
 	size_t			number;
-	t_philo_state	state;
 	size_t			eating_count;
 	struct timeval	last_meal_time;
 	pthread_t		tid;
@@ -114,11 +106,11 @@ void			philo_think(t_philo *philo);
 bool			should_simulation_stop(t_monitor *monitor);
 void			split_sleep(size_t duration, t_monitor *monitor);
 // log.c
-void			log_take_fork(t_philo philo);
-void			log_eat(t_philo philo);
-void			log_sleep(t_philo philo);
-void			log_think(t_philo philo);
-void			log_die(t_philo philo);
+void			log_take_fork(t_philo *philo);
+void			log_eat(t_philo *philo);
+void			log_sleep(t_philo *philo);
+void			log_think(t_philo *philo);
+void			log_die(t_philo *philo);
 // monitor.c
 bool			is_one_of_philos_starving(t_table *table);
 bool			have_all_philos_eaten_enough(t_table *table);

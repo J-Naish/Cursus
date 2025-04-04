@@ -66,7 +66,6 @@ static t_philo	*init_philos(t_meta *meta, t_fork *forks)
 	while (i < meta->config.num_philos)
 	{
 		philos[i].number = i + 1;
-		philos[i].state = THINKING;
 		philos[i].eating_count = 0;
 		philos[i].last_meal_time = get_current_time();
 		philos[i].l_fork = &(forks[i]);

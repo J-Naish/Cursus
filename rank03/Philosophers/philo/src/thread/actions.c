@@ -7,16 +7,16 @@ static void	philo_take_fork(t_philo *philo)
 	if (philo->number % 2 == 0)
 	{
 		pthread_mutex_lock(&(philo->l_fork->mutex));
-		log_take_fork(*philo);
+		log_take_fork(philo);
 		pthread_mutex_lock(&(philo->r_fork->mutex));
-		log_take_fork(*philo);
+		log_take_fork(philo);
 	}
 	else
 	{
 		pthread_mutex_lock(&(philo->r_fork->mutex));
-		log_take_fork(*philo);
+		log_take_fork(philo);
 		pthread_mutex_lock(&(philo->l_fork->mutex));
-		log_take_fork(*philo);
+		log_take_fork(philo);
 	}
 }
 
@@ -25,8 +25,7 @@ void	philo_eat(t_philo *philo)
 	if (should_simulation_stop(philo->meta->monitor))
 		return ;
 	philo_take_fork(philo);
-	log_eat(*philo);
-	philo->state = EATING;
+	log_eat(philo);
 	pthread_mutex_lock(&(philo->mutex_last_meal_time));
 	philo->last_meal_time = get_current_time();
 	pthread_mutex_unlock(&(philo->mutex_last_meal_time));
@@ -53,8 +52,7 @@ void	philo_sleep(t_philo *philo)
 {
 	if (should_simulation_stop(philo->meta->monitor))
 		return ;
-	log_sleep(*philo);
-	philo->state = SLEEPING;
+	log_sleep(philo);
 	split_sleep(philo->meta->config.time_to_sleep, philo->meta->monitor);
 }
 
@@ -62,6 +60,5 @@ void	philo_think(t_philo *philo)
 {
 	if (should_simulation_stop(philo->meta->monitor))
 		return ;
-	log_think(*philo);
-	philo->state = THINKING;
+	log_think(philo);
 }
