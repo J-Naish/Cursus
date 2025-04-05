@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 07:41:42 by nash              #+#    #+#             */
-/*   Updated: 2025/04/05 07:41:43 by nash             ###   ########.fr       */
+/*   Updated: 2025/04/05 19:15:58 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ int	get_elapsed_time(struct timeval start_time)
 	now = get_current_time();
 	sec_diff = now.tv_sec - start_time.tv_sec;
 	usec_diff = now.tv_usec - start_time.tv_usec;
+	if (usec_diff < 0)
+	{
+		sec_diff--;
+		usec_diff += 1000000;
+	}
 	elapsed = sec_diff * 1000 + usec_diff / 1000;
 	return (elapsed);
 }
