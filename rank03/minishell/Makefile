@@ -6,7 +6,7 @@ SRC := src/example/example.c\
 TEST_SRC := $(filter-out %main.c, $(SRC))
 OBJ_DIR := obj
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
-LIBFT_DIR := src/libft
+LIBFT_DIR := libft
 LIBFT := ./$(LIBFT_DIR)/libft.a
 
 .PHONY: all clean fclean re submit
