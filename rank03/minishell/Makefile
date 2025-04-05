@@ -32,5 +32,6 @@ fclean: clean
 re: fclean all
 
 unit-test: $(TEST_SRC)
-	make all -C $(LIBFT_DIR)
-	$(CC) $(CFLAGS) $(TEST_SRC) $(LIBFT)
+	@make all -C $(LIBFT_DIR)
+	@$(CC) $(CFLAGS) $(TEST_SRC) $(LIBFT)
+	@./a.out
