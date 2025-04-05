@@ -1,7 +1,9 @@
 NAME := minishell
 CC := cc
 CFLAGS := -Wall -Wextra -Werror
-SRC := src/main.c
+SRC := src/example/example.c\
+		src/main.c
+TEST_SRC := $(filter-out %main.c, $(SRC))
 OBJ_DIR := obj
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 LIBFT_DIR := src/libft
@@ -28,3 +30,7 @@ fclean: clean
 	make fclean -C $(LIBFT_DIR)
 
 re: fclean all
+
+unit-test: $(TEST_SRC)
+	make all -C $(LIBFT_DIR)
+	$(CC) $(CFLAGS) $(TEST_SRC) $(LIBFT)
