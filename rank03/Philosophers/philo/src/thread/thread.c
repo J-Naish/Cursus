@@ -6,7 +6,7 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 07:40:46 by nash              #+#    #+#             */
-/*   Updated: 2025/04/05 07:40:47 by nash             ###   ########.fr       */
+/*   Updated: 2025/04/05 21:00:18 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static void	*routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
+	if (philo->number % 2 == 0)
+		usleep(50);
 	while (1)
 	{
 		if (should_simulation_stop(philo->meta->monitor))
