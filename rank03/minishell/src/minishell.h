@@ -36,12 +36,6 @@
  */
 typedef char*	t_str_heap;
 
-/**
- * @brief fdを表す型です
- * 
- * intのエイリアスです
- */
-typedef int		t_fd;
 
 // MARK: example/
 // example.c
