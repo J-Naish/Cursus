@@ -12,6 +12,7 @@
 # include <sys/ioctl.h>
 # include <termios.h>
 # include <term.h>
+# include <curses.h>
 # include <stdbool.h>
 # include <limits.h>
 # include "../libft/libft.h"
