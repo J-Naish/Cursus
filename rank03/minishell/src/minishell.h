@@ -29,6 +29,13 @@
 #  define EXIT_SIGNAL_BASE 128
 # endif
 
+/**
+ * @brief ヒープ領域に保存されたfreeすべき文字列型です
+ * 
+ * char *のエイリアスです
+ */
+typedef char*	t_heap_string;
+
 
 // MARK: example/
 // example.c
