@@ -5,8 +5,6 @@ static void	*routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	if (philo->number % 2 == 0)
-		usleep(50);
 	while (1)
 	{
 		if (should_simulation_stop(philo->meta->monitor))
