@@ -15,5 +15,17 @@ typedef char*	t_str_heap;
  */
 typedef char*	t_str;
 
+/**
+ * @brief freeすべき文字列の配列型です
+ * 
+ * char **のエイリアスです
+ */
+typedef char**	t_strarr_heap;
+
+/**
+ * @brief char **のエイリアスです
+ */
+typedef char**	t_strarr;
+
 
 #endif

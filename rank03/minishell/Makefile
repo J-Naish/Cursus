@@ -1,7 +1,8 @@
 NAME := minishell
 CC := cc
 CFLAGS := -Wall -Wextra -Werror
-SRC := src/example/example.c\
+SRC := src/debug/print_str_array.c\
+		src/example/example.c\
 		src/main.c
 HEADERS = include/constants.h\
 			include/minishell.h\
