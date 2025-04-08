@@ -22,7 +22,6 @@
 # include "./commands.h"
 # include "./constants.h"
 # include "./debug.h"
-# include "./error.h"
 # include "./executor.h"
 # include "./types.h"
 # include "./utils.h"
