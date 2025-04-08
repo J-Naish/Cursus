@@ -16,11 +16,11 @@ bool	is_same_str(const char *s1, const char *s2)
 }
 
 // int main() {
-// 	printf("%s\n", bool_to_str(is_same_str("test", "test")));
-// 	printf("%s\n", bool_to_str(is_same_str("test1", "test")));
-// 	printf("%s\n", bool_to_str(is_same_str("test", "test ")));
-// 	printf("%s\n", bool_to_str(is_same_str("", "test")));
-// 	printf("%s\n", bool_to_str(is_same_str("tst", "t e s t")));
-// 	printf("%s\n", bool_to_str(is_same_str("t e s t", "test")));
-// 	printf("%s\n", bool_to_str(is_same_str(NULL, "test")));
+// 	print_bool((is_same_str("test", "test")));
+// 	print_bool((is_same_str("test1", "test")));
+// 	print_bool((is_same_str("test", "test ")));
+// 	print_bool((is_same_str("", "test")));
+// 	print_bool((is_same_str("tst", "t e s t")));
+// 	print_bool((is_same_str("t e s t", "test")));
+// 	print_bool((is_same_str(NULL, "test")));
 // }
