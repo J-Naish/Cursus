@@ -1,5 +1,6 @@
 #include "../../include/builtins.h"
 
+// クォートまで出力されてる
 void	cmd_echo(t_command *command)
 {
 	int		i;
