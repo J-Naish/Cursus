@@ -1,13 +1,11 @@
 #include "../../include/builtins.h"
 
-void	cmd_echo(t_str_arr str)
+void	cmd_echo(t_command *command)
 {
 	int		i;
 	bool	is_n_option;
 
-	if (!str)
-		return ;
-	if (is_same_str(str[1], "-n"))
+	if (is_same_str(command->args[1], "-n"))
 	{
 		is_n_option = true;
 		i = 2;
@@ -17,11 +15,11 @@ void	cmd_echo(t_str_arr str)
 		is_n_option = false;
 		i = 1;
 	}
-	while (str[i])
+	while (command->args[i])
 	{
-		printf("%s", str[i]);
+		printf("%s", command->args[i]);
 		i++;
-		if (str[i])
+		if (command->args[i])
 			printf(" ");
 	}
 	if (!is_n_option)

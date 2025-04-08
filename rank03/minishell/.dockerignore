@@ -1,6 +1,7 @@
 **/minishell
 
 **/build/
+**/obj/
 
 libft/libft.a
 

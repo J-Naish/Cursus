@@ -4,7 +4,7 @@
 # include "./minishell.h"
 # include "./types.h"
 
-void	cmd_echo(t_str_arr str);
+void	cmd_echo(t_command *command);
 
 void	cmd_exit(t_command *command);
 

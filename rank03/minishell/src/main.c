@@ -10,7 +10,6 @@ int	main(void)
 		if (prompt && *prompt)
 			add_history(prompt);
 		execute_prompt(prompt);
-		free(prompt);
 		rl_on_new_line();
 	}
 	return (EXIT_SUCCESS);

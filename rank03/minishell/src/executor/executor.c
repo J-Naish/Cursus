@@ -27,4 +27,13 @@ void	execute_prompt(t_str_heap prompt)
 	command = parse_prompt(prompt);
 	if (is_same_str(command->args[0], "exit"))
 		cmd_exit(command);
+	else if (is_same_str(command->args[0], "echo"))
+	{
+		cmd_echo(command);
+		free_command(command);
+	}
+	else
+	{
+		free_command(command);
+	}
 }
