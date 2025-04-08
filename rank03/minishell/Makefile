@@ -3,7 +3,6 @@ CC := cc
 CFLAGS := -Wall -Wextra -Werror
 SRC := src/debug/bool_to_str.c\
 		src/debug/print_str_array.c\
-		src/example/example.c\
 		src/main.c
 HEADERS = include/constants.h\
 			include/minishell.h\
