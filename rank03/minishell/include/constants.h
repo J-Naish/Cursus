@@ -11,8 +11,8 @@
 #  define EXIT_UNABLE_TO_EXECUTE 126
 # endif
 
-# ifndef EXIT_NOT_FOUND
-#  define EXIT_NOT_FOUND 127
+# ifndef EXIT_COMMAND_NOT_FOUND
+#  define EXIT_COMMAND_NOT_FOUND 127
 # endif
 
 # ifndef EXIT_SIGNAL_BASE

@@ -4,12 +4,14 @@ CFLAGS := -Wall -Wextra -Werror
 SRC := src/commands/echo.c\
 		src/debug/bool.c\
 		src/debug/str_arr.c\
+		src/error/command_not_found.c\
 		src/utils/free.c\
 		src/utils/is_same_str.c\
 		src/main.c
 HEADERS = include/commands.h\
 			include/constants.h\
 			include/debug.h\
+			include/error.h\
 			include/executor.h\
 			include/minishell.h\
 			include/types.h\
