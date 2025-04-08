@@ -5,8 +5,8 @@ SRC := src/example/example.c\
 		src/main.c
 HEADERS = src/minishell.h
 TEST_SRC := $(filter-out %main.c, $(SRC))
-OBJ_DIR := obj
-OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
+BUILD_DIR := build
+BUILD := $(addprefix $(BUILD_DIR)/, $(SRC:.c=.o))
 LIBFT_DIR := libft
 LIBFT := ./$(LIBFT_DIR)/libft.a
 
@@ -14,16 +14,16 @@ LIBFT := ./$(LIBFT_DIR)/libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(BUILD)
 	make all -C $(LIBFT_DIR)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+	$(CC) $(CFLAGS) $(BUILD) $(LIBFT) -o $(NAME)
 
-$(OBJ_DIR)/%.o: %.c $(HEADERS)
+$(BUILD_DIR)/%.o: %.c $(HEADERS)
 	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -MMD -c $< -o $@
 
 clean:
-	rm -rf $(OBJ_DIR)
+	rm -rf $(BUILD_DIR)
 	make clean -C $(LIBFT_DIR)
 
 fclean: clean
@@ -37,3 +37,5 @@ unit-test: $(TEST_SRC)
 	@$(CC) $(CFLAGS) $(TEST_SRC) $(LIBFT)
 	@./a.out
 	@rm -f a.out
+
+-include $(BUILD:.o=.d)
