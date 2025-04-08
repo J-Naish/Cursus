@@ -14,3 +14,10 @@ void	free_str_arr(t_str_arr_heap strarr)
 	}
 	free(strarr);
 }
+
+void	free_command(t_command *command)
+{
+	free_str_arr(command->args);
+	free(command->raw_prompt);
+	free(command);
+}

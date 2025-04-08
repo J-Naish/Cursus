@@ -1,18 +1,18 @@
 #include "../../include/commands.h"
 
-void	cmd_exit(t_str_arr_heap args)
+void	cmd_exit(t_command *command)
 {
-	if (!is_same_str(args[0], "exit"))
+	if (!is_same_str(command->args[0], "exit"))
 		return ;
 	ft_putstr_fd("exit\n", STDOUT_FILENO);
-	if (args[1])
+	if (command->args[1])
 	{
 		ft_putstr_fd(SHELL_NAME": exit: ", STDERR_FILENO);
-		ft_putstr_fd(args[1], STDERR_FILENO);
+		ft_putstr_fd(command->args[1], STDERR_FILENO);
 		ft_putstr_fd(": no option is available\n", STDERR_FILENO);
-		free_str_arr(args);
-		// TODO: promptをfree
+		free_command(command);
 		exit(2);
 	}
+	free_command(command);
 	exit(EXIT_SUCCESS);
 }

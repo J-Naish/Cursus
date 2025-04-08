@@ -16,6 +16,13 @@ void	memory_allocation_failed(void);
 void	free_str_arr(t_str_arr_heap strarr);
 
 /**
+ * @brief t_command型のオブジェクトを完全に解放する関数
+ * 
+ * @param command t_commandオブジェクト
+ */
+void	free_command(t_command *command);
+
+/**
  * @brief 2つの文字列が完全一致するか検証する関数
  * 
  * @param s1 文字列1

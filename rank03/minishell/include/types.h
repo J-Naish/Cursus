@@ -27,5 +27,11 @@ typedef char**	t_str_arr_heap;
  */
 typedef char**	t_str_arr;
 
+typedef struct s_command
+{
+	t_str_heap		raw_prompt;
+	t_str_arr_heap	args;
+}	t_command;
+
 
 #endif
