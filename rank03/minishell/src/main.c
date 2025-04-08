@@ -6,7 +6,7 @@ int	main(void)
 
 	while (1)
 	{
-		prompt = readline("minishell$ ");
+		prompt = readline(SHELL_NAME"$ ");
 		if (prompt && *prompt)
 			add_history(prompt);
 		printf("prompt is %s\n", prompt);

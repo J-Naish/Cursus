@@ -1,6 +1,11 @@
 #ifndef CONSTANTS_H
 # define CONSTANTS_H
 
+// shell name
+# ifndef SHELL_NAME
+#  define SHELL_NAME "minishell"
+# endif
+
 // exit statuses
 # ifndef EXIT_UNABLE_TO_EXECUTE
 #  define EXIT_UNABLE_TO_EXECUTE 126
