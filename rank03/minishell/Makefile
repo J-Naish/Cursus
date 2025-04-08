@@ -3,6 +3,7 @@ CC := cc
 CFLAGS := -Wall -Wextra -Werror
 SRC := src/example/example.c\
 		src/main.c
+HEADERS = src/minishell.h
 TEST_SRC := $(filter-out %main.c, $(SRC))
 OBJ_DIR := obj
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
@@ -17,7 +18,7 @@ $(NAME): $(OBJ)
 	make all -C $(LIBFT_DIR)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
-$(OBJ_DIR)/%.o: %.c
+$(OBJ_DIR)/%.o: %.c $(HEADERS)
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 
