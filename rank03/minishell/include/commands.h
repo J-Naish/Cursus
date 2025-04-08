@@ -10,4 +10,6 @@ typedef enum e_echo_option
 	NONE
 }	t_echo_option;
 
+void	cmd_echo(t_str_arr str, t_echo_option option);
+
 #endif
