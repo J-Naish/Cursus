@@ -20,12 +20,12 @@ typedef char*	t_str;
  * 
  * char **のエイリアスです
  */
-typedef char**	t_strarr_heap;
+typedef char**	t_str_arr_heap;
 
 /**
  * @brief char **のエイリアスです
  */
-typedef char**	t_strarr;
+typedef char**	t_str_arr;
 
 
 #endif

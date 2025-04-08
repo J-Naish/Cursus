@@ -8,6 +8,6 @@
  * 
  * @param strarr ヒープ領域の文字列配列
  */
-void	free_strarr(t_strarr_heap strarr);
+void	free_str_arr(t_str_arr_heap strarr);
 
 #endif

@@ -51,29 +51,29 @@ static void	print_str(const t_str str)
 	}
 }
 
-void	print_str_array(const t_strarr strarr)
+void	print_str_arr(const t_str_arr str_arr)
 {
 	int	i;
 
 	i = 0;
-	if (!strarr)
+	if (!str_arr)
 	{
 		ft_putstr_fd(BOLD"null\n"RESET, STDOUT_FILENO);
 		return ;
 	}
-	if (!strarr[0])
+	if (!str_arr[0])
 	{
 		ft_putstr_fd("[ "BOLD"null"RESET" ]\n", STDOUT_FILENO);
 		return ;
 	}
 	ft_putstr_fd("[ ", STDOUT_FILENO);
-	while (strarr[i])
+	while (str_arr[i])
 	{
 		ft_putstr_fd(GREEN"\'", STDOUT_FILENO);
-		print_str(strarr[i]);
+		print_str(str_arr[i]);
 		ft_putstr_fd("\'"RESET, STDOUT_FILENO);
 		i++;
-		if (strarr[i])
+		if (str_arr[i])
 			ft_putstr_fd(", ", STDOUT_FILENO);
 	}
 	ft_putstr_fd(" ]\n", STDOUT_FILENO);
@@ -88,18 +88,18 @@ void	print_str_array(const t_strarr strarr)
 // 		"ammet",
 // 		NULL
 // 	};
-// 	print_str_array(test1);
+// 	print_str_arr(test1);
 // 	char *test2[] = {
 // 		"",
 // 		"   ",
 // 		"	",
 // 		"\n"
 // 	};
-// 	print_str_array(test2);
+// 	print_str_arr(test2);
 // 	char *test3[] = {
 // 		NULL
 // 	};
-// 	print_str_array(test3);
+// 	print_str_arr(test3);
 // 	char **test4 = NULL;
-// 	print_str_array(test4);
+// 	print_str_arr(test4);
 // }

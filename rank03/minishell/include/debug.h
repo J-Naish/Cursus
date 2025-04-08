@@ -9,7 +9,7 @@
  * 
  * @param strarr 出力したい文字列配列
  */
-void	print_str_array(const t_strarr strarr);
+void	print_str_arr(const t_str_arr str_arr);
 /**
  * @brief 真偽値の文字を取得する関数
  * 
