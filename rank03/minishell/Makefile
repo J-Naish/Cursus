@@ -2,8 +2,8 @@ NAME := minishell
 CC := cc
 CFLAGS := -Wall -Wextra -Werror
 SRC := src/commands/echo.c\
-		src/debug/bool_to_str.c\
-		src/debug/print_str_arr.c\
+		src/debug/bool.c\
+		src/debug/str_arr.c\
 		src/utils/free.c\
 		src/utils/is_same_str.c\
 		src/main.c
