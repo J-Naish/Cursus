@@ -10,6 +10,7 @@ SRC := src/commands/echo.c\
 HEADERS = include/commands.h\
 			include/constants.h\
 			include/debug.h\
+			include/executor.h\
 			include/minishell.h\
 			include/types.h\
 			include/utils.h
