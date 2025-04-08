@@ -3,7 +3,7 @@ CC := cc
 CFLAGS := -Wall -Wextra -Werror
 SRC := src/example/example.c\
 		src/main.c
-HEADERS = src/minishell.h
+HEADERS = include/minishell.h
 TEST_SRC := $(filter-out %main.c, $(SRC))
 BUILD_DIR := build
 BUILD := $(addprefix $(BUILD_DIR)/, $(SRC:.c=.o))
