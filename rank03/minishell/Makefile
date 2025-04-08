@@ -1,8 +1,8 @@
 NAME := minishell
 CC := cc
 CFLAGS := -Wall -Wextra -Werror
-SRC := src/commands/echo.c\
-		src/commands/exit.c\
+SRC := src/builtins/echo.c\
+		src/builtins/exit.c\
 		src/debug/bool.c\
 		src/debug/str_arr.c\
 		src/executor/executor.c\
@@ -10,7 +10,7 @@ SRC := src/commands/echo.c\
 		src/utils/free.c\
 		src/utils/is_same_str.c\
 		src/main.c
-HEADERS = include/commands.h\
+HEADERS = include/builtins.h\
 			include/constants.h\
 			include/debug.h\
 			include/executor.h\

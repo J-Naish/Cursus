@@ -1,4 +1,4 @@
-#include "../../include/commands.h"
+#include "../../include/builtins.h"
 
 void	cmd_echo(t_str_arr str)
 {
