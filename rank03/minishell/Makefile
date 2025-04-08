@@ -18,7 +18,7 @@ all: $(NAME)
 
 $(NAME): $(BUILD)
 	make all -C $(LIBFT_DIR)
-	$(CC) $(CFLAGS) $(BUILD) $(LIBFT) -o $(NAME)
+	$(CC) $(CFLAGS) $(BUILD) $(LIBFT) -o $(NAME) -lreadline
 
 $(BUILD_DIR)/%.o: %.c $(HEADERS)
 	@mkdir -p $(@D)
