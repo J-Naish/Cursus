@@ -9,7 +9,7 @@ int	main(void)
 		prompt = readline(SHELL_NAME"$ ");
 		if (prompt && *prompt)
 			add_history(prompt);
-		printf("prompt is %s\n", prompt);
+		execute_prompt(prompt);
 		free(prompt);
 		rl_on_new_line();
 	}
