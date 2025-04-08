@@ -7,7 +7,7 @@ void	cmd_echo(t_str_arr str)
 
 	if (!str)
 		return ;
-	if (str[1])
+	if (is_same_str(str[1], "-n"))
 	{
 		is_n_option = true;
 		i = 2;
