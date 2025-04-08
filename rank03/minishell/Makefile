@@ -5,6 +5,7 @@ SRC := src/commands/echo.c\
 		src/debug/bool_to_str.c\
 		src/debug/print_str_arr.c\
 		src/utils/free.c\
+		src/utils/is_same_str.c\
 		src/main.c
 HEADERS = include/commands.h\
 			include/constants.h\
