@@ -1,6 +1,6 @@
 **/minishell
 
-**/obj/
+**/build/
 
 Dockerfile
 start.sh
