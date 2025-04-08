@@ -3,11 +3,13 @@ CC := cc
 CFLAGS := -Wall -Wextra -Werror
 SRC := src/debug/bool_to_str.c\
 		src/debug/print_str_array.c\
+		src/utils/free.c\
 		src/main.c
 HEADERS = include/constants.h\
 			include/debug.h\
 			include/minishell.h\
-			include/types.h
+			include/types.h\
+			include/utils.h
 TEST_SRC := $(filter-out %main.c, $(SRC))
 BUILD_DIR := build
 BUILD := $(addprefix $(BUILD_DIR)/, $(SRC:.c=.o))

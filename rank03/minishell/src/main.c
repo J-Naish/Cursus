@@ -14,4 +14,5 @@ int	main(void)
 		rl_on_new_line();
 	}
 	return (EXIT_SUCCESS);
+	return (0);
 }
