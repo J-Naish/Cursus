@@ -1,12 +1,22 @@
 #include "../../include/commands.h"
 
-void	cmd_echo(t_str_arr str, t_echo_option option)
+void	cmd_echo(t_str_arr str)
 {
-	int	i;
+	int		i;
+	bool	is_n_option;
 
-	i = 0;
 	if (!str)
 		return ;
+	if (str[1])
+	{
+		is_n_option = true;
+		i = 2;
+	}
+	else
+	{
+		is_n_option = false;
+		i = 1;
+	}
 	while (str[i])
 	{
 		printf("%s", str[i]);
@@ -14,12 +24,13 @@ void	cmd_echo(t_str_arr str, t_echo_option option)
 		if (str[i])
 			printf(" ");
 	}
-	if (option != N)
+	if (!is_n_option)
 		printf("\n");
 }
 
 // int main() {
 // 	char *test1[] = {
+// 		"echo"
 // 		"lorem",
 // 		"ipsum",
 // 		"dollar",
@@ -27,11 +38,11 @@ void	cmd_echo(t_str_arr str, t_echo_option option)
 // 		"ammet",
 // 		NULL
 // 	};
-// 	cmd_echo(test1, N);
-// 	cmd_echo(test1, NONE);
+// 	cmd_echo(test1);
+// 	cmd_echo(test1);
 // 	char *test2[] = {
 // 		NULL
 // 	};
-// 	cmd_echo(test2, N);
-// 	cmd_echo(test2, NONE);
+// 	cmd_echo(test2);
+// 	cmd_echo(test2);
 // }
