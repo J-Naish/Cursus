@@ -4,6 +4,7 @@ void	cmd_exit(t_str_arr_heap args)
 {
 	if (!is_same_str(args[0], "exit"))
 		return ;
+	ft_putstr_fd("exit\n", STDOUT_FILENO);
 	if (args[1])
 	{
 		ft_putstr_fd(SHELL_NAME": exit: ", STDERR_FILENO);
