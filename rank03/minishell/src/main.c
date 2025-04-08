@@ -2,13 +2,15 @@
 
 int	main(void)
 {
-	t_str_heap	input;
+	t_str_heap	prompt;
 
-	input = readline("minishell$ ");
-	if (input)
+	prompt = readline("minishell$ ");
+	if (prompt)
 	{
-		printf("input is %s\n", input);
-		free(input);
+		if (prompt && *prompt)
+			add_history(prompt);
+		printf("prompt is %s\n", prompt);
+		free(prompt);
 	}
 	return (EXIT_SUCCESS);
 }
