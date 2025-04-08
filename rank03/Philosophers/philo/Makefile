@@ -12,6 +12,7 @@ SRC = src/parse/convert_to_sizet.c\
 		src/utils/deinit.c\
 		src/utils/time.c\
 		src/main.c
+HEADERS = src/philo.h
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
@@ -22,7 +23,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
-$(OBJ_DIR)/%.o: %.c
+$(OBJ_DIR)/%.o: %.c $(HEADERS)
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 
