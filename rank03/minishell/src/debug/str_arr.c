@@ -44,8 +44,9 @@ static void	print_str(const t_str str)
 		}
 		else
 		{
-			ft_putchar_fd('\\', STDOUT_FILENO);
+			ft_putstr_fd(YELLOW"\\", STDOUT_FILENO);
 			ft_putchar_fd(deescape(str[i]), STDOUT_FILENO);
+			ft_putstr_fd(GREEN, STDOUT_FILENO);
 		}
 		i++;
 	}
@@ -61,11 +62,6 @@ void	print_str_arr(const t_str_arr str_arr)
 		ft_putstr_fd(BOLD"null\n"RESET, STDOUT_FILENO);
 		return ;
 	}
-	if (!str_arr[0])
-	{
-		ft_putstr_fd("[ "BOLD"null"RESET" ]\n", STDOUT_FILENO);
-		return ;
-	}
 	ft_putstr_fd("[ ", STDOUT_FILENO);
 	while (str_arr[i])
 	{
@@ -73,9 +69,9 @@ void	print_str_arr(const t_str_arr str_arr)
 		print_str(str_arr[i]);
 		ft_putstr_fd("\'"RESET, STDOUT_FILENO);
 		i++;
-		if (str_arr[i])
-			ft_putstr_fd(", ", STDOUT_FILENO);
+		ft_putstr_fd(", ", STDOUT_FILENO);
 	}
+	ft_putstr_fd(BOLD"null"RESET, STDOUT_FILENO);
 	ft_putstr_fd(" ]\n", STDOUT_FILENO);
 }
 
@@ -91,9 +87,9 @@ void	print_str_arr(const t_str_arr str_arr)
 // 	print_str_arr(test1);
 // 	char *test2[] = {
 // 		"",
-// 		"   ",
+// 		"  gdsgs ",
 // 		"	",
-// 		"\n"
+// 		"ds\nggddsf"
 // 	};
 // 	print_str_arr(test2);
 // 	char *test3[] = {
