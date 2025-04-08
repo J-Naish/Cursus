@@ -12,25 +12,27 @@ SRC = src/parse/convert_to_sizet.c\
 		src/utils/deinit.c\
 		src/utils/time.c\
 		src/main.c
-HEADERS = src/philo.h
-OBJ_DIR = obj
-OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
+HEADERS = include/philo.h
+BUILD_DIR = build
+BUILD = $(addprefix $(BUILD_DIR)/, $(SRC:.c=.o))
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+$(NAME): $(BUILD)
+	$(CC) $(CFLAGS) -o $(NAME) $(BUILD)
 
-$(OBJ_DIR)/%.o: %.c $(HEADERS)
+$(BUILD_DIR)/%.o: %.c $(HEADERS)
 	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -MMD -c $< -o $@
 
 clean:
-	rm -rf $(OBJ_DIR)
+	rm -rf $(BUILD_DIR)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+-include $(BUILD:.o=.d)

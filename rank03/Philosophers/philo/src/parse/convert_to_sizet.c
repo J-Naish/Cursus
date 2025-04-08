@@ -1,4 +1,4 @@
-#include "../philo.h"
+#include "../../include/philo.h"
 
 size_t	convert_to_sizet(const char *s)
 {

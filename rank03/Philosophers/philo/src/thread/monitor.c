@@ -1,4 +1,4 @@
-#include "../philo.h"
+#include "../../include/philo.h"
 
 bool	is_one_of_philos_starving(t_table *table)
 {

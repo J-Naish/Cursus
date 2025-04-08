@@ -1,4 +1,4 @@
-#include "../philo.h"
+#include "../../include/philo.h"
 
 static void	destroy_mutexes(t_table *table)
 {

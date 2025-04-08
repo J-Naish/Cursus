@@ -14,24 +14,27 @@ SRC = src/parse/convert_to_sizet_bonus.c\
 		src/utils/time_bonus.c\
 		src/utils/unlink_sems_bonus.c\
 		src/main_bonus.c
-OBJ_DIR = obj
-OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
+HEADERS = include/philo_bonus.h
+BUILD_DIR = build
+BUILD = $(addprefix $(BUILD_DIR)/, $(SRC:.c=.o))
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+$(NAME): $(BUILD)
+	$(CC) $(CFLAGS) -o $(NAME) $(BUILD)
 
-$(OBJ_DIR)/%.o: %.c
+$(BUILD_DIR)/%.o: %.c $(HEADERS)
 	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -MMD -c $< -o $@
 
 clean:
-	rm -rf $(OBJ_DIR)
+	rm -rf $(BUILD_DIR)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+-include $(BUILD:.o=.d)

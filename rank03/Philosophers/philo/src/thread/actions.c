@@ -1,4 +1,4 @@
-#include "../philo.h"
+#include "../../include/philo.h"
 
 static void	philo_take_fork(t_philo *philo)
 {

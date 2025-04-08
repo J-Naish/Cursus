@@ -1,4 +1,4 @@
-#include "../philo.h"
+#include "../../include/philo.h"
 
 bool	should_simulation_stop(t_monitor *monitor)
 {

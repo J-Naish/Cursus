@@ -6,11 +6,11 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 07:41:29 by nash              #+#    #+#             */
-/*   Updated: 2025/04/05 07:41:29 by nash             ###   ########.fr       */
+/*   Updated: 2025/04/09 00:48:00 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../philo_bonus.h"
+#include "../../include/philo_bonus.h"
 
 static void	routine(t_table *table)
 {

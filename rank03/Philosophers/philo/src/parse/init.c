@@ -1,4 +1,4 @@
-#include "../philo.h"
+#include "../../include/philo.h"
 
 static t_monitor	*init_monitor(void)
 {

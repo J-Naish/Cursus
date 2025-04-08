@@ -6,11 +6,11 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 07:41:42 by nash              #+#    #+#             */
-/*   Updated: 2025/04/05 19:15:58 by nash             ###   ########.fr       */
+/*   Updated: 2025/04/09 00:48:11 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../philo_bonus.h"
+#include "../../include/philo_bonus.h"
 
 struct timeval	get_current_time(void)
 {

@@ -6,11 +6,11 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 07:41:21 by nash              #+#    #+#             */
-/*   Updated: 2025/04/05 07:41:21 by nash             ###   ########.fr       */
+/*   Updated: 2025/04/09 00:47:48 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../philo_bonus.h"
+#include "../../include/philo_bonus.h"
 
 static void	philo_take_fork(t_philo *philo)
 {
