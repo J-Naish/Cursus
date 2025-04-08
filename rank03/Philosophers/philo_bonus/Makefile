@@ -14,7 +14,9 @@ SRC = src/parse/convert_to_sizet_bonus.c\
 		src/utils/time_bonus.c\
 		src/utils/unlink_sems_bonus.c\
 		src/main_bonus.c
-HEADERS = include/philo_bonus.h
+HEADERS = include/constants_bonus.h\
+			include/philo_bonus.h\
+			include/types_bonus.h
 BUILD_DIR = build
 BUILD = $(addprefix $(BUILD_DIR)/, $(SRC:.c=.o))
 

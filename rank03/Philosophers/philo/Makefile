@@ -12,7 +12,9 @@ SRC = src/parse/convert_to_sizet.c\
 		src/utils/deinit.c\
 		src/utils/time.c\
 		src/main.c
-HEADERS = include/philo.h
+HEADERS = include/constants.h\
+			include/philo.h\
+			include/types.h
 BUILD_DIR = build
 BUILD = $(addprefix $(BUILD_DIR)/, $(SRC:.c=.o))
 
