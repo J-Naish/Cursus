@@ -33,6 +33,7 @@ static t_meta	*init_meta(int argc, char **argv)
 	meta->monitor = init_monitor();
 	if (!meta->monitor)
 		return (free(meta), NULL);
+	pthread_mutex_init(&(meta->mutex_log), NULL);
 	return (meta);
 }
 

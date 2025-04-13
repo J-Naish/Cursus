@@ -13,6 +13,7 @@ static void	destroy_mutexes(t_table *table)
 		i++;
 	}
 	pthread_mutex_destroy(&(table->meta->monitor->mutex));
+	pthread_mutex_destroy(&(table->meta->mutex_log));
 }
 
 void	deinit_table(t_table *table)

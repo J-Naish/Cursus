@@ -24,6 +24,7 @@ typedef struct s_meta
 	struct timeval	start_time;
 	t_config		config;
 	t_monitor		*monitor;
+	pthread_mutex_t	mutex_log;
 }	t_meta;
 
 typedef struct s_fork
