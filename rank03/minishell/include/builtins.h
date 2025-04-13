@@ -1,5 +1,5 @@
-#ifndef COMMANDS_H
-# define COMMANDS_H
+#ifndef BUILTSINS_H
+# define BUILTSINS_H
 
 # include "./minishell.h"
 # include "./types.h"
