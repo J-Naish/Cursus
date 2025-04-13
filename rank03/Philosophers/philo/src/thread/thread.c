@@ -3,8 +3,20 @@
 static void	*routine(void *arg)
 {
 	t_philo	*philo;
+	size_t	time_to_eat;
 
 	philo = (t_philo *)arg;
+	time_to_eat = philo->meta->config.time_to_eat;
+	if (philo->meta->config.num_philos % 2 == 1)
+	{
+		if (philo->number % 2 == 1)
+			split_sleep((time_to_eat * (philo->number / 2))
+				/ (philo->meta->config.num_philos / 2), philo->meta->monitor);
+		else
+			split_sleep(time_to_eat
+				+ ((time_to_eat / (philo->meta->config.num_philos / 2))),
+				philo->meta->monitor);
+	}
 	while (1)
 	{
 		if (should_simulation_stop(philo->meta->monitor))
