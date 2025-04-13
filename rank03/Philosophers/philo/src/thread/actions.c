@@ -64,18 +64,7 @@ void	philo_sleep(t_philo *philo)
 
 void	philo_think(t_philo *philo)
 {
-	size_t	thinking_time;
-
 	if (should_simulation_stop(philo->meta->monitor))
 		return ;
 	log_think(philo);
-	if (philo->meta->config.num_philos % 2 == 1)
-	{
-		thinking_time = (philo->meta->config.time_to_eat / 2);
-	}
-	else
-	{
-		thinking_time = 0;
-	}
-	split_sleep(thinking_time, philo->meta->monitor);
 }

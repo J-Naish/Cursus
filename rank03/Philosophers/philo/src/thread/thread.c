@@ -52,6 +52,7 @@ void	create_threads(t_table *table)
 	{
 		pthread_create(&(table->philos[i].tid), NULL,
 			routine, &(table->philos[i]));
+		usleep(1);
 		i++;
 	}
 	pthread_create(&(table->meta->monitor->tid), NULL, monitor_routine, table);
