@@ -1,22 +1,36 @@
 #include "../../include/philo.h"
 
+static void	delay_routine(t_philo *philo)
+{
+	size_t		time_to_eat;
+	size_t		idx;
+	size_t		num_philos;
+	t_monitor	*monitor;
+
+	time_to_eat = philo->meta->config.time_to_eat;
+	idx = philo->number;
+	num_philos = philo->meta->config.num_philos;
+	monitor = philo->meta->monitor;
+	if (num_philos % 2 == 1)
+	{
+		if (idx % 2 == 1)
+			split_sleep((time_to_eat * (idx / 2)) / (num_philos / 2), monitor);
+		else
+			split_sleep(time_to_eat + time_to_eat / (num_philos / 2), monitor);
+	}
+	else
+	{
+		if (idx % 2 == 0)
+			split_sleep(time_to_eat, monitor);
+	}
+}
+
 static void	*routine(void *arg)
 {
 	t_philo	*philo;
-	size_t	time_to_eat;
 
 	philo = (t_philo *)arg;
-	time_to_eat = philo->meta->config.time_to_eat;
-	if (philo->meta->config.num_philos % 2 == 1)
-	{
-		if (philo->number % 2 == 1)
-			split_sleep((time_to_eat * (philo->number / 2))
-				/ (philo->meta->config.num_philos / 2), philo->meta->monitor);
-		else
-			split_sleep(time_to_eat
-				+ ((time_to_eat / (philo->meta->config.num_philos / 2))),
-				philo->meta->monitor);
-	}
+	delay_routine(philo);
 	while (1)
 	{
 		if (should_simulation_stop(philo->meta->monitor))
@@ -64,7 +78,6 @@ void	create_threads(t_table *table)
 	{
 		pthread_create(&(table->philos[i].tid), NULL,
 			routine, &(table->philos[i]));
-		usleep(1);
 		i++;
 	}
 	pthread_create(&(table->meta->monitor->tid), NULL, monitor_routine, table);
