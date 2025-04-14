@@ -6,14 +6,23 @@
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 07:41:37 by nash              #+#    #+#             */
-/*   Updated: 2025/04/09 00:48:05 by nash             ###   ########.fr       */
+/*   Updated: 2025/04/14 13:41:34 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo_bonus.h"
 
+static void	delay_routine(t_philo *philo)
+{
+	if (philo->meta->config.num_philos == 1)
+		return ;
+	if (philo->number > philo->meta->config.num_philos / 2)
+		usleep(1000 * philo->meta->config.time_to_eat);
+}
+
 static void	routine(t_philo *philo)
 {
+	delay_routine(philo);
 	while (1)
 	{
 		philo_eat(philo);
