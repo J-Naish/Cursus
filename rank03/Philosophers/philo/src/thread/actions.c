@@ -1,20 +1,43 @@
 #include "../../include/philo.h"
 
+static int	philo_take_fork3(t_philo *philo)
+{
+	if (philo->meta->config.num_philos != 3)
+		return (0);
+	pthread_mutex_lock(&(philo->r_fork->mutex));
+	log_take_fork(philo);
+	pthread_mutex_lock(&(philo->l_fork->mutex));
+	log_take_fork(philo);
+	return (1);
+}
+
 static void	philo_take_fork(t_philo *philo)
 {
 	if (should_simulation_stop(philo->meta->monitor))
 		return ;
-	pthread_mutex_lock(&(philo->r_fork->mutex));
-	log_take_fork(philo);
-	if (philo->meta->config.num_philos == 1)
-	{
-		while (!should_simulation_stop(philo->meta->monitor))
-			usleep(1000);
-		pthread_mutex_unlock(&(philo->r_fork->mutex));
+	if (philo_take_fork3(philo))
 		return ;
+	if (philo->number % 2 == 0)
+	{
+		pthread_mutex_lock(&(philo->r_fork->mutex));
+		log_take_fork(philo);
+		pthread_mutex_lock(&(philo->l_fork->mutex));
+		log_take_fork(philo);
 	}
-	pthread_mutex_lock(&(philo->l_fork->mutex));
-	log_take_fork(philo);
+	else
+	{
+		pthread_mutex_lock(&(philo->l_fork->mutex));
+		if (philo->meta->config.num_philos == 1)
+		{
+			while (!should_simulation_stop(philo->meta->monitor))
+				usleep(1000);
+			pthread_mutex_unlock(&(philo->l_fork->mutex));
+			return ;
+		}
+		log_take_fork(philo);
+		pthread_mutex_lock(&(philo->r_fork->mutex));
+		log_take_fork(philo);
+	}
 }
 
 void	philo_eat(t_philo *philo)
@@ -32,8 +55,16 @@ void	philo_eat(t_philo *philo)
 	pthread_mutex_lock(&(philo->mutex_eating_count));
 	philo->eating_count += 1;
 	pthread_mutex_unlock(&(philo->mutex_eating_count));
-	pthread_mutex_unlock(&(philo->r_fork->mutex));
-	pthread_mutex_unlock(&(philo->l_fork->mutex));
+	if (philo->number % 2 == 0)
+	{
+		pthread_mutex_unlock(&(philo->r_fork->mutex));
+		pthread_mutex_unlock(&(philo->l_fork->mutex));
+	}
+	else
+	{
+		pthread_mutex_unlock(&(philo->l_fork->mutex));
+		pthread_mutex_unlock(&(philo->r_fork->mutex));
+	}
 }
 
 void	philo_sleep(t_philo *philo)
