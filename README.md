@@ -27,8 +27,8 @@
 
 ## rank 03
 ### [minishell](https://github.com/J-Naish/Cursus/tree/main/rank03/minishell)
-- [ ] 2025/
+- [ ] 2025/04/13 - 
 ### [Philosopher](https://github.com/J-Naish/Cursus/tree/main/rank03/Philosophers)
-- [ ] 2025/02/27 - 
+- [x] 2025/02/27 - 05/02
 ### Exam 03
 - [x] 2025/03/04  
