@@ -35,23 +35,23 @@ SRC := ft_atoi.c\
 		ft_substr.c\
 		ft_tolower.c\
 		ft_toupper.c
-OBJ_DIR := obj
-OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
+BUILD_DIR := build
+build := $(addprefix $(BUILD_DIR)/, $(SRC:.c=.o))
 NAME = libft.a
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+$(NAME): $(build)
+	ar rcs $(NAME) $(build)
 
-$(OBJ_DIR)/%.o: %.c
+$(BUILD_DIR)/%.o: %.c
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJ_DIR)
+	rm -rf $(BUILD_DIR)
 
 fclean: clean
 	rm -f $(NAME)

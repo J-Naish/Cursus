@@ -1,25 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   constants.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/21 18:51:32 by nash              #+#    #+#             */
+/*   Updated: 2025/06/21 18:51:34 by nash             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CONSTANTS_H
 # define CONSTANTS_H
 
-// shell name
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 256
+# endif
+
 # ifndef SHELL_NAME
 #  define SHELL_NAME "minishell"
 # endif
 
-// exit statuses
 # ifndef EXIT_UNABLE_TO_EXECUTE
 #  define EXIT_UNABLE_TO_EXECUTE 126
 # endif
 
-# ifndef EXIT_COMMAND_NOT_FOUND
-#  define EXIT_COMMAND_NOT_FOUND 127
+# ifndef EXIT_NOT_FOUND
+#  define EXIT_NOT_FOUND 127
 # endif
 
 # ifndef EXIT_SIGNAL_BASE
 #  define EXIT_SIGNAL_BASE 128
 # endif
 
-// log styles
+# ifndef EXIT_INVALID_ARGS
+#  define EXIT_INVALID_ARGS 255
+# endif
+
 # ifndef RED
 #  define RED "\033[31m"
 # endif
@@ -42,6 +59,10 @@
 
 # ifndef MAGENTA
 #  define MAGENTA "\033[35m"
+# endif
+
+# ifndef BLACK
+#  define BLACK "\033[30m"
 # endif
 
 # ifndef RESET

@@ -1,12 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   echo.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/21 18:52:05 by nash              #+#    #+#             */
+/*   Updated: 2025/06/21 18:52:05 by nash             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/builtins.h"
 
-// クォートまで出力されてる
 void	cmd_echo(t_command *command)
 {
 	int		i;
 	bool	is_n_option;
 
-	if (is_same_str(command->args[1], "-n"))
+	if (command->args[1] && is_same_str(command->args[1], "-n"))
 	{
 		is_n_option = true;
 		i = 2;
@@ -18,30 +29,11 @@ void	cmd_echo(t_command *command)
 	}
 	while (command->args[i])
 	{
-		printf("%s", command->args[i]);
+		ft_putstr_fd(command->args[i], STDOUT_FILENO);
 		i++;
 		if (command->args[i])
-			printf(" ");
+			ft_putstr_fd(" ", STDOUT_FILENO);
 	}
 	if (!is_n_option)
-		printf("\n");
+		ft_putstr_fd("\n", STDOUT_FILENO);
 }
-
-// int main() {
-// 	char *test1[] = {
-// 		"echo"
-// 		"lorem",
-// 		"ipsum",
-// 		"dollar",
-// 		"sit",
-// 		"ammet",
-// 		NULL
-// 	};
-// 	cmd_echo(test1);
-// 	cmd_echo(test1);
-// 	char *test2[] = {
-// 		NULL
-// 	};
-// 	cmd_echo(test2);
-// 	cmd_echo(test2);
-// }

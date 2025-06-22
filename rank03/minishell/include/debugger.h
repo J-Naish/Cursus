@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit.c                                             :+:      :+:    :+:   */
+/*   debugger.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/21 18:52:11 by nash              #+#    #+#             */
-/*   Updated: 2025/06/21 18:52:11 by nash             ###   ########.fr       */
+/*   Created: 2025/06/21 18:51:36 by nash              #+#    #+#             */
+/*   Updated: 2025/06/21 18:51:36 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/builtins.h"
+#ifndef DEBUGGER_H
+# define DEBUGGER_H
 
-void	cmd_exit(t_command *command)
-{
-	ft_putstr_fd("exit\n", STDOUT_FILENO);
-	if (command->args[1])
-	{
-		ft_putstr_fd(SHELL_NAME": exit: ", STDERR_FILENO);
-		ft_putstr_fd(command->args[1], STDERR_FILENO);
-		ft_putstr_fd(": no option is available\n", STDERR_FILENO);
-		free_command(command);
-		exit(EXIT_INVALID_ARGS);
-	}
-	free_command(command);
-	exit(EXIT_SUCCESS);
-}
+# include "./minishell.h"
+
+void		print_bool(bool b);
+
+void		print_command(t_command *command);
+
+void		print_number(int n);
+
+void		print_pipelines(t_pipeline **pipelines);
+
+void		print_str_arr(const t_str_arr str_arr);
+
+void		print_str(const t_str str);
+
+void		print_token(t_token *token);
+void		print_tokens(t_token **tokens);
+
+#endif

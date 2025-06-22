@@ -1,20 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error_handler.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/21 18:53:54 by nash              #+#    #+#             */
+/*   Updated: 2025/06/21 18:53:54 by nash             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/utils.h"
+
+void	put_error(char *s)
+{
+	ft_putstr_fd(s, STDERR_FILENO);
+}
 
 void	command_not_found(const t_str command)
 {
-	ft_putstr_fd(SHELL_NAME": Command not found: ", STDERR_FILENO);
-	ft_putstr_fd(command, STDERR_FILENO);
-	ft_putchar_fd('\n', STDERR_FILENO);
-	exit(EXIT_COMMAND_NOT_FOUND);
+	put_error(SHELL_NAME": ");
+	put_error(command);
+	put_error(": command not found\n");
+	exit(EXIT_NOT_FOUND);
 }
 
 void	unable_to_execute(const t_str file_path)
 {
-	ft_putstr_fd(SHELL_NAME": ", STDERR_FILENO);
-	ft_putstr_fd(strerror(EACCES), STDERR_FILENO);
-	ft_putstr_fd(": ", STDERR_FILENO);
-	ft_putstr_fd(file_path, STDERR_FILENO);
-	ft_putchar_fd('\n', STDERR_FILENO);
+	put_error(SHELL_NAME": ");
+	put_error(strerror(EACCES));
+	put_error(": ");
+	put_error(file_path);
+	put_error("\n");
 	exit(EXIT_UNABLE_TO_EXECUTE);
 }
 

@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit.c                                             :+:      :+:    :+:   */
+/*   bool.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/21 18:52:11 by nash              #+#    #+#             */
-/*   Updated: 2025/06/21 18:52:11 by nash             ###   ########.fr       */
+/*   Created: 2025/06/21 18:52:29 by nash              #+#    #+#             */
+/*   Updated: 2025/06/21 18:52:29 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/builtins.h"
+#include "../../include/debugger.h"
 
-void	cmd_exit(t_command *command)
+static t_str	bool_to_str(bool b)
 {
-	ft_putstr_fd("exit\n", STDOUT_FILENO);
-	if (command->args[1])
-	{
-		ft_putstr_fd(SHELL_NAME": exit: ", STDERR_FILENO);
-		ft_putstr_fd(command->args[1], STDERR_FILENO);
-		ft_putstr_fd(": no option is available\n", STDERR_FILENO);
-		free_command(command);
-		exit(EXIT_INVALID_ARGS);
-	}
-	free_command(command);
-	exit(EXIT_SUCCESS);
+	if (b)
+		return (YELLOW"true"RESET);
+	else
+		return (YELLOW"false"RESET);
 }
+
+void	print_bool(bool b)
+{
+	ft_putstr_fd(bool_to_str(b), STDOUT_FILENO);
+}
+
+// int main() {
+// 	print_bool(true);
+// 	printf("\n");
+// 	print_bool(false);
+// 	printf("\n");
+// 	print_bool(0);
+// 	printf("\n");
+// 	print_bool(10);
+// 	printf("\n");
+// }

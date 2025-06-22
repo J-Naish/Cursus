@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit.c                                             :+:      :+:    :+:   */
+/*   pipeline.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nash <nash@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/21 18:52:11 by nash              #+#    #+#             */
-/*   Updated: 2025/06/21 18:52:11 by nash             ###   ########.fr       */
+/*   Created: 2025/06/21 18:54:01 by nash              #+#    #+#             */
+/*   Updated: 2025/06/21 18:54:01 by nash             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/builtins.h"
+#include "../../include/utils.h"
 
-void	cmd_exit(t_command *command)
+int	get_command_count(t_pipeline *pipeline)
 {
-	ft_putstr_fd("exit\n", STDOUT_FILENO);
-	if (command->args[1])
-	{
-		ft_putstr_fd(SHELL_NAME": exit: ", STDERR_FILENO);
-		ft_putstr_fd(command->args[1], STDERR_FILENO);
-		ft_putstr_fd(": no option is available\n", STDERR_FILENO);
-		free_command(command);
-		exit(EXIT_INVALID_ARGS);
-	}
-	free_command(command);
-	exit(EXIT_SUCCESS);
+	int	count;
+
+	count = 0;
+	while (pipeline->commands[count])
+		count++;
+	return (count);
 }
