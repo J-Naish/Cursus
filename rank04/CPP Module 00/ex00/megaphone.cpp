@@ -12,6 +12,6 @@ int main(int argc, char **argv) {
         j++;
       }
     }
-    std::cout << '\n';
+    std::cout << std::endl;
   }
 }
