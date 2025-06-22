@@ -31,4 +31,4 @@
 ### [Philosopher](https://github.com/J-Naish/Cursus/tree/main/rank03/Philosophers)
 - [x] 2025/02/27 - 05/02
 ### Exam 03
-- [x] 2025/03/04  
+- [x] 2025/03/04  2025/06/22
