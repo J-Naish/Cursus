@@ -1,7 +1,7 @@
-NAME := megaphone
+NAME := phonebook
 CXX := c++
 FLAGS := -Wall -Wextra -Werror -std=c++98
-SRC := *.cpp
+SRC := main.cpp Contact.cpp PhoneBook.cpp
 BUILD_DIR := build
 OBJ := $(addprefix $(BUILD_DIR)/, $(SRC:.cpp=.o))
 

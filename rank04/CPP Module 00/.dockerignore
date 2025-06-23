@@ -1,0 +1,7 @@
+Dockerfile
+start.sh
+
+**/build/
+
+**/megaphone
+**/phonebook
