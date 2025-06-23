@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <limits>
 
 #ifndef RED
 #define RED "\033[31m"

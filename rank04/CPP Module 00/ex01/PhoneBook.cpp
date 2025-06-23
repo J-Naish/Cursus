@@ -1,5 +1,5 @@
 #include "PhoneBook.hpp"
-#include <limits>
+
 
 PhoneBook::PhoneBook() : current_contact_count(0) {}
 
@@ -30,22 +30,38 @@ void PhoneBook::add_contact() {
 
     std::cout << "first name> ";
     std::getline(std::cin, first_name);
+    while (first_name.empty()) {
+        std::cout << RED << "first name cannot be empty. enter first name> " << RESET;
+        std::getline(std::cin, first_name);
+    }
 
     std::cout << "last name> ";
     std::getline(std::cin, last_name);
+    while (last_name.empty()) {
+        std::cout << RED << "last name cannot be empty. enter last name> " << RESET;
+        std::getline(std::cin, last_name);
+    }
 
     std::cout << "nickname> ";
     std::getline(std::cin, nickname);
+    while (nickname.empty()) {
+        std::cout << RED << "nickname cannot be empty. enter nickname> " << RESET;
+        std::getline(std::cin, nickname);
+    }
 
     std::cout << "phone number> ";
     std::getline(std::cin, phone_number);
-    if (!is_valid_phone_number(phone_number)) {
+    while (!is_valid_phone_number(phone_number)) {
         std::cout << RED << "invalid phone number. enter phone number again> " << RESET;
         std::getline(std::cin, phone_number);
     }
 
     std::cout << "darkest secret> ";
     std::getline(std::cin, darkest_secret);
+    while (darkest_secret.empty()) {
+        std::cout << RED << "darkest secret cannot be empty. enter darkest secret> " << RESET;
+        std::getline(std::cin, darkest_secret);
+    }
 
     if (current_contact_count >= max_contacts) {
 
@@ -87,6 +103,11 @@ static std::string intToString(int number) {
 
 void PhoneBook::search_contact() const {
 
+    if (current_contact_count == 0) {
+        std::cout << RED << "No contacts available. Please add a contact first." << RESET << std::endl;
+        return;
+    }
+
     std::cout << "     index" << "|";
     std::cout << "first name" << "|";
     std::cout << " last name" << "|";
@@ -110,6 +131,8 @@ void PhoneBook::search_contact() const {
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cin >> index;
     }
+
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::cout << "first name    : " << contacts[index - 1].get_first_name() << std::endl;
     std::cout << "last name     : " << contacts[index - 1].get_last_name() << std::endl;
