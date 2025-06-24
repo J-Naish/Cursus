@@ -1,4 +1,4 @@
-NAME := ex02
+NAME := brain
 CXX := c++
 FLAGS := -Wall -Wextra -Werror -std=c++98
 SRC := main.cpp

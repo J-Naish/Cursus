@@ -1,4 +1,4 @@
-NAME := ex03
+NAME := weapon
 CXX := c++
 FLAGS := -Wall -Wextra -Werror -std=c++98
 SRC := HumanA.cpp HumanB.cpp main.cpp Weapon.cpp

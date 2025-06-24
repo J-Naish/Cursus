@@ -1,4 +1,4 @@
-NAME := ex05
+NAME := harl
 CXX := c++
 FLAGS := -Wall -Wextra -Werror -std=c++98
 SRC := main.cpp Harl.cpp

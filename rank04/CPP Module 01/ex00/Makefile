@@ -1,4 +1,4 @@
-NAME := ex00
+NAME := zombie
 CXX := c++
 FLAGS := -Wall -Wextra -Werror -std=c++98
 SRC := main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
