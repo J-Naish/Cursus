@@ -19,7 +19,7 @@ static bool matches_at(std::string content, std::string target, int position) {
 int main(int argc, char *argv[]) {
 
     if (argc != 4) {
-        std::cerr << "Invalid args. Usage: `filename` `s1` `s2`" << std::endl;
+        std::cerr << "Invalid args. Usage: <filename> <s1> <s2>" << std::endl;
         return 1;
     }
 
