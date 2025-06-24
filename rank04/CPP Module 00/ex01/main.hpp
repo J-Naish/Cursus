@@ -1,6 +1,6 @@
 #pragma once
-#ifndef MAIN_HPP
-#define MAIN_HPP
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <string>
 #include <iostream>

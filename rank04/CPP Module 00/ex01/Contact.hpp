@@ -1,6 +1,6 @@
 #pragma once
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
+#ifndef CONTACT_H
+#define CONTACT_H
 
 #include "main.hpp"
 

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef PHONE_BOOK_HPP
-#define PHONE_BOOK_HPP
+#ifndef PHONE_BOOK_H
+#define PHONE_BOOK_H
 
 #include "main.hpp"
 #include "Contact.hpp"
