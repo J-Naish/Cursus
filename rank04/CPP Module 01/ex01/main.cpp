@@ -3,7 +3,7 @@
 Zombie* zombieHorde( int N, std::string name );
 
 
-void test(int n, std::string name) {
+static void test(int n, std::string name) {
 
     std::cout << "creating " << n << " zombies named " << name << std::endl;
 
