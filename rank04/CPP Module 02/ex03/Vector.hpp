@@ -16,6 +16,8 @@ class Vector {
 
         Vector& operator=(const Vector& other);
 
+        Fixed crossProduct(const Vector& other) const;
+
     private:
 
         const Point start_;

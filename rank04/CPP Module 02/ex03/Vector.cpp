@@ -23,3 +23,7 @@ Vector& Vector::operator=(const Vector& other) {
     (void)other;
     return *this;
 }
+
+Fixed Vector::crossProduct(const Vector& other) const {
+    return x_vector_ * other.y_vector_ - y_vector_ * other.x_vector_;
+}
