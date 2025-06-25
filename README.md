@@ -38,3 +38,5 @@
 - [ ] 2025/06/22 - 
 ### [CPP Module 01](https://github.com/J-Naish/Cursus/tree/main/rank04/CPP%20Module%2001)
 - [ ] 2025/06/24 - 
+### [CPP Module 02](https://github.com/J-Naish/Cursus/tree/main/rank04/CPP%20Module%2002)
+- [ ] 2025/06/25 - 
