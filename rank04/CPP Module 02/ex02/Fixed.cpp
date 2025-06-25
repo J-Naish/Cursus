@@ -1,8 +1,6 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed() {
-    this->_raw_bits = 0;
-}
+Fixed::Fixed() : _raw_bits(0) {}
 
 Fixed::Fixed(const int value) {
     this->_raw_bits = (value << Fixed::FRACTIONAL_BITS);
