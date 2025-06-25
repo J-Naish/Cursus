@@ -78,6 +78,27 @@ Fixed Fixed::operator/(const Fixed& rhs) const {
     return result;
 }
 
+Fixed& Fixed::operator++() {
+    this->raw_bits++;
+    return *this;
+}
+
+Fixed Fixed::operator++(int) {
+    Fixed result(*this);
+    this->raw_bits++;
+    return result;
+}
+
+Fixed& Fixed::operator--() {
+    this->raw_bits--;
+    return *this;
+}
+
+Fixed Fixed::operator--(int) {
+    Fixed result(*this);
+    this->raw_bits--;
+    return result;
+}
 
 int Fixed::getRawBits( void ) const {
     return this->raw_bits;
