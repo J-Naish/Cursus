@@ -1,4 +1,4 @@
-NAME := fixed_point_numbers
+NAME := fixed01
 CXX := c++
 FLAGS := -Wall -Wextra -Werror -std=c++98
 SRC := main.cpp Fixed.cpp
