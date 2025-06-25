@@ -20,6 +20,9 @@ class Point {
 
         Point& operator=(const Point& other);
 
+        Fixed getX() const;
+        Fixed getY() const;
+
 };
 
 

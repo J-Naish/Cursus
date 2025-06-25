@@ -14,3 +14,11 @@ Point& Point::operator=(const Point& other) {
     (void)other;
     return *this;
 }
+
+Fixed Point::getX() const {
+    return x_;
+}
+
+Fixed Point::getY() const {
+    return y_;
+}
