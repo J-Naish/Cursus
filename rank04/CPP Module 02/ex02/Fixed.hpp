@@ -15,12 +15,18 @@ class Fixed {
         ~Fixed();
 
         Fixed& operator=(const Fixed& other);
+
         bool operator>(const Fixed& rhs) const;
         bool operator<(const Fixed& rhs) const;
         bool operator>=(const Fixed& rhs) const;
         bool operator<=(const Fixed& rhs) const;
         bool operator==(const Fixed& rhs) const;
         bool operator!=(const Fixed& rhs) const;
+
+        Fixed operator+(const Fixed& rhs) const;
+        Fixed operator-(const Fixed& rhs) const;
+        Fixed operator*(const Fixed& rhs) const;
+        Fixed operator/(const Fixed& rhs) const;
 
         int getRawBits( void ) const;
         void setRawBits( int const raw );

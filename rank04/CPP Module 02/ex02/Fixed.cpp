@@ -54,6 +54,31 @@ bool Fixed::operator!=(const Fixed& rhs) const {
     return this->raw_bits != rhs.raw_bits;
 }
 
+Fixed Fixed::operator+(const Fixed& rhs) const {
+    Fixed result;
+    result.setRawBits(this->raw_bits + rhs.raw_bits);
+    return result;
+}
+
+Fixed Fixed::operator-(const Fixed& rhs) const {
+    Fixed result;
+    result.setRawBits(this->raw_bits - rhs.raw_bits);
+    return result;
+}
+
+Fixed Fixed::operator*(const Fixed& rhs) const {
+    Fixed result;
+    result.setRawBits((this->raw_bits * rhs.raw_bits) >> Fixed::FRACTIONAL_BITS);
+    return result;
+}
+
+Fixed Fixed::operator/(const Fixed& rhs) const {
+    Fixed result;
+    result.setRawBits((this->raw_bits << Fixed::FRACTIONAL_BITS) / rhs.raw_bits);
+    return result;
+}
+
+
 int Fixed::getRawBits( void ) const {
     return this->raw_bits;
 }
