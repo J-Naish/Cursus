@@ -43,7 +43,7 @@ float Fixed::toFloat( void ) const {
 }
 
 int Fixed::toInt( void ) const {
-    return roundf(this->value / Fixed::ONE);
+    return roundf(this->value >> Fixed::FRACTIONAL_BITS);
 }
 
 std::ostream& operator<<(std::ostream& out, Fixed const& value) {
