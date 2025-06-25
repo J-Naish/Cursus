@@ -10,12 +10,13 @@ Vector::Vector(const Point start, const Point end) :
     start_(start),
     end_(end),
     x_vector_(end.getX() - start.getX()),
-    y_vector_(end.getY() - start.getY()) {
-}
+    y_vector_(end.getY() - start.getY()) {}
 
-Vector::Vector(const Vector& other) {
-    *this = other;
-}
+Vector::Vector(const Vector& other) : 
+    start_(other.start_),
+    end_(other.end_),
+    x_vector_(other.x_vector_),
+    y_vector_(other.y_vector_) {}
 
 Vector::~Vector() {}
 
