@@ -1,7 +1,7 @@
 NAME := fixed03
 CXX := c++
 FLAGS := -Wall -Wextra -Werror -std=c++98
-SRC := main.cpp Fixed.cpp
+SRC := bsp.cpp Fixed.cpp main.cpp Point.cpp Vector.cpp
 BUILD_DIR := build
 OBJ := $(addprefix $(BUILD_DIR)/, $(SRC:.cpp=.o))
 

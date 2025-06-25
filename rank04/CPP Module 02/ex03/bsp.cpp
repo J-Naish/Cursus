@@ -17,7 +17,6 @@ bool bsp( Point const a, Point const b, Point const c, Point const point) {
     Fixed cross3 = ca.crossProduct(cp);
 
 
-    return
-        (cross1 > 0 && cross2 > 0 && cross3 > 0) ||
-        (cross1 < 0 && cross2 < 0 && cross3 < 0);
+    return (cross1 > 0 && cross2 > 0 && cross3 > 0) ||
+            (cross1 < 0 && cross2 < 0 && cross3 < 0);
 }
