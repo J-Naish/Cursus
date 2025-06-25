@@ -1,4 +1,4 @@
-NAME := fixed01
+NAME := fixed02
 CXX := c++
 FLAGS := -Wall -Wextra -Werror -std=c++98
 SRC := main.cpp Fixed.cpp
