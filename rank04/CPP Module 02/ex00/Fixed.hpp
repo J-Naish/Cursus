@@ -18,7 +18,7 @@ class Fixed {
 
     private:
 
-        int value;
+        int raw_bits;
         static const int FRACTIONAL_BITS = 8;
 
 };
