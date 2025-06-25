@@ -1,15 +1,15 @@
 #include "Fixed.hpp"
 
 Fixed::Fixed() {
-    this->raw_bits = 0;
+    this->_raw_bits = 0;
 }
 
 Fixed::Fixed(const int value) {
-    this->raw_bits = (value << Fixed::FRACTIONAL_BITS);
+    this->_raw_bits = (value << Fixed::FRACTIONAL_BITS);
 }
 
 Fixed::Fixed(const float value) {
-    this->raw_bits = roundf(value * Fixed::ONE);
+    this->_raw_bits = roundf(value * Fixed::ONE);
 }
 
 Fixed::Fixed(const Fixed& other) {
@@ -19,94 +19,94 @@ Fixed::Fixed(const Fixed& other) {
 Fixed::~Fixed(){}
 
 Fixed& Fixed::operator=(const Fixed& other) {
-    this->raw_bits = other.getRawBits();
+    this->_raw_bits = other.getRawBits();
     return *this;
 }
 
 bool Fixed::operator>(const Fixed& rhs) const {
-    return this->raw_bits > rhs.raw_bits;
+    return this->_raw_bits > rhs._raw_bits;
 }
 
 bool Fixed::operator<(const Fixed& rhs) const {
-    return this->raw_bits < rhs.raw_bits;
+    return this->_raw_bits < rhs._raw_bits;
 }
 
 bool Fixed::operator>=(const Fixed& rhs) const {
-    return this->raw_bits >= rhs.raw_bits;
+    return this->_raw_bits >= rhs._raw_bits;
 }
 
 bool Fixed::operator<=(const Fixed& rhs) const {
-    return this->raw_bits <= rhs.raw_bits;
+    return this->_raw_bits <= rhs._raw_bits;
 }
 
 bool Fixed::operator==(const Fixed& rhs) const {
-    return this->raw_bits == rhs.raw_bits;
+    return this->_raw_bits == rhs._raw_bits;
 }
 
 bool Fixed::operator!=(const Fixed& rhs) const {
-    return this->raw_bits != rhs.raw_bits;
+    return this->_raw_bits != rhs._raw_bits;
 }
 
 Fixed Fixed::operator+(const Fixed& rhs) const {
     Fixed result;
-    result.setRawBits(this->raw_bits + rhs.raw_bits);
+    result.setRawBits(this->_raw_bits + rhs._raw_bits);
     return result;
 }
 
 Fixed Fixed::operator-(const Fixed& rhs) const {
     Fixed result;
-    result.setRawBits(this->raw_bits - rhs.raw_bits);
+    result.setRawBits(this->_raw_bits - rhs._raw_bits);
     return result;
 }
 
 Fixed Fixed::operator*(const Fixed& rhs) const {
     Fixed result;
-    result.setRawBits((this->raw_bits * rhs.raw_bits) >> Fixed::FRACTIONAL_BITS);
+    result.setRawBits((this->_raw_bits * rhs._raw_bits) >> Fixed::FRACTIONAL_BITS);
     return result;
 }
 
 Fixed Fixed::operator/(const Fixed& rhs) const {
     Fixed result;
-    result.setRawBits((this->raw_bits << Fixed::FRACTIONAL_BITS) / rhs.raw_bits);
+    result.setRawBits((this->_raw_bits << Fixed::FRACTIONAL_BITS) / rhs._raw_bits);
     return result;
 }
 
 Fixed& Fixed::operator++() {
-    this->raw_bits++;
+    this->_raw_bits++;
     return *this;
 }
 
 Fixed Fixed::operator++(int) {
     Fixed result(*this);
-    this->raw_bits++;
+    this->_raw_bits++;
     return result;
 }
 
 Fixed& Fixed::operator--() {
-    this->raw_bits--;
+    this->_raw_bits--;
     return *this;
 }
 
 Fixed Fixed::operator--(int) {
     Fixed result(*this);
-    this->raw_bits--;
+    this->_raw_bits--;
     return result;
 }
 
 int Fixed::getRawBits( void ) const {
-    return this->raw_bits;
+    return this->_raw_bits;
 }
 
 void Fixed::setRawBits( int const raw ) {
-    this->raw_bits = raw;
+    this->_raw_bits = raw;
 }
 
 float Fixed::toFloat( void ) const {
-    return (float)this->raw_bits / (float)Fixed::ONE;
+    return (float)this->_raw_bits / (float)Fixed::ONE;
 }
 
 int Fixed::toInt( void ) const {
-    return roundf(this->raw_bits >> Fixed::FRACTIONAL_BITS);
+    return roundf(this->_raw_bits >> Fixed::FRACTIONAL_BITS);
 }
 
 std::ostream& operator<<(std::ostream& out, Fixed const& f) {
