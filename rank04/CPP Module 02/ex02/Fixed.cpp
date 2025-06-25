@@ -20,14 +20,38 @@ Fixed::Fixed(const Fixed& other) {
     *this = other;
 }
 
+Fixed::~Fixed(){
+    std::cout << "Destructor called" << std::endl;
+}
+
 Fixed& Fixed::operator=(const Fixed& other) {
     std::cout << "Copy assignment operator called" << std::endl;
     this->raw_bits = other.getRawBits();
     return *this;
 }
 
-Fixed::~Fixed(){
-    std::cout << "Destructor called" << std::endl;
+bool Fixed::operator>(const Fixed& rhs) const {
+    return this->raw_bits > rhs.raw_bits;
+}
+
+bool Fixed::operator<(const Fixed& rhs) const {
+    return this->raw_bits < rhs.raw_bits;
+}
+
+bool Fixed::operator>=(const Fixed& rhs) const {
+    return this->raw_bits >= rhs.raw_bits;
+}
+
+bool Fixed::operator<=(const Fixed& rhs) const {
+    return this->raw_bits <= rhs.raw_bits;
+}
+
+bool Fixed::operator==(const Fixed& rhs) const {
+    return this->raw_bits == rhs.raw_bits;
+}
+
+bool Fixed::operator!=(const Fixed& rhs) const {
+    return this->raw_bits != rhs.raw_bits;
 }
 
 int Fixed::getRawBits( void ) const {
