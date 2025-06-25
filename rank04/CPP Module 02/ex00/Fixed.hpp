@@ -19,7 +19,7 @@ class Fixed {
     private:
 
         int value;
-        static const int num_fractional_bits = 8;
+        static const int FRACTIONAL_BITS = 8;
 
 };
 
