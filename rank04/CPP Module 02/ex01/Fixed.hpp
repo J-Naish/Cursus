@@ -25,6 +25,7 @@ class Fixed {
 
         int value;
         static const int FRACTIONAL_BITS = 8;
+        static const int ONE = 1 << FRACTIONAL_BITS;
 
 };
 
