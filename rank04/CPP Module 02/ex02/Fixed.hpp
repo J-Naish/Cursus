@@ -47,9 +47,9 @@ class Fixed {
 
     private:
 
-        int _raw_bits;
-        static const int FRACTIONAL_BITS = 8;
-        static const int ONE = 1 << FRACTIONAL_BITS;
+        int raw_bits_;
+        static const int kFractionalBits = 8;
+        static const int kOne = 1 << kFractionalBits;
 
 };
 
