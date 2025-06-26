@@ -1,32 +1,23 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-ClapTrap::ClapTrap() :
-    hit_points_(10),
-    energy_points_(10),
-    attack_damage_(0)
-{
-    this->name_ = "Noname";
+ClapTrap::ClapTrap() {
     std::cout << "Default constructor: "
         << GREEN << this->name_ << " was spawned." << RESET << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) :
-    name_(name),
-    hit_points_(10),
-    energy_points_(10),
-    attack_damage_(0)
-{
+ClapTrap::ClapTrap(std::string name) {
+    this->name_ = "Noname";
+    this->hit_points_ = 10;
+    this->energy_points_ = 10;
+    this->attack_damage_ = 0;
+
     std::cout << "Constructor (with parameters): "
         << GREEN << this->name_ << " was spawned." << RESET << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& other) :
-    name_(other.name_),
-    hit_points_(other.hit_points_),
-    energy_points_(other.energy_points_),
-    attack_damage_(other.attack_damage_)
-{
+ClapTrap::ClapTrap(const ClapTrap& other) {
+    *this = other;
     std::cout << "Copy constructor: "
         << GREEN << this->name_ << " was spawned." << RESET << std::endl;
 }
