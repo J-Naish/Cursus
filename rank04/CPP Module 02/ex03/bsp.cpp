@@ -12,9 +12,9 @@ bool bsp( Point const a, Point const b, Point const c, Point const point) {
     const Vector cp = Vector(c, point);
 
 
-    Fixed cross1 = ab.crossProduct(ap);
-    Fixed cross2 = bc.crossProduct(bp);
-    Fixed cross3 = ca.crossProduct(cp);
+    Fixed cross1 = Vector::crossProduct(ab, ap);
+    Fixed cross2 = Vector::crossProduct(bc, bp);
+    Fixed cross3 = Vector::crossProduct(ca, cp);
 
 
     return (cross1 > 0 && cross2 > 0 && cross3 > 0) ||

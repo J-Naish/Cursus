@@ -16,7 +16,7 @@ class Vector {
 
         Vector& operator=(const Vector& other);
 
-        Fixed crossProduct(const Vector& other) const;
+        static Fixed crossProduct(const Vector& v1, const Vector& v2);
 
     private:
 

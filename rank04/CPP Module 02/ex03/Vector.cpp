@@ -25,6 +25,6 @@ Vector& Vector::operator=(const Vector& other) {
     return *this;
 }
 
-Fixed Vector::crossProduct(const Vector& other) const {
-    return x_vector_ * other.y_vector_ - y_vector_ * other.x_vector_;
+Fixed Vector::crossProduct(const Vector& v1, const Vector& v2) {
+    return v1.x_vector_ * v2.y_vector_ - v1.y_vector_ * v2.x_vector_;
 }
