@@ -2,6 +2,7 @@
 #ifndef AMATERIA_H
 #define AMATERIA_H
 
+#include <iostream>
 #include <string>
 #include "ICharacter.hpp"
 
