@@ -10,7 +10,7 @@ class Character : public ICharacter {
 
         std::string name_;
         static const unsigned char kNumSlot = 4;
-        AMateria* inventory[kNumSlot];
+        AMateria* inventory_[kNumSlot];
         unsigned char num_occupied_slots_;
 
     public:

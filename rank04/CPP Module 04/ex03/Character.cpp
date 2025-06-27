@@ -5,7 +5,7 @@ Character::Character() {
     this->name_ = "Noname";
     this->num_occupied_slots_ = 0;
     for (int i = 0; i < kNumSlot; i++) {
-        this->inventory[i] = nullptr;
+        this->inventory_[i] = nullptr;
     }
 }
 
@@ -13,7 +13,7 @@ Character::Character(std::string name) {
     this->name_ = name;
     this->num_occupied_slots_ = 0;
     for (int i = 0; i < kNumSlot; i++) {
-        this->inventory[i] = nullptr;
+        this->inventory_[i] = nullptr;
     }
 }
 
@@ -23,8 +23,8 @@ Character::Character(const Character& other) {
 
 Character::~Character() {
     for (int i = 0; i < kNumSlot; i++) {
-        if (this->inventory[i]) {
-            delete this->inventory[i];
+        if (this->inventory_[i]) {
+            delete this->inventory_[i];
         }
     }
 }
@@ -34,10 +34,10 @@ Character& Character::operator=(const Character& other) {
         this->name_ = other.getName();
         this->num_occupied_slots_ = other.num_occupied_slots_;
         for (int i = 0; i < kNumSlot; i++) {
-            if (this->inventory[i]) {
-                delete this->inventory[i];
+            if (this->inventory_[i]) {
+                delete this->inventory_[i];
             }
-            this->inventory[i] = other.inventory[i]->clone();
+            this->inventory_[i] = other.inventory_[i]->clone();
         }
     }
     return *this;
@@ -54,8 +54,8 @@ void Character::equip(AMateria* m) {
         return;
     }
     for (int i = 0; i < kNumSlot; i++) {
-        if (!this->inventory[i]) {
-            this->inventory[i] = m;
+        if (!this->inventory_[i]) {
+            this->inventory_[i] = m;
             this->num_occupied_slots_++;
         }
     }
@@ -66,15 +66,15 @@ void Character::unequip(int idx) {
         std::cout << "No Materia is equipped" << std::endl;
         return;
     }
-    if (!this->inventory[idx]) {
+    if (!this->inventory_[idx]) {
         std::cout << "No Materia is equipped at the slot " << idx << std::endl;
         return;
     }
     // 既存のMateriaをどこかに格納しておく
-    this->inventory[idx] = nullptr;
+    this->inventory_[idx] = nullptr;
     num_occupied_slots_--;
 }
 
 void Character::use(int idx, ICharacter& target) {
-    inventory[idx]->use(target);
+    inventory_[idx]->use(target);
 }
