@@ -68,6 +68,7 @@ void Character::unequip(int idx) {
     }
     // 既存のMateriaをどこかに格納しておく
     this->inventory[idx] = nullptr;
+    occupied_slot_--;
 }
 
 void Character::use(int idx, ICharacter& target) {
