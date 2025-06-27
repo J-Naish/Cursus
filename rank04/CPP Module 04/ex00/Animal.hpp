@@ -19,6 +19,9 @@ class Animal {
         ~Animal();
         Animal& operator=(const Animal& other);
 
+        std::string getType() const;
+        void setType(std::string type);
+
         void makeSound() const;
 
 };
