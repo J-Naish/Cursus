@@ -1,4 +1,5 @@
 #include "DiamondTrap.hpp"
+#include <iostream>
 
 DiamondTrap::DiamondTrap() {
     this->hit_points_ = FragTrap::hit_points_;
@@ -9,8 +10,8 @@ DiamondTrap::DiamondTrap() {
         << GREEN << this->name_ << " was spawned." << RESET << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name") {
-    this->name_ = ClapTrap::name_;
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name + "_clap_name"), FragTrap(name + "_clap_name") {
+    this->name_ = name;
     this->hit_points_ = FragTrap::hit_points_;
     this->energy_points_ = ScavTrap::energy_points_;
     this->attack_damage_ = FragTrap::attack_damage_;
