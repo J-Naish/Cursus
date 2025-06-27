@@ -50,4 +50,5 @@ AMateria* MateriaSource::createMateria(std::string const & type) {
         }
     }
     std::cout << "No source for " << type << " is stored" << std::endl;
+    return nullptr;
 }
