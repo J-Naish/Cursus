@@ -1,5 +1,5 @@
 #include "Ice.hpp"
-
+#include "AMateria.hpp"
 
 Ice::Ice() {
     this->type_ = "ice";
@@ -18,7 +18,7 @@ Ice& Ice::operator=(const Ice& other) {
     return *this;
 }
 
-Ice* Ice::clone() {
+Ice* Ice::clone() const {
     return new Ice(*this);
 }
 
