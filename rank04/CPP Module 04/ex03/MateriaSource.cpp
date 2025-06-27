@@ -27,7 +27,11 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other) {
             if (this->source_[i]) {
                 delete this->source_[i];
             }
-            this->source_[i] = other.source_[i];
+            if (other.source_[i]) {
+                this->source_[i] = other.source_[i]->clone();
+            } else {
+                this->source_[i] = nullptr;
+            }
         }
     }
     return *this;
@@ -46,7 +50,7 @@ void MateriaSource::learnMateria(AMateria* m) {
 AMateria* MateriaSource::createMateria(std::string const & type) {
     for (int i = 0; i < num_memorized; i++) {
         if (this->source_[i] && this->source_[i]->getType() == type) {
-            return this->source_[i];
+            return this->source_[i]->clone();
         }
     }
     std::cout << "No source for " << type << " is stored" << std::endl;

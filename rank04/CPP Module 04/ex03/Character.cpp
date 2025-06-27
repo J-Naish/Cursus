@@ -37,7 +37,11 @@ Character& Character::operator=(const Character& other) {
             if (this->inventory_[i]) {
                 delete this->inventory_[i];
             }
-            this->inventory_[i] = other.inventory_[i]->clone();
+            if (other.inventory_[i]) {
+                this->inventory_[i] = other.inventory_[i]->clone();
+            } else {
+                this->inventory_[i] = nullptr;
+            }
         }
     }
     return *this;
@@ -57,6 +61,7 @@ void Character::equip(AMateria* m) {
         if (!this->inventory_[i]) {
             this->inventory_[i] = m;
             this->num_occupied_slots_++;
+            return;
         }
     }
 }
@@ -76,5 +81,13 @@ void Character::unequip(int idx) {
 }
 
 void Character::use(int idx, ICharacter& target) {
+    if (idx < 0 || idx >= kNumSlot) {
+        std::cout << "index is out of range" << std::endl;
+        return;
+    }
+    if (!inventory_[idx]) {
+        std::cout << "There is no Materia at the slot " << idx << std::endl;
+        return;
+    }
     inventory_[idx]->use(target);
 }
