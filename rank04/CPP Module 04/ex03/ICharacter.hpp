@@ -6,6 +6,9 @@
 #include "AMateria.hpp"
 
 class ICharacter {
+    protected:
+        std::string name_;
+
     public:
         virtual ~ICharacter() {};
         virtual std::string const & getName() const = 0;

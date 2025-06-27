@@ -7,7 +7,7 @@
 
 class AMateria {
     protected:
-
+        std::string type_;
 
     public:
 
