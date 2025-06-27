@@ -10,7 +10,7 @@ Dog::Dog(std::string type) : Animal(type) {
     std::cout << "[Dog] Constructor with params" << std::endl;
 }
 
-Dog::Dog(const Dog& other) {
+Dog::Dog(const Dog& other) : Animal(other) {
     this->brain = new Brain(*other.brain);
     std::cout << "[Dog] Copy constructor" << std::endl;
 }
