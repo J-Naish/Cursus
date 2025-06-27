@@ -1,7 +1,7 @@
 NAME := ex00
 CXX := c++
 FLAGS := -Wall -Wextra -Werror -std=c++98
-SRC := Animal.cpp Cat.cpp Dog.cpp main.cpp
+SRC := Animal.cpp Cat.cpp Dog.cpp main.cpp WrongAnimal.cpp WrongCat.cpp
 BUILD_DIR := build
 OBJ := $(addprefix $(BUILD_DIR)/, $(SRC:.cpp=.o))
 
