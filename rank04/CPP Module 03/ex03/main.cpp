@@ -1,27 +1,17 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main() {
 
     ClapTrap jonathan = ClapTrap("Jonathan Joestar");
 
-    ClapTrap jojo = jonathan;
+    jonathan.attack("Dio");
 
-    ClapTrap mobs[3];
-
-    jojo.attack("Dio");
-    jojo.setAttackDamage(2);
-
-    ScavTrap zepeli = ScavTrap("Zepeli");
-    zepeli.guardGate();
-    zepeli.attack("Dio");
-
-
-    FragTrap speedwagon = FragTrap("Speedwagon");
-
-    speedwagon.highFivesGuys();
-
+    DiamondTrap george = DiamondTrap("George");
+    george.whoAmI();
+    george.attack("cars");
 
     return 0;
 }

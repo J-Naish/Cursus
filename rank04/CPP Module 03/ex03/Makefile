@@ -1,7 +1,7 @@
-NAME := ex02
+NAME := ex03
 CXX := c++
 FLAGS := -Wall -Wextra -Werror -std=c++98
-SRC := main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRC := main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 BUILD_DIR := build
 OBJ := $(addprefix $(BUILD_DIR)/, $(SRC:.cpp=.o))
 
