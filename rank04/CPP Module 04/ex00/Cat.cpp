@@ -8,7 +8,7 @@ Cat::Cat(std::string type) : Animal(type) {
     std::cout << "[Cat] Constructor with params" << std::endl;
 }
 
-Cat::Cat(const Cat& other) {
+Cat::Cat(const Cat& other) : Animal(other) {
     std::cout << "[Cat] Copy constructor" << std::endl;
     *this = other;
 }

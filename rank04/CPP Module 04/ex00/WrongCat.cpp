@@ -8,7 +8,7 @@ WrongCat::WrongCat(std::string type) : WrongAnimal(type) {
     std::cout << "[WrongCat] Constructor with params" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat& other) {
+WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other) {
     std::cout << "[WrongCat] Copy constructor" << std::endl;
     *this = other;
 }
