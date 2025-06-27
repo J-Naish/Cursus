@@ -14,5 +14,9 @@ int main()
     meta->makeSound();
 
 
+    delete meta;
+    delete j;
+    delete i;
+
     return 0;
 }
