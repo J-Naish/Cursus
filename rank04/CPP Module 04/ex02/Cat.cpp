@@ -1,16 +1,16 @@
 #include "Cat.hpp"
 
-Cat::Cat() : Animal("Cat") {
+Cat::Cat() : AAnimal("Cat") {
     this->brain = new Brain();
     std::cout << "[Cat] Default constructor" << std::endl;
 }
 
-Cat::Cat(std::string type) : Animal(type) {
+Cat::Cat(std::string type) : AAnimal(type) {
     this->brain = new Brain();
     std::cout << "[Cat] Constructor with params" << std::endl;
 }
 
-Cat::Cat(const Cat& other) : Animal(other) {
+Cat::Cat(const Cat& other) : AAnimal(other) {
     this->brain = new Brain(*other.brain);
     std::cout << "[Cat] Copy constructor" << std::endl;
 }
@@ -22,7 +22,7 @@ Cat::~Cat() {
 
 Cat& Cat::operator=(const Cat& other) {
     if (this != &other) {
-        Animal::operator=(other);
+        AAnimal::operator=(other);
         delete this->brain;
         this->brain = new Brain(*other.brain);
     }

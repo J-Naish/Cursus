@@ -1,16 +1,16 @@
 #include "Dog.hpp"
 
-Dog::Dog() : Animal("Dog") {
+Dog::Dog() : AAnimal("Dog") {
     this->brain = new Brain();
     std::cout << "[Dog] Default constructor" << std::endl;
 }
 
-Dog::Dog(std::string type) : Animal(type) {
+Dog::Dog(std::string type) : AAnimal(type) {
     this->brain = new Brain();
     std::cout << "[Dog] Constructor with params" << std::endl;
 }
 
-Dog::Dog(const Dog& other) : Animal(other) {
+Dog::Dog(const Dog& other) : AAnimal(other) {
     this->brain = new Brain(*other.brain);
     std::cout << "[Dog] Copy constructor" << std::endl;
 }
