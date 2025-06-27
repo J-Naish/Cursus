@@ -5,7 +5,7 @@ Character::Character() {
     this->name_ = "Noname";
     this->num_occupied_slots_ = 0;
     for (int i = 0; i < kNumSlot; i++) {
-        this->inventory_[i] = nullptr;
+        this->inventory_[i] = NULL;
     }
 }
 
@@ -13,7 +13,7 @@ Character::Character(std::string name) {
     this->name_ = name;
     this->num_occupied_slots_ = 0;
     for (int i = 0; i < kNumSlot; i++) {
-        this->inventory_[i] = nullptr;
+        this->inventory_[i] = NULL;
     }
 }
 
@@ -40,7 +40,7 @@ Character& Character::operator=(const Character& other) {
             if (other.inventory_[i]) {
                 this->inventory_[i] = other.inventory_[i]->clone();
             } else {
-                this->inventory_[i] = nullptr;
+                this->inventory_[i] = NULL;
             }
         }
     }
@@ -76,7 +76,7 @@ void Character::unequip(int idx) {
         return;
     }
     // 既存のMateriaをどこかに格納しておく
-    this->inventory_[idx] = nullptr;
+    this->inventory_[idx] = NULL;
     num_occupied_slots_--;
 }
 

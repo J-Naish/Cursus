@@ -4,7 +4,7 @@
 MateriaSource::MateriaSource() {
     num_memorized = 0;
     for (int i = 0; i < kNumSlot; i++) {
-        this->source_[i] = nullptr;
+        this->source_[i] = NULL;
     }
 }
 
@@ -30,7 +30,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other) {
             if (other.source_[i]) {
                 this->source_[i] = other.source_[i]->clone();
             } else {
-                this->source_[i] = nullptr;
+                this->source_[i] = NULL;
             }
         }
     }
@@ -54,5 +54,5 @@ AMateria* MateriaSource::createMateria(std::string const & type) {
         }
     }
     std::cout << "No source for " << type << " is stored" << std::endl;
-    return nullptr;
+    return NULL;
 }
