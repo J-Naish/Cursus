@@ -2,12 +2,17 @@
 #include <iostream>
 
 ClapTrap::ClapTrap() {
+    this->name_ = "Noname";
+    this->hit_points_ = 10;
+    this->energy_points_ = 10;
+    this->attack_damage_ = 0;
+
     std::cout << "Default constructor: "
         << GREEN << this->name_ << " was spawned." << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) {
-    this->name_ = "Noname";
+    this->name_ = name;
     this->hit_points_ = 10;
     this->energy_points_ = 10;
     this->attack_damage_ = 0;

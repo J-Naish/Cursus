@@ -1,4 +1,5 @@
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main() {
 
@@ -26,6 +27,13 @@ int main() {
     jojo.attack("Dio");
 
     jojo.takeDamage(6);
+
+
+    ScavTrap zepeli = ScavTrap("Zepeli");
+
+    zepeli.guardGate();
+
+    zepeli.attack("Dio");
 
 
     return 0;
