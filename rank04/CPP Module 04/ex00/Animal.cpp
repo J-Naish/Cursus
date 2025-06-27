@@ -26,6 +26,6 @@ Animal& Animal::operator=(const Animal& other) {
 }
 
 
-void Animal::makeSound() {
+void Animal::makeSound() const {
     std::cout << "Animal Sound" << std::endl;
 }

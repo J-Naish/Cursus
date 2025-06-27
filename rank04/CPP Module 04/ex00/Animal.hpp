@@ -19,7 +19,7 @@ class Animal {
         ~Animal();
         Animal& operator=(const Animal& other);
 
-        void makeSound();
+        void makeSound() const;
 
 };
 
