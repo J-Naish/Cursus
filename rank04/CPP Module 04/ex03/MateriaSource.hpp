@@ -7,9 +7,9 @@
 class MateriaSource : public IMateriaSource {
 
     private:
-        static const unsigned short kNumSlot = 4;
+        static const unsigned char kNumSlot = 4;
         AMateria* source_[kNumSlot];
-        unsigned short num_memorized;
+        unsigned char num_memorized;
 
     public:
         MateriaSource();
