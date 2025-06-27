@@ -3,7 +3,7 @@
 
 Character::Character() {
     this->name_ = "Noname";
-    this->occupied_slot_ = 0;
+    this->num_occupied_slots_ = 0;
     for (int i = 0; i < kNumSlot; i++) {
         this->inventory[i] = nullptr;
     }
@@ -11,7 +11,7 @@ Character::Character() {
 
 Character::Character(std::string name) {
     this->name_ = name;
-    this->occupied_slot_ = 0;
+    this->num_occupied_slots_ = 0;
     for (int i = 0; i < kNumSlot; i++) {
         this->inventory[i] = nullptr;
     }
@@ -32,7 +32,7 @@ Character::~Character() {
 Character& Character::operator=(const Character& other) {
     if (this != &other) {
         this->name_ = other.getName();
-        this->occupied_slot_ = other.occupied_slot_;
+        this->num_occupied_slots_ = other.num_occupied_slots_;
         for (int i = 0; i < kNumSlot; i++) {
             if (this->inventory[i]) {
                 delete this->inventory[i];
@@ -49,26 +49,30 @@ std::string const & Character::getName() const {
 }
 
 void Character::equip(AMateria* m) {
-    if (this->occupied_slot_ >= kNumSlot) {
+    if (this->num_occupied_slots_ >= kNumSlot) {
         std::cout << "The inventory is filled" << std::endl;
         return;
     }
     for (int i = 0; i < kNumSlot; i++) {
         if (!this->inventory[i]) {
             this->inventory[i] = m;
-            this->occupied_slot_++;
+            this->num_occupied_slots_++;
         }
     }
 }
 
 void Character::unequip(int idx) {
-    if (this->occupied_slot_ == 0) {
+    if (this->num_occupied_slots_ == 0) {
         std::cout << "No Materia is equipped" << std::endl;
+        return;
+    }
+    if (!this->inventory[idx]) {
+        std::cout << "No Materia is equipped at the slot " << idx << std::endl;
         return;
     }
     // 既存のMateriaをどこかに格納しておく
     this->inventory[idx] = nullptr;
-    occupied_slot_--;
+    num_occupied_slots_--;
 }
 
 void Character::use(int idx, ICharacter& target) {
