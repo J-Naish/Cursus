@@ -7,16 +7,19 @@
 
 class Brain {
 
-    private:
-
-        std::string ideas[100];
-
     public:
 
         Brain();
         Brain(const Brain& other);
         ~Brain();
         Brain& operator=(const Brain& other);
+
+        static const int kSize = 100;
+
+    private:
+
+        std::string ideas[kSize];
+
 
 };
 
