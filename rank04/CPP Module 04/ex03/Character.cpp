@@ -71,18 +71,20 @@ void Character::unequip(int idx) {
         std::cout << "No Materia is equipped" << std::endl;
         return;
     }
+    if (idx > kNumSlot || idx < 0) {
+        std::cerr << "invalid index of the slot:" << idx << std::endl;
+    }
     if (!this->inventory_[idx]) {
         std::cout << "No Materia is equipped at the slot " << idx << std::endl;
         return;
     }
-    // 既存のMateriaをどこかに格納しておく
     this->inventory_[idx] = NULL;
     num_occupied_slots_--;
 }
 
 void Character::use(int idx, ICharacter& target) {
     if (idx < 0 || idx >= kNumSlot) {
-        std::cout << "index is out of range" << std::endl;
+        std::cerr << "index is out of range" << std::endl;
         return;
     }
     if (!inventory_[idx]) {
