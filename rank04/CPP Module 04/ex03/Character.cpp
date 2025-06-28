@@ -18,7 +18,15 @@ Character::Character(std::string name) {
 }
 
 Character::Character(const Character& other) {
-    *this = other;
+    this->name_ = other.getName();
+    this->num_occupied_slots_ = other.num_occupied_slots_;
+    for (int i = 0; i < kNumSlot; i++) {
+        if (other.inventory_[i]) {
+            this->inventory_[i] = other.inventory_[i]->clone();
+        } else {
+            this->inventory_[i] = NULL;
+        }
+    }
 }
 
 Character::~Character() {
@@ -53,8 +61,12 @@ std::string const & Character::getName() const {
 }
 
 void Character::equip(AMateria* m) {
+    if (!m) {
+        return;
+    }
     if (this->num_occupied_slots_ >= kNumSlot) {
         std::cout << "The inventory is filled" << std::endl;
+        delete m;
         return;
     }
     for (int i = 0; i < kNumSlot; i++) {
@@ -71,13 +83,15 @@ void Character::unequip(int idx) {
         std::cout << "No Materia is equipped" << std::endl;
         return;
     }
-    if (idx > kNumSlot || idx < 0) {
+    if (idx >= kNumSlot || idx < 0) {
         std::cerr << "invalid index of the slot:" << idx << std::endl;
+        return;
     }
     if (!this->inventory_[idx]) {
         std::cout << "No Materia is equipped at the slot " << idx << std::endl;
         return;
     }
+    delete this->inventory_[idx];
     this->inventory_[idx] = NULL;
     num_occupied_slots_--;
 }

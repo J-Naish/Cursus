@@ -9,7 +9,14 @@ MateriaSource::MateriaSource() {
 }
 
 MateriaSource::MateriaSource(const MateriaSource& other) {
-    *this = other;
+    this->num_memorized = other.num_memorized;
+    for (int i = 0; i < kNumSlot; i++) {
+        if (other.source_[i]) {
+            this->source_[i] = other.source_[i]->clone();
+        } else {
+            this->source_[i] = NULL;
+        }
+    }
 }
 
 MateriaSource::~MateriaSource() {
@@ -39,8 +46,12 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other) {
 
 
 void MateriaSource::learnMateria(AMateria* m) {
+    if (!m) {
+        return;
+    }
     if (num_memorized >= 4) {
         std::cout << "You can not learn more than 4 sources" << std::endl;
+        delete m;
         return;
     }
     this->source_[num_memorized] = m;
