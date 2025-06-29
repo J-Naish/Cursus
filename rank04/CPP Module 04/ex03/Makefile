@@ -1,6 +1,6 @@
 NAME := ex03
 CXX := c++
-FLAGS := -Wall -Wextra -Werror -std=c++98
+FLAGS := -Wall -Wextra -Werror -std=c++98 --pedantic
 SRC := AMateria.cpp Character.cpp Cure.cpp Ice.cpp main.cpp MateriaSource.cpp
 BUILD_DIR := build
 OBJ := $(addprefix $(BUILD_DIR)/, $(SRC:.cpp=.o))
