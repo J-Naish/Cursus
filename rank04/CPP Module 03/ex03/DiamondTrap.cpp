@@ -2,6 +2,7 @@
 #include <iostream>
 
 DiamondTrap::DiamondTrap() {
+    this->name_ = "Noname";
     this->hit_points_ = FragTrap::hit_points_;
     this->energy_points_ = ScavTrap::energy_points_;
     this->attack_damage_ = FragTrap::attack_damage_;
