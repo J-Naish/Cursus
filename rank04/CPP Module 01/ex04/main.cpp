@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
     std::string s2 = argv[3];
 
 
-    std::ifstream input_file(filename);
+    std::ifstream input_file(filename.c_str());
 
     if (!input_file.is_open()) {
         std::cerr << "Failed to open the file: " << filename << std::endl;
@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
     input_file.close();
 
 
-    std::ofstream output_file(filename + ".replace");
+    std::ofstream output_file((filename + ".replace").c_str());
     if (!output_file.is_open()) {
         std::cerr << "Failed to open or create a replace file" << std::endl;
         return 1;
