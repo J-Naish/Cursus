@@ -56,7 +56,7 @@ unsigned int ClapTrap::getEnergyPoints() const {
     return this->energy_points_;
 }
 
-unsigned int ClapTrap::getAttackDamage_() const {
+unsigned int ClapTrap::getAttackDamage() const {
     return this->attack_damage_;
 }
 
@@ -113,6 +113,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
         std::cout
             << GREEN << "ClapTrap " << this->name_ << " is repaired of " << amount
             << " points of energy!" << RESET << std::endl;
+        this->hit_points_ += amount;
         this->energy_points_ -= ClapTrap::kEnergyCost;
     }
 }
