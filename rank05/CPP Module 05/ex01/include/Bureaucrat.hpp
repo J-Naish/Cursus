@@ -6,16 +6,12 @@
 #include <exception>
 #include <iostream>
 #include <sstream>
+#include "constants.hpp"
 
 
 class Bureaucrat {
 
     public:
-
-        // constants
-        static const int    kHighestGrade = 1;
-        static const int    kLowestGrade = 150;
-
 
         // constructors
         Bureaucrat();
