@@ -4,6 +4,7 @@
 
 #include <string>
 #include <exception>
+#include <iostream>
 
 
 class Bureaucrat {
@@ -56,6 +57,9 @@ class Bureaucrat {
         int                 grade_;
 
 };
+
+
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& b);
 
 
 #endif
