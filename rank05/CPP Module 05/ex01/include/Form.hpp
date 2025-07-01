@@ -2,8 +2,10 @@
 #ifndef FORM_H_
 #define FORM_H_
 
-
 #include <string>
+#include <exception>
+#include <iostream>
+#include <sstream>
 #include "constants.hpp"
 #include "Bureaucrat.hpp"
 
@@ -38,6 +40,18 @@ class Form {
         void               beSigned(const Bureaucrat& bureaucrat);
 
 
+
+        // exceptions
+        class GradeTooHighException : public std::exception {
+            public:
+                const char* what() const throw();
+        };
+        class GradeTooLowException : public std::exception {
+            public:
+                const char* what() const throw();
+        };
+
+
     private:
 
         const std::string  name_;
@@ -48,5 +62,6 @@ class Form {
 
 };
 
+std::ostream& operator<<(std::ostream& out, const Form& f);
 
 #endif
