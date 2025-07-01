@@ -1,8 +1,8 @@
-NAME := template # program name here
+NAME := ex00
 CXX := c++
 FLAGS := -Wall -Wextra -Werror -std=c++98 --pedantic
-SRC := src/example.cpp # source files here
-HEADERS := include/example.hpp # header files here
+SRC := src/main.cpp src/Bureaucrat.cpp
+HEADERS := include/Bureaucrat.hpp
 BUILD_DIR := build
 OBJ := $(addprefix $(BUILD_DIR)/, $(SRC:.cpp=.o))
 
