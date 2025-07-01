@@ -31,7 +31,7 @@ class Bureaucrat {
         Bureaucrat& operator=(const Bureaucrat& other);
 
 
-        // getters and setters
+        // getters
         const std::string&  getName() const;
         int                 getGrade() const;
 
