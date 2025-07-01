@@ -7,6 +7,7 @@
 #include <iostream>
 #include <sstream>
 #include "constants.hpp"
+#include "Form.hpp"
 
 
 class Bureaucrat {
@@ -27,7 +28,7 @@ class Bureaucrat {
         Bureaucrat& operator=(const Bureaucrat& other);
 
 
-        // getters and setters
+        // getters
         const std::string&  getName() const;
         int                 getGrade() const;
 
@@ -35,6 +36,7 @@ class Bureaucrat {
         // functions
         void                incrementGrade();
         void                decrementGrade();
+        void                signForm(Form& form);
 
 
         // exceptions
