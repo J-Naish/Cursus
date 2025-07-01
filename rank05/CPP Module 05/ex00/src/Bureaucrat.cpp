@@ -81,12 +81,20 @@ void Bureaucrat::decrementGrade() {
 
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
-    static std::string msg = "Grade too high; the grade cannot be less than " + std::to_string(kHighestGrade);
+    std::stringstream ss;
+    ss << kHighestGrade;
+    std::string highest_grade_str = ss.str();
+
+    static std::string msg = "Grade too high; the grade cannot be less than " + highest_grade_str;
     return msg.c_str();
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
-    static std::string msg = "Grade too low; the grade cannot be more than " + std::to_string(kLowestGrade);
+    std::stringstream ss;
+    ss << kLowestGrade;
+    std::string lowest_grade_str = ss.str();
+
+    static std::string msg = "Grade too low; the grade cannot be more than " + lowest_grade_str;
     return msg.c_str();
 }
 
