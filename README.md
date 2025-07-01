@@ -44,3 +44,14 @@
 - [ ] 2025/06/26 - 
 ### [CPP Module 04](https://github.com/J-Naish/Cursus/tree/main/rank04/CPP%20Module%2004)
 - [ ] 2025/06/28 - 
+
+## [rank 05](https://github.com/J-Naish/Cursus/tree/main/rank05)
+### [CPP Module 05](https://github.com/J-Naish/Cursus/tree/main/rank04/CPP%20Module%2005)
+- [x] 2025/07/01
+### [CPP Module 06](https://github.com/J-Naish/Cursus/tree/main/rank04/CPP%20Module%2006)
+
+### [CPP Module 07](https://github.com/J-Naish/Cursus/tree/main/rank04/CPP%20Module%2007)
+
+### [CPP Module 08](https://github.com/J-Naish/Cursus/tree/main/rank04/CPP%20Module%2008)
+
+### [CPP Module 09](https://github.com/J-Naish/Cursus/tree/main/rank04/CPP%20Module%2009)
