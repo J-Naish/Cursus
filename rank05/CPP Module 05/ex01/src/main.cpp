@@ -1,121 +1,148 @@
 #include "../include/Bureaucrat.hpp"
+#include "../include/Form.hpp"
 #include <iostream>
 
 int main() {
 
-    std::cout << "\n1. Testing basic constructors:" << std::endl;
+    std::cout << "\n1. Testing Form basic constructors:" << std::endl;
     try {
-        Bureaucrat b1;
-        std::cout << "Default constructor: " << b1 << std::endl;
+        Form f1;
+        std::cout << "Default constructor: " << f1 << std::endl;
 
-        Bureaucrat b2("Alice");
-        std::cout << "Name constructor: " << b2 << std::endl;
+        Form f2("Tax Form");
+        std::cout << "Name constructor: " << f2 << std::endl;
 
-        Bureaucrat b3("Bob", 75);
-        std::cout << "Name and grade constructor: " << b3 << std::endl;
+        Form f3(50, 25);
+        std::cout << "Grade constructor: " << f3 << std::endl;
+
+        Form f4("Application Form", 75, 40);
+        std::cout << "Name and grades constructor: " << f4 << std::endl;
     } catch (const std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n2. Testing grade validation in constructors:" << std::endl;
+    std::cout << "\n2. Testing Form grade validation in constructors:" << std::endl;
     try {
-        Bureaucrat highGrade("Charlie", 1);
-        std::cout << "Valid highest grade: " << highGrade << std::endl;
+        Form highForm("Valid High Form", 1, 1);
+        std::cout << "Valid highest grades: " << highForm << std::endl;
 
-        Bureaucrat lowGrade("Dave", 150);
-        std::cout << "Valid lowest grade: " << lowGrade << std::endl;
+        Form lowForm("Valid Low Form", 150, 150);
+        std::cout << "Valid lowest grades: " << lowForm << std::endl;
     } catch (const std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n3. Testing invalid grades in constructors:" << std::endl;
+    std::cout << "\n3. Testing invalid grades in Form constructors:" << std::endl;
     try {
-        Bureaucrat tooHigh("Invalid", 0);
+        Form tooHigh("Invalid Form", 0, 50);
     } catch (const std::exception& e) {
-        std::cout << "Grade 0 exception: " << e.what() << std::endl;
+        std::cout << "Grade to sign 0 exception: " << e.what() << std::endl;
     }
 
     try {
-        Bureaucrat tooLow("Invalid", 151);
+        Form tooLow("Invalid Form", 50, 151);
     } catch (const std::exception& e) {
-        std::cout << "Grade 151 exception: " << e.what() << std::endl;
+        std::cout << "Grade to execute 151 exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n4. Testing copy constructor and assignment:" << std::endl;
+    std::cout << "\n4. Testing Form copy constructor and assignment:" << std::endl;
     try {
-        Bureaucrat original("Eve", 50);
+        Form original("Original Form", 50, 30);
         std::cout << "Original: " << original << std::endl;
 
-        Bureaucrat copy(original);
+        Form copy(original);
         std::cout << "Copy constructor: " << copy << std::endl;
 
-        Bureaucrat assigned("Frank", 100);
+        Form assigned("Assigned Form", 100, 80);
         assigned = original;
         std::cout << "Assignment operator: " << assigned << std::endl;
     } catch (const std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n5. Testing grade increment:" << std::endl;
+    std::cout << "\n5. Testing Form getters:" << std::endl;
     try {
-        Bureaucrat b("Grace", 5);
-        std::cout << "Before increment: " << b << std::endl;
-
-        b.incrementGrade();
-        std::cout << "After increment: " << b << std::endl;
-
-        b.incrementGrade();
-        std::cout << "After second increment: " << b << std::endl;
+        Form f("Test Form", 42, 25);
+        std::cout << "Name: " << f.getName() << std::endl;
+        std::cout << "Is signed: " << (f.getIsSigned() ? "true" : "false") << std::endl;
+        std::cout << "Grade to sign: " << f.getGradeToSign() << std::endl;
+        std::cout << "Grade to execute: " << f.getGradeToExecute() << std::endl;
     } catch (const std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n6. Testing grade decrement:" << std::endl;
+    std::cout << "\n6. Testing Form signing - successful case:" << std::endl;
     try {
-        Bureaucrat b("Henry", 148);
-        std::cout << "Before decrement: " << b << std::endl;
+        Form form("Signable Form", 50, 25);
+        Bureaucrat bureaucrat("Alice", 30);
 
-        b.decrementGrade();
-        std::cout << "After decrement: " << b << std::endl;
+        std::cout << "Before signing: " << form << std::endl;
+        std::cout << "Bureaucrat: " << bureaucrat << std::endl;
 
-        b.decrementGrade();
-        std::cout << "After second decrement: " << b << std::endl;
+        form.beSigned(bureaucrat);
+        std::cout << "After signing: " << form << std::endl;
     } catch (const std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n7. Testing increment at highest grade:" << std::endl;
+    std::cout << "\n7. Testing Form signing - bureaucrat grade too low:" << std::endl;
     try {
-        Bureaucrat b("TopLevel", 1);
-        std::cout << "At highest grade: " << b << std::endl;
+        Form form("High Security Form", 10, 5);
+        Bureaucrat bureaucrat("Bob", 50);
 
-        b.incrementGrade();
+        std::cout << "Form requiring grade 10: " << form << std::endl;
+        std::cout << "Bureaucrat with grade 50: " << bureaucrat << std::endl;
+
+        form.beSigned(bureaucrat);
         std::cout << "This should not print" << std::endl;
     } catch (const std::exception& e) {
-        std::cout << "Exception when incrementing at grade 1: " << e.what() << std::endl;
+        std::cout << "Exception when signing: " << e.what() << std::endl;
     }
 
-    std::cout << "\n8. Testing decrement at lowest grade:" << std::endl;
+    std::cout << "\n8. Testing Form signing - exactly at required grade (should fail with >= logic):" << std::endl;
     try {
-        Bureaucrat b("BottomLevel", 150);
-        std::cout << "At lowest grade: " << b << std::endl;
+        Form form("Exact Grade Form", 75, 50);
+        Bureaucrat bureaucrat("Charlie", 75);
 
-        b.decrementGrade();
-        std::cout << "This should not print" << std::endl;
+        std::cout << "Form requiring grade 75: " << form << std::endl;
+        std::cout << "Bureaucrat with grade 75: " << bureaucrat << std::endl;
+
+        form.beSigned(bureaucrat);
+        std::cout << "This should not print with >= logic" << std::endl;
     } catch (const std::exception& e) {
-        std::cout << "Exception when decrementing at grade 150: " << e.what() << std::endl;
+        std::cout << "Exception when bureaucrat grade equals required grade: " << e.what() << std::endl;
     }
 
-    std::cout << "\n9. Testing getters:" << std::endl;
+    std::cout << "\n8b. Testing Form signing - bureaucrat better than required grade:" << std::endl;
     try {
-        Bureaucrat b("Iris", 42);
-        std::cout << "Name: " << b.getName() << std::endl;
-        std::cout << "Grade: " << b.getGrade() << std::endl;
+        Form form("Better Grade Form", 75, 50);
+        Bureaucrat bureaucrat("Diana", 70);
+
+        std::cout << "Form requiring grade 75: " << form << std::endl;
+        std::cout << "Bureaucrat with grade 70: " << bureaucrat << std::endl;
+
+        form.beSigned(bureaucrat);
+        std::cout << "After signing: " << form << std::endl;
     } catch (const std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n=== All tests completed ===" << std::endl;
+    std::cout << "\n9. Testing Form signing - already signed:" << std::endl;
+    try {
+        Form form("Already Signed Form", 100, 80);
+        Bureaucrat bureaucrat1("Dave", 50);
+        Bureaucrat bureaucrat2("Eve", 60);
+
+        form.beSigned(bureaucrat1);
+        std::cout << "First signing: " << form << std::endl;
+
+        form.beSigned(bureaucrat2);
+        std::cout << "Second signing: " << form << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+
+    std::cout << "\n=== All Form tests completed ===" << std::endl;
 
     return 0;
 }
