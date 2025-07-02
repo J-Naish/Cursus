@@ -14,6 +14,31 @@ AForm::AForm(const std::string& name) :
     grade_to_sign_(kHighestGrade),
     grade_to_execute_(kHighestGrade) {}
 
+AForm::AForm(int grade_to_sign, int grade_to_execute) :
+    name_("undefined"),
+    is_signed_(false),
+    grade_to_sign_(grade_to_sign),
+    grade_to_execute_(grade_to_execute)
+{
+    if (grade_to_sign < kHighestGrade || grade_to_execute < kHighestGrade) {
+        throw AForm::GradeTooHighException();
+    } else if (grade_to_sign_ > kLowestGrade || grade_to_execute_ > kLowestGrade) {
+        throw AForm::GradeTooLowException();
+    }
+}
+
+AForm::AForm(const std::string& name, int grade_to_sign, int grade_to_execute) :
+    name_(name),
+    is_signed_(false),
+    grade_to_sign_(grade_to_sign),
+    grade_to_execute_(grade_to_execute)
+{
+    if (grade_to_sign < kHighestGrade || grade_to_execute < kHighestGrade) {
+        throw AForm::GradeTooHighException();
+    } else if (grade_to_sign_ > kLowestGrade || grade_to_execute_ > kLowestGrade) {
+        throw AForm::GradeTooLowException();
+    }
+}
 
 AForm::AForm(const AForm& other) :
     name_(other.getName()),

@@ -18,6 +18,8 @@ class AForm {
         // constructors
         AForm();
         AForm(const std::string& name);
+        AForm(int grade_to_sign, int grade_to_execute);
+        AForm(const std::string& name, int grade_to_sign, int grade_to_execute);
         AForm(const AForm& other);
 
         // destructor
