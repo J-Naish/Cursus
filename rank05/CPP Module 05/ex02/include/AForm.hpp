@@ -6,6 +6,7 @@
 #include <exception>
 #include <iostream>
 #include <sstream>
+#include <fstream>
 #include "constants.hpp"
 
 class Bureaucrat;

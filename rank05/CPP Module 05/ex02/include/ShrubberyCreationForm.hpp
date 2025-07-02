@@ -26,6 +26,12 @@ class ShrubberyCreationForm : public AForm {
         // member functions
         void                 execute(const Bureaucrat& executer) const;
 
+        // exceptions
+        class FileOpenFailedException : public std::exception {
+            public:
+            const char* what() const throw();
+        };
+
 
     private:
 
