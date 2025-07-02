@@ -90,17 +90,11 @@ void Form::beSigned(const Bureaucrat& bureaucrat) {
 
 // exceptions
 const char* Form::GradeTooHighException::what() const throw() {
-    std::stringstream ss;
-    ss << "Form grade is too high (must be between " << kHighestGrade << " and " << kLowestGrade << ")";
-    static std::string msg = ss.str();
-    return msg.c_str();
+    return "Grade is too high";
 }
 
 const char* Form::GradeTooLowException::what() const throw() {
-    std::stringstream ss;
-    ss << "Form grade is too low (must be between " << kHighestGrade << " and " << kLowestGrade << ")";
-    static std::string msg = ss.str();
-    return msg.c_str();
+    return "Grade is too low";
 }
 
 
