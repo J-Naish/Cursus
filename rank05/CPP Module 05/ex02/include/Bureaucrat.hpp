@@ -36,7 +36,7 @@ class Bureaucrat {
         // functions
         void                incrementGrade();
         void                decrementGrade();
-        void                signForm(AForm& form);
+        void                signForm(AForm& form) const;
 
 
         // exceptions
