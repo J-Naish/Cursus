@@ -7,7 +7,7 @@ Form::Form() :
     grade_to_sign_(kHighestGrade),
     grade_to_execute_(kHighestGrade) {}
 
-Form::Form(std::string& name) :
+Form::Form(const std::string& name) :
     name_(name),
     is_signed_(false),
     grade_to_sign_(kHighestGrade),
@@ -26,7 +26,7 @@ Form::Form(int grade_to_sign, int grade_to_execute) :
     }
 }
 
-Form::Form(std::string& name, int grade_to_sign, int grade_to_execute) :
+Form::Form(const std::string& name, int grade_to_sign, int grade_to_execute) :
     name_(name),
     is_signed_(false),
     grade_to_sign_(grade_to_sign),

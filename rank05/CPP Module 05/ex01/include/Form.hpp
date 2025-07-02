@@ -17,9 +17,9 @@ class Form {
 
         // constructors
         Form();
-        Form(std::string& name);
+        Form(const std::string& name);
         Form(int grade_to_sign, int grade_to_execute);
-        Form(std::string& name, int grade_to_sign, int grade_to_execute);
+        Form(const std::string& name, int grade_to_sign, int grade_to_execute);
         Form(const Form& other);
 
         // destructor
