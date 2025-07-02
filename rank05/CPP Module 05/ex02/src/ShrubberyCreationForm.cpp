@@ -32,6 +32,7 @@ const std::string& ShrubberyCreationForm::getTarget() const {
 }
 
 
+// member functions
 void ShrubberyCreationForm::execute(const Bureaucrat& executer) const {
 
 }

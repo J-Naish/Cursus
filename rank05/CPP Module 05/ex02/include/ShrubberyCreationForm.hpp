@@ -23,6 +23,7 @@ class ShrubberyCreationForm : public AForm {
         // getters
         const std::string&   getTarget() const;
 
+        // member functions
         void                 execute(const Bureaucrat& executer) const;
 
 
