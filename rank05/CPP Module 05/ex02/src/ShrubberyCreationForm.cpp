@@ -35,6 +35,7 @@ const std::string& ShrubberyCreationForm::getTarget() const {
 
 // member functions
 void ShrubberyCreationForm::execute(const Bureaucrat& executer) const {
+    // validation
     if (!this->is_signed_) {
         throw AForm::FormNotSignedException();
     }
@@ -50,6 +51,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executer) const {
         throw ShrubberyCreationForm::FileOpenFailedException();
     }
 
+    // ascii tree
     output_file << "       _-_\n";
     output_file << "    /~~   ~~\\\n";
     output_file << " /~~         ~~\\\n";
