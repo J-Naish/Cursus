@@ -24,7 +24,7 @@ class AForm {
         AForm(const AForm& other);
 
         // destructor
-        ~AForm();
+        virtual ~AForm();
 
         // operator
         AForm& operator=(const AForm& other);

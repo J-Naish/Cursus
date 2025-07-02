@@ -3,6 +3,7 @@ CXX := c++
 FLAGS := -Wall -Wextra -Werror -std=c++98 --pedantic
 SRC := src/AForm.cpp\
 		src/Bureaucrat.cpp\
+		src/Intern.cpp\
 		src/main.cpp\
 		src/PresidentialPardonForm.cpp\
 		src/RobotomyRequestForm.cpp\
@@ -10,6 +11,7 @@ SRC := src/AForm.cpp\
 HEADERS := include/AForm.hpp\
 			include/Bureaucrat.hpp\
 			include/constants.hpp\
+			include/Intern.hpp\
 			include/PresidentialPardonForm.hpp\
 			include/RobotomyRequestForm.hpp\
 			include/ShrubberyCreationForm.hpp
