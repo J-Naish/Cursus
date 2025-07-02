@@ -7,7 +7,7 @@
 #include <iostream>
 #include <sstream>
 #include "constants.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 
 class Bureaucrat {
@@ -36,7 +36,7 @@ class Bureaucrat {
         // functions
         void                incrementGrade();
         void                decrementGrade();
-        void                signForm(Form& form);
+        void                signForm(AForm& form);
 
 
         // exceptions
