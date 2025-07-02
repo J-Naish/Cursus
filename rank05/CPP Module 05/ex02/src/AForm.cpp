@@ -90,15 +90,15 @@ void AForm::beSigned(const Bureaucrat& signer) {
 
 // exceptions
 const char* AForm::GradeTooHighException::what() const throw() {
-    return "Grade is too high";
+    return "grade is too high";
 }
 
 const char* AForm::GradeTooLowException::what() const throw() {
-    return "Grade is too";
+    return "grade is too low";
 }
 
 const char* AForm::FormNotSignedException::what() const throw() {
-    return "The form is not signed yet";
+    return "the form is not signed yet";
 }
 
 // << stream

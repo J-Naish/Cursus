@@ -40,4 +40,7 @@ class ShrubberyCreationForm : public AForm {
 };
 
 
+std::ostream& operator<<(std::ostream& out, const ShrubberyCreationForm& form);
+
+
 #endif

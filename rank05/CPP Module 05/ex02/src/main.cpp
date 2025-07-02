@@ -1,206 +1,227 @@
 #include "../include/Bureaucrat.hpp"
-#include "../include/Form.hpp"
+#include "../include/PresidentialPardonForm.hpp"
+#include "../include/RobotomyRequestForm.hpp"
+#include "../include/ShrubberyCreationForm.hpp"
 #include <iostream>
 
 int main() {
 
-    std::cout << "\n1. Testing Form basic constructors:" << std::endl;
+    std::cout << "\n=== TESTING CONCRETE FORM CLASSES ===" << std::endl;
+
+    std::cout << "\n1. Testing ShrubberyCreationForm constructors:" << std::endl;
     try {
-        Form f1;
-        std::cout << "Default constructor: " << f1 << std::endl;
+        ShrubberyCreationForm s1;
+        std::cout << "Default constructor: " << s1 << std::endl;
 
-        Form f2("Tax Form");
-        std::cout << "Name constructor: " << f2 << std::endl;
+        ShrubberyCreationForm s2("garden");
+        std::cout << "Target constructor: " << s2 << std::endl;
 
-        Form f3(50, 25);
-        std::cout << "Grade constructor: " << f3 << std::endl;
+        ShrubberyCreationForm s3(s2);
+        std::cout << "Copy constructor: " << s3 << std::endl;
 
-        Form f4("Application Form", 75, 40);
-        std::cout << "Name and grades constructor: " << f4 << std::endl;
+        ShrubberyCreationForm s4("backyard");
+        s4 = s2;
+        std::cout << "Assignment operator: " << s4 << std::endl;
+        std::cout << "Target: " << s4.getTarget() << std::endl;
     } catch (const std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n2. Testing Form grade validation in constructors:" << std::endl;
+    std::cout << "\n2. Testing RobotomyRequestForm constructors:" << std::endl;
     try {
-        Form highForm("Valid High Form", 1, 1);
-        std::cout << "Valid highest grades: " << highForm << std::endl;
+        RobotomyRequestForm r1;
+        std::cout << "Default constructor: " << r1 << std::endl;
 
-        Form lowForm("Valid Low Form", 150, 150);
-        std::cout << "Valid lowest grades: " << lowForm << std::endl;
+        RobotomyRequestForm r2("Bob");
+        std::cout << "Target constructor: " << r2 << std::endl;
+
+        RobotomyRequestForm r3(r2);
+        std::cout << "Copy constructor: " << r3 << std::endl;
+
+        RobotomyRequestForm r4("Alice");
+        r4 = r2;
+        std::cout << "Assignment operator: " << r4 << std::endl;
+        std::cout << "Target: " << r4.getTarget() << std::endl;
     } catch (const std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n3. Testing invalid grades in Form constructors:" << std::endl;
+    std::cout << "\n3. Testing PresidentialPardonForm constructors:" << std::endl;
     try {
-        Form tooHigh("Invalid Form", 0, 50);
-    } catch (const std::exception& e) {
-        std::cout << "Grade to sign 0 exception: " << e.what() << std::endl;
-    }
+        PresidentialPardonForm p1;
+        std::cout << "Default constructor: " << p1 << std::endl;
 
-    try {
-        Form tooLow("Invalid Form", 50, 151);
-    } catch (const std::exception& e) {
-        std::cout << "Grade to execute 151 exception: " << e.what() << std::endl;
-    }
+        PresidentialPardonForm p2("Charlie");
+        std::cout << "Target constructor: " << p2 << std::endl;
 
-    std::cout << "\n4. Testing Form copy constructor and assignment:" << std::endl;
-    try {
-        Form original("Original Form", 50, 30);
-        std::cout << "Original: " << original << std::endl;
+        PresidentialPardonForm p3(p2);
+        std::cout << "Copy constructor: " << p3 << std::endl;
 
-        Form copy(original);
-        std::cout << "Copy constructor: " << copy << std::endl;
-
-        Form assigned("Assigned Form", 100, 80);
-        assigned = original;
-        std::cout << "Assignment operator: " << assigned << std::endl;
+        PresidentialPardonForm p4("David");
+        p4 = p2;
+        std::cout << "Assignment operator: " << p4 << std::endl;
+        std::cout << "Target: " << p4.getTarget() << std::endl;
     } catch (const std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n5. Testing Form getters:" << std::endl;
+    std::cout << "\n=== TESTING FORM EXECUTION ===" << std::endl;
+
+    std::cout << "\n4. Testing ShrubberyCreationForm execution - successful:" << std::endl;
     try {
-        Form f("Test Form", 42, 25);
-        std::cout << "Name: " << f.getName() << std::endl;
-        std::cout << "Is signed: " << (f.getIsSigned() ? "true" : "false") << std::endl;
-        std::cout << "Grade to sign: " << f.getGradeToSign() << std::endl;
-        std::cout << "Grade to execute: " << f.getGradeToExecute() << std::endl;
+        ShrubberyCreationForm shrub("home");
+        Bureaucrat signer("Signer", 145);
+        Bureaucrat executor("Executor", 137);
+
+        std::cout << "Form: " << shrub << std::endl;
+        std::cout << "Signer: " << signer << std::endl;
+        std::cout << "Executor: " << executor << std::endl;
+
+        signer.signForm(shrub);
+        std::cout << "After signing: " << shrub << std::endl;
+
+        executor.executeForm(shrub);
     } catch (const std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n6. Testing Form signing - successful case:" << std::endl;
+    std::cout << "\n5. Testing ShrubberyCreationForm execution - unsigned form:" << std::endl;
     try {
-        Form form("Signable Form", 50, 25);
-        Bureaucrat bureaucrat("Alice", 30);
+        ShrubberyCreationForm shrub("office");
+        Bureaucrat executor("Executor", 137);
 
-        std::cout << "Before signing: " << form << std::endl;
-        std::cout << "Bureaucrat: " << bureaucrat << std::endl;
+        std::cout << "Unsigned form: " << shrub << std::endl;
+        std::cout << "Executor: " << executor << std::endl;
 
-        form.beSigned(bureaucrat);
-        std::cout << "After signing: " << form << std::endl;
+        executor.executeForm(shrub);
     } catch (const std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n7. Testing Form signing - bureaucrat grade too low:" << std::endl;
+    std::cout << "\n6. Testing ShrubberyCreationForm execution - grade too low:" << std::endl;
     try {
-        Form form("High Security Form", 10, 5);
-        Bureaucrat bureaucrat("Bob", 50);
+        ShrubberyCreationForm shrub("park");
+        Bureaucrat signer("Signer", 145);
+        Bureaucrat executor("Executor", 150);
 
-        std::cout << "Form requiring grade 10: " << form << std::endl;
-        std::cout << "Bureaucrat with grade 50: " << bureaucrat << std::endl;
+        signer.signForm(shrub);
+        std::cout << "Signed form: " << shrub << std::endl;
+        std::cout << "Low grade executor: " << executor << std::endl;
 
-        form.beSigned(bureaucrat);
-        std::cout << "This should not print" << std::endl;
-    } catch (const std::exception& e) {
-        std::cout << "Exception when signing: " << e.what() << std::endl;
-    }
-
-    std::cout << "\n8. Testing Form signing - exactly at required grade:" << std::endl;
-    try {
-        Form form("Exact Grade Form", 75, 50);
-        Bureaucrat bureaucrat("Charlie", 75);
-
-        std::cout << "Form requiring grade 75: " << form << std::endl;
-        std::cout << "Bureaucrat with grade 75: " << bureaucrat << std::endl;
-
-        form.beSigned(bureaucrat);
-    } catch (const std::exception& e) {
-        std::cout << "Exception when bureaucrat grade equals required grade: " << e.what() << std::endl;
-    }
-
-    std::cout << "\n8b. Testing Form signing - bureaucrat better than required grade:" << std::endl;
-    try {
-        Form form("Better Grade Form", 75, 50);
-        Bureaucrat bureaucrat("Diana", 70);
-
-        std::cout << "Form requiring grade 75: " << form << std::endl;
-        std::cout << "Bureaucrat with grade 70: " << bureaucrat << std::endl;
-
-        form.beSigned(bureaucrat);
-        std::cout << "After signing: " << form << std::endl;
+        executor.executeForm(shrub);
     } catch (const std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n9. Testing Form signing - already signed:" << std::endl;
+    std::cout << "\n7. Testing RobotomyRequestForm execution - successful:" << std::endl;
     try {
-        Form form("Already Signed Form", 100, 80);
-        Bureaucrat bureaucrat1("Dave", 50);
-        Bureaucrat bureaucrat2("Eve", 60);
+        RobotomyRequestForm robot("TestSubject");
+        Bureaucrat signer("Signer", 72);
+        Bureaucrat executor("Executor", 45);
 
-        form.beSigned(bureaucrat1);
-        std::cout << "First signing: " << form << std::endl;
+        std::cout << "Form: " << robot << std::endl;
+        std::cout << "Signer: " << signer << std::endl;
+        std::cout << "Executor: " << executor << std::endl;
 
-        form.beSigned(bureaucrat2);
-        std::cout << "Second signing: " << form << std::endl;
+        signer.signForm(robot);
+        std::cout << "After signing: " << robot << std::endl;
+
+        executor.executeForm(robot);
+        executor.executeForm(robot);
+        executor.executeForm(robot);
     } catch (const std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n10. Testing Bureaucrat.signForm() - successful signing:" << std::endl;
+    std::cout << "\n8. Testing RobotomyRequestForm execution - grade too low:" << std::endl;
     try {
-        Form form("Contract Form", 50, 30);
-        Bureaucrat bureaucrat("John", 40);
+        RobotomyRequestForm robot("Patient");
+        Bureaucrat signer("Signer", 72);
+        Bureaucrat executor("Executor", 50);
 
-        std::cout << "Before signing: " << form << std::endl;
-        std::cout << "Bureaucrat: " << bureaucrat << std::endl;
+        signer.signForm(robot);
+        std::cout << "Signed form: " << robot << std::endl;
+        std::cout << "Low grade executor: " << executor << std::endl;
 
-        bureaucrat.signForm(form);
-        std::cout << "After signing: " << form << std::endl;
+        executor.executeForm(robot);
     } catch (const std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n11. Testing Bureaucrat.signForm() - grade too low:" << std::endl;
+    std::cout << "\n9. Testing PresidentialPardonForm execution - successful:" << std::endl;
     try {
-        Form form("Top Secret Form", 10, 5);
-        Bureaucrat bureaucrat("Jane", 50);
+        PresidentialPardonForm pardon("Criminal");
+        Bureaucrat signer("Signer", 25);
+        Bureaucrat executor("Executor", 5);
 
-        std::cout << "Form: " << form << std::endl;
-        std::cout << "Bureaucrat: " << bureaucrat << std::endl;
+        std::cout << "Form: " << pardon << std::endl;
+        std::cout << "Signer: " << signer << std::endl;
+        std::cout << "Executor: " << executor << std::endl;
 
-        bureaucrat.signForm(form);
-        std::cout << "Form after attempt: " << form << std::endl;
+        signer.signForm(pardon);
+        std::cout << "After signing: " << pardon << std::endl;
+
+        executor.executeForm(pardon);
     } catch (const std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n12. Testing Bureaucrat.signForm() - exactly at required grade:" << std::endl;
+    std::cout << "\n10. Testing PresidentialPardonForm execution - grade too low:" << std::endl;
     try {
-        Form form("Exact Grade Form", 75, 50);
-        Bureaucrat bureaucrat("Mike", 75);
+        PresidentialPardonForm pardon("Prisoner");
+        Bureaucrat signer("Signer", 25);
+        Bureaucrat executor("Executor", 10);
 
-        std::cout << "Form: " << form << std::endl;
-        std::cout << "Bureaucrat: " << bureaucrat << std::endl;
+        signer.signForm(pardon);
+        std::cout << "Signed form: " << pardon << std::endl;
+        std::cout << "Low grade executor: " << executor << std::endl;
 
-        bureaucrat.signForm(form);
-        std::cout << "Form after signing: " << form << std::endl;
+        executor.executeForm(pardon);
     } catch (const std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n13. Testing Bureaucrat.signForm() - already signed form:" << std::endl;
+    std::cout << "\n=== TESTING SIGNING EDGE CASES ===" << std::endl;
+
+    std::cout << "\n11. Testing form signing - grade too low to sign:" << std::endl;
     try {
-        Form form("Pre-signed Form", 100, 80);
-        Bureaucrat bureaucrat1("Alice", 50);
-        Bureaucrat bureaucrat2("Bob", 60);
+        PresidentialPardonForm pardon("VIP");
+        Bureaucrat lowGradeBureaucrat("LowGrade", 30);
 
-        std::cout << "Initial form: " << form << std::endl;
+        std::cout << "Form requiring grade 25 to sign: " << pardon << std::endl;
+        std::cout << "Bureaucrat with grade 30: " << lowGradeBureaucrat << std::endl;
 
-        bureaucrat1.signForm(form);
-        std::cout << "After first signing: " << form << std::endl;
-
-        bureaucrat2.signForm(form);
-        std::cout << "After second attempt: " << form << std::endl;
+        lowGradeBureaucrat.signForm(pardon);
     } catch (const std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n=== All Form and Bureaucrat.signForm() tests completed ===" << std::endl;
+    std::cout << "\n12. Testing multiple forms with same bureaucrat:" << std::endl;
+    try {
+        Bureaucrat superBureaucrat("SuperBureaucrat", 1);
+        ShrubberyCreationForm shrub("yard");
+        RobotomyRequestForm robot("Android");
+        PresidentialPardonForm pardon("Convict");
+
+        std::cout << "Super bureaucrat: " << superBureaucrat << std::endl;
+
+        superBureaucrat.signForm(shrub);
+        superBureaucrat.signForm(robot);
+        superBureaucrat.signForm(pardon);
+
+        std::cout << "All forms signed:" << std::endl;
+        std::cout << shrub << std::endl;
+        std::cout << robot << std::endl;
+        std::cout << pardon << std::endl;
+
+        superBureaucrat.executeForm(shrub);
+        superBureaucrat.executeForm(robot);
+        superBureaucrat.executeForm(pardon);
+    } catch (const std::exception& e) {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+
+    std::cout << "\n=== All tests completed ===" << std::endl;
 
     return 0;
 }

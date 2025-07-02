@@ -81,3 +81,12 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executer) const {
 const char* ShrubberyCreationForm::FileOpenFailedException::what() const throw() {
     return "Failed to open or create a file";
 }
+
+
+std::ostream& operator<<(std::ostream& out, const ShrubberyCreationForm& form) {
+    out << "ShrubberyCreationForm [" << form.getName() << "] (Target: " << form.getTarget() 
+        << ", Signed: " << (form.getIsSigned() ? "Yes" : "No")
+        << ", Sign Grade: " << form.getGradeToSign()
+        << ", Execute Grade: " << form.getGradeToExecute() << ")";
+    return out;
+}

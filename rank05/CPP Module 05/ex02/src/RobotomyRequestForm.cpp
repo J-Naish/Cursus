@@ -56,3 +56,12 @@ void RobotomyRequestForm::execute(const Bureaucrat& executer) const {
     }
 
 }
+
+
+std::ostream& operator<<(std::ostream& out, const RobotomyRequestForm& form) {
+    out << "RobotomyRequestForm [" << form.getName() << "] (Target: " << form.getTarget() 
+        << ", Signed: " << (form.getIsSigned() ? "Yes" : "No")
+        << ", Sign Grade: " << form.getGradeToSign()
+        << ", Execute Grade: " << form.getGradeToExecute() << ")";
+    return out;
+}
