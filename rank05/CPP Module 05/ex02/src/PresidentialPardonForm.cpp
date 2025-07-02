@@ -1,0 +1,38 @@
+#include "../include/PresidentialPardonForm.hpp"
+
+// constructors
+PresidentialPardonForm::PresidentialPardonForm() :
+    AForm::AForm("Presidential Pardon Form", 25, 5),
+    target_("undefined") {}
+
+PresidentialPardonForm::PresidentialPardonForm(const std::string& target) :
+    AForm::AForm("Presidential Pardon Form", 25, 5),
+    target_(target) {}
+
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) :
+    AForm::AForm(other),
+    target_(other.getTarget()) {}
+
+
+// destructor
+PresidentialPardonForm::~PresidentialPardonForm() {}
+
+
+// operator
+PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& other) {
+    AForm::operator=(other);
+    this->target_ = other.target_;
+    return *this;
+}
+
+
+// getters
+const std::string& PresidentialPardonForm::getTarget() const {
+    return this->target_;
+}
+
+
+// member functions
+void PresidentialPardonForm::execute(const Bureaucrat& executer) const {
+
+}
