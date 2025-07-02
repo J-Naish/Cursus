@@ -2,6 +2,8 @@
 #ifndef ROBOTOMY_REQUEST_FORM_H_
 #define ROBOTOMY_REQUEST_FORM_H_
 
+#include <cstdlib>
+#include <ctime>
 #include "AForm.hpp"
 
 
