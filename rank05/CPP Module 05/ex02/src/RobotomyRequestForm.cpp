@@ -1,4 +1,5 @@
 #include "../include/RobotomyRequestForm.hpp"
+#include "../include/Bureaucrat.hpp"
 
 // constructors
 RobotomyRequestForm::RobotomyRequestForm() :
@@ -34,5 +35,10 @@ const std::string& RobotomyRequestForm::getTarget() const {
 
 // member functions
 void RobotomyRequestForm::execute(const Bureaucrat& executer) const {
-
+    if (!this->is_signed_) {
+        throw AForm::FormNotSignedException();
+    }
+    if (executer.getGrade() > this->grade_to_execute_) {
+        throw AForm::GradeTooLowException();
+    }
 }

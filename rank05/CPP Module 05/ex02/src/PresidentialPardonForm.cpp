@@ -1,4 +1,5 @@
 #include "../include/PresidentialPardonForm.hpp"
+#include "../include/Bureaucrat.hpp"
 
 // constructors
 PresidentialPardonForm::PresidentialPardonForm() :
@@ -34,5 +35,10 @@ const std::string& PresidentialPardonForm::getTarget() const {
 
 // member functions
 void PresidentialPardonForm::execute(const Bureaucrat& executer) const {
-
+    if (!this->is_signed_) {
+        throw AForm::FormNotSignedException();
+    }
+    if (executer.getGrade() > this->grade_to_execute_) {
+        throw AForm::GradeTooLowException();
+    }
 }
