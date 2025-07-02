@@ -56,7 +56,7 @@ class AForm {
         };
 
 
-    private:
+    protected:
 
         const std::string  name_;
         bool               is_signed_;
