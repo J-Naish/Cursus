@@ -7,8 +7,8 @@
 #include <iostream>
 #include <sstream>
 #include "constants.hpp"
-#include "Bureaucrat.hpp"
 
+class Bureaucrat;
 
 class Form {
 

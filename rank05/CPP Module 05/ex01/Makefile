@@ -1,8 +1,8 @@
 NAME := ex01
 CXX := c++
 FLAGS := -Wall -Wextra -Werror -std=c++98 --pedantic
-SRC := src/main.cpp src/Bureaucrat.cpp
-HEADERS := include/Bureaucrat.hpp
+SRC := src/main.cpp src/Bureaucrat.cpp src/Form.cpp
+HEADERS := include/Bureaucrat.hpp include/Form.hpp
 BUILD_DIR := build
 OBJ := $(addprefix $(BUILD_DIR)/, $(SRC:.cpp=.o))
 

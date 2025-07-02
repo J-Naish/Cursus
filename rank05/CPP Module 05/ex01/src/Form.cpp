@@ -1,4 +1,5 @@
 #include "../include/Form.hpp"
+#include "../include/Bureaucrat.hpp"
 
 // constructors
 Form::Form() :
@@ -52,6 +53,7 @@ Form::~Form() {}
 
 // operators
 Form& Form::operator=(const Form& other) {
+    (void)other;
     return *this;
 }
 
