@@ -18,8 +18,6 @@ class AForm {
         // constructors
         AForm();
         AForm(const std::string& name);
-        AForm(int grade_to_sign, int grade_to_execute);
-        AForm(const std::string& name, int grade_to_sign, int grade_to_execute);
         AForm(const AForm& other);
 
         // destructor
@@ -37,8 +35,8 @@ class AForm {
 
 
         // functions
-        void               beSigned(const Bureaucrat& bureaucrat);
-
+        void               beSigned(const Bureaucrat& signer);
+        virtual void       execute(const Bureaucrat& executer) const = 0;
 
 
         // exceptions
