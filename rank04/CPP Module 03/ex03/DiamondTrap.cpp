@@ -1,8 +1,12 @@
 #include "DiamondTrap.hpp"
 #include <iostream>
 
-DiamondTrap::DiamondTrap(): ClapTrap("Noname_clap_name") {
-    this->name_ = "Noname";
+DiamondTrap::DiamondTrap() :
+    ClapTrap("Noname_clap_name"),
+    ScavTrap("Noname_clap_name"),
+    FragTrap("Noname_clap_name"),
+    name_("Noname")
+{
     this->hit_points_ = FragTrap::kDefaultHitPoints;
     this->energy_points_ = ScavTrap::kDefaultEnergyPoints;
     this->attack_damage_ = FragTrap::kDefaultAttackDamage;
@@ -11,8 +15,12 @@ DiamondTrap::DiamondTrap(): ClapTrap("Noname_clap_name") {
         << GREEN << this->name_ << " was spawned." << RESET << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name") {
-    this->name_ = name;
+DiamondTrap::DiamondTrap(std::string name) :
+    ClapTrap(name + "_clap_name"),
+    ScavTrap(name + "_clap_name"),
+    FragTrap(name + "_clap_name"),
+    name_(name)
+{
     this->hit_points_ = FragTrap::kDefaultHitPoints;
     this->energy_points_ = ScavTrap::kDefaultEnergyPoints;
     this->attack_damage_ = FragTrap::kDefaultAttackDamage;
