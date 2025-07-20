@@ -1,4 +1,4 @@
-NAME := ex02
+NAME := executable
 CXX := c++
 FLAGS := -Wall -Wextra -Werror -std=c++98 --pedantic
 SRC := main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
