@@ -11,9 +11,9 @@ ScavTrap::ScavTrap() : ClapTrap() {
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
     this->name_ = name;
-    this->hit_points_ = 100;
-    this->energy_points_ = 50;
-    this->attack_damage_ = 20;
+    this->hit_points_ = kDefaultHitPoints;
+    this->energy_points_ = kDefaultEnergyPoints;
+    this->attack_damage_ = kDefaultAttackDamage;
     std::cout << "[ScavTrap]Constructor (with parameters): "
         << GREEN << this->name_ << " was spawned." << RESET << std::endl;
 }
