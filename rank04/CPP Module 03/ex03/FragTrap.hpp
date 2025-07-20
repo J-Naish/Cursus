@@ -5,15 +5,21 @@
 
 #include <iostream>
 
-class FragTrap : virtual public ClapTrap {
+class FragTrap : public ClapTrap {
 
     public:
 
-        FragTrap();
-        FragTrap(std::string name);
-        ~FragTrap();
+      static const unsigned int kDefaultHitPoints = 100;
+      static const unsigned int kDefaultEnergyPoints = 100;
+      static const unsigned int kDefaultAttackDamage = 30;
 
-        void highFivesGuys(void);
+      FragTrap();
+      FragTrap(std::string name);
+      FragTrap(const FragTrap& other);
+      ~FragTrap();
+      FragTrap& operator=(const FragTrap& other);
+
+      void highFivesGuys(void);
 
 };
 
