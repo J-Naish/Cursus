@@ -7,7 +7,7 @@ ClapTrap::ClapTrap() {
     this->energy_points_ = 10;
     this->attack_damage_ = 0;
 
-    std::cout << "Default constructor: "
+    std::cout << "[ClapTrap]Default constructor: "
         << GREEN << this->name_ << " was spawned." << RESET << std::endl;
 }
 
@@ -17,23 +17,23 @@ ClapTrap::ClapTrap(std::string name) {
     this->energy_points_ = 10;
     this->attack_damage_ = 0;
 
-    std::cout << "Constructor (with parameters): "
+    std::cout << "[ClapTrap]Constructor (with parameters): "
         << GREEN << this->name_ << " was spawned." << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other) {
     *this = other;
-    std::cout << "Copy constructor: "
+    std::cout << "[ClapTrap]Copy constructor: "
         << GREEN << this->name_ << " was spawned." << RESET << std::endl;
 }
 
 ClapTrap::~ClapTrap() {
-    std::cout << "Destructor: "
+    std::cout << "[ClapTrap]Destructor: "
     << RED << this->name_ << " was Despawned." << RESET << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
-    std::cout << "Copy assignment operator called" << std::endl;
+    std::cout << "[ClapTrap]Copy assignment operator called" << std::endl;
     if (this != &other) {
         name_ = other.name_;
         hit_points_ = other.hit_points_;
