@@ -26,7 +26,9 @@ DiamondTrap::DiamondTrap(const DiamondTrap& other) :
     ScavTrap(other),
     FragTrap(other)
 {
-    *this = other;
+    this->name_ = other.name_;
+    std::cout << "[DiamondTrap]Copy constructor: "
+        << GREEN << this->name_ << " was spawned." << RESET << std::endl;
 }
 
 DiamondTrap::~DiamondTrap() {

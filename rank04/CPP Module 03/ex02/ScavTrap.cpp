@@ -19,7 +19,6 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other): ClapTrap(other) {
-  *this = other;
   std::cout << "[ScavTrap]Copy constructor: "
       << GREEN << this->name_ << " was spawned." << RESET << std::endl;
 }

@@ -20,7 +20,6 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 }
 
 FragTrap::FragTrap(const FragTrap& other): ClapTrap(other) {
-  *this = other;
   std::cout << "[FragTrap]Copy constructor: "
       << GREEN << this->name_ << " was spawned." << RESET << std::endl;
 }
