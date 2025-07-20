@@ -3,9 +3,9 @@
 
 ClapTrap::ClapTrap() :
   name_("Noname"),
-  hit_points_(10),
-  energy_points_(10),
-  attack_damage_(0)
+  hit_points_(kDefaultHitPoints),
+  energy_points_(kDefaultEnergyPoints),
+  attack_damage_(kDefaultAttackDamage)
 {
     std::cout << "[ClapTrap]Default constructor: "
         << GREEN << this->name_ << " was spawned." << RESET << std::endl;
@@ -13,9 +13,9 @@ ClapTrap::ClapTrap() :
 
 ClapTrap::ClapTrap(std::string name) :
   name_(name),
-  hit_points_(10),
-  energy_points_(10),
-  attack_damage_(0)
+  hit_points_(kDefaultHitPoints),
+  energy_points_(kDefaultEnergyPoints),
+  attack_damage_(kDefaultAttackDamage)
 {
     std::cout << "[ClapTrap]Constructor (with parameters): "
         << GREEN << this->name_ << " was spawned." << RESET << std::endl;

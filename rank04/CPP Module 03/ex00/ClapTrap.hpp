@@ -33,6 +33,12 @@ class ClapTrap
 
 
     public:
+
+        static const unsigned int kDefaultHitPoints = 10;
+        static const unsigned int kDefaultEnergyPoints = 10;
+        static const unsigned int kDefaultAttackDamage = 0;
+
+
         ClapTrap();
         ClapTrap(std::string name);
         ClapTrap(const ClapTrap& other);
