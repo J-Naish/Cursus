@@ -1,23 +1,23 @@
 #include "DiamondTrap.hpp"
 #include <iostream>
 
-DiamondTrap::DiamondTrap() {
+DiamondTrap::DiamondTrap(): ClapTrap("Noname_clap_name") {
     this->name_ = "Noname";
-    this->hit_points_ = FragTrap::hit_points_;
-    this->energy_points_ = ScavTrap::energy_points_;
-    this->attack_damage_ = FragTrap::attack_damage_;
+    this->hit_points_ = FragTrap::kDefaultHitPoints;
+    this->energy_points_ = ScavTrap::kDefaultEnergyPoints;
+    this->attack_damage_ = FragTrap::kDefaultAttackDamage;
 
-    std::cout << "Default constructor: "
+    std::cout << "[DiamondTrap]Default constructor: "
         << GREEN << this->name_ << " was spawned." << RESET << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name + "_clap_name"), FragTrap(name + "_clap_name") {
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name") {
     this->name_ = name;
-    this->hit_points_ = FragTrap::hit_points_;
-    this->energy_points_ = ScavTrap::energy_points_;
-    this->attack_damage_ = FragTrap::attack_damage_;
+    this->hit_points_ = FragTrap::kDefaultHitPoints;
+    this->energy_points_ = ScavTrap::kDefaultEnergyPoints;
+    this->attack_damage_ = FragTrap::kDefaultAttackDamage;
 
-    std::cout << "DiamondTrap Constructor (with parameters): "
+    std::cout << "[DiamondTrap]Constructor (with parameters): "
         << GREEN << this->name_ << " was spawned." << RESET << std::endl;
 }
 
@@ -30,12 +30,12 @@ DiamondTrap::DiamondTrap(const DiamondTrap& other) :
 }
 
 DiamondTrap::~DiamondTrap() {
-    std::cout << "DiamondTrap Destructor: "
+    std::cout << "[DiamondTrap]Destructor: "
         << RED << this->name_ << " was Despawned." << RESET << std::endl;
 }
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other) {
-    std::cout << "DiamondTrap Copy assignment operator called" << std::endl;
+    std::cout << "[DiamondTrap]Copy assignment operator called" << std::endl;
     if (this != &other) {
         name_ = other.name_;
         hit_points_ = other.hit_points_;
