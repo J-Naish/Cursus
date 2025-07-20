@@ -9,9 +9,9 @@ class ScavTrap : public ClapTrap {
 
     public:
 
-      static const unsigned int kDefaultHitPoints = 100;
-      static const unsigned int kDefaultEnergyPoints = 50;
-      static const unsigned int kDefaultAttackDamage = 20;
+        static const unsigned int kDefaultHitPoints = 100;
+        static const unsigned int kDefaultEnergyPoints = 50;
+        static const unsigned int kDefaultAttackDamage = 20;
 
         ScavTrap();
         ScavTrap(std::string name);
