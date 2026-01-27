@@ -45,7 +45,7 @@
 ### [CPP Module 04](https://github.com/J-Naish/Cursus/tree/main/rank04/CPP%20Module%2004)
 - [x] 2025/06/28 - 2025/07/23
 ### [NetPractice](https://github.com/J-Naish/Cursus/tree/main/rank04/NetPractice)
-- [ ] 2025/07/23 - 
+- [ ] 2025/07/23 - 2026/01/27
 
 ## [rank 05](https://github.com/J-Naish/Cursus/tree/main/rank05)
 ### [CPP Module 05](https://github.com/J-Naish/Cursus/tree/main/rank04/CPP%20Module%2005)
