@@ -45,6 +45,15 @@ Launch the infrastructure:
 make up
 ```
 
+For local development, the `dev-*` targets override `DATA_ROOT` with `.data/` in the repository root:
+
+```bash
+make dev-up
+make dev-ps
+make dev-logs
+make dev-fclean
+```
+
 ## Container and Volume Management
 
 Inspect the running stack:

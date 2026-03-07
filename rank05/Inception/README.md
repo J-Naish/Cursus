@@ -32,6 +32,14 @@ make build
 make up
 ```
 
+For local validation on environments where `/home/rnishi/data` is not practical, use the dedicated development targets:
+
+```bash
+make dev-up
+make dev-down
+make dev-fclean
+```
+
 ### Stop and clean
 
 ```bash
