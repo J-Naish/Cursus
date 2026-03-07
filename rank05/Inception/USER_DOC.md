@@ -12,6 +12,9 @@ If `srcs/.env` does not exist yet, create it from the example first:
 
 ```bash
 cp srcs/.env.example srcs/.env
+cp secrets/credentials.txt.example secrets/credentials.txt
+cp secrets/db_password.txt.example secrets/db_password.txt
+cp secrets/db_root_password.txt.example secrets/db_root_password.txt
 ```
 
 Start the stack:
@@ -45,7 +48,7 @@ Credentials are stored locally in the `secrets/` directory:
 - `secrets/db_password.txt`
 - `secrets/db_root_password.txt`
 
-These files are ignored by Git and should be updated locally as needed.
+These files are ignored by Git and should be created from the tracked `*.example` files before first startup.
 The values in `secrets/credentials.txt` are used only when WordPress is installed for the first time on an empty persistent volume.
 If you change them after the initial installation, reset the persistent data before expecting the new users to appear.
 

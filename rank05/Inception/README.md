@@ -20,6 +20,9 @@ Prepare the local environment file first:
 
 ```bash
 cp srcs/.env.example srcs/.env
+cp secrets/credentials.txt.example secrets/credentials.txt
+cp secrets/db_password.txt.example secrets/db_password.txt
+cp secrets/db_root_password.txt.example secrets/db_root_password.txt
 ```
 
 Then build and start the stack:

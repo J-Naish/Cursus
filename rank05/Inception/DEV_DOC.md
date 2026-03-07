@@ -13,8 +13,11 @@
 - `srcs/.env`
 - `srcs/.env.example`
 - `secrets/credentials.txt`
+- `secrets/credentials.txt.example`
 - `secrets/db_password.txt`
+- `secrets/db_password.txt.example`
 - `secrets/db_root_password.txt`
+- `secrets/db_root_password.txt.example`
 
 `secrets/credentials.txt` seeds the initial WordPress administrator and regular user only when the WordPress data volume is empty.
 If the stack has already been initialized, delete the persistent data before reapplying changed WordPress credentials.
@@ -23,6 +26,9 @@ Create the runtime environment file from the tracked example before running the 
 
 ```bash
 cp srcs/.env.example srcs/.env
+cp secrets/credentials.txt.example secrets/credentials.txt
+cp secrets/db_password.txt.example secrets/db_password.txt
+cp secrets/db_root_password.txt.example secrets/db_root_password.txt
 ```
 
 ## Build and Launch
