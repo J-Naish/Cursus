@@ -71,8 +71,12 @@ System administration project (v5.2) to build a small infrastructure using Docke
 - Must be done on a Virtual Machine
 - All configuration files go in `srcs/`
 - Root `Makefile` must build everything via `docker-compose.yml`
+- Must use `docker compose`
+- Each Docker image must have the same name as its corresponding service
+- Each service must run in a dedicated container
 - Base image: **penultimate stable** version of Alpine or Debian
 - Write your own Dockerfile per service
+- Dockerfiles must be called from `docker-compose.yml` by the root `Makefile`
 - Pulling ready-made images from DockerHub is forbidden (Alpine/Debian excluded)
 - `latest` tag is prohibited
 
@@ -129,8 +133,10 @@ System administration project (v5.2) to build a small infrastructure using Docke
 - First line (italicized): `This project has been created as part of the 42 curriculum by <login>.`
 - **Description**: project goal and brief overview
 - **Instructions**: build, install, and execution steps
-- **Resources**: references and description of AI usage
+- **Resources**: references and a description of how AI was used, including which tasks and which parts of the project
 - **Project description**: explain Docker usage and include comparisons:
+  - Must explain the sources included in the project
+  - Must indicate the main design choices
   - Virtual Machines vs Docker
   - Secrets vs Environment Variables
   - Docker Network vs Host Network
@@ -157,3 +163,5 @@ System administration project (v5.2) to build a small infrastructure using Docke
 - Adminer
 - A service of your choice (must justify during defense)
 - Each bonus service needs its own Dockerfile and container
+- Each bonus service may have its own dedicated volume if necessary
+- Extra ports may be opened for bonus services if needed
