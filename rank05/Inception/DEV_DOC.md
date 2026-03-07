@@ -15,6 +15,9 @@
 - `secrets/db_password.txt`
 - `secrets/db_root_password.txt`
 
+`secrets/credentials.txt` seeds the initial WordPress administrator and regular user only when the WordPress data volume is empty.
+If the stack has already been initialized, delete the persistent data before reapplying changed WordPress credentials.
+
 ## Build and Launch
 
 Build all images:

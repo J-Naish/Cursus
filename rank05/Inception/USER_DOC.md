@@ -40,6 +40,8 @@ Credentials are stored locally in the `secrets/` directory:
 - `secrets/db_root_password.txt`
 
 These files are ignored by Git and should be updated locally as needed.
+The values in `secrets/credentials.txt` are used only when WordPress is installed for the first time on an empty persistent volume.
+If you change them after the initial installation, reset the persistent data before expecting the new users to appear.
 
 ## Service Checks
 
