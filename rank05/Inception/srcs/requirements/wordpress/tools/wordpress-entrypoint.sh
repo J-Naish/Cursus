@@ -35,10 +35,11 @@ extract_credential() {
 
 wait_for_database() {
 	attempt=0
-	while ! mariadb-admin ping \
+	while ! mariadb \
 		-h"${WORDPRESS_DB_HOST}" \
 		-u"${MYSQL_USER}" \
-		-p"${MYSQL_PASSWORD}" >/dev/null 2>&1; do
+		-p"${MYSQL_PASSWORD}" \
+		-e "SELECT 1" >/dev/null 2>&1; do
 		attempt=$((attempt + 1))
 		if [ "$attempt" -ge 60 ]; then
 			echo "MariaDB is not reachable" >&2
@@ -89,7 +90,8 @@ if ! wp core is-installed --allow-root --path="$WP_PATH" >/dev/null 2>&1; then
 		--title="Inception" \
 		--admin_user="$WP_ADMIN_USER" \
 		--admin_password="$WP_ADMIN_PASSWORD" \
-		--admin_email="$WP_ADMIN_EMAIL"
+		--admin_email="$WP_ADMIN_EMAIL" \
+		--skip-email
 fi
 
 if ! wp user get "$WP_USER" --allow-root --path="$WP_PATH" >/dev/null 2>&1; then
