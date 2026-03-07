@@ -11,10 +11,10 @@
       "MCP"
     ],
     "deny": [
-      "Read(./.env)",
-      "Read(./.env.*)",
       "Read(./**/.env)",
-      "Read(./**/.env.*)"
+      "Read(./secrets/credentials.txt)",
+      "Read(./secrets/db_password.txt)",
+      "Read(./secrets/db_root_password.txt)"
     ],
     "ask": [
       "Edit",
