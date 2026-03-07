@@ -1,6 +1,7 @@
 FROM debian:12-slim AS downloader
 
 ARG WORDPRESS_VERSION=6.9.1
+ARG WP_CLI_VERSION=2.12.0
 
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends ca-certificates curl tar \
@@ -10,7 +11,7 @@ RUN curl -fsSL "https://wordpress.org/wordpress-${WORDPRESS_VERSION}.tar.gz" -o 
 	&& tar -xzf /tmp/wordpress.tar.gz -C /usr/src \
 	&& rm -f /tmp/wordpress.tar.gz
 
-RUN curl -fsSL https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o /usr/local/bin/wp \
+RUN curl -fsSL "https://github.com/wp-cli/wp-cli-bundle/releases/download/v${WP_CLI_VERSION}/wp-cli-${WP_CLI_VERSION}.phar" -o /usr/local/bin/wp \
 	&& chmod 755 /usr/local/bin/wp
 
 FROM debian:12-slim
@@ -40,7 +41,8 @@ COPY --from=downloader /usr/src/wordpress /usr/src/wordpress
 RUN chmod 755 /usr/local/bin/wordpress-entrypoint.sh \
 	&& chmod 755 /usr/local/bin/wp \
 	&& mkdir -p /run/php /usr/src/wordpress /var/www/html \
-	&& chown -R www-data:www-data /run/php /usr/src/wordpress /var/www/html
+	&& chown -R www-data:www-data /run/php /usr/src/wordpress /var/www/html \
+	&& php /usr/local/bin/wp --info >/dev/null
 
 EXPOSE 9000
 
