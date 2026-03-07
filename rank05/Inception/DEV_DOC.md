@@ -11,12 +11,19 @@
 ### Required local files
 
 - `srcs/.env`
+- `srcs/.env.example`
 - `secrets/credentials.txt`
 - `secrets/db_password.txt`
 - `secrets/db_root_password.txt`
 
 `secrets/credentials.txt` seeds the initial WordPress administrator and regular user only when the WordPress data volume is empty.
 If the stack has already been initialized, delete the persistent data before reapplying changed WordPress credentials.
+
+Create the runtime environment file from the tracked example before running the stack:
+
+```bash
+cp srcs/.env.example srcs/.env
+```
 
 ## Build and Launch
 

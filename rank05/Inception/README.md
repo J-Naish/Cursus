@@ -16,6 +16,14 @@ This project builds a small containerized infrastructure on a virtual machine wi
 
 ### Build and run
 
+Prepare the local environment file first:
+
+```bash
+cp srcs/.env.example srcs/.env
+```
+
+Then build and start the stack:
+
 ```bash
 make build
 make up

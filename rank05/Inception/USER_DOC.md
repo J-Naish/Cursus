@@ -8,6 +8,12 @@
 
 ## Start and Stop
 
+If `srcs/.env` does not exist yet, create it from the example first:
+
+```bash
+cp srcs/.env.example srcs/.env
+```
+
 Start the stack:
 
 ```bash
