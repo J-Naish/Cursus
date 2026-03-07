@@ -1,1 +1,7 @@
-# Filled in a later step.
+*
+!Dockerfile
+!.dockerignore
+!conf/
+!conf/**
+!tools/
+!tools/**
