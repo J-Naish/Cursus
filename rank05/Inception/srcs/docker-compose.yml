@@ -13,7 +13,7 @@ services:
       - mariadb_data:/var/lib/mysql
     networks:
       - inception
-    restart: unless-stopped
+    restart: always
 
   wordpress:
     container_name: wordpress
@@ -22,6 +22,8 @@ services:
     image: wordpress
     env_file:
       - .env
+    environment:
+      WORDPRESS_DB_HOST: mariadb
     secrets:
       - db_password
       - credentials
@@ -29,7 +31,7 @@ services:
       - wordpress_data:/var/www/html
     networks:
       - inception
-    restart: unless-stopped
+    restart: always
     depends_on:
       - mariadb
 
@@ -46,7 +48,7 @@ services:
       - "443:443"
     networks:
       - inception
-    restart: unless-stopped
+    restart: always
     depends_on:
       - wordpress
 
