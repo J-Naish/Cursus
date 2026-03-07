@@ -59,3 +59,5 @@ Persistent data is stored on the host under:
 - `/home/rnishi/data/wordpress`
 
 Docker named volumes map to those directories through bind-backed local volume definitions in `srcs/docker-compose.yml`.
+
+For local validation on macOS, `DATA_ROOT` can be overridden at runtime to use a writable local path while keeping `/home/rnishi/data` as the default target for the final VM environment.

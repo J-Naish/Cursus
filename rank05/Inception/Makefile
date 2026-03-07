@@ -2,7 +2,8 @@ NAME := inception
 LOGIN := rnishi
 COMPOSE_FILE := srcs/docker-compose.yml
 ENV_FILE := srcs/.env
-DATA_DIR := /home/$(LOGIN)/data
+DATA_ROOT ?= /home/$(LOGIN)/data
+DATA_DIR := $(DATA_ROOT)
 COMPOSE := docker compose -f $(COMPOSE_FILE) --env-file $(ENV_FILE)
 
 .PHONY: all build up down logs ps clean fclean re

@@ -49,6 +49,53 @@ wait_for_socket() {
 	done
 }
 
+start_temp_server() {
+	mariadbd \
+		--user=mysql \
+		--datadir="$DATA_DIR" \
+		--socket="$SOCKET_PATH" \
+		--pid-file="$PID_PATH" \
+		--skip-networking &
+	temp_pid="$!"
+	wait_for_socket
+}
+
+stop_temp_server() {
+	root_password="$1"
+	if [ -n "$root_password" ]; then
+		mariadb-admin --protocol=socket --socket="$SOCKET_PATH" -uroot -p"$root_password" shutdown
+	else
+		mariadb-admin --protocol=socket --socket="$SOCKET_PATH" -uroot shutdown
+	fi
+	wait "$temp_pid"
+}
+
+provision_database() {
+	root_password="$1"
+	escaped_user_password="$(escape_sql_string "$MYSQL_PASSWORD")"
+	if [ -n "$root_password" ]; then
+		escaped_root_password="$(escape_sql_string "$root_password")"
+		mariadb --protocol=socket --socket="$SOCKET_PATH" -uroot -p"$root_password" <<-SQL
+			ALTER USER 'root'@'localhost' IDENTIFIED BY '${escaped_root_password}';
+			CREATE DATABASE IF NOT EXISTS \`${MYSQL_DATABASE}\`;
+			CREATE USER IF NOT EXISTS '${MYSQL_USER}'@'%' IDENTIFIED BY '${escaped_user_password}';
+			GRANT ALL PRIVILEGES ON \`${MYSQL_DATABASE}\`.* TO '${MYSQL_USER}'@'%';
+			FLUSH PRIVILEGES;
+SQL
+	else
+		escaped_root_password="$(escape_sql_string "$MYSQL_ROOT_PASSWORD")"
+		mariadb --protocol=socket --socket="$SOCKET_PATH" <<-SQL
+			ALTER USER 'root'@'localhost' IDENTIFIED BY '${escaped_root_password}';
+			DELETE FROM mysql.user WHERE User='';
+			DROP DATABASE IF EXISTS test;
+			CREATE DATABASE IF NOT EXISTS \`${MYSQL_DATABASE}\`;
+			CREATE USER IF NOT EXISTS '${MYSQL_USER}'@'%' IDENTIFIED BY '${escaped_user_password}';
+			GRANT ALL PRIVILEGES ON \`${MYSQL_DATABASE}\`.* TO '${MYSQL_USER}'@'%';
+			FLUSH PRIVILEGES;
+SQL
+	fi
+}
+
 require_env MYSQL_DATABASE
 require_env MYSQL_USER
 
@@ -63,32 +110,13 @@ chown -R mysql:mysql /run/mysqld "$DATA_DIR"
 
 if [ ! -d "$DATA_DIR/mysql" ]; then
 	mariadb-install-db --user=mysql --datadir="$DATA_DIR" --skip-test-db >/dev/null
-
-	mariadbd \
-		--user=mysql \
-		--datadir="$DATA_DIR" \
-		--socket="$SOCKET_PATH" \
-		--pid-file="$PID_PATH" \
-		--skip-networking &
-	temp_pid="$!"
-
-	wait_for_socket
-
-	escaped_root_password="$(escape_sql_string "$MYSQL_ROOT_PASSWORD")"
-	escaped_user_password="$(escape_sql_string "$MYSQL_PASSWORD")"
-
-	mariadb --protocol=socket --socket="$SOCKET_PATH" <<-SQL
-		ALTER USER 'root'@'localhost' IDENTIFIED BY '${escaped_root_password}';
-		DELETE FROM mysql.user WHERE User='';
-		DROP DATABASE IF EXISTS test;
-		CREATE DATABASE IF NOT EXISTS \`${MYSQL_DATABASE}\`;
-		CREATE USER IF NOT EXISTS '${MYSQL_USER}'@'%' IDENTIFIED BY '${escaped_user_password}';
-		GRANT ALL PRIVILEGES ON \`${MYSQL_DATABASE}\`.* TO '${MYSQL_USER}'@'%';
-		FLUSH PRIVILEGES;
-SQL
-
-	mariadb-admin --protocol=socket --socket="$SOCKET_PATH" -uroot -p"$MYSQL_ROOT_PASSWORD" shutdown
-	wait "$temp_pid"
+	start_temp_server
+	provision_database ""
+	stop_temp_server "$MYSQL_ROOT_PASSWORD"
+else
+	start_temp_server
+	provision_database "$MYSQL_ROOT_PASSWORD"
+	stop_temp_server "$MYSQL_ROOT_PASSWORD"
 fi
 
 exec mariadbd --user=mysql --console
