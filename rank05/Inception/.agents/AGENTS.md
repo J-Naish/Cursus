@@ -36,6 +36,36 @@ System administration project (v5.2) to build a small infrastructure using Docke
         └── tools/
 ```
 
+## Architecture Diagram
+
+```
+                              WWW
+                               |
+                            port 443
+                               |
+┌──────────────────── Computer HOST ────────────────────────┐
+│                                                           │
+│  ┌──────────────── Docker network ─────────────────────┐  │
+│  │                                                     │  │
+│  │  ┌───────────┐  3306  ┌───────────────┐ 9000  ┌─────────┐
+│  │  │ Container │◄──────►│   Container   │◄─────►│Container│
+│  │  │    DB     │        │ WordPress+PHP │       │  NGINX  │
+│  │  └─────┬─────┘        └───────┬───────┘       └─────────┘
+│  │        │                      │                         │
+│  └────────┼──────────────────────┼─────────────────────────┘
+│           │                      │                         │
+│      ┌────▼────┐           ┌─────▼─────┐                   │
+│      │   DB    │           │ WordPress │                   │
+│      │ Volume  │           │  Volume   │                   │
+│      └─────────┘           └───────────┘                   │
+└───────────────────────────────────────────────────────────┘
+```
+
+- External access only through **NGINX (port 443)**
+- NGINX → WordPress+PHP via **port 9000** (php-fpm)
+- WordPress+PHP → MariaDB via **port 3306**
+- Two **named volumes** persist data on the host
+
 ## General Rules
 
 - Must be done on a Virtual Machine
