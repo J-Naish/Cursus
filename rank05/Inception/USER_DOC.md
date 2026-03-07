@@ -28,16 +28,16 @@ make fclean
 
 ## Access
 
-- Website: `https://nash.42.fr`
-- WordPress admin panel: `https://nash.42.fr/wp-admin`
+- Website: `https://rnishi.42.fr`
+- WordPress admin panel: `https://rnishi.42.fr/wp-admin`
 
 ## Credentials
 
 Credentials are stored locally in the `secrets/` directory:
 
-- [`credentials.txt`](/Users/nash/dev/production/myself/cursus/rank05/Inception/secrets/credentials.txt)
-- [`db_password.txt`](/Users/nash/dev/production/myself/cursus/rank05/Inception/secrets/db_password.txt)
-- [`db_root_password.txt`](/Users/nash/dev/production/myself/cursus/rank05/Inception/secrets/db_root_password.txt)
+- `secrets/credentials.txt`
+- `secrets/db_password.txt`
+- `secrets/db_root_password.txt`
 
 These files are ignored by Git and should be updated locally as needed.
 

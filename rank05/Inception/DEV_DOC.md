@@ -6,14 +6,14 @@
 
 - Docker Engine with Compose support
 - A virtual machine
-- Local DNS or `/etc/hosts` mapping for `nash.42.fr`
+- Local DNS or `/etc/hosts` mapping for `rnishi.42.fr`
 
 ### Required local files
 
-- [`srcs/.env`](/Users/nash/dev/production/myself/cursus/rank05/Inception/srcs/.env)
-- [`secrets/credentials.txt`](/Users/nash/dev/production/myself/cursus/rank05/Inception/secrets/credentials.txt)
-- [`secrets/db_password.txt`](/Users/nash/dev/production/myself/cursus/rank05/Inception/secrets/db_password.txt)
-- [`secrets/db_root_password.txt`](/Users/nash/dev/production/myself/cursus/rank05/Inception/secrets/db_root_password.txt)
+- `srcs/.env`
+- `secrets/credentials.txt`
+- `secrets/db_password.txt`
+- `secrets/db_root_password.txt`
 
 ## Build and Launch
 
@@ -55,7 +55,7 @@ make fclean
 
 Persistent data is stored on the host under:
 
-- `/home/nash/data/mariadb`
-- `/home/nash/data/wordpress`
+- `/home/rnishi/data/mariadb`
+- `/home/rnishi/data/wordpress`
 
 Docker named volumes map to those directories through bind-backed local volume definitions in `srcs/docker-compose.yml`.

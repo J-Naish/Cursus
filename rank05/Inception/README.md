@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by nash.*
+*This project has been created as part of the 42 curriculum by rnishi.*
 
 # Inception
 
@@ -12,7 +12,7 @@ This project builds a small containerized infrastructure on a virtual machine wi
 
 - Docker Engine with Compose support
 - A virtual machine environment
-- The domain `nash.42.fr` mapped to the VM IP address
+- The domain `rnishi.42.fr` mapped to the VM IP address
 
 ### Build and run
 
@@ -41,7 +41,7 @@ AI was used to help review the subject, structure the implementation plan, and d
 
 ## Project Description
 
-This repository includes custom Dockerfiles for MariaDB, WordPress with php-fpm, and NGINX. The main design choice is to keep each mandatory service isolated in its own container, connect them through a dedicated Docker network, and store database and WordPress data in persistent named volumes backed by `/home/nash/data`.
+This repository includes custom Dockerfiles for MariaDB, WordPress with php-fpm, and NGINX. The main design choice is to keep each mandatory service isolated in its own container, connect them through a dedicated Docker network, and store database and WordPress data in persistent named volumes backed by `/home/rnishi/data`.
 
 The project sources include Dockerfiles, service-specific configuration files, entrypoint scripts, environment variable definitions, and local Docker secrets files ignored by Git.
 
