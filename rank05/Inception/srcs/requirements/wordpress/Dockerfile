@@ -1,9 +1,22 @@
+FROM debian:12-slim AS downloader
+
+ARG WORDPRESS_VERSION=6.9.1
+
+RUN apt-get update \
+	&& apt-get install -y --no-install-recommends ca-certificates curl tar \
+	&& rm -rf /var/lib/apt/lists/*
+
+RUN curl -fsSL "https://wordpress.org/wordpress-${WORDPRESS_VERSION}.tar.gz" -o /tmp/wordpress.tar.gz \
+	&& tar -xzf /tmp/wordpress.tar.gz -C /usr/src \
+	&& rm -f /tmp/wordpress.tar.gz
+
+RUN curl -fsSL https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o /usr/local/bin/wp \
+	&& chmod 755 /usr/local/bin/wp
+
 FROM debian:12-slim
 
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
-		ca-certificates \
-		curl \
 		mariadb-client \
 		php-fpm \
 		php-mysql \
@@ -19,15 +32,15 @@ RUN apt-get update \
 		tini \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN curl -fsSL https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o /usr/local/bin/wp \
-	&& chmod 755 /usr/local/bin/wp
-
 COPY conf/www.conf /etc/php/8.2/fpm/pool.d/www.conf
 COPY tools/wordpress-entrypoint.sh /usr/local/bin/wordpress-entrypoint.sh
+COPY --from=downloader /usr/local/bin/wp /usr/local/bin/wp
+COPY --from=downloader /usr/src/wordpress /usr/src/wordpress
 
 RUN chmod 755 /usr/local/bin/wordpress-entrypoint.sh \
-	&& mkdir -p /run/php /var/www/html \
-	&& chown -R www-data:www-data /run/php /var/www/html
+	&& chmod 755 /usr/local/bin/wp \
+	&& mkdir -p /run/php /usr/src/wordpress /var/www/html \
+	&& chown -R www-data:www-data /run/php /usr/src/wordpress /var/www/html
 
 EXPOSE 9000
 

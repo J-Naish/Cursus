@@ -2,6 +2,7 @@
 set -eu
 
 readonly WP_PATH="/var/www/html"
+readonly WP_SOURCE_PATH="/usr/src/wordpress"
 readonly CREDENTIALS_FILE="${WP_CREDENTIALS_FILE:-/run/secrets/credentials}"
 readonly DB_PASSWORD_FILE="${MYSQL_PASSWORD_FILE:-/run/secrets/db_password}"
 
@@ -66,7 +67,7 @@ mkdir -p /run/php "$WP_PATH"
 chown -R www-data:www-data /run/php "$WP_PATH"
 
 if [ ! -f "$WP_PATH/wp-load.php" ]; then
-	wp core download --allow-root --path="$WP_PATH"
+	cp -a "$WP_SOURCE_PATH"/. "$WP_PATH"/
 fi
 
 wait_for_database
