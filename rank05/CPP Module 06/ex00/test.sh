@@ -80,7 +80,7 @@ run_case() {
 
     if [ "$actual" = "$expected" ]; then
         PASS=$((PASS + 1))
-        printf "${GREEN}[ OK ]${RESET} %-32s input=%q\n" "$label" "$input"
+        printf "${GREEN}[PASS]${RESET} %-32s input=%q\n" "$label" "$input"
         if [ "$VERBOSE" = "1" ]; then
             echo "$actual" | sed 's/^/        /'
         fi
