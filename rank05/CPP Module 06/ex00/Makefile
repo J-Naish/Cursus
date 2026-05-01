@@ -1,6 +1,6 @@
 NAME := convert
 CXX := c++
-FLAGS := -Wall -Wextra -Werror -std=c++98 --pedantic
+FLAGS := -Wall -Wextra -Werror -std=c++98 --pedantic -Iinclude
 SRC := src/ScalarConverter.cpp src/main.cpp
 HEADERS := include/ScalarConverter.hpp
 BUILD_DIR := build
