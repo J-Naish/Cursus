@@ -1,8 +1,8 @@
-NAME := easyfind
+NAME := span
 CXX := c++
 FLAGS := -Wall -Wextra -Werror -std=c++98 --pedantic
-SRC := main.cpp
-HEADERS := easyfind.hpp
+SRC := main.cpp Span.cpp
+HEADERS := Span.hpp
 BUILD_DIR := build
 OBJ := $(addprefix $(BUILD_DIR)/, $(SRC:.cpp=.o))
 
