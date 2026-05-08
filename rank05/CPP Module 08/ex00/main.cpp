@@ -4,6 +4,7 @@
 #include <exception>
 #include <iostream>
 #include <list>
+#include <stdexcept>
 #include <vector>
 
 namespace {
@@ -154,8 +155,8 @@ int main(void) {
 
         try {
             easyfind(v, 999);
-        } catch (NotFoundException& e) {
-            std::cout << "caught NotFoundException specifically: " << e.what() << std::endl;
+        } catch (std::out_of_range& e) {
+            std::cout << "caught std::out_of_range specifically: " << e.what() << std::endl;
         } catch (std::exception& e) {
             std::cout << "FAIL: caught only as std::exception: " << e.what() << std::endl;
         }

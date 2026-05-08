@@ -17,6 +17,14 @@ Span& Span::operator=(const Span& other) {
     return *this;
 }
 
+const char* Span::FullException::what() const throw() {
+    return "Span is full";
+}
+
+const char* Span::NotEnoughNumbersException::what() const throw() {
+    return "Not enough numbers to compute span";
+}
+
 
 void Span::addNumber(int number) {
     if (numbers_.size() >= max_size_) {
