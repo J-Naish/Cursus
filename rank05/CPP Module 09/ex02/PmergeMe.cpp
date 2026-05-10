@@ -285,8 +285,6 @@ PmergeMe::PmergeMe(int argc, char** argv)
 
         original_.push_back(static_cast<int>(val));
     }
-    vec_.assign(original_.begin(), original_.end());
-    deq_.assign(original_.begin(), original_.end());
 }
 
 
